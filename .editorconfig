@@ -1,0 +1,148 @@
+# EditorConfig is awesome: http://editorconfig.org
+root = true
+
+[*.cs]
+end_of_line = crlf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+#Roslyn formating options
+
+#_camelCase for private members
+dotnet_naming_style.private_fields.capitalization = camel_case
+dotnet_naming_style.private_fields.required_prefix = _
+
+dotnet_naming_symbols.private_members.applicable_accessibilities = private
+dotnet_naming_symbols.private_members.applicable_kinds = property, field, event
+dotnet_naming_rule.private_members_rule.severity = warning
+dotnet_naming_rule.private_members_rule.symbols = private_members
+dotnet_naming_rule.private_members_rule.style = private_fields
+
+dotnet_style_readonly_field = true:warning
+
+#Formatting - indentation options
+csharp_indent_case_contents = true
+csharp_indent_case_contents_when_block = false
+csharp_indent_labels = one_less_than_current
+csharp_indent_switch_labels = true
+
+#Formatting - new line options
+csharp_prefer_braces = true:warning
+csharp_new_line_before_catch = true
+csharp_new_line_before_else = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_members_in_anonymous_types = true
+#csharp_new_line_before_members_in_object_initializers = true # Currently no effect in VS/dotnet format (16.4), and makes Rider confusing
+csharp_new_line_between_query_expression_clauses = true
+
+#Formatting - organize using options
+dotnet_sort_system_directives_first = true
+
+#Formatting - spacing options
+csharp_space_after_cast = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+
+#Formatting - wrapping options
+csharp_preserve_single_line_blocks = true
+csharp_preserve_single_line_statements = false:warning
+
+csharp_style_prefer_not_pattern = true:warning
+csharp_style_prefer_pattern_matching = true:warning
+
+#Roslyn language styles
+
+#Style - this. qualification
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_event = false:warning
+
+#Style - type names
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+dotnet_style_predefined_type_for_member_access = true:warning
+csharp_style_var_when_type_is_apparent = true:warning
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+
+#Style - modifiers
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
+csharp_preferred_modifier_order = public, private, protected, internal, new, abstract, virtual, sealed, override, static, readonly, extern, unsafe, volatile, async:warning
+
+#Style - parentheses
+# Skipped because roslyn cannot separate +-*/ with << >>
+
+#Style - expression bodies
+csharp_style_expression_bodied_accessors = true:warning
+csharp_style_expression_bodied_constructors = false:none
+csharp_style_expression_bodied_indexers = true:warning
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_operators = true:warning
+csharp_style_expression_bodied_properties = true:warning
+csharp_style_expression_bodied_local_functions = true:silent
+
+#Style - expression preferences
+dotnet_style_object_initializer = true:warning
+dotnet_style_collection_initializer = true:warning
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:warning
+dotnet_style_prefer_auto_properties = true:warning
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:silent
+dotnet_style_prefer_compound_assignment = true:warning
+
+#Style - null/type checks
+dotnet_style_coalesce_expression = true:warning
+dotnet_style_null_propagation = true:warning
+csharp_style_pattern_matching_over_is_with_cast_check = true:warning
+csharp_style_pattern_matching_over_as_with_null_check = true:warning
+csharp_style_throw_expression = true:silent
+csharp_style_conditional_delegate_call = true:warning
+
+#Style - unused
+dotnet_code_quality_unused_parameters = non_public:silent
+csharp_style_unused_value_expression_statement_preference = discard_variable:silent
+csharp_style_unused_value_assignment_preference = discard_variable:warning
+
+#Style - variable declaration
+csharp_style_inlined_variable_declaration = true:warning
+csharp_style_deconstructed_variable_declaration = true:warning
+
+#Style - other C# 7.x features
+dotnet_style_prefer_inferred_tuple_names = true:warning
+csharp_prefer_simple_default_expression = true:warning
+csharp_style_pattern_local_over_anonymous_function = true:warning
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:silent
+
+#Style - C# 8 features
+csharp_prefer_simple_using_statement = true:silent
+csharp_style_prefer_index_operator = true:warning
+csharp_style_prefer_range_operator = true:warning
+csharp_style_prefer_switch_expression = false:none
+
+# resharper/rider
+csharp_place_attribute_on_same_line = false
+csharp_place_simple_embedded_statement_on_same_line = false
+csharp_place_simple_case_statement_on_same_line = false
+csharp_place_simple_embedded_block_on_same_line = false
+csharp_place_simple_blocks_on_single_line = false
+
+csharp_blank_lines_around_region = 1
+csharp_blank_lines_inside_region = 0
+
+csharp_blank_lines_after_start_comment = 0
+
+csharp_remove_blank_lines_near_braces_in_declarations = true
+csharp_blank_lines_before_control_transfer_statements = 1
+csharp_blank_lines_after_control_transfer_statements = 1
+
+csharp_blank_lines_before_block_statements = 0
+csharp_blank_lines_after_block_statements = 1

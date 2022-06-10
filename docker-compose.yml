@@ -1,0 +1,48 @@
+version: '3.8'
+
+networks:
+  main:
+
+services:
+  backend:
+    build: ./backend/.
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      - PathBase=/api
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:3001
+      - ConnectionStrings__Database=postgres:postgres@postgres:5432
+      - osuApi__ClientId=
+      - osuApi__ClientSecret=
+      - osuApi__CallbackUrl=/oauth/callback
+    volumes:
+      - ./logs/backend:/app/logs
+      - ./keys:/root/.aspnet/DataProtection-Keys
+    networks:
+      - main
+
+  frontend:
+    build: ./frontend/.
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./logs/frontend:/app/logs
+    networks:
+      - main
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mutualify
+      - PGDATA=/data/postgres
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ./db:/data/postgres
+    networks:
+      - main
