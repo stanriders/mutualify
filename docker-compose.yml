@@ -14,7 +14,11 @@ services:
       - PathBase=/api
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:3001
-      - ConnectionStrings__Database=postgres:postgres@postgres:5432
+      - Database__Database=mutualify
+      - Database__Host=postgres
+      - Database__Port=5432
+      - Database__Username=postgres
+      - Database__Password=postgres
       - osuApi__ClientId=
       - osuApi__ClientSecret=
       - osuApi__CallbackUrl=/oauth/callback
