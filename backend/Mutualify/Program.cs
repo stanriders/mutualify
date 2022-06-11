@@ -113,6 +113,7 @@ builder.Services.AddSwaggerGen();
 #region App
 
 var app = builder.Build();
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
 
 if (app.Environment.IsDevelopment())
@@ -137,6 +138,12 @@ if (app.Environment.IsStaging() || app.Environment.IsProduction())
         context.Request.Scheme = "https";
 
         return next(context);
+    });
+
+    app.UseCookiePolicy(new CookiePolicyOptions
+    {
+        Secure = CookieSecurePolicy.SameAsRequest,
+        MinimumSameSitePolicy = SameSiteMode.Lax
     });
 }
 
