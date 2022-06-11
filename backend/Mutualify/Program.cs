@@ -129,6 +129,17 @@ if (app.Environment.IsDevelopment())
     });
     app.UseSwaggerUI();
 }
+
+if (app.Environment.IsStaging() || app.Environment.IsProduction())
+{
+    app.Use((context, next) =>
+    {
+        context.Request.Scheme = "https";
+
+        return next(context);
+    });
+}
+
 app.UsePathBase(basePath);
 app.UseRouting();
 app.UseAuthentication();
