@@ -9,7 +9,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "127.0.0.1:3001:3001"
+      - "127.0.0.1:3501:3001"
     environment:
       - PathBase=/api
       - ASPNETCORE_ENVIRONMENT=Development
@@ -27,7 +27,7 @@ services:
   frontend:
     build: ./frontend/.
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3500:3000"
     volumes:
       - ./logs/frontend:/app/logs
     networks:
