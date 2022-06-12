@@ -15,7 +15,7 @@ export default function Followers() {
   } = useSWR(`/followers`, api);
 
   const { user } = useContext(UserContext)
-  
+
   return (
     <>
         <Head>
@@ -24,12 +24,18 @@ export default function Followers() {
         <Layout title="Follower list">
           {!user && (<>Log in first!</>)}
           {user && (<>
-            {!followers && followersValidating && (<>Loading...</>)}
-            {!followers && followersError && followersError.info && (<>{followersError.info}</>)}
-            {followers && followers.length === 0 && (<>No followers :(</>)}
-            {followers && followers.map((data) => (
-                <User id={data.id} username={data.username} />
-            ))}
+
+            {!followers && (<>
+                {followersValidating && (<>Loading...</>)}
+                {followersError && followersError.info && (<>{followersError.info}</>)}
+            </>)}
+
+            {followers && (<>
+                Known followers: {followers.length} out of {user.followerCount}.
+                {followers.map((data) => (
+                    <User id={data.id} username={data.username} />
+                ))}
+            </>)}
           </>)}
         </Layout>
     </>
