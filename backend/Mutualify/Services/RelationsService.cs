@@ -48,7 +48,7 @@ public class RelationsService : IRelationsService
         if (friends is null)
             return;
 
-        await _userRepository.AddRange(friends.Select(x => _mapper.Map<User>(x)).ToList());
+        await _userRepository.UpsertRange(friends.Select(x => _mapper.Map<User>(x)).ToList());
 
         var relations = friends.Select(x => new Relation
         {

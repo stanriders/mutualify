@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.Repositories.Interfaces;
@@ -14,8 +15,11 @@ public class UserRepository : IUserRepository
         _databaseContext = databaseContext;
     }
 
-    public Task<User?> Get(int id)
+    public Task<User?> Get(int id, bool track = false)
     {
+        if (track)
+            return _databaseContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+
         return _databaseContext.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
     }
 
@@ -33,16 +37,39 @@ public class UserRepository : IUserRepository
         return addedUser.Entity;
     }
 
-    public async Task AddRange(List<User> users)
+    public async Task UpsertRange(List<User> users)
     {
-        await _databaseContext.Users.AddRangeAsync(users);
+        var builder = new StringBuilder();
+        for (var i = 0; i < users.Count; i++)
+        {
+            var user = users[i];
+            if (i != users.Count - 1)
+            {
+                builder.Append(
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username}', {(user.Title is null ? "null" : $"`{user.Title}`")}, {user.FollowerCount}), ");
+            }
+            else
+            {
+                builder.Append(
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username}', {(user.Title is null ? "null" : $"`{user.Title}`")}, {user.FollowerCount}) ");
+            }
+        }
+
+        await _databaseContext.Database.ExecuteSqlRawAsync(
+            $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"")
+                      values{builder.ToString()}
+                      on conflict (""Id"") do update
+                      set (""CountryCode"", ""Username"", ""Title"", ""FollowerCount"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"", EXCLUDED.""FollowerCount"");"
+            );
 
         await _databaseContext.SaveChangesAsync();
     }
 
-    public Task Update(User user)
+    public async Task Update(User user)
     {
-        throw new NotImplementedException();
+        _databaseContext.Users.Update(user);
+
+        await _databaseContext.SaveChangesAsync();
     }
 
     public Task Remove(User user)

@@ -86,7 +86,7 @@ public class OAuthController : ControllerBase
             return Forbid();
         }
 
-        var user = await _userRepository.Get(osuUser.Id);
+        var user = await _userRepository.Get(osuUser.Id, true);
         if (user is null)
         {
             user = _mapper.Map<OsuUser, User>(osuUser);
@@ -97,8 +97,12 @@ public class OAuthController : ControllerBase
         }
         else
         {
-            // TODO:
-            //await _userRepository.Update(user);
+            user.Username = osuUser.Username;
+            user.CountryCode = osuUser.CountryCode;
+            user.FollowerCount = osuUser.FollowerCount;
+            user.Title = osuUser.Title;
+
+            await _userRepository.Update(user);
         }
 
         await _userRepository.UpsertTokens(new Token
