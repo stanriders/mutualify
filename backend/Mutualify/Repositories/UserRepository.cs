@@ -25,7 +25,7 @@ public class UserRepository : IUserRepository
 
     public Task<List<User>> Get(List<int> ids)
     {
-        return _databaseContext.Users.Where(x => ids.Contains(x.Id)).ToListAsync();
+        return _databaseContext.Users.AsNoTracking().Where(x => ids.Contains(x.Id)).ToListAsync();
     }
 
     public async Task<User> Add(User user)
@@ -79,7 +79,7 @@ public class UserRepository : IUserRepository
 
     public Task<Token?> GetTokens(int userId)
     {
-        return _databaseContext.Tokens.AsNoTracking().FirstOrDefaultAsync(x => x.User.Id == userId);
+        return _databaseContext.Tokens.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId);
     }
 
     public async Task UpsertTokens(Token token)

@@ -16,12 +16,18 @@ public class RelationRepository : IRelationRepository
 
     public Task<List<Relation>> Get(int userId)
     {
-        return _databaseContext.Relations.Where(x => x.From.Id == userId).Include(x=> x.To).ToListAsync();
+        return _databaseContext.Relations.AsNoTracking()
+            .Where(x => x.FromId == userId)
+            .Include(x=> x.To)
+            .ToListAsync();
     }
 
     public Task<List<Relation>> GetFollowers(int userId)
     {
-        return _databaseContext.Relations.Where(x => x.To.Id == userId).Include(x => x.From).ToListAsync();
+        return _databaseContext.Relations.AsNoTracking()
+            .Where(x => x.ToId == userId)
+            .Include(x => x.From)
+            .ToListAsync();
     }
 
     public async Task Add(List<Relation> relations)
@@ -32,7 +38,7 @@ public class RelationRepository : IRelationRepository
 
     public async Task Remove(int userId)
     {
-        var relations = _databaseContext.Relations.Where(x => x.From.Id == userId);
+        var relations = _databaseContext.Relations.Where(x => x.FromId == userId);
         _databaseContext.Relations.RemoveRange(relations);
 
         await _databaseContext.SaveChangesAsync();
@@ -42,7 +48,7 @@ public class RelationRepository : IRelationRepository
     {
         var transaction = await _databaseContext.Database.BeginTransactionAsync();
 
-        var oldRelations = _databaseContext.Relations.Where(x => x.From.Id == userId);
+        var oldRelations = _databaseContext.Relations.Where(x => x.FromId == userId);
         _databaseContext.Relations.RemoveRange(oldRelations);
 
         await _databaseContext.Relations.AddRangeAsync(relations);
