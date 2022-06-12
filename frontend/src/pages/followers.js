@@ -19,7 +19,7 @@ export default function Followers() {
   return (
     <>
         <Head>
-            <title>Follower list</title>
+            <title>Mutualify - Follower list</title>
         </Head>
         <Layout title="Follower list">
           {!user && (<>Log in first!</>)}
@@ -31,10 +31,12 @@ export default function Followers() {
             </>)}
 
             {followers && (<>
+              <Typography variant="h6" component="h6">
                 Known followers: {followers.length} out of {user.followerCount}.
-                {followers.map((data) => (
-                    <User id={data.id} username={data.username} />
-                ))}
+              </Typography>
+              {followers.map((data) => (
+                <User id={data.id} username={data.username} />
+              ))}
             </>)}
           </>)}
         </Layout>

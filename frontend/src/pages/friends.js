@@ -18,7 +18,7 @@ export default function Friends() {
   return (
     <>
       <Head>
-        <title>Friend list</title>
+        <title>Mutualify - Friend list</title>
       </Head>
       <Layout title="Friend list">
         {!user && (<>Log in first!</>)}
