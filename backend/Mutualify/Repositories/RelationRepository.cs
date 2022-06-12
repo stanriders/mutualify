@@ -14,19 +14,23 @@ public class RelationRepository : IRelationRepository
         _databaseContext = databaseContext;
     }
 
-    public Task<List<Relation>> Get(int userId)
+    public Task<List<User>> GetFriends(int userId)
     {
         return _databaseContext.Relations.AsNoTracking()
             .Where(x => x.FromId == userId)
             .Include(x=> x.To)
+            .Select(x=> x.To)
+            .OrderBy(x=> x.Username)
             .ToListAsync();
     }
 
-    public Task<List<Relation>> GetFollowers(int userId)
+    public Task<List<User>> GetFollowers(int userId)
     {
         return _databaseContext.Relations.AsNoTracking()
             .Where(x => x.ToId == userId)
             .Include(x => x.From)
+            .Select(x => x.From)
+            .OrderBy(x => x.Username)
             .ToListAsync();
     }
 

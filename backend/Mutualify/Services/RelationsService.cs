@@ -24,18 +24,14 @@ public class RelationsService : IRelationsService
         _mapper = mapper;
     }
 
-    public async Task<List<User>> GetFriends(int userId)
+    public Task<List<User>> GetFriends(int userId)
     {
-        var relations = await _relationRepository.Get(userId);
-
-        return relations.Select(x => x.To).ToList();
+        return _relationRepository.GetFriends(userId);
     }
 
-    public async Task<List<User>> GetFollowers(int userId)
+    public Task<List<User>> GetFollowers(int userId)
     {
-        var relations = await _relationRepository.GetFollowers(userId);
-
-        return relations.Select(x => x.From).ToList();
+        return _relationRepository.GetFollowers(userId);
     }
 
     public async Task UpdateRelations(int userId)
