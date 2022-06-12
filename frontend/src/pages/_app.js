@@ -4,17 +4,20 @@ import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
-import theme from '../src/theme';
-import createEmotionCache from '../src/createEmotionCache';
+import theme from '../components/theme';
+import createEmotionCache from '../components/createEmotionCache';
+import useAuth from '../hooks/useAuth'
+import UserContext from '../context/userContext';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
+  const { user } = useAuth()
   return (
     <CacheProvider value={emotionCache}>
+      <UserContext.Provider value={{ user }}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
@@ -23,6 +26,7 @@ export default function MyApp(props) {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
+      </UserContext.Provider>
     </CacheProvider>
   );
 }

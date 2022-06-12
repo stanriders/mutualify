@@ -1,6 +1,6 @@
 {
-  "name": "nextjs",
-  "version": "5.0.0",
+  "name": "mutualify",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,10 +16,12 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "localforage": "^1.10.0",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "eslint": "latest",
