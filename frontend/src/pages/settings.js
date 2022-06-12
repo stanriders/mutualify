@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head'
 import Layout from '../components/layout'
 import UserContext from '../context/userContext';
+import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 
 export default function Settings() {
