@@ -34,7 +34,7 @@ export default function Header({title}) {
               <Button 
                 size="large"
                 variant="outlined" 
-                href="/api/oauth/auth"
+                onClick={logout}
                 color="secondary"
                 startIcon={<Avatar alt={user.username} src={`https://s.ppy.sh/a/${user.id}`} />}>
                     {user.username}
