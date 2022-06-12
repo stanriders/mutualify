@@ -59,7 +59,7 @@ public class UserRepository : IUserRepository
             $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"")
                       values{builder.ToString()}
                       on conflict (""Id"") do update
-                      set (""CountryCode"", ""Username"", ""Title"", ""FollowerCount"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"", EXCLUDED.""FollowerCount"");"
+                      set (""CountryCode"", ""Username"", ""Title"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"");"
             );
 
         await _databaseContext.SaveChangesAsync();

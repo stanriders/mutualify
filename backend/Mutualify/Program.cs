@@ -17,8 +17,13 @@ using Mutualify.Services;
 using Mutualify.Services.Interfaces;
 using Newtonsoft.Json;
 using Npgsql;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, services, configuration) => configuration
+    .ReadFrom.Configuration(context.Configuration, "Logging")
+    .ReadFrom.Services(services));
 
 #region Services
 
