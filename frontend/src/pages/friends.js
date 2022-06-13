@@ -1,4 +1,3 @@
-import * as React from 'react';
 import useSWR from 'swr'
 import api from '../lib/api'
 import User from '../components/user'

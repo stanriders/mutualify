@@ -1,4 +1,3 @@
-import Link from '../components/Link';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import useSWR from 'swr'
 import api from '../lib/api'
 import User from '../components/user'
@@ -9,13 +8,12 @@ import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 
 export default function Followers() {
+  const { user } = useContext(UserContext)
   const {
     data: followers,
     error: followersError,
     isValidating: followersValidating 
   } = useSWR(`/followers`, api);
-
-  const { user } = useContext(UserContext)
 
   return (
     <>
