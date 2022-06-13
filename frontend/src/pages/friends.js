@@ -3,6 +3,7 @@ import api from '../lib/api'
 import User from '../components/user'
 import Head from 'next/head'
 import Layout from '../components/layout'
+import Unauthorized from '../components/unauthorized'
 import UserContext from '../context/userContext';
 import { useContext } from 'react';
 
@@ -20,7 +21,7 @@ export default function Friends() {
         <title>Mutualify - Friend list</title>
       </Head>
       <Layout title="Friend list">
-        {!user && (<>Log in first!</>)}
+        {!user && (<Unauthorized/>)}
         {user && (<>
           {!friends && friendsValidating && (<>Loading...</>)}
           {!friends && friendsError && friendsError.info && (<>{friendsError.info}</>)}
