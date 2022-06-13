@@ -1,11 +1,9 @@
-import * as React from 'react';
+import { useContext, useState } from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import { useContext } from 'react';
-import UserContext from '../context/userContext';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -13,14 +11,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import UserContext from '../context/userContext';
 import useAuth from '../hooks/useAuth';
 
 export default function Header({title}) {
     const { user } = useContext(UserContext)
     const { logout } = useAuth()
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
   
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
@@ -44,7 +43,7 @@ export default function Header({title}) {
             padding: 1.5
           }}>
 
-          <Container maxWidth="xl">
+          <Container sx={{px: 0}}>
             <Toolbar disableGutters>
               
               {/* Full size logo */}
