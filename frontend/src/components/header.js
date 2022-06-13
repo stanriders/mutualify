@@ -49,7 +49,7 @@ export default function Header({title}) {
 
               {/* Full size logo */}
               <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-                <Image src="/logo800.svg" width={50} height={50}/>
+                <Image src="/logo.svg" width={40} height={40}/>
               </Box>
               <Typography
                 variant="h6"
@@ -57,7 +57,7 @@ export default function Header({title}) {
                 component="a"
                 href="/"
                 sx={{
-                  ml: 0.7,
+                  ml: 2,
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
                   fontFamily: 'monospace',
