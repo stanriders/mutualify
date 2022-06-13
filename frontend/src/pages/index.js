@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Head from 'next/head'
 import Layout from '../components/layout'
@@ -10,11 +9,11 @@ export default function Index() {
         <title>Mutualify</title>
       </Head>
       <Layout title="Mutualify">
-        <Typography
-            variant="h6"
-            sx={{fontWeight: 100,}}
-          >
-            something something describing how it works and such 
+        <Typography variant="h6" align="center">
+            Mutualify is a friend list database for osu!
+        </Typography>
+        <Typography variant="body1">
+            You log in, website saves your friend list and then others will be able to see if they're in your friend list. It works the other way too - you can see who added you to their friend list as well!
         </Typography>
       </Layout>
     </>
