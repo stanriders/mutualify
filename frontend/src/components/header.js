@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import UserContext from '../context/userContext';
 import useAuth from '../hooks/useAuth';
+import Image from 'next/image';
 
 export default function Header({title}) {
     const { user } = useContext(UserContext)
@@ -45,8 +46,11 @@ export default function Header({title}) {
 
           <Container sx={{px: 0}}>
             <Toolbar disableGutters>
-              
+
               {/* Full size logo */}
+              <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                <Image src="/logo800.svg" width={40} height={40}/>
+              </Box>
               <Typography
                 variant="h6"
                 noWrap
@@ -62,9 +66,9 @@ export default function Header({title}) {
                   textDecoration: 'none',
                 }}
               >
-                Mutualify
+                 Mutualify
               </Typography>
-              
+
               {/* Small size menu */}
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton
