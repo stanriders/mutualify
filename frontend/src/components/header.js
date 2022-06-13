@@ -57,6 +57,7 @@ export default function Header({title}) {
                 component="a"
                 href="/"
                 sx={{
+                  ml: 1,
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
                   fontFamily: 'monospace',
