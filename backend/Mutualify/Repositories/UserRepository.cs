@@ -31,16 +31,22 @@ public class UserRepository : IUserRepository
     public Task<List<User>> GetFollowerRanking(int limit = 50)
     {
         return _databaseContext.Users.AsNoTracking()
-            .OrderBy(x=> x.FollowerCount)
+            .OrderByDescending(x => x.FollowerCount)
             .Take(limit)
             .ToListAsync();
     }
 
     public Task<int> GetRegisteredUserCount()
     {
+        return _databaseContext.Relations.AsNoTracking()
+            .Select(x=> x.FromId)
+            .Distinct()
+            .CountAsync();
+#if false
         // a bit of a hack - we know that every user that was imported as a friend has 0 followers
         return _databaseContext.Users.AsNoTracking()
             .CountAsync(x => x.FollowerCount > 0);
+#endif
     }
 
     public async Task<User> Add(User user)
