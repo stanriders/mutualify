@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-export default function Layout({ children, title='Mutualify' }) {
+export default function Layout({ children }) {
   return (
     <>
       <Container maxWidth="lg" sx={{
@@ -13,7 +13,7 @@ export default function Layout({ children, title='Mutualify' }) {
       }}>
         <Paper>
           <Box>
-            <Header title={title}/>
+            <Header/>
             <Box
             sx={{
                 marginTop: 1,

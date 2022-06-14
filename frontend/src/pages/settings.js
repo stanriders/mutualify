@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
 import Unauthorized from '../components/unauthorized'
 import UserContext from '../context/userContext';
 import Typography from '@mui/material/Typography';
@@ -13,7 +12,6 @@ export default function Settings() {
       <Head>
         <title>Mutualify - Settings</title>
       </Head>
-      <Layout title="Mutualify">
         {!user && (<Unauthorized/>)}
         {user && (<>{/*
           <FormGroup>
@@ -23,7 +21,6 @@ export default function Settings() {
             Nothing here yet, but that's temporary!
           </Typography>
         </>)}
-      </Layout>
     </>
   );
 }

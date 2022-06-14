@@ -2,7 +2,6 @@ import useSWR from 'swr'
 import api from '../lib/api'
 import User from '../components/user'
 import Head from 'next/head'
-import Layout from '../components/layout'
 import Unauthorized from '../components/unauthorized'
 import UserContext from '../context/userContext';
 import Typography from '@mui/material/Typography';
@@ -21,7 +20,6 @@ export default function Followers() {
         <Head>
             <title>Mutualify - Follower list</title>
         </Head>
-        <Layout title="Follower list">
           {!user && (<Unauthorized/>)}
           {user && (<>
 
@@ -39,7 +37,6 @@ export default function Followers() {
               ))}
             </>)}
           </>)}
-        </Layout>
     </>
   );
 }
