@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Mutualify.Contracts;
 using Mutualify.Database.Models;
 using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
@@ -10,17 +11,14 @@ namespace Mutualify.Controllers
     [Route("[controller]")]
     public class ApiController : ControllerBase
     {
-        private readonly ILogger<ApiController> _logger;
         private readonly IRelationsService _relationsService;
         private readonly IUserRepository _userRepository;
 
         private int _claim => int.Parse(HttpContext.User.Identity!.Name!);
 
-        public ApiController(ILogger<ApiController> logger,
-            IRelationsService relationsService,
+        public ApiController(IRelationsService relationsService,
             IUserRepository userRepository)
         {
-            _logger = logger;
             _relationsService = relationsService;
             _userRepository = userRepository;
         }
@@ -44,6 +42,21 @@ namespace Mutualify.Controllers
         public Task<List<User>> GetFriendedBy()
         {
             return _relationsService.GetFollowers(_claim);
+        }
+
+        [HttpGet("/rankings")]
+        public Task<List<User>> GetFollowerRanking()
+        {
+            return _userRepository.GetFollowerRanking();
+        }
+
+        [HttpGet("/stats")]
+        public async Task<StatsContract> GetStats()
+        {
+            return new StatsContract
+            {
+                RegisteredCount = await _userRepository.GetRegisteredUserCount()
+            };
         }
     }
 }
