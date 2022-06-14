@@ -8,6 +8,7 @@ import createEmotionCache from '../components/createEmotionCache';
 import useAuth from '../hooks/useAuth'
 import UserContext from '../context/userContext';
 import Layout from '../components/layout'
+import { useState, useEffect } from 'react';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache({key: 'next'});
