@@ -116,7 +116,7 @@ export default function Header({title}) {
                   }}
                 >
                   {menuItems.map((items) => (
-                    <MenuItem component="a" href={items.link}>
+                    <MenuItem component="a" key={items.title} href={items.link}>
                       <Typography textAlign="center">{items.title}</Typography>
                     </MenuItem>
                   ))}
@@ -146,7 +146,7 @@ export default function Header({title}) {
               {/* Full size menu */}
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {menuItems.map((items) => (
-                  <Button href={items.link} color="secondary" sx={{ my: 2, display: 'block' }}>
+                  <Button href={items.link} key={items.title} color="secondary" sx={{ my: 2, display: 'block' }}>
                       {items.title}
                   </Button>
                   ))}

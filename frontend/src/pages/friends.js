@@ -28,7 +28,7 @@ export default function Friends() {
         </>)}
 
         {friends && (<>
-          <Typography variant="h6" component="h6">
+          <Typography variant="h6" sx={{mb: 1}}>
             You have {friends.length} friends.
           </Typography>
           {friends.map((data) => (
