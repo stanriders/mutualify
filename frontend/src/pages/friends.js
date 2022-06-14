@@ -4,6 +4,7 @@ import User from '../components/user'
 import Head from 'next/head'
 import Unauthorized from '../components/unauthorized'
 import UserContext from '../context/userContext';
+import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 
 export default function Friends() {
