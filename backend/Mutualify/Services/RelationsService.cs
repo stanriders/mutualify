@@ -29,9 +29,9 @@ public class RelationsService : IRelationsService
         return _relationRepository.GetFriends(userId);
     }
 
-    public Task<List<User>> GetFollowers(int userId)
+    public Task<List<User>> GetFollowers(int userId, bool filterMutuals)
     {
-        return _relationRepository.GetFollowers(userId);
+        return _relationRepository.GetFollowers(userId, filterMutuals);
     }
 
     public async Task UpdateRelations(int userId)
