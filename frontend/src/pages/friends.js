@@ -19,15 +19,22 @@ export default function Friends() {
       <Head>
         <title>Mutualify - Friend list</title>
       </Head>
-        {!user && (<Unauthorized/>)}
-        {user && (<>
-          {!friends && friendsValidating && (<>Loading...</>)}
-          {!friends && friendsError && friendsError.info && (<>{friendsError.info}</>)}
-          {friends && friends.length === 0 && (<>No friends :(</>)}
-          {friends && friends.map((data) => (
+      {!user && (<Unauthorized/>)}
+      {user && (<>
+        {!friends && (<>
+            {friendsValidating && (<>Loading...</>)}
+            {friendsError && friendsError.info && (<>{friendsError.info}</>)}
+        </>)}
+
+        {friends && (<>
+          <Typography variant="h6" component="h6">
+            You have {friends.length} friends.
+          </Typography>
+          {friends.map((data) => (
             <User id={data.id} username={data.username} />
           ))}
         </>)}
+      </>)}
     </>
   );
 }

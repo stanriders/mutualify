@@ -36,6 +36,21 @@ export default function Header({title}) {
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
     };
+
+    const menuItems = [
+      {
+        title: "Friends",
+        link: "/friends"
+      },
+      {
+        title: "Followers",
+        link: "/followers"
+      },
+      {
+        title: "Rankings",
+        link: "/rankings"
+      }
+    ];
     
     return (
       <>
@@ -100,12 +115,11 @@ export default function Header({title}) {
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
-                    <MenuItem component="a" href="/friends">
-                      <Typography textAlign="center">Friends</Typography>
+                  {menuItems.map((items) => (
+                    <MenuItem component="a" href={items.link}>
+                      <Typography textAlign="center">{items.title}</Typography>
                     </MenuItem>
-                    <MenuItem component="a" href="/followers">
-                      <Typography textAlign="center">Followers</Typography>
-                    </MenuItem>
+                  ))}
                 </Menu>
               </Box>
 
@@ -131,20 +145,11 @@ export default function Header({title}) {
 
               {/* Full size menu */}
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                <Button
-                  href="/friends"
-                  color="secondary"
-                    sx={{ my: 2, display: 'block' }}
-                  >
-                    Friends
-                </Button>
-                <Button
-                  href="/followers"
-                  color="secondary"
-                    sx={{ my: 2, display: 'block' }}
-                  >
-                    Followers
-                </Button>
+                {menuItems.map((items) => (
+                  <Button href={items.link} color="secondary" sx={{ my: 2, display: 'block' }}>
+                      {items.title}
+                  </Button>
+                  ))}
               </Box>
 
               {/* Any size user */}
