@@ -34,13 +34,13 @@ namespace Mutualify.Controllers
         [HttpGet("/friends")]
         public Task<List<User>> GetFriends()
         {
-            return _relationsService.GetFriends(_claim, false);
+            return _relationsService.GetFriends(_claim);
         }
 
         [HttpGet("/friends/{id}")]
-        public Task<List<User>> GetFriendsById(int id)
+        public Task<UserFriendsContract> GetFriendsById(int id)
         {
-            return _relationsService.GetFriends(id, true);
+            return _relationsService.GetUsersFriends(id);
         }
 
         [Authorize]

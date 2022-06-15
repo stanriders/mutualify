@@ -1,4 +1,5 @@
 ﻿using MapsterMapper;
+using Mutualify.Contracts;
 using Mutualify.Database.Models;
 using Mutualify.OsuApi.Interfaces;
 using Mutualify.Repositories.Interfaces;
@@ -24,17 +25,26 @@ public class RelationsService : IRelationsService
         _mapper = mapper;
     }
 
-    public async Task<List<User>> GetFriends(int userId, bool shouldCheckForAllowance)
+    public Task<List<User>> GetFriends(int userId)
     {
-        if (shouldCheckForAllowance)
-        {
-            var user = await _userRepository.Get(userId);
+        return _relationRepository.GetFriends(userId);
+    }
 
-            if (!user?.AllowsFriendlistAccess ?? false)
-                return new List<User>();
+    public async Task<UserFriendsContract> GetUsersFriends(int userId)
+    {
+        var user = await _userRepository.Get(userId);
+
+        var contract = new UserFriendsContract
+        {
+            User = user
+        };
+
+        if (user?.AllowsFriendlistAccess ?? false)
+        {
+            contract.Friends = await _relationRepository.GetFriends(userId);
         }
 
-        return await _relationRepository.GetFriends(userId);
+        return contract;
     }
 
     public Task<List<User>> GetFollowers(int userId, bool filterMutuals)
