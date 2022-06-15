@@ -67,12 +67,12 @@ public class UserRepository : IUserRepository
             if (i != users.Count - 1)
             {
                 builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}, false), ");
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\'\'")}`")}, {user.FollowerCount}, false), ");
             }
             else
             {
                 builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}, false) ");
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\'\'")}`")}, {user.FollowerCount}, false) ");
             }
         }
 
