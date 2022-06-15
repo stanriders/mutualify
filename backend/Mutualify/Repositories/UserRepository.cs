@@ -32,8 +32,8 @@ public class UserRepository : IUserRepository
     {
         return _databaseContext.Users.AsNoTracking()
             .OrderByDescending(x => x.FollowerCount)
-            .Take(limit)
             .Skip(offset)
+            .Take(limit)
             .ToListAsync();
     }
 

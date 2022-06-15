@@ -82,7 +82,7 @@ export default function Rankings() {
             </TableBody>
           </Table>
         </TableContainer>
-        {players.total > 50 && (<Pagination count={players.total / 50} page={page} onChange={handleChange} sx={{mt: 2}}/>)}
+        {players.total > 50 && (<Pagination count={Math.ceil(players.total / 50)} page={page} onChange={handleChange} sx={{mt: 2}}/>)}
       </>)}
     </>
   );
