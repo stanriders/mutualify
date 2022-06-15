@@ -11,4 +11,6 @@ public interface IRelationRepository
     Task Remove(int userId);
 
     Task ReplaceRelations(int userId, List<Relation> relations);
+
+    Task<long> GetRelationCount();
 }

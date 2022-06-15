@@ -24,9 +24,17 @@ public class RelationsService : IRelationsService
         _mapper = mapper;
     }
 
-    public Task<List<User>> GetFriends(int userId)
+    public async Task<List<User>> GetFriends(int userId, bool shouldCheckForAllowance)
     {
-        return _relationRepository.GetFriends(userId);
+        if (shouldCheckForAllowance)
+        {
+            var user = await _userRepository.Get(userId);
+
+            if (!user?.AllowsFriendlistAccess ?? false)
+                return new List<User>();
+        }
+
+        return await _relationRepository.GetFriends(userId);
     }
 
     public Task<List<User>> GetFollowers(int userId, bool filterMutuals)
@@ -54,5 +62,21 @@ public class RelationsService : IRelationsService
 
         await _relationRepository.Remove(userId);
         await _relationRepository.Add(relations);
+    }
+
+    // TODO: this shouldn't be here
+    public async Task ToggleFriendlistAccess(int userId, bool allow)
+    {
+        var user = await _userRepository.Get(userId);
+        if (user is not null)
+        {
+            user.AllowsFriendlistAccess = allow;
+            await _userRepository.Update(user);
+        }
+    }
+
+    public Task<long> GetRelationCount()
+    {
+        return _relationRepository.GetRelationCount();
     }
 }

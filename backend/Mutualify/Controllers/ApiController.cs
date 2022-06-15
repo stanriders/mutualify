@@ -34,7 +34,13 @@ namespace Mutualify.Controllers
         [HttpGet("/friends")]
         public Task<List<User>> GetFriends()
         {
-            return _relationsService.GetFriends(_claim);
+            return _relationsService.GetFriends(_claim, false);
+        }
+
+        [HttpGet("/friends/{id}")]
+        public Task<List<User>> GetFriendsById(int id)
+        {
+            return _relationsService.GetFriends(id, true);
         }
 
         [Authorize]
@@ -55,8 +61,16 @@ namespace Mutualify.Controllers
         {
             return new StatsContract
             {
-                RegisteredCount = await _userRepository.GetRegisteredUserCount()
+                RegisteredCount = await _userRepository.GetRegisteredUserCount(),
+                RelationCount = await _relationsService.GetRelationCount()
             };
+        }
+
+        [Authorize]
+        [HttpPost("/friends/access/toggle")]
+        public Task ToggleFriendlistAccess([FromBody] bool allow)
+        {
+            return _relationsService.ToggleFriendlistAccess(_claim, allow);
         }
     }
 }

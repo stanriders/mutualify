@@ -69,4 +69,9 @@ public class RelationRepository : IRelationRepository
 
         await _databaseContext.SaveChangesAsync();
     }
+
+    public Task<long> GetRelationCount()
+    {
+        return _databaseContext.Relations.AsNoTracking().LongCountAsync();
+    }
 }

@@ -18,6 +18,8 @@ public class User
 
     public int FollowerCount { get; set; }
 
+    public bool AllowsFriendlistAccess { get; set; } = false;
+
     [InverseProperty(nameof(Relation.To))]
     [JsonIgnore]
     public List<Relation> ToRelations { get; set; } = null!;
