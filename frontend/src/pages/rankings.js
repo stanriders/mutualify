@@ -18,12 +18,13 @@ export default function Rankings() {
 
   const router = useRouter()
   const [page, setPage] = useState(1);
+  const offset = (page-1) * 50;
 
   const {
     data: players,
     error: playersError,
     isValidating: playersValidating } = useSWR(
-      `/rankings?offset=${(page-1) * 50}`, api
+      `/rankings?offset=${offset}`, api
   );
 
   // Handle direct link to page and/or filter
@@ -72,7 +73,7 @@ export default function Rankings() {
             <TableBody>
               {players.users.map((row, index) => (
                 <TableRow key={row.username}>
-                  <TableCell>{page*(index+1)}</TableCell>
+                  <TableCell>{offset+index+1}</TableCell>
                   <TableCell component="th" scope="row">
                     <User id={row.id} username={row.username} />
                   </TableCell>
