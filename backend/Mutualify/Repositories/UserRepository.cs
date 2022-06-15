@@ -67,14 +67,17 @@ public class UserRepository : IUserRepository
             if (i != users.Count - 1)
             {
                 builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username}', {(user.Title is null ? "null" : $"`{user.Title}`")}, {user.FollowerCount}), ");
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}, {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}), ");
             }
             else
             {
                 builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username}', {(user.Title is null ? "null" : $"`{user.Title}`")}, {user.FollowerCount}) ");
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}) ");
             }
         }
+
+        if (builder.Length <= 0)
+            return; // return early to not produce incorrect sql
 
         await _databaseContext.Database.ExecuteSqlRawAsync(
             $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"")
