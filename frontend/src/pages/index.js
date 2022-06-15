@@ -29,7 +29,7 @@ export default function Index() {
             <b>A</b>: No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.
         </Typography>
         <Typography variant="body1" mb={0.5}>
-            <b>Q</b>: Why can I only see only some of my followers?
+            <b>Q</b>: Why can I see only some of my followers?
         </Typography>
         <Typography variant="body1" mb={1}>
             <b>A</b>: Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers.
