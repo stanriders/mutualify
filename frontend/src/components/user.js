@@ -12,6 +12,7 @@ export default function User({id, username}) {
             component="a"
             href={`https://osu.ppy.sh/users/${id}`}
             clickable
+            target="_blank"
         />
     </>
     );
