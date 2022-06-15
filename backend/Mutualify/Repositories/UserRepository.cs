@@ -67,12 +67,12 @@ public class UserRepository : IUserRepository
             if (i != users.Count - 1)
             {
                 builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}, {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}), ");
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}, false), ");
             }
             else
             {
                 builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}) ");
+                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\\\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\\\'")}`")}, {user.FollowerCount}, false) ");
             }
         }
 
@@ -80,7 +80,7 @@ public class UserRepository : IUserRepository
             return; // return early to not produce incorrect sql
 
         await _databaseContext.Database.ExecuteSqlRawAsync(
-            $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"")
+            $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"", ""AllowsFriendlistAccess"")
                       values{builder.ToString()}
                       on conflict (""Id"") do update
                       set (""CountryCode"", ""Username"", ""Title"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"");"

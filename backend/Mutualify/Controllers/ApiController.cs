@@ -72,5 +72,12 @@ namespace Mutualify.Controllers
         {
             return _relationsService.ToggleFriendlistAccess(_claim, allow);
         }
+
+        [Authorize]
+        [HttpPost("/friends/refresh")]
+        public Task RefreshFriends()
+        {
+            return _relationsService.UpdateRelations(_claim);
+        }
     }
 }

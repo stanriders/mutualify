@@ -23,3 +23,23 @@ export default async function api (endpoint, options) {
 
   throw responseData
 }
+
+export async function apiNoResponse (endpoint, options) {
+  const response = await fetch(`${apiBase}${endpoint}`, {
+    credentials: 'include',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    ...options
+  })
+
+  if (response.status === 204) {
+    return false;
+  }
+
+  if (response.ok) {
+    return true;
+  }
+  return false;
+}
