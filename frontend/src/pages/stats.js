@@ -11,6 +11,9 @@ export default function Stats({data}) {
         <Typography variant="body1">
             Registered users: {data.registeredCount}
         </Typography>
+        <Typography variant="body1">
+            Relation count: {data.relationCount}
+        </Typography>
     </>
   );
 }
