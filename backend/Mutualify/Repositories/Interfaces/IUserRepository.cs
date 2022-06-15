@@ -6,7 +6,7 @@ public interface IUserRepository
 {
     Task<User?> Get(int id, bool track = false);
     Task<List<User>> Get(List<int> ids);
-    Task<List<User>> GetFollowerRanking(int limit = 50);
+    Task<List<User>> GetFollowerRanking(int limit = 50, int offset = 0);
     Task<int> GetRegisteredUserCount();
     Task<User> Add(User user);
     Task UpsertRange(List<User> users);

@@ -28,11 +28,12 @@ public class UserRepository : IUserRepository
         return _databaseContext.Users.AsNoTracking().Where(x => ids.Contains(x.Id)).ToListAsync();
     }
 
-    public Task<List<User>> GetFollowerRanking(int limit = 50)
+    public Task<List<User>> GetFollowerRanking(int limit = 50, int offset = 0)
     {
         return _databaseContext.Users.AsNoTracking()
             .OrderByDescending(x => x.FollowerCount)
             .Take(limit)
+            .Skip(offset)
             .ToListAsync();
     }
 

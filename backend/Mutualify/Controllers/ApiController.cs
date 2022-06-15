@@ -51,9 +51,13 @@ namespace Mutualify.Controllers
         }
 
         [HttpGet("/rankings")]
-        public Task<List<User>> GetFollowerRanking()
+        public async Task<RankingsContract> GetFollowerRanking(int offset = 0)
         {
-            return _userRepository.GetFollowerRanking();
+            return new RankingsContract
+            {
+                Total = await _userRepository.GetRegisteredUserCount(),
+                Users = await _userRepository.GetFollowerRanking(50, offset)
+            };
         }
 
         [HttpGet("/stats")]
