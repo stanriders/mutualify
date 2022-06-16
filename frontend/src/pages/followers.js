@@ -39,7 +39,7 @@ export default function Followers() {
                 Known followers: {followers.length} out of {user.followerCount}.
               </Typography>
               <FormGroup sx={{mb: 1}}>
-                <FormControlLabel control={<Switch checked={filterMutuals} onChange={() => setFilterMutuals(!filterMutuals)}/>} label="Filter mutuals" />
+                <FormControlLabel control={<Switch checked={filterMutuals} onChange={() => setFilterMutuals(!filterMutuals)}/>} label="Hide mutuals" />
               </FormGroup>
               {followers.map((data) => (
                 <User id={data.id} username={data.username} />
