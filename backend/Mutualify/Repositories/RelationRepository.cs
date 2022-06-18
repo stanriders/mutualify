@@ -24,21 +24,25 @@ public class RelationRepository : IRelationRepository
             .ToListAsync();
     }
 
-    public Task<List<User>> GetFollowers(int userId, bool filterMutuals)
+    public Task<List<RelationUser>> GetFollowers(int userId)
     {
-        var query = _databaseContext.Relations.AsNoTracking()
+        var followers = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.ToId == userId)
             .Include(x => x.From)
             .Select(x => x.From);
 
-        if (filterMutuals)
-        {
-            var friends = _databaseContext.Relations.AsNoTracking()
-                .Where(x => x.FromId == userId)
-                .Select(x => x.ToId);
+        var friends = _databaseContext.Relations.AsNoTracking()
+            .Where(x => x.FromId == userId)
+            .Select(x => x.ToId);
 
-            query = query.Where(x => !friends.Contains(x.Id));
-        }
+        var query = followers.Select(x=> new RelationUser
+        {
+            CountryCode = x.CountryCode,
+            Id = x.Id,
+            Title = x.Title,
+            Username = x.Username,
+            Mutual = friends.Contains(x.Id)
+        });
 
         return query.OrderBy(x => x.Username).ToListAsync();
     }

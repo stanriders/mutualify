@@ -19,7 +19,7 @@ export default function Followers() {
     data: followers,
     error: followersError,
     isValidating: followersValidating 
-  } = useSWR(`/followers?filterMutuals=${filterMutuals}`, api);
+  } = useSWR(`/followers`, api);
 
   return (
     <>
@@ -41,8 +41,12 @@ export default function Followers() {
               <FormGroup sx={{mb: 1}}>
                 <FormControlLabel control={<Switch checked={filterMutuals} onChange={() => setFilterMutuals(!filterMutuals)}/>} label="Hide mutuals" />
               </FormGroup>
-              {followers.map((data) => (
-                <User id={data.id} username={data.username} />
+              {followers.filter((data) => {
+                if (filterMutuals && data.mutual)
+                  return false;
+                return true;
+              }).map((data) => (
+                <User id={data.id} key={data.id} username={data.username} mutual={data.mutual}/>
               ))}
             </>)}
           </>)}

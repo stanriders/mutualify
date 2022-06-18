@@ -48,9 +48,9 @@ namespace Mutualify.Controllers
 
         [Authorize]
         [HttpGet("/followers")]
-        public Task<List<User>> GetFriendedBy(bool filterMutuals)
+        public Task<List<RelationUser>> GetFriendedBy(bool filterMutuals)
         {
-            return _relationsService.GetFollowers(_claim, filterMutuals);
+            return _relationsService.GetFollowers(_claim);
         }
 
         [HttpGet("/rankings")]

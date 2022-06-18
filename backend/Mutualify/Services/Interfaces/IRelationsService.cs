@@ -7,7 +7,7 @@ public interface IRelationsService
 {
     Task<List<User>> GetFriends(int userId);
     Task<UserFriendsContract> GetUsersFriends(int userId);
-    Task<List<User>> GetFollowers(int userId, bool filterMutuals);
+    Task<List<RelationUser>> GetFollowers(int userId);
     Task UpdateRelations(int userId);
     Task<long> GetRelationCount();
 }

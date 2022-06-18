@@ -1,7 +1,7 @@
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 
-export default function User({id, username}) {
+export default function User({id, username, mutual = false}) {
   return (
     <>
         <Chip
@@ -13,6 +13,7 @@ export default function User({id, username}) {
             href={`https://osu.ppy.sh/users/${id}`}
             clickable
             target="_blank"
+            color={mutual ? "primary" : "default"}
         />
     </>
     );

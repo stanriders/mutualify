@@ -47,9 +47,9 @@ public class RelationsService : IRelationsService
         return contract;
     }
 
-    public Task<List<User>> GetFollowers(int userId, bool filterMutuals)
+    public Task<List<RelationUser>> GetFollowers(int userId)
     {
-        return _relationRepository.GetFollowers(userId, filterMutuals);
+        return _relationRepository.GetFollowers(userId);
     }
 
     public async Task UpdateRelations(int userId)
