@@ -12,15 +12,18 @@ namespace Mutualify.Controllers
     public class ApiController : ControllerBase
     {
         private readonly IRelationsService _relationsService;
+        private readonly IUsersService _usersService;
         private readonly IUserRepository _userRepository;
 
         private int _claim => int.Parse(HttpContext.User.Identity!.Name!);
 
         public ApiController(IRelationsService relationsService,
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            IUsersService usersService)
         {
             _relationsService = relationsService;
             _userRepository = userRepository;
+            _usersService = usersService;
         }
 
         [Authorize]
@@ -74,14 +77,15 @@ namespace Mutualify.Controllers
         [HttpPost("/friends/access/toggle")]
         public Task ToggleFriendlistAccess([FromBody] bool allow)
         {
-            return _relationsService.ToggleFriendlistAccess(_claim, allow);
+            return _usersService.ToggleFriendlistAccess(_claim, allow);
         }
 
         [Authorize]
         [HttpPost("/friends/refresh")]
-        public Task RefreshFriends()
+        public async Task RefreshFriends()
         {
-            return _relationsService.UpdateRelations(_claim);
+            await _usersService.Update(_claim);
+            await _relationsService.UpdateRelations(_claim);
         }
     }
 }

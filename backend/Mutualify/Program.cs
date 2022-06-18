@@ -105,6 +105,7 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IRelationRepository, RelationRepository>();
 
 builder.Services.AddTransient<IRelationsService, RelationsService>();
+builder.Services.AddTransient<IUsersService, UsersService>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
