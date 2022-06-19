@@ -4,7 +4,7 @@ namespace Mutualify.Repositories.Interfaces;
 
 public interface IRelationRepository
 {
-    Task<List<User>> GetFriends(int userId);
+    Task<List<RelationUser>> GetFriends(int userId, bool highlightMutuals);
     Task<List<RelationUser>> GetFollowers(int userId);
 
     Task Add(List<Relation> relations);

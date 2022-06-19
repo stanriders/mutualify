@@ -25,9 +25,9 @@ public class RelationsService : IRelationsService
         _mapper = mapper;
     }
 
-    public Task<List<User>> GetFriends(int userId)
+    public Task<List<RelationUser>> GetFriends(int userId)
     {
-        return _relationRepository.GetFriends(userId);
+        return _relationRepository.GetFriends(userId, false);
     }
 
     public async Task<UserFriendsContract> GetUsersFriends(int userId)
@@ -41,7 +41,7 @@ public class RelationsService : IRelationsService
 
         if (user?.AllowsFriendlistAccess ?? false)
         {
-            contract.Friends = await _relationRepository.GetFriends(userId);
+            contract.Friends = await _relationRepository.GetFriends(userId, true);
         }
 
         return contract;

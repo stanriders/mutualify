@@ -35,7 +35,7 @@ namespace Mutualify.Controllers
 
         [Authorize]
         [HttpGet("/friends")]
-        public Task<List<User>> GetFriends()
+        public Task<List<RelationUser>> GetFriends()
         {
             return _relationsService.GetFriends(_claim);
         }

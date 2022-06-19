@@ -14,14 +14,27 @@ public class RelationRepository : IRelationRepository
         _databaseContext = databaseContext;
     }
 
-    public Task<List<User>> GetFriends(int userId)
+    public Task<List<RelationUser>> GetFriends(int userId, bool highlightMutuals)
     {
-        return _databaseContext.Relations.AsNoTracking()
+        var friends = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.FromId == userId)
-            .Include(x=> x.To)
-            .Select(x=> x.To)
-            .OrderBy(x=> x.Username)
-            .ToListAsync();
+            .Include(x => x.To)
+            .Select(x => x.To);
+
+        var followers = _databaseContext.Relations.AsNoTracking()
+            .Where(x => x.ToId == userId)
+            .Select(x => new { Id = x.FromId, AllowsHighlighting = x.From.AllowsFriendlistAccess});
+
+        var query = friends.Select(x => new RelationUser
+        {
+            CountryCode = x.CountryCode,
+            Id = x.Id,
+            Title = x.Title,
+            Username = x.Username,
+            Mutual = followers.Any(y=> y.Id == x.Id && y.AllowsHighlighting)
+        });
+
+        return query.OrderBy(x => x.Username).ToListAsync();
     }
 
     public Task<List<RelationUser>> GetFollowers(int userId)
