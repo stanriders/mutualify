@@ -1,3 +1,5 @@
+using System.Net;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mutualify.Contracts;
@@ -14,16 +16,19 @@ namespace Mutualify.Controllers
         private readonly IRelationsService _relationsService;
         private readonly IUsersService _usersService;
         private readonly IUserRepository _userRepository;
+        private readonly ILogger<ApiController> _logger;
 
         private int _claim => int.Parse(HttpContext.User.Identity!.Name!);
 
         public ApiController(IRelationsService relationsService,
             IUserRepository userRepository,
-            IUsersService usersService)
+            IUsersService usersService,
+            ILogger<ApiController> logger)
         {
             _relationsService = relationsService;
             _userRepository = userRepository;
             _usersService = usersService;
+            _logger = logger;
         }
 
         [Authorize]
@@ -84,8 +89,22 @@ namespace Mutualify.Controllers
         [HttpPost("/friends/refresh")]
         public async Task RefreshFriends()
         {
-            await _usersService.Update(_claim);
-            await _relationsService.UpdateRelations(_claim);
+            try
+            {
+                await _usersService.Update(_claim);
+                await _relationsService.UpdateRelations(_claim);
+            }
+            catch (HttpRequestException e)
+            {
+                if (e.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    _logger.LogWarning("User {User} updated their tokens, but still got 401 from API!", _claim);
+                    await HttpContext.SignOutAsync("InternalCookies");
+                    return;
+                }
+
+                throw;
+            }
         }
     }
 }

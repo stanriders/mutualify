@@ -1,4 +1,7 @@
-﻿using Mutualify.OsuApi.Interfaces;
+﻿using System.Net;
+using Mutualify.Database.Models;
+using Mutualify.OsuApi.Interfaces;
+using Mutualify.OsuApi.Models;
 using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
 
@@ -31,7 +34,35 @@ namespace Mutualify.Services
             if (token is null)
                 return;
 
-            var osuUser = await _osuApiDataService.GetUser(token.AccessToken);
+            OsuUser? osuUser = null;
+
+            try
+            {
+                osuUser = await _osuApiDataService.GetUser(token.AccessToken);
+            }
+            catch (HttpRequestException e)
+            {
+                if (e.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken);
+                    if (newToken is not null)
+                    {
+                        await _userRepository.UpsertTokens(new Token
+                        {
+                            UserId = userId,
+                            AccessToken = newToken.AccessToken,
+                            RefreshToken = newToken.RefreshToken
+                        });
+
+                        osuUser = await _osuApiDataService.GetUser(newToken.AccessToken);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+
             if (osuUser is null)
                 return;
 

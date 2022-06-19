@@ -8,7 +8,7 @@ export default function User({id, username, mutual = false}) {
             avatar={<Avatar alt={username} src={`https://s.ppy.sh/a/${id}`} />}
             label={username}
             variant="outlined"
-            sx={{ mt: 1, ml: 1}}
+            sx={{ mt: 1, ml: 1, color: '#fff'}}
             component="a"
             href={`https://osu.ppy.sh/users/${id}`}
             clickable
