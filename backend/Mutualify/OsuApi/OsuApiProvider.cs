@@ -69,8 +69,8 @@ public class OsuApiProvider : IOsuApiProvider
         {
             Method = HttpMethod.Post,
             RequestUri = new Uri(_osuBase + _apiTokenLink),
-            Content = new StringContent(JsonConvert.SerializeObject(config)),
-            Headers = { Authorization = new AuthenticationHeaderValue("Bearer", refreshToken) }
+            Content = new StringContent(JsonConvert.SerializeObject(config), null, "application/json"),
+            Headers = { Accept = { new MediaTypeWithQualityHeaderValue("application/json") }}
         };
 
         var response = await _httpClient.SendAsync(requestMessage);
