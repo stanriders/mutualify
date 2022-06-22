@@ -109,7 +109,7 @@ public class UserRepository : IUserRepository
 
     public async Task UpsertTokens(Token token)
     {
-        var existingTokens = await _databaseContext.Tokens.FirstOrDefaultAsync(x => x.UserId == token.User.Id);
+        var existingTokens = await _databaseContext.Tokens.FirstOrDefaultAsync(x => x.UserId == token.UserId);
         if (existingTokens is not null)
         {
             existingTokens.AccessToken = token.AccessToken;

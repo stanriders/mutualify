@@ -107,7 +107,7 @@ public class OAuthController : ControllerBase
 
         await _userRepository.UpsertTokens(new Token
         {
-            User = user,
+            UserId = user.Id,
             AccessToken = accessToken,
             RefreshToken = refreshToken
         });
