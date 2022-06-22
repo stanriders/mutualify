@@ -25,6 +25,8 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration, "Logging")
     .ReadFrom.Services(services));
 
+builder.WebHost.UseSentry();
+
 #region Services
 
 var dbConfig = builder.Configuration.GetSection("Database");
@@ -170,6 +172,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseSentryTracing();
 
 using (var scope = app.Services.CreateScope())
 {
