@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Unauthorized from '../components/unauthorized'
 import UserContext from '../context/userContext';
-import Button from '@mui/material/Button';
+import LoadingButton from '@mui/material/LoadingButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
@@ -15,14 +15,17 @@ export default function Settings() {
   const { invalidateUserCache } = useAuth();
 
   const [updated, setUpdated] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [allowFriendsAccess, setAllowFriendsAccess] = useState(false);
   const [updatedLabel, setUpdatedLabel] = useState("Refresh your friend list");
 
   async function handleRefresh() {
+    setLoading(true);
     await apiNoResponse('/friends/refresh', {method: 'POST'});
+    await invalidateUserCache();
+    setLoading(false);
     setUpdated(true);
     setUpdatedLabel("Updated!");
-    await invalidateUserCache();
   }
 
   async function handleShare(event) {
@@ -44,7 +47,11 @@ export default function Settings() {
         {!user && (<Unauthorized/>)}
         {user && (<>
           <Box>
-            <Button variant="outlined" onClick={handleRefresh} disabled={updated} children={updatedLabel} />
+            <LoadingButton variant="outlined" 
+              loading={loading} 
+              onClick={handleRefresh} 
+              disabled={updated} 
+              children={updatedLabel} />
           </Box>
           
           <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
