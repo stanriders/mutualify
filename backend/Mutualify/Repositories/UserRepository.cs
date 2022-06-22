@@ -109,6 +109,12 @@ public class UserRepository : IUserRepository
 
     public async Task UpsertTokens(Token token)
     {
+        if (string.IsNullOrEmpty(token.AccessToken))
+        {
+            // somehow this can actually happen?????
+            return;
+        }
+
         var existingTokens = await _databaseContext.Tokens.FirstOrDefaultAsync(x => x.UserId == token.UserId);
         if (existingTokens is not null)
         {
