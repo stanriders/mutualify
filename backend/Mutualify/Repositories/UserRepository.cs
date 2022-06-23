@@ -120,10 +120,14 @@ public class UserRepository : IUserRepository
         {
             existingTokens.AccessToken = token.AccessToken;
             existingTokens.RefreshToken = token.RefreshToken;
-            token = existingTokens;
-        }
 
-        _databaseContext.Tokens.Update(token);
+            // this does NOT work as upsert :/
+            _databaseContext.Tokens.Update(existingTokens);
+        }
+        else
+        {
+            await _databaseContext.Tokens.AddAsync(token);
+        }
 
         await _databaseContext.SaveChangesAsync();
     }
