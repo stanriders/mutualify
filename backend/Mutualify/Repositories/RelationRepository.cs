@@ -31,6 +31,7 @@ public class RelationRepository : IRelationRepository
             Id = x.Id,
             Title = x.Title,
             Username = x.Username,
+            AllowsFriendlistAccess = x.AllowsFriendlistAccess,
             Mutual = followers.Any(y=> y.Id == x.Id && y.AllowsHighlighting)
         });
 
@@ -54,6 +55,7 @@ public class RelationRepository : IRelationRepository
             Id = x.Id,
             Title = x.Title,
             Username = x.Username,
+            AllowsFriendlistAccess = x.AllowsFriendlistAccess,
             Mutual = friends.Contains(x.Id)
         });
 

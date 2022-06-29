@@ -11,5 +11,7 @@
         public string? Title { get; set; }
 
         public bool Mutual { get; set; }
+
+        public bool AllowsFriendlistAccess { get; set; }
     }
 }
