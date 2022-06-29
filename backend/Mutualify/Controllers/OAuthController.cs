@@ -79,9 +79,18 @@ public class OAuthController : ControllerBase
             return Forbid();
         }
 
+        if (osuUser.IsRestricted)
+        {
+            _logger.LogInformation("User {User} tried logging in, but they are restricted!", osuUser.Id);
+
+            await HttpContext.SignOutAsync("ExternalCookies");
+
+            return Redirect($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/restricted");
+        }
+
         if (osuUser.IsRestricted || osuUser.IsBot || osuUser.IsDeleted)
         {
-            _logger.LogInformation("User {User} tried logging in, but they are restricted (or bot)!", osuUser.Id);
+            _logger.LogInformation("User {User} tried logging in, but they are bot?!", osuUser.Id);
 
             return Forbid();
         }
