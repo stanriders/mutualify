@@ -46,7 +46,7 @@ export default function Followers() {
                   return false;
                 return true;
               }).map((data) => (
-                <User id={data.id} key={data.id} username={data.username} mutual={data.mutual}/>
+                <User id={data.id} key={data.id} username={data.username} mutual={data.mutual} showFriendlistButton={data.allowsFriendlistAccess} />
               ))}
             </>)}
           </>)}

@@ -75,7 +75,7 @@ export default function Rankings() {
                 <TableRow key={row.username}>
                   <TableCell>{offset+index+1}</TableCell>
                   <TableCell component="th" scope="row">
-                    <User id={row.id} username={row.username} />
+                    <User id={row.id} username={row.username} showFriendlistButton={row.allowsFriendlistAccess} />
                   </TableCell>
                   <TableCell align="right">{row.followerCount}</TableCell>
                 </TableRow>

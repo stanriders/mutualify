@@ -32,7 +32,7 @@ export default function Friends() {
             You have {friends.length} friends.
           </Typography>
           {friends.map((data) => (
-            <User id={data.id} username={data.username} />
+            <User id={data.id} username={data.username} showFriendlistButton={data.allowsFriendlistAccess} />
           ))}
         </>)}
       </>)}
