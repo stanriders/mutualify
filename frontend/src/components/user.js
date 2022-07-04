@@ -10,7 +10,7 @@ export default function User({id, username, mutual = false, showFriendlistButton
   var deleteIcon = showFriendlistButton ? <ListIcon /> : <></>;
 
   const handleClick = () => {
-    router.push(`https://osu.ppy.sh/users/${id}`);
+    window.open(`https://osu.ppy.sh/users/${id}`, '_blank');
   };
 
   const handleDelete = () => {
