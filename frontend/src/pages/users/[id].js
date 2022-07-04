@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
 import Head from 'next/head'
 import User from '../../components/user'
+import Link from '../../components/Link';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import api from '../../lib/api'
@@ -29,8 +30,8 @@ export default function Users({data}) {
           {!data.user.allowsFriendlistAccess && <>
             <Box sx={{display: 'flex', ml: 1, mb: 1, alignContent: 'center' }}>
               <Avatar alt={data.user.username} src={`https://s.ppy.sh/a/${data.user.id}`} sx={{mr: 1}}/>
-              <Typography variant="h6" sx={{height: 'fit-content', flexGrow: 1}}>
-                {data.user.username}'s friend list is private.
+              <Typography variant="h6" sx={{height: 'fit-content', flexGrow: 1, pt: 0.45}}>
+                <Link underline="hover" href={`https://osu.ppy.sh/users/${data.user.id}`}>{data.user.username}</Link>'s friend list is private.
               </Typography>
             </Box>
           </>}
@@ -38,8 +39,8 @@ export default function Users({data}) {
           {data.user.allowsFriendlistAccess && data.friends && <>
             <Box sx={{display: 'flex', ml: 1, mb: 1, alignContent: 'center' }}>
               <Avatar alt={data.user.username} src={`https://s.ppy.sh/a/${data.user.id}`} sx={{mr: 1}}/>
-              <Typography variant="h6" sx={{height: 'fit-content', flexGrow: 1}}>
-                {data.user.username} has {data.friends.length} friends.
+              <Typography variant="h6" sx={{height: 'fit-content', flexGrow: 1, pt: 0.45}}>
+                <Link underline="hover" href={`https://osu.ppy.sh/users/${data.user.id}`}>{data.user.username}</Link> has {data.friends.length} friends.
               </Typography>
             </Box>
 

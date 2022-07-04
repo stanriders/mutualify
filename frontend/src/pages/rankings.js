@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import User from '../components/user'
 import api from '../lib/api';
-import Box from '@mui/material/Box';
 import Pagination from '@mui/material/Pagination';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
