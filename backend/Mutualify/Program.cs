@@ -1,5 +1,7 @@
 using System.Reflection;
 using FastExpressionCompiler;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Authentication;
@@ -9,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Mutualify.Configuration;
 using Mutualify.Database;
+using Mutualify.Jobs;
+using Mutualify.Jobs.Interfaces;
 using Mutualify.OsuApi;
 using Mutualify.OsuApi.Interfaces;
 using Mutualify.Repositories;
@@ -100,6 +104,7 @@ builder.Services.AddAuthentication("InternalCookies")
         options.Validate();
     });
 
+
 builder.Services.AddHttpClient<OsuApiProvider>();
 
 builder.Services.AddSingleton<IOsuApiProvider, OsuApiProvider>();
@@ -109,6 +114,8 @@ builder.Services.AddTransient<IRelationRepository, RelationRepository>();
 builder.Services.AddTransient<IRelationsService, RelationsService>();
 builder.Services.AddTransient<IUsersService, UsersService>();
 
+builder.Services.AddTransient<IUserUpdateJob, UserUpdateJob>();
+
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -116,6 +123,18 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHangfire(x =>
+{
+    x.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+        .UseSimpleAssemblyNameTypeSerializer()
+        .UseRecommendedSerializerSettings()
+        .UsePostgreSqlStorage(connectionString.ConnectionString);
+});
+
+builder.Services.AddHangfireServer(options =>
+{
+    options.SchedulePollingInterval = TimeSpan.FromHours(1);
+});
 #endregion
 
 #region App
@@ -172,6 +191,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseHangfireDashboard(options: new DashboardOptions
+{
+    Authorization = new[] { new AuthorizationFilter() }
+});
+app.MapHangfireDashboard();
+
+RecurringJob.AddOrUpdate<IUserUpdateJob>(x => x.Run(), Cron.Daily());
 
 app.UseSentryTracing();
 

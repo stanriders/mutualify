@@ -56,13 +56,14 @@ public class OsuApiProvider : IOsuApiProvider
         return await response.Content.ReadFromJsonAsync<OsuUser[]>();
     }
 
-    public async Task<TokenResponse?> RefreshToken(string refreshToken)
+    public async Task<TokenResponse?> RefreshToken(string refreshToken, string accessToken)
     {
         var config = new RefreshTokenRequest
         {
             ClientId = _config.ClientId,
             ClientSecret = _config.ClientSecret,
-            RefreshToken = refreshToken
+            RefreshToken = refreshToken,
+            AccessToken = accessToken
         };
 
         var requestMessage = new HttpRequestMessage

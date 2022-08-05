@@ -28,6 +28,11 @@ public class UserRepository : IUserRepository
         return _databaseContext.Users.AsNoTracking().Where(x => ids.Contains(x.Id)).ToListAsync();
     }
 
+    public Task<List<int>> GetAllIds()
+    {
+        return _databaseContext.Users.AsNoTracking().Select(x => x.Id).ToListAsync();
+    }
+
     public Task<List<User>> GetFollowerRanking(int limit = 50, int offset = 0)
     {
         return _databaseContext.Users.AsNoTracking()
@@ -99,7 +104,13 @@ public class UserRepository : IUserRepository
 
     public Task Remove(User user)
     {
-        throw new NotImplementedException();
+        // uhhhhhhhhhhhh
+        // this looks bad
+        _databaseContext.Users.Remove(_databaseContext.Users.First(x => x.Id == user.Id));
+        _databaseContext.Relations.RemoveRange(_databaseContext.Relations.Where(x=> x.FromId == user.Id));
+        _databaseContext.Relations.RemoveRange(_databaseContext.Relations.Where(x => x.ToId == user.Id));
+
+        return _databaseContext.SaveChangesAsync();
     }
 
     public Task<Token?> GetTokens(int userId)

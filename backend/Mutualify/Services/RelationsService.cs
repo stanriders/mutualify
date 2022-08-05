@@ -69,7 +69,7 @@ public class RelationsService : IRelationsService
         {
             if (e.StatusCode == HttpStatusCode.Unauthorized)
             {
-                var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken);
+                var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
                 if (newToken is not null)
                 {
                     await _userRepository.UpsertTokens(new Token
