@@ -12,7 +12,7 @@ public class UserUpdateJob : IUserUpdateJob
     private readonly IRelationsService _relationsService;
     private readonly ILogger<UserUpdateJob> _logger;
 
-    private const int _interval = 5;
+    private const int _interval = 4; // seconds
 
     public UserUpdateJob(IUsersService usersService, IRelationsService relationsService, IUserRepository userRepository, ILogger<UserUpdateJob> logger)
     {
@@ -50,7 +50,7 @@ public class UserUpdateJob : IUserUpdateJob
                 if (e.InnerException is HttpRequestException httpRequestException &&
                     httpRequestException.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    _logger.LogWarning("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
+                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
 
                     Thread.Sleep(_interval * 1000);
 
@@ -63,7 +63,7 @@ public class UserUpdateJob : IUserUpdateJob
             {
                 if (e.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    _logger.LogWarning("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
+                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
 
                     Thread.Sleep(_interval * 1000);
 
