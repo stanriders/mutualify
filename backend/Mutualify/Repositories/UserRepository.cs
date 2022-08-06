@@ -106,9 +106,10 @@ public class UserRepository : IUserRepository
     {
         // uhhhhhhhhhhhh
         // this looks bad
-        _databaseContext.Users.Remove(_databaseContext.Users.First(x => x.Id == user.Id));
         _databaseContext.Relations.RemoveRange(_databaseContext.Relations.Where(x=> x.FromId == user.Id));
         _databaseContext.Relations.RemoveRange(_databaseContext.Relations.Where(x => x.ToId == user.Id));
+        _databaseContext.Tokens.Remove(_databaseContext.Tokens.First(x => x.UserId == user.Id));
+        _databaseContext.Users.Remove(_databaseContext.Users.First(x => x.Id == user.Id));
 
         return _databaseContext.SaveChangesAsync();
     }
