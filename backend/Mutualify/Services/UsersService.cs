@@ -60,6 +60,7 @@ namespace Mutualify.Services
                     }
                     else
                     {
+                        await _userRepository.RemoveTokens(userId);
                         throw;
                     }
                 }

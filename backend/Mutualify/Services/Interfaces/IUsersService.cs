@@ -1,5 +1,4 @@
-﻿using Mutualify.Database.Models;
-
+﻿
 namespace Mutualify.Services.Interfaces
 {
     public interface IUsersService

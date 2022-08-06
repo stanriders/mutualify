@@ -114,6 +114,12 @@ public class UserRepository : IUserRepository
         return _databaseContext.SaveChangesAsync();
     }
 
+    public Task RemoveTokens(int userId)
+    {
+        _databaseContext.Tokens.Remove(_databaseContext.Tokens.First(x => x.UserId == userId));
+        return _databaseContext.SaveChangesAsync();
+    }
+
     public Task<Token?> GetTokens(int userId)
     {
         return _databaseContext.Tokens.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId);

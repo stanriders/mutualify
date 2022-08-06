@@ -16,4 +16,5 @@ public interface IUserRepository
 
     Task<Token?> GetTokens(int userId);
     Task UpsertTokens(Token token);
+    Task RemoveTokens(int userId);
 }

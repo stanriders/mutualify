@@ -83,6 +83,7 @@ public class RelationsService : IRelationsService
                 }
                 else
                 {
+                    await _userRepository.RemoveTokens(userId);
                     throw;
                 }
             }

@@ -7,8 +7,6 @@ namespace Mutualify.Jobs;
 
 public class UserUpdateJob : IUserUpdateJob
 {
-    private List<int> _userUpdateQueue = null!;
-
     private readonly IUserRepository _userRepository;
     private readonly IUsersService _usersService;
     private readonly IRelationsService _relationsService;
@@ -30,10 +28,11 @@ public class UserUpdateJob : IUserUpdateJob
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
 
-        _userUpdateQueue = _userRepository.GetAllIds().Result;
+        var userUpdateQueue = _userRepository.GetAllIds().Result;
 
-        foreach (var userId in _userUpdateQueue)
+        for (var i = 0; i < userUpdateQueue.Count; i++)
         {
+            var userId = userUpdateQueue[i];
             var startTime = DateTime.Now;
 
             try
@@ -42,7 +41,7 @@ public class UserUpdateJob : IUserUpdateJob
                 if (tokens is null)
                     continue;
 
-                _logger.LogInformation("[{JobId}] Updating {Id}...", jobId, userId);
+                _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i, userUpdateQueue.Count, userId);
                 _usersService.Update(userId).Wait();
                 _relationsService.UpdateRelations(userId).Wait();
             }
