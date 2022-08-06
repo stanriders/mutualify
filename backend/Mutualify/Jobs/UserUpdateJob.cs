@@ -34,6 +34,10 @@ public class UserUpdateJob : IUserUpdateJob
 
             try
             {
+                var tokens = _userRepository.GetTokens(userId).Result;
+                if (tokens is null)
+                    continue;
+
                 _logger.LogInformation("Updating {Id}...", userId);
                 _usersService.Update(userId).Wait();
                 _relationsService.UpdateRelations(userId).Wait();
@@ -45,6 +49,8 @@ public class UserUpdateJob : IUserUpdateJob
                 {
                     _logger.LogWarning("User {User} updated their tokens, but still got 401 from API!", userId);
 
+                    Thread.Sleep(_interval);
+
                     continue;
                 }
 
@@ -55,6 +61,8 @@ public class UserUpdateJob : IUserUpdateJob
                 if (e.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     _logger.LogWarning("User {User} updated their tokens, but still got 401 from API!", userId);
+
+                    Thread.Sleep(_interval);
 
                     continue;
                 }
