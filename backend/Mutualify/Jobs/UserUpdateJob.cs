@@ -53,7 +53,7 @@ public class UserUpdateJob : IUserUpdateJob
                 {
                     _logger.LogWarning("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
 
-                    Thread.Sleep(_interval);
+                    Thread.Sleep(_interval * 1000);
 
                     continue;
                 }
@@ -66,7 +66,7 @@ public class UserUpdateJob : IUserUpdateJob
                 {
                     _logger.LogWarning("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
 
-                    Thread.Sleep(_interval);
+                    Thread.Sleep(_interval * 1000);
 
                     continue;
                 }
