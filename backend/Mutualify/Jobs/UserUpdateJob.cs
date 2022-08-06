@@ -26,6 +26,10 @@ public class UserUpdateJob : IUserUpdateJob
 
     public void Run()
     {
+        var jobId = Guid.NewGuid();
+
+        _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
+
         _userUpdateQueue = _userRepository.GetAllIds().Result;
 
         foreach (var userId in _userUpdateQueue)
@@ -38,7 +42,7 @@ public class UserUpdateJob : IUserUpdateJob
                 if (tokens is null)
                     continue;
 
-                _logger.LogInformation("Updating {Id}...", userId);
+                _logger.LogInformation("[{JobId}] Updating {Id}...", jobId, userId);
                 _usersService.Update(userId).Wait();
                 _relationsService.UpdateRelations(userId).Wait();
             }
@@ -47,7 +51,7 @@ public class UserUpdateJob : IUserUpdateJob
                 if (e.InnerException is HttpRequestException httpRequestException &&
                     httpRequestException.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    _logger.LogWarning("User {User} updated their tokens, but still got 401 from API!", userId);
+                    _logger.LogWarning("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
 
                     Thread.Sleep(_interval);
 
@@ -60,7 +64,7 @@ public class UserUpdateJob : IUserUpdateJob
             {
                 if (e.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    _logger.LogWarning("User {User} updated their tokens, but still got 401 from API!", userId);
+                    _logger.LogWarning("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
 
                     Thread.Sleep(_interval);
 
@@ -80,5 +84,7 @@ public class UserUpdateJob : IUserUpdateJob
                 Thread.Sleep(timeout * 1000);
             }
         }
+
+        _logger.LogInformation("[{JobId}] Finished user update job", jobId);
     }
 }
