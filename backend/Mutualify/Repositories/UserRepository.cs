@@ -30,7 +30,13 @@ public class UserRepository : IUserRepository
 
     public Task<List<int>> GetAllIds()
     {
-        return _databaseContext.Users.AsNoTracking().Select(x => x.Id).ToListAsync();
+        // this makes the job too slow, doing a slow enumerating query is way faster in the long run
+        //return _databaseContext.Users.AsNoTracking().Select(x => x.Id).ToListAsync();
+
+        return _databaseContext.Relations.AsNoTracking()
+            .Select(x => x.FromId)
+            .Distinct()
+            .ToListAsync();
     }
 
     public Task<List<User>> GetFollowerRanking(int limit = 50, int offset = 0)
