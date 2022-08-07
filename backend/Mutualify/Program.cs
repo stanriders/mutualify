@@ -198,7 +198,7 @@ app.UseHangfireDashboard(options: new DashboardOptions
 });
 app.MapHangfireDashboard();
 
-RecurringJob.AddOrUpdate<IUserUpdateJob>(x => x.Run(), Cron.Daily());
+RecurringJob.AddOrUpdate<IUserUpdateJob>(x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
 
 app.UseSentryTracing();
 

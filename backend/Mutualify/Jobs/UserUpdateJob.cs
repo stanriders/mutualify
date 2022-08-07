@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using Hangfire;
+using Hangfire.Server;
 using Mutualify.Jobs.Interfaces;
 using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
@@ -22,9 +24,9 @@ public class UserUpdateJob : IUserUpdateJob
         _logger = logger;
     }
 
-    public async Task Run()
+    public async Task Run(PerformContext context, IJobCancellationToken token)
     {
-        var jobId = Guid.NewGuid();
+        var jobId = context.BackgroundJob.Id;
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
 
@@ -32,16 +34,20 @@ public class UserUpdateJob : IUserUpdateJob
 
         for (var i = 0; i < userUpdateQueue.Count; i++)
         {
+            token.ThrowIfCancellationRequested();
+
             var userId = userUpdateQueue[i];
             var startTime = DateTime.Now;
 
             try
             {
                 var tokens = await _userRepository.GetTokens(userId);
+
                 if (tokens is null)
                     continue;
 
-                _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i, userUpdateQueue.Count, userId);
+                _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i,
+                    userUpdateQueue.Count, userId);
 
                 await _usersService.Update(userId);
                 await _relationsService.UpdateRelations(userId);
@@ -51,7 +57,8 @@ public class UserUpdateJob : IUserUpdateJob
                 if (e.InnerException is HttpRequestException httpRequestException &&
                     httpRequestException.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
+                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId,
+                        userId);
 
                     Thread.Sleep(_interval * 1000);
 
@@ -64,7 +71,8 @@ public class UserUpdateJob : IUserUpdateJob
             {
                 if (e.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId, userId);
+                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId,
+                        userId);
 
                     Thread.Sleep(_interval * 1000);
 
@@ -72,6 +80,12 @@ public class UserUpdateJob : IUserUpdateJob
                 }
 
                 throw;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.LogWarning("[{JobId}] User update job has been cancelled!", jobId);
+                
+                return;
             }
             finally
             {
