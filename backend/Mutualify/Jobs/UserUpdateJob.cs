@@ -22,13 +22,13 @@ public class UserUpdateJob : IUserUpdateJob
         _logger = logger;
     }
 
-    public void Run()
+    public async Task Run()
     {
         var jobId = Guid.NewGuid();
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
 
-        var userUpdateQueue = _userRepository.GetAllIds().Result;
+        var userUpdateQueue = await _userRepository.GetAllIds();
 
         for (var i = 0; i < userUpdateQueue.Count; i++)
         {
@@ -37,13 +37,14 @@ public class UserUpdateJob : IUserUpdateJob
 
             try
             {
-                var tokens = _userRepository.GetTokens(userId).Result;
+                var tokens = await _userRepository.GetTokens(userId);
                 if (tokens is null)
                     continue;
 
                 _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i, userUpdateQueue.Count, userId);
-                _usersService.Update(userId).Wait();
-                _relationsService.UpdateRelations(userId).Wait();
+
+                await _usersService.Update(userId);
+                await _relationsService.UpdateRelations(userId);
             }
             catch (AggregateException e)
             {
