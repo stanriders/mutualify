@@ -108,22 +108,22 @@ public class UserRepository : IUserRepository
         await _databaseContext.SaveChangesAsync();
     }
 
-    public Task Remove(User user)
+    public async Task Remove(User user)
     {
         // uhhhhhhhhhhhh
         // this looks bad
-        _databaseContext.Relations.RemoveRange(_databaseContext.Relations.Where(x=> x.FromId == user.Id));
-        _databaseContext.Relations.RemoveRange(_databaseContext.Relations.Where(x => x.ToId == user.Id));
-        _databaseContext.Tokens.Remove(_databaseContext.Tokens.First(x => x.UserId == user.Id));
-        _databaseContext.Users.Remove(_databaseContext.Users.First(x => x.Id == user.Id));
+        _databaseContext.Relations.RemoveRange(await _databaseContext.Relations.Where(x=> x.FromId == user.Id).ToArrayAsync());
+        _databaseContext.Relations.RemoveRange(await _databaseContext.Relations.Where(x => x.ToId == user.Id).ToArrayAsync());
+        _databaseContext.Tokens.Remove(await _databaseContext.Tokens.FirstAsync(x => x.UserId == user.Id));
+        _databaseContext.Users.Remove(await _databaseContext.Users.FirstAsync(x => x.Id == user.Id));
 
-        return _databaseContext.SaveChangesAsync();
+        await _databaseContext.SaveChangesAsync();
     }
 
-    public Task RemoveTokens(int userId)
+    public async Task RemoveTokens(int userId)
     {
-        _databaseContext.Tokens.Remove(_databaseContext.Tokens.First(x => x.UserId == userId));
-        return _databaseContext.SaveChangesAsync();
+        _databaseContext.Tokens.Remove(await _databaseContext.Tokens.FirstAsync(x => x.UserId == userId));
+        await _databaseContext.SaveChangesAsync();
     }
 
     public Task<Token?> GetTokens(int userId)
