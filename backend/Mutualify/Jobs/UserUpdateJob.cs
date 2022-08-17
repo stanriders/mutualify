@@ -46,8 +46,11 @@ public class UserUpdateJob : IUserUpdateJob
                 if (tokens is null)
                     continue;
 
-                _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i,
-                    userUpdateQueue.Count, userId);
+#if !DEBUG
+                if (i % 100 == 0)
+#endif
+                    _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i+1,
+                        userUpdateQueue.Count, userId);
 
                 await _usersService.Update(userId);
                 await _relationsService.UpdateRelations(userId);
