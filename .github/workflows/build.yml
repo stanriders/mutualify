@@ -42,7 +42,7 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore ./backend/Mutualify.sln 
 
       - name: Build and analyze
         env:
