@@ -48,7 +48,7 @@ public class UserRepository : IUserRepository
     public Task<int> GetUserFollowerRankingPlacement(int userId)
     {
         return _databaseContext.UserFollowerRankingPlacements
-            .FromSqlInterpolated($"select x.row_number from (SELECT id, ROW_NUMBER() OVER(order by FollowerCount) FROM Users) x WHERE x.id = {userId}")
+            .FromSqlInterpolated($"select x.row_number from (SELECT \"Id\", ROW_NUMBER() OVER(order by \"FollowerCount\") FROM \"Users\") x WHERE x.\"Id\" = {userId}")
             .Select(x=> x.RowNumber)
             .FirstOrDefaultAsync();
     }
