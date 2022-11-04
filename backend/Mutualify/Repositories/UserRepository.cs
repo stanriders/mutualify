@@ -30,9 +30,6 @@ public class UserRepository : IUserRepository
 
     public Task<List<int>> GetAllIds()
     {
-        // this makes the job too slow, doing a slow enumerating query is way faster in the long run
-        //return _databaseContext.Users.AsNoTracking().Select(x => x.Id).ToListAsync();
-
         return _databaseContext.Relations.AsNoTracking()
             .Select(x => x.FromId)
             .Distinct()
@@ -48,17 +45,20 @@ public class UserRepository : IUserRepository
             .ToListAsync();
     }
 
+    public Task<int> GetUserFollowerRankingPlacement(int userId)
+    {
+        return _databaseContext.UserFollowerRankingPlacements
+            .FromSqlInterpolated($"select x.row_number from (SELECT id, ROW_NUMBER() OVER(order by FollowerCount) FROM Users) x WHERE x.id = {userId}")
+            .Select(x=> x.RowNumber)
+            .FirstOrDefaultAsync();
+    }
+
     public Task<int> GetRegisteredUserCount()
     {
         return _databaseContext.Relations.AsNoTracking()
             .Select(x=> x.FromId)
             .Distinct()
             .CountAsync();
-#if false
-        // a bit of a hack - we know that every user that was imported as a friend has 0 followers
-        return _databaseContext.Users.AsNoTracking()
-            .CountAsync(x => x.FollowerCount > 0);
-#endif
     }
 
     public async Task<User> Add(User user)

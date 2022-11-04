@@ -68,6 +68,13 @@ namespace Mutualify.Controllers
             };
         }
 
+        [Authorize]
+        [HttpGet("/rankings/me")]
+        public Task<int> GetFollowerRankingForUser()
+        {
+            return _userRepository.GetUserFollowerRankingPlacement(_claim);
+        }
+
         [HttpGet("/stats")]
         public async Task<StatsContract> GetStats()
         {

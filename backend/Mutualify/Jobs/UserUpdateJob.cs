@@ -1,5 +1,4 @@
-﻿using System.Net;
-using Hangfire;
+﻿using Hangfire;
 using Hangfire.Server;
 using Mutualify.Jobs.Interfaces;
 using Mutualify.Repositories.Interfaces;
@@ -57,32 +56,18 @@ public class UserUpdateJob : IUserUpdateJob
             }
             catch (AggregateException e)
             {
-                if (e.InnerException is HttpRequestException httpRequestException &&
-                    httpRequestException.StatusCode == HttpStatusCode.Unauthorized)
+                if (e.InnerException is HttpRequestException httpRequestException)
                 {
-                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId,
-                        userId);
-
-                    Thread.Sleep(_interval * 1000);
-
+                    // don't fail on HttpRequestExceptions, just keep going
                     continue;
                 }
 
                 throw;
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException)
             {
-                if (e.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    _logger.LogDebug("[{JobId}] User {User} updated their tokens, but still got 401 from API!", jobId,
-                        userId);
-
-                    Thread.Sleep(_interval * 1000);
-
-                    continue;
-                }
-
-                throw;
+                // don't fail on HttpRequestExceptions, just keep going
+                continue;
             }
             catch (OperationCanceledException)
             {
