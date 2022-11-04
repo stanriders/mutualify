@@ -11,7 +11,7 @@ import api from '../lib/api';
 import Pagination from '@mui/material/Pagination';
 import UserContext from '../context/userContext';
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import useSWR from 'swr'
 
 export default function Rankings() {
