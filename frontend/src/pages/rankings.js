@@ -87,7 +87,7 @@ export default function Rankings() {
             </TableHead>
             <TableBody>
               {players.users.map((row, index) => (
-                <TableRow key={row.username} selected={user.id == row.id}>
+                <TableRow key={row.username} selected={user && user.id == row.id}>
                   <TableCell>{offset+index+1}</TableCell>
                   <TableCell component="th" scope="row">
                     <User id={row.id} username={row.username} showFriendlistButton={row.allowsFriendlistAccess} />
