@@ -9,11 +9,13 @@ import Paper from '@mui/material/Paper';
 import User from '../components/user'
 import api from '../lib/api';
 import Pagination from '@mui/material/Pagination';
+import UserContext from '../context/userContext';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 
 export default function Rankings() {
+  const { user } = useContext(UserContext)
 
   const router = useRouter()
   const [page, setPage] = useState(1);
@@ -24,6 +26,13 @@ export default function Rankings() {
     error: playersError,
     isValidating: playersValidating } = useSWR(
       `/rankings?offset=${offset}`, api
+  );
+
+  const {
+    data: playerRank,
+    error: playerRankError,
+    isValidating: playerRankValidating } = useSWR(
+      `/rankings/me`, api
   );
 
   // Handle direct link to page and/or filter
@@ -56,6 +65,12 @@ export default function Rankings() {
       <Head>
         <title>Mutualify - Follower rankings</title>
       </Head>
+      
+      {playerRank && (<>
+        <Typography variant="h6" sx={{mb: 1}}>
+            Your rank is #{playerRank}.
+        </Typography></>)}
+
       {!players && playersValidating && 'Loading...'}
       {!players && playersError && playersError.info && playersError.info}
 
@@ -71,7 +86,7 @@ export default function Rankings() {
             </TableHead>
             <TableBody>
               {players.users.map((row, index) => (
-                <TableRow key={row.username}>
+                <TableRow key={row.username} selected={user.id == row.id}>
                   <TableCell>{offset+index+1}</TableCell>
                   <TableCell component="th" scope="row">
                     <User id={row.id} username={row.username} showFriendlistButton={row.allowsFriendlistAccess} />
