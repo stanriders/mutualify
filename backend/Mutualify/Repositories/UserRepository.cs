@@ -110,11 +110,7 @@ public class UserRepository : IUserRepository
 
     public async Task Remove(User user)
     {
-        // uhhhhhhhhhhhh
-        // this looks bad
-        _databaseContext.Relations.RemoveRange(await _databaseContext.Relations.Where(x=> x.FromId == user.Id).ToArrayAsync());
-        _databaseContext.Relations.RemoveRange(await _databaseContext.Relations.Where(x => x.ToId == user.Id).ToArrayAsync());
-        _databaseContext.Tokens.Remove(await _databaseContext.Tokens.FirstAsync(x => x.UserId == user.Id));
+        // FKs exist
         _databaseContext.Users.Remove(await _databaseContext.Users.FirstAsync(x => x.Id == user.Id));
 
         await _databaseContext.SaveChangesAsync();

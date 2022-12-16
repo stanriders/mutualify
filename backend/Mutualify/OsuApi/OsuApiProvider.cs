@@ -76,7 +76,8 @@ public class OsuApiProvider : IOsuApiProvider
 
         var response = await _httpClient.SendAsync(requestMessage);
 
-        response.EnsureSuccessStatusCode();
+        if (!response.IsSuccessStatusCode)
+            return null;
 
         return await response.Content.ReadFromJsonAsync<TokenResponse>();
     }
