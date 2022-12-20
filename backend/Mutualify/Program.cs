@@ -99,6 +99,8 @@ builder.Services.AddAuthentication("InternalCookies")
         options.Scope.Add("public");
         options.Scope.Add("friends.read");
 
+        options.CorrelationCookie.SameSite = SameSiteMode.Lax;
+
         options.SaveTokens = true;
 
         options.Validate();

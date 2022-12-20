@@ -6,7 +6,7 @@ public interface IUserRepository
 {
     Task<User?> Get(int id, bool track = false);
     Task<List<User>> Get(List<int> ids);
-    Task<List<int>> GetAllIds();
+    Task<List<int>> GetUsersForUpdateJob();
     Task<List<User>> GetFollowerRanking(int limit = 50, int offset = 0);
     Task<int> GetUserFollowerRankingPlacement(int userId);
     Task<int> GetRegisteredUserCount();

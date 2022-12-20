@@ -28,9 +28,10 @@ public class UserRepository : IUserRepository
         return _databaseContext.Users.AsNoTracking().Where(x => ids.Contains(x.Id)).ToListAsync();
     }
 
-    public Task<List<int>> GetAllIds()
+    public Task<List<int>> GetUsersForUpdateJob()
     {
         return _databaseContext.Relations.AsNoTracking()
+            .Where(x => _databaseContext.Tokens.Any(t => t.UserId == x.FromId))
             .Select(x => x.FromId)
             .Distinct()
             .ToListAsync();

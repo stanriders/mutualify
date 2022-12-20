@@ -13,7 +13,7 @@ public class UserUpdateJob : IUserUpdateJob
     private readonly IRelationsService _relationsService;
     private readonly ILogger<UserUpdateJob> _logger;
 
-    private const int _interval = 4; // seconds
+    private const int _interval = 3; // seconds
 
     public UserUpdateJob(IUsersService usersService, IRelationsService relationsService, IUserRepository userRepository, ILogger<UserUpdateJob> logger)
     {
@@ -29,7 +29,7 @@ public class UserUpdateJob : IUserUpdateJob
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
 
-        var userUpdateQueue = await _userRepository.GetAllIds();
+        var userUpdateQueue = await _userRepository.GetUsersForUpdateJob();
 
         for (var i = 0; i < userUpdateQueue.Count; i++)
         {
@@ -56,7 +56,7 @@ public class UserUpdateJob : IUserUpdateJob
             }
             catch (AggregateException e)
             {
-                if (e.InnerException is HttpRequestException httpRequestException)
+                if (e.InnerException is HttpRequestException)
                 {
                     // don't fail on HttpRequestExceptions, just keep going
                     continue;
@@ -67,7 +67,6 @@ public class UserUpdateJob : IUserUpdateJob
             catch (HttpRequestException)
             {
                 // don't fail on HttpRequestExceptions, just keep going
-                continue;
             }
             catch (OperationCanceledException)
             {
