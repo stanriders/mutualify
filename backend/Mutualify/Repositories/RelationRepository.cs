@@ -62,23 +62,9 @@ public class RelationRepository : IRelationRepository
         return query.OrderBy(x => x.Username).ToListAsync();
     }
 
-    public async Task Add(List<Relation> relations)
-    {
-        await _databaseContext.Relations.AddRangeAsync(relations);
-        await _databaseContext.SaveChangesAsync();
-    }
-
-    public async Task Remove(int userId)
-    {
-        var relations = _databaseContext.Relations.Where(x => x.FromId == userId);
-        _databaseContext.Relations.RemoveRange(relations);
-
-        await _databaseContext.SaveChangesAsync();
-    }
-
     public async Task ReplaceRelations(int userId, List<Relation> relations)
     {
-        var transaction = await _databaseContext.Database.BeginTransactionAsync();
+        await using var transaction = await _databaseContext.Database.BeginTransactionAsync();
 
         var oldRelations = _databaseContext.Relations.Where(x => x.FromId == userId);
         _databaseContext.Relations.RemoveRange(oldRelations);

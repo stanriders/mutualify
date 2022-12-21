@@ -1,9 +1,7 @@
-﻿using System.Net;
-using MapsterMapper;
+﻿using MapsterMapper;
 using Mutualify.Contracts;
 using Mutualify.Database.Models;
 using Mutualify.OsuApi.Interfaces;
-using Mutualify.OsuApi.Models;
 using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
 
@@ -60,35 +58,7 @@ public class RelationsService : IRelationsService
         if (token is null)
             return;
 
-        OsuUser[]? friends = null;
-        try
-        {
-            friends = await _osuApiDataService.GetFriends(token.AccessToken);
-        }
-        catch (HttpRequestException e)
-        {
-            if (e.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
-                if (newToken is not null)
-                {
-                    await _userRepository.UpsertTokens(new Token
-                    {
-                        UserId = userId,
-                        AccessToken = newToken.AccessToken,
-                        RefreshToken = newToken.RefreshToken
-                    });
-
-                    friends = await _osuApiDataService.GetFriends(newToken.AccessToken);
-                }
-                else
-                {
-                    await _userRepository.RemoveTokens(userId);
-                    throw;
-                }
-            }
-        }
-        
+        var friends = await _osuApiDataService.GetFriends(token.AccessToken);
         if (friends is null)
             return;
 
@@ -100,8 +70,7 @@ public class RelationsService : IRelationsService
             ToId = x.Id
         }).ToList();
 
-        await _relationRepository.Remove(userId);
-        await _relationRepository.Add(relations);
+        await _relationRepository.ReplaceRelations(userId, relations);
     }
 
     public Task<long> GetRelationCount()

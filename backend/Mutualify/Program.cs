@@ -46,7 +46,7 @@ builder.Services.AddTransient<IMapper, Mapper>();
 var connectionString = new NpgsqlConnectionStringBuilder
 {
     Host = dbConfig["Host"],
-    Port = int.Parse(dbConfig["Port"]),
+    Port = int.Parse(dbConfig["Port"]!),
     Database = dbConfig["Database"],
     Username = dbConfig["Username"],
     Password = dbConfig["Password"]
@@ -93,8 +93,8 @@ builder.Services.AddAuthentication("InternalCookies")
 
         options.TokenEndpoint = "https://osu.ppy.sh/oauth/token";
         options.AuthorizationEndpoint = "https://osu.ppy.sh/oauth/authorize";
-        options.ClientId = osuConfig["ClientID"];
-        options.ClientSecret = osuConfig["ClientSecret"];
+        options.ClientId = osuConfig["ClientID"]!;
+        options.ClientSecret = osuConfig["ClientSecret"]!;
         options.CallbackPath = osuConfig["CallbackUrl"];
         options.Scope.Add("public");
         options.Scope.Add("friends.read");

@@ -40,11 +40,6 @@ public class UserUpdateJob : IUserUpdateJob
 
             try
             {
-                var tokens = await _userRepository.GetTokens(userId);
-
-                if (tokens is null)
-                    continue;
-
 #if !DEBUG
                 if (i % 100 == 0)
 #endif
