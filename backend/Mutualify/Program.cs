@@ -1,4 +1,5 @@
 using System.Reflection;
+using ElmahCore.Mvc;
 using FastExpressionCompiler;
 using Hangfire;
 using Hangfire.PostgreSql;
@@ -137,6 +138,12 @@ builder.Services.AddHangfireServer(options =>
 {
     options.SchedulePollingInterval = TimeSpan.FromHours(1);
 });
+
+builder.Services.AddElmah(options =>
+{
+    options.OnPermissionCheck = context => context.User.Identity?.IsAuthenticated == true &&
+                                           context.User.Identity.Name == "7217455";
+});
 #endregion
 
 #region App
@@ -147,7 +154,8 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = Forward
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    //app.UseDeveloperExceptionPage();
+    app.UseElmahExceptionPage();
     app.UseCookiePolicy(new CookiePolicyOptions
     {
         Secure = CookieSecurePolicy.None,
@@ -203,6 +211,8 @@ app.MapHangfireDashboard();
 RecurringJob.AddOrUpdate<IUserUpdateJob>(x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
 
 app.UseSentryTracing();
+
+app.UseElmah();
 
 using (var scope = app.Services.CreateScope())
 {
