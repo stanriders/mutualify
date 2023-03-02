@@ -1,5 +1,6 @@
 ﻿using Hangfire;
 using Hangfire.Server;
+using Microsoft.EntityFrameworkCore;
 using Mutualify.Jobs.Interfaces;
 using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
@@ -15,6 +16,9 @@ public class UserUpdateJob : IUserUpdateJob
 
     private const int _interval = 3; // seconds
 
+    private static bool _isRunning = false;
+    private static DateTime _lastStartDate;
+
     public UserUpdateJob(IUsersService usersService, IRelationsService relationsService, IUserRepository userRepository, ILogger<UserUpdateJob> logger)
     {
         _usersService = usersService;
@@ -28,6 +32,15 @@ public class UserUpdateJob : IUserUpdateJob
         var jobId = context.BackgroundJob.Id;
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
+
+        if (_isRunning && _lastStartDate.AddDays(2) > DateTime.Now)
+        {
+            _logger.LogInformation("[{JobId}] Job is already running, abort!", jobId);
+            return;
+        }
+
+        _isRunning = true;
+        _lastStartDate = DateTime.Now;
 
         var userUpdateQueue = await _userRepository.GetUsersForUpdateJob();
 
@@ -57,16 +70,17 @@ public class UserUpdateJob : IUserUpdateJob
                     continue;
                 }
 
+                _isRunning = false;
+
                 throw;
             }
-            catch (HttpRequestException)
-            {
-                // don't fail on HttpRequestExceptions, just keep going
-            }
+            catch (DbUpdateConcurrencyException) { } // don't fail on HttpRequestExceptions or DbUpdateConcurrencyException, just keep going
+            catch (HttpRequestException) { }
             catch (OperationCanceledException)
             {
                 _logger.LogWarning("[{JobId}] User update job has been cancelled!", jobId);
-                
+
+                _isRunning = false;
                 return;
             }
             finally
@@ -81,6 +95,7 @@ public class UserUpdateJob : IUserUpdateJob
             }
         }
 
+        _isRunning = false;
         _logger.LogInformation("[{JobId}] Finished user update job", jobId);
     }
 }
