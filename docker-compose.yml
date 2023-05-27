@@ -1,8 +1,5 @@
 version: '3.8'
 
-networks:
-  main:
-
 services:
   backend:
     build: ./backend/.
@@ -25,8 +22,8 @@ services:
     volumes:
       - ./logs/backend:/app/logs
       - ./keys:/root/.aspnet/DataProtection-Keys
-    networks:
-      - main
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   frontend:
     build: ./frontend/.
@@ -34,8 +31,6 @@ services:
       - "127.0.0.1:3500:3000"
     volumes:
       - ./logs/frontend:/app/logs
-    networks:
-      - main
 
   postgres:
     image: postgres:latest
@@ -48,5 +43,3 @@ services:
       - "127.0.0.1:5432:5432"
     volumes:
       - ./db:/data/postgres
-    networks:
-      - main
