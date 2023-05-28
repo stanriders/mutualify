@@ -20,7 +20,7 @@ export default function Followers() {
     data: followers,
     error: followersError,
     isValidating: followersValidating 
-  } = useSWR(`/followers?sortByRank=${sortByRank}`, api);
+  } = useSWR(`/followers?orderByRank=${sortByRank}`, api);
 
   return (
     <>
