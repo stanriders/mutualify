@@ -5,14 +5,17 @@ import Head from 'next/head'
 import Unauthorized from '../components/unauthorized'
 import UserContext from '../context/userContext';
 import Typography from '@mui/material/Typography';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 export default function Friends() {
+
+  const [sortByRank, setSortByRank] = useState(false);
+
   const {
     data: friends,
     error: friendsError,
     isValidating: friendsValidating 
-  } = useSWR(`/friends`, api);
+  } = useSWR(`/friends?orderByRank=${sortByRank}`, api);
 
   const { user } = useContext(UserContext)
   return (
@@ -31,6 +34,9 @@ export default function Friends() {
           <Typography variant="h6" sx={{mb: 1}}>
             You have {friends.length} friends.
           </Typography>
+          <FormGroup sx={{mb: 1}} row={true}>
+                <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label="Sort by rank" />
+          </FormGroup>
           {friends.map((data) => (
             <User id={data.id} username={data.username} showFriendlistButton={data.allowsFriendlistAccess} />
           ))}
