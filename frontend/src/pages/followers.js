@@ -14,12 +14,13 @@ export default function Followers() {
   const { user } = useContext(UserContext)
 
   const [filterMutuals, setFilterMutuals] = useState(false);
+  const [sortByRank, setSortByRank] = useState(false);
 
   const {
     data: followers,
     error: followersError,
     isValidating: followersValidating 
-  } = useSWR(`/followers`, api);
+  } = useSWR(`/followers?sortByRank=${sortByRank}`, api);
 
   return (
     <>
@@ -40,6 +41,7 @@ export default function Followers() {
               </Typography>
               <FormGroup sx={{mb: 1}}>
                 <FormControlLabel control={<Switch checked={filterMutuals} onChange={() => setFilterMutuals(!filterMutuals)}/>} label="Hide mutuals" />
+                <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label="Sort by rank" />
               </FormGroup>
               {followers.filter((data) => {
                 if (filterMutuals && data.mutual)

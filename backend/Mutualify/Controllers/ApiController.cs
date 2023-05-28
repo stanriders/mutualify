@@ -40,22 +40,22 @@ namespace Mutualify.Controllers
 
         [Authorize]
         [HttpGet("/friends")]
-        public Task<List<RelationUser>> GetFriends()
+        public Task<List<RelationUser>> GetFriends(bool orderByRank = false)
         {
-            return _relationsService.GetFriends(_claim);
+            return _relationsService.GetFriends(_claim, orderByRank);
         }
 
         [HttpGet("/friends/{id}")]
-        public Task<UserFriendsContract> GetFriendsById(int id)
+        public Task<UserFriendsContract> GetFriendsById(int id, bool orderByRank = false)
         {
-            return _relationsService.GetUsersFriends(id);
+            return _relationsService.GetUsersFriends(id, orderByRank);
         }
 
         [Authorize]
         [HttpGet("/followers")]
-        public Task<List<RelationUser>> GetFriendedBy(bool filterMutuals)
+        public Task<List<RelationUser>> GetFriendedBy(bool orderByRank = false)
         {
-            return _relationsService.GetFollowers(_claim);
+            return _relationsService.GetFollowers(_claim, orderByRank);
         }
 
         [HttpGet("/rankings")]

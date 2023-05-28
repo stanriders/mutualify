@@ -14,7 +14,7 @@ public class RelationRepository : IRelationRepository
         _databaseContext = databaseContext;
     }
 
-    public Task<List<RelationUser>> GetFriends(int userId, bool highlightMutuals)
+    public Task<List<RelationUser>> GetFriends(int userId, bool highlightMutuals, bool orderByRank)
     {
         var friends = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.FromId == userId)
@@ -31,14 +31,18 @@ public class RelationRepository : IRelationRepository
             Id = x.Id,
             Title = x.Title,
             Username = x.Username,
+            Rank = x.Rank,
             AllowsFriendlistAccess = x.AllowsFriendlistAccess,
             Mutual = followers.Any(y=> y.Id == x.Id && y.AllowsHighlighting)
         });
 
+        if (orderByRank)
+            return query.OrderBy(x => x.Rank).ToListAsync();
+
         return query.OrderBy(x => x.Username).ToListAsync();
     }
 
-    public Task<List<RelationUser>> GetFollowers(int userId)
+    public Task<List<RelationUser>> GetFollowers(int userId, bool orderByRank)
     {
         var followers = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.ToId == userId)
@@ -55,9 +59,13 @@ public class RelationRepository : IRelationRepository
             Id = x.Id,
             Title = x.Title,
             Username = x.Username,
+            Rank = x.Rank,
             AllowsFriendlistAccess = x.AllowsFriendlistAccess,
             Mutual = friends.Contains(x.Id)
         });
+
+        if (orderByRank)
+            return query.OrderBy(x => x.Rank).ToListAsync();
 
         return query.OrderBy(x => x.Username).ToListAsync();
     }

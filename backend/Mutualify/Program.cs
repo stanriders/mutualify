@@ -12,10 +12,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Mutualify.Configuration;
 using Mutualify.Database;
+using Mutualify.Database.Models;
 using Mutualify.Jobs;
 using Mutualify.Jobs.Interfaces;
 using Mutualify.OsuApi;
 using Mutualify.OsuApi.Interfaces;
+using Mutualify.OsuApi.Models;
 using Mutualify.Repositories;
 using Mutualify.Repositories.Interfaces;
 using Mutualify.Services;
@@ -42,6 +44,7 @@ builder.Services.Configure<OsuApiConfig>(osuConfig);
 
 TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetEntryAssembly()!);
 TypeAdapterConfig.GlobalSettings.Compiler = x => x.CompileFast();
+TypeAdapterConfig<OsuUser, User>.NewConfig().Map(x => x.Rank, x => x.Statistics.GlobalRank).Compile();
 builder.Services.AddTransient<IMapper, Mapper>();
 
 var connectionString = new NpgsqlConnectionStringBuilder

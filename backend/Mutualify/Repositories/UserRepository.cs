@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.Repositories.Interfaces;
@@ -77,15 +78,13 @@ public class UserRepository : IUserRepository
         for (var i = 0; i < users.Count; i++)
         {
             var user = users[i];
+
+            builder.Append(
+                $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\'\'")}`")}, {user.FollowerCount}, false, {user.Rank})");
+
             if (i != users.Count - 1)
             {
-                builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\'\'")}`")}, {user.FollowerCount}, false), ");
-            }
-            else
-            {
-                builder.Append(
-                    $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\'\'")}`")}, {user.FollowerCount}, false) ");
+                builder.Append(", ");
             }
         }
 
@@ -93,10 +92,10 @@ public class UserRepository : IUserRepository
             return; // return early to not produce incorrect sql
 
         await _databaseContext.Database.ExecuteSqlRawAsync(
-            $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"", ""AllowsFriendlistAccess"")
+            $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"", ""AllowsFriendlistAccess"", ""Rank"")
                       values{builder.ToString()}
                       on conflict (""Id"") do update
-                      set (""CountryCode"", ""Username"", ""Title"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"");"
+                      set (""CountryCode"", ""Username"", ""Title"", ""Rank"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"", EXCLUDED.""Rank"");"
             );
 
         await _databaseContext.SaveChangesAsync();

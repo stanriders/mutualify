@@ -22,6 +22,8 @@ public sealed class DatabaseContext : DbContext
         modelBuilder.Entity<Relation>().HasIndex(x=> x.ToId);
         modelBuilder.Entity<Relation>().HasKey(x => new { x.FromId, x.ToId });
 
+        modelBuilder.Entity<User>().HasIndex(x => x.Rank);
+
         base.OnModelCreating(modelBuilder);
     }
 }

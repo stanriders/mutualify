@@ -27,4 +27,13 @@ public class OsuUser
     
     [JsonPropertyName("follower_count")]
     public int FollowerCount { get; set; }
+
+    [JsonPropertyName("statistics")]
+    public UserStatistics? Statistics { get; set; }
+
+    public class UserStatistics
+    {
+        [JsonPropertyName("global_rank")]
+        public int GlobalRank { get; set; }
+    }
 }

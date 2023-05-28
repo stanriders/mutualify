@@ -25,12 +25,12 @@ public class RelationsService : IRelationsService
         _mapper = mapper;
     }
 
-    public Task<List<RelationUser>> GetFriends(int userId)
+    public Task<List<RelationUser>> GetFriends(int userId, bool orderByRank)
     {
-        return _relationRepository.GetFriends(userId, false);
+        return _relationRepository.GetFriends(userId, false, orderByRank);
     }
 
-    public async Task<UserFriendsContract> GetUsersFriends(int userId)
+    public async Task<UserFriendsContract> GetUsersFriends(int userId, bool orderByRank)
     {
         var user = await _userRepository.Get(userId);
 
@@ -41,15 +41,15 @@ public class RelationsService : IRelationsService
 
         if (user?.AllowsFriendlistAccess ?? false)
         {
-            contract.Friends = await _relationRepository.GetFriends(userId, true);
+            contract.Friends = await _relationRepository.GetFriends(userId, true, orderByRank);
         }
 
         return contract;
     }
 
-    public Task<List<RelationUser>> GetFollowers(int userId)
+    public Task<List<RelationUser>> GetFollowers(int userId, bool orderByRank)
     {
-        return _relationRepository.GetFollowers(userId);
+        return _relationRepository.GetFollowers(userId, orderByRank);
     }
 
     public async Task UpdateRelations(int userId)

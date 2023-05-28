@@ -82,6 +82,7 @@ namespace Mutualify.Services
                 user.CountryCode = osuUser.CountryCode;
                 user.FollowerCount = osuUser.FollowerCount;
                 user.Title = osuUser.Title;
+                user.Rank = osuUser.Statistics?.GlobalRank ?? 0;
 
                 await _userRepository.Update(user);
             }

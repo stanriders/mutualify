@@ -18,6 +18,8 @@ public class User
 
     public int FollowerCount { get; set; }
 
+    public int Rank { get; set; } = 0;
+
     public bool AllowsFriendlistAccess { get; set; } = false;
 
     [InverseProperty(nameof(Relation.To))]
