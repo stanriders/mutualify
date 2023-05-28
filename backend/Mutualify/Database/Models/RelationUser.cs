@@ -10,7 +10,7 @@
 
         public string? Title { get; set; }
 
-        public int Rank { get; set; }
+        public int? Rank { get; set; }
 
         public bool Mutual { get; set; }
 

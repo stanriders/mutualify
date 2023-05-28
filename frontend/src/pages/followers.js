@@ -39,7 +39,7 @@ export default function Followers() {
               <Typography variant="h6">
                 Known followers: {followers.length} out of {user.followerCount}.
               </Typography>
-              <FormGroup sx={{mb: 1}}>
+            <FormGroup sx={{mb: 1}} row={true}>
                 <FormControlLabel control={<Switch checked={filterMutuals} onChange={() => setFilterMutuals(!filterMutuals)}/>} label="Hide mutuals" />
                 <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label="Sort by rank" />
               </FormGroup>

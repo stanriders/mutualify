@@ -110,7 +110,7 @@ public class OAuthController : ControllerBase
             user.CountryCode = osuUser.CountryCode;
             user.FollowerCount = osuUser.FollowerCount;
             user.Title = osuUser.Title;
-            user.Rank = osuUser.Statistics?.GlobalRank ?? 0;
+            user.Rank = osuUser.Statistics?.GlobalRank;
 
             await _userRepository.Update(user);
         }

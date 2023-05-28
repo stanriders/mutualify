@@ -18,7 +18,7 @@ public class User
 
     public int FollowerCount { get; set; }
 
-    public int Rank { get; set; } = 0;
+    public int? Rank { get; set; }
 
     public bool AllowsFriendlistAccess { get; set; } = false;
 
