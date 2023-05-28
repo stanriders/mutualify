@@ -34,6 +34,6 @@ public class OsuUser
     public class UserStatistics
     {
         [JsonPropertyName("global_rank")]
-        public int GlobalRank { get; set; }
+        public int? GlobalRank { get; set; }
     }
 }
