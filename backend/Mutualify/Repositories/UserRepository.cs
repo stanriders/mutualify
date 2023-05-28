@@ -19,9 +19,9 @@ public class UserRepository : IUserRepository
     public Task<User?> Get(int id, bool track = false)
     {
         if (track)
-            return _databaseContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+            return _databaseContext.Users.SingleOrDefaultAsync(x => x.Id == id);
 
-        return _databaseContext.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+        return _databaseContext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id);
     }
 
     public Task<List<User>> Get(List<int> ids)
@@ -52,7 +52,7 @@ public class UserRepository : IUserRepository
         return _databaseContext.UserFollowerRankingPlacements
             .FromSqlInterpolated($"select x.row_number from (SELECT \"Id\", ROW_NUMBER() OVER(order by \"FollowerCount\" desc) FROM \"Users\") x WHERE x.\"Id\" = {userId}")
             .Select(x=> x.RowNumber)
-            .FirstOrDefaultAsync();
+            .SingleOrDefaultAsync();
     }
 
     public Task<int> GetRegisteredUserCount()
@@ -124,7 +124,7 @@ public class UserRepository : IUserRepository
 
     public Task<Token?> GetTokens(int userId)
     {
-        return _databaseContext.Tokens.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId);
+        return _databaseContext.Tokens.AsNoTracking().SingleOrDefaultAsync(x => x.UserId == userId);
     }
 
     public async Task UpsertTokens(Token token)
@@ -135,7 +135,7 @@ public class UserRepository : IUserRepository
             return;
         }
 
-        var existingTokens = await _databaseContext.Tokens.FirstOrDefaultAsync(x => x.UserId == token.UserId);
+        var existingTokens = await _databaseContext.Tokens.SingleOrDefaultAsync(x => x.UserId == token.UserId);
         if (existingTokens is not null)
         {
             existingTokens.AccessToken = token.AccessToken;
