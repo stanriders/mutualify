@@ -153,7 +153,7 @@ app.UseSerilogRequestLogging(options =>
 {
     options.EnrichDiagnosticContext = (context, httpContext) =>
     {
-        context.Set("User", httpContext.User, true);
+        context.Set("UserId", httpContext.User.Identity?.Name);
     };
 });
 
