@@ -1,5 +1,4 @@
 using System.Reflection;
-using ElmahCore.Mvc;
 using FastExpressionCompiler;
 using Hangfire;
 using Hangfire.PostgreSql;
@@ -25,6 +24,7 @@ using Mutualify.Services.Interfaces;
 using Newtonsoft.Json;
 using Npgsql;
 using Serilog;
+using Serilog.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,6 +58,8 @@ var connectionString = new NpgsqlConnectionStringBuilder
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseNpgsql(connectionString.ConnectionString));
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication("InternalCookies")
     .AddCookie("InternalCookies", options =>
@@ -141,24 +143,25 @@ builder.Services.AddHangfireServer(options =>
 {
     options.SchedulePollingInterval = TimeSpan.FromHours(1);
 });
-
-builder.Services.AddElmah(options =>
-{
-    options.OnPermissionCheck = context => context.User.Identity?.IsAuthenticated == true &&
-                                           context.User.Identity.Name == "7217455";
-});
 #endregion
 
 #region App
 
 var app = builder.Build();
 
+app.UseSerilogRequestLogging(options =>
+{
+    options.EnrichDiagnosticContext = (context, httpContext) =>
+    {
+        context.Set("User", httpContext.User);
+    };
+});
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All });
 
 if (app.Environment.IsDevelopment())
 {
-    //app.UseDeveloperExceptionPage();
-    app.UseElmahExceptionPage();
+    app.UseDeveloperExceptionPage();
     app.UseCookiePolicy(new CookiePolicyOptions
     {
         Secure = CookieSecurePolicy.None,
@@ -215,14 +218,23 @@ RecurringJob.AddOrUpdate<IUserUpdateJob>(x => x.Run(null!, JobCancellationToken.
 
 app.UseSentryTracing();
 
-app.UseElmah();
-
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetService<DatabaseContext>();
     context?.Database.Migrate();
 }
 
-app.Run();
+try
+{
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 
 #endregion

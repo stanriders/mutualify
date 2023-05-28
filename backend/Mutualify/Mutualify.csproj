@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ElmahCore" Version="2.1.2" />
     <PackageReference Include="FastExpressionCompiler" Version="3.3.3" />
     <PackageReference Include="Hangfire.AspNetCore" Version="1.7.32" />
     <PackageReference Include="Hangfire.PostgreSql" Version="1.9.9" />
@@ -23,6 +22,7 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
     <PackageReference Include="Sentry.AspNetCore" Version="3.24.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Enrichers.ClientInfo" Version="1.2.0" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.4.0" />
