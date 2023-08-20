@@ -24,15 +24,12 @@ using Mutualify.Services.Interfaces;
 using Newtonsoft.Json;
 using Npgsql;
 using Serilog;
-using Serilog.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration, "Logging")
     .ReadFrom.Services(services));
-
-builder.WebHost.UseSentry();
 
 #region Services
 
@@ -44,7 +41,7 @@ builder.Services.Configure<OsuApiConfig>(osuConfig);
 
 TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetEntryAssembly()!);
 TypeAdapterConfig.GlobalSettings.Compiler = x => x.CompileFast();
-TypeAdapterConfig<OsuUser, User>.NewConfig().Map(x => x.Rank, x => x.Statistics.GlobalRank).Compile();
+TypeAdapterConfig<OsuUser, User>.NewConfig().Map(x => x.Rank, x => x.Statistics!.GlobalRank).Compile();
 builder.Services.AddTransient<IMapper, Mapper>();
 
 var connectionString = new NpgsqlConnectionStringBuilder
@@ -214,9 +211,7 @@ app.UseHangfireDashboard(options: new DashboardOptions
 });
 app.MapHangfireDashboard();
 
-RecurringJob.AddOrUpdate<IUserUpdateJob>(x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
-
-app.UseSentryTracing();
+RecurringJob.AddOrUpdate<IUserUpdateJob>("user-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
 
 using (var scope = app.Services.CreateScope())
 {
