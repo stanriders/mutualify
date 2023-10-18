@@ -1,5 +1,5 @@
 const isDev = process.env.NODE_ENV === "development";
-const host = process.env.API_ADDRESS;
+const host = process.env.NEXT_PUBLIC_API_ADDRESS;
 const apiBase = isDev ? 'http://localhost/api' : host;
 
 export default async function api (endpoint, options) {
