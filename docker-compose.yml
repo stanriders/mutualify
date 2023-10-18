@@ -32,10 +32,7 @@ services:
       - logs
 
   frontend:
-    build:
-      context: ./frontend/.
-      args:
-        - NEXT_PUBLIC_API_ADDRESS=${NEXT_PUBLIC_API_ADDRESS}
+    build: ./frontend/.
     ports:
       - "127.0.0.1:3500:3000"
     environment:
