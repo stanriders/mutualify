@@ -2,6 +2,8 @@ version: '3.8'
 
 networks:
   main:
+  logs:
+    external: true
 
 services:
   backend:
@@ -12,15 +14,15 @@ services:
       - "127.0.0.1:3501:3001"
     environment:
       - PathBase=/api
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT
       - ASPNETCORE_URLS=http://+:3001
       - Database__Database=mutualify
       - Database__Host=postgres
       - Database__Port=5432
       - Database__Username=postgres
       - Database__Password=postgres
-      - osuApi__ClientId=
-      - osuApi__ClientSecret=
+      - osuApi__ClientId
+      - osuApi__ClientSecret
       - osuApi__CallbackUrl=/oauth/callback
     volumes:
       - ./logs/backend:/app/logs
