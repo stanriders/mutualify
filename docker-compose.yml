@@ -35,8 +35,6 @@ services:
     build: ./frontend/.
     ports:
       - "127.0.0.1:3500:3000"
-    environment:
-      - NEXT_PUBLIC_API_ADDRESS
     volumes:
       - ./logs/frontend:/app/logs
     networks:

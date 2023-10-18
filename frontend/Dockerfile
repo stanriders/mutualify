@@ -12,9 +12,6 @@ FROM node:16 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# have to pass this envvar into the build container to make it build proper paths for the client-facing js
-ENV NEXT_PUBLIC_API_ADDRESS $NEXT_PUBLIC_API_ADDRESS
-
 RUN npm run build
 
 # Production image, copy all the files and run next
