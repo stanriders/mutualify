@@ -35,6 +35,8 @@ services:
     build: ./frontend/.
     ports:
       - "127.0.0.1:3500:3000"
+    environment:
+      - HOSTNAME
     volumes:
       - ./logs/frontend:/app/logs
     networks:

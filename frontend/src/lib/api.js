@@ -1,5 +1,6 @@
 const isDev = process.env.NODE_ENV === "development";
-const apiBase = isDev ? 'http://localhost/api' : 'https://mutualify.stanr.info/api';
+const host = process.env.HOSTNAME;
+const apiBase = isDev ? 'http://localhost/api' : 'https://'+host+'/api';
 
 export default async function api (endpoint, options) {
   const response = await fetch(`${apiBase}${endpoint}`, {
