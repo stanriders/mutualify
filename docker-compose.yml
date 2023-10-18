@@ -36,7 +36,7 @@ services:
     ports:
       - "127.0.0.1:3500:3000"
     environment:
-      - HOSTNAME
+      - API_ADDRESS
     volumes:
       - ./logs/frontend:/app/logs
     networks:
