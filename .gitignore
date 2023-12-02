@@ -354,3 +354,6 @@ keys/
 logs/
 
 docker-compose.override.yml
+/frontend/public/robots.txt
+/frontend/public/sitemap-0.xml
+/frontend/public/sitemap.xml

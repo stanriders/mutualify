@@ -195,7 +195,7 @@ export default function Header({title}) {
                     variant="outlined" 
                     href="/api/oauth/auth"
                     color="secondary"
-                    startIcon={<Avatar alt="a" src={`https://s.ppy.sh/a/-1`} />}>
+                    startIcon={<Avatar alt="avatar" src={`https://s.ppy.sh/a/-1`} />}>
                         Login
                   </Button>
                 )}

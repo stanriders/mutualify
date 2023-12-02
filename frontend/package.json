@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
@@ -17,8 +18,10 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.87",
     "@mui/material": "latest",
+    "date-fns": "^2.30.0",
     "localforage": "^1.10.0",
     "next": "latest",
+    "next-sitemap": "^4.2.3",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
