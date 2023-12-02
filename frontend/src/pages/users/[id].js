@@ -45,7 +45,7 @@ export default function Users({data}) {
             </Box>
 
             {data.friends.map((friend) => (
-                <User id={friend.id} key={friend.id} username={friend.username} mutual={friend.mutual} showFriendlistButton={friend.allowsFriendlistAccess} />
+                <User id={friend.id} key={friend.id} username={friend.username} mutual={friend.mutual} showFriendlistButton={friend.allowsFriendlistAccess} mutualDate={data.relationCreatedAt}/>
             ))}
           </>}
         </>}

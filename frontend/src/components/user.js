@@ -2,8 +2,10 @@ import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import ListIcon from '@mui/icons-material/List';
 import { useRouter } from 'next/router';
+import { Tooltip } from '@mui/material';
+import { formatDistance } from 'date-fns'
 
-export default function User({id, username, mutual = false, showFriendlistButton = false}) {
+export default function User({id, username, mutual = false, showFriendlistButton = false, mutualDate = null}) {
   const router = useRouter();
 
   var bgColor = mutual ? '#2f223366' : "transparent";
@@ -18,8 +20,14 @@ export default function User({id, username, mutual = false, showFriendlistButton
       router.push(`/users/${id}`);
   };
 
+  let mutualDateTooltip = "";
+  if (mutualDate) {
+    mutualDateTooltip = formatDistance(new Date(mutualDate), new Date(), { addSuffix: true });
+  }
+
   return (
     <>
+      <Tooltip title={mutualDateTooltip}>
         <Chip
             avatar={<Avatar alt={username} src={`https://s.ppy.sh/a/${id}`} />}
             label={username}
@@ -32,6 +40,7 @@ export default function User({id, username, mutual = false, showFriendlistButton
             deleteIcon={deleteIcon}
             color={mutual ? "primary" : "default"}
         />
+      </Tooltip>
     </>
     );
 }

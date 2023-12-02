@@ -41,7 +41,7 @@ export default function Friends() {
                 <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label="Sort by rank" />
           </FormGroup>
           {friends.map((data) => (
-            <User id={data.id} username={data.username} showFriendlistButton={data.allowsFriendlistAccess} />
+            <User id={data.id} username={data.username} showFriendlistButton={data.allowsFriendlistAccess} mutualDate={data.relationCreatedAt}/>
           ))}
         </>)}
       </>)}
