@@ -14,5 +14,7 @@ namespace Mutualify.Database.Models
         public User From { get; set; } = null!;
 
         public User To { get; set; } = null!;
+
+        public required DateTime? CreatedAt { get; set; }
     }
 }

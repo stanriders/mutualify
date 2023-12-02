@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Primitives;
 using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.Repositories.Interfaces;
@@ -91,12 +90,14 @@ public class UserRepository : IUserRepository
         if (builder.Length <= 0)
             return; // return early to not produce incorrect sql
 
+#pragma warning disable EF1002 // don't care
         await _databaseContext.Database.ExecuteSqlRawAsync(
             $@"insert into ""Users""(""Id"", ""CountryCode"", ""Username"", ""Title"", ""FollowerCount"", ""AllowsFriendlistAccess"", ""Rank"")
                       values{builder.ToString()}
                       on conflict (""Id"") do update
                       set (""CountryCode"", ""Username"", ""Title"", ""Rank"") = (EXCLUDED.""CountryCode"", EXCLUDED.""Username"", EXCLUDED.""Title"", EXCLUDED.""Rank"");"
             );
+#pragma warning restore EF1002
 
         await _databaseContext.SaveChangesAsync();
     }
@@ -135,7 +136,7 @@ public class UserRepository : IUserRepository
             return;
         }
 
-        var existingTokens = await _databaseContext.Tokens.SingleOrDefaultAsync(x => x.UserId == token.UserId);
+        var existingTokens = await _databaseContext.Tokens.FindAsync(token.UserId);
         if (existingTokens is not null)
         {
             existingTokens.AccessToken = token.AccessToken;

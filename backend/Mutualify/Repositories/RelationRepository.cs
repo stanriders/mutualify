@@ -23,7 +23,7 @@ public class RelationRepository : IRelationRepository
 
         var followers = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.ToId == userId)
-            .Select(x => new { Id = x.FromId, AllowsHighlighting = x.From.AllowsFriendlistAccess});
+            .Select(x => new { Id = x.FromId, AllowsHighlighting = x.From.AllowsFriendlistAccess, x.CreatedAt });
 
         var query = friends.Select(x => new RelationUser
         {
@@ -33,7 +33,8 @@ public class RelationRepository : IRelationRepository
             Username = x.Username,
             Rank = x.Rank,
             AllowsFriendlistAccess = x.AllowsFriendlistAccess,
-            Mutual = followers.Any(y=> y.Id == x.Id && y.AllowsHighlighting)
+            Mutual = followers.Any(y=> y.Id == x.Id && y.AllowsHighlighting),
+            RelationCreatedAt = followers.Where(y => y.Id == x.Id && y.AllowsHighlighting).Select(y=> y.CreatedAt).FirstOrDefault()
         });
 
         if (orderByRank)
@@ -47,7 +48,7 @@ public class RelationRepository : IRelationRepository
         var followers = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.ToId == userId)
             .Include(x => x.From)
-            .Select(x => x.From);
+            .Select(x => new {x.From, x.CreatedAt});
 
         var friends = _databaseContext.Relations.AsNoTracking()
             .Where(x => x.FromId == userId)
@@ -55,13 +56,14 @@ public class RelationRepository : IRelationRepository
 
         var query = followers.Select(x=> new RelationUser
         {
-            CountryCode = x.CountryCode,
-            Id = x.Id,
-            Title = x.Title,
-            Username = x.Username,
-            Rank = x.Rank,
-            AllowsFriendlistAccess = x.AllowsFriendlistAccess,
-            Mutual = friends.Contains(x.Id)
+            CountryCode = x.From.CountryCode,
+            Id = x.From.Id,
+            Title = x.From.Title,
+            Username = x.From.Username,
+            Rank = x.From.Rank,
+            AllowsFriendlistAccess = x.From.AllowsFriendlistAccess,
+            Mutual = friends.Contains(x.From.Id),
+            RelationCreatedAt = x.CreatedAt
         });
 
         if (orderByRank)
@@ -72,13 +74,13 @@ public class RelationRepository : IRelationRepository
 
     public async Task ReplaceRelations(int userId, List<Relation> relations)
     {
-        await using var transaction = await _databaseContext.Database.BeginTransactionAsync();
+        var oldRelations = await _databaseContext.Relations.Where(x => x.FromId == userId).ToListAsync();
 
-        var oldRelations = _databaseContext.Relations.Where(x => x.FromId == userId);
-        _databaseContext.Relations.RemoveRange(oldRelations);
+        var relationsToDelete = oldRelations.Where(x => relations.All(y => y.ToId != x.ToId)).ToList();
+        var relationsToAdd = relations.Where(x => oldRelations.All(y => y.ToId != x.ToId)).ToList();
 
-        await _databaseContext.Relations.AddRangeAsync(relations);
-        await transaction.CommitAsync();
+        _databaseContext.Relations.RemoveRange(relationsToDelete);
+        await _databaseContext.Relations.AddRangeAsync(relationsToAdd);
 
         await _databaseContext.SaveChangesAsync();
     }

@@ -24,12 +24,13 @@ using Mutualify.Services.Interfaces;
 using Newtonsoft.Json;
 using Npgsql;
 using Serilog;
+using Serilog.Settings.Configuration;
 using UAParser;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, services, configuration) => configuration
-    .ReadFrom.Configuration(context.Configuration, "Logging")
+    .ReadFrom.Configuration(context.Configuration, new ConfigurationReaderOptions() {SectionName = "Logging" })
     .ReadFrom.Services(services));
 
 #region Services
@@ -42,7 +43,12 @@ builder.Services.Configure<OsuApiConfig>(osuConfig);
 
 TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetEntryAssembly()!);
 TypeAdapterConfig.GlobalSettings.Compiler = x => x.CompileFast();
-TypeAdapterConfig<OsuUser, User>.NewConfig().Map(x => x.Rank, x => x.Statistics!.GlobalRank).Compile();
+
+TypeAdapterConfig<OsuUser, User>.NewConfig()
+    .Map(x => x.Rank, x => x.Statistics!.GlobalRank)
+    .Map(x=> x.UpdatedAt, x => DateTime.UtcNow)
+    .Compile();
+
 builder.Services.AddTransient<IMapper, Mapper>();
 
 var connectionString = new NpgsqlConnectionStringBuilder
@@ -131,10 +137,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddHangfire(x =>
 {
+#pragma warning disable CS0618 // can't use new method because of InvisibilityTimeout requirement which is still not implemented for postgresql
     x.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
         .UseSimpleAssemblyNameTypeSerializer()
         .UseRecommendedSerializerSettings()
         .UsePostgreSqlStorage(connectionString.ConnectionString, new PostgreSqlStorageOptions {InvisibilityTimeout = TimeSpan.FromDays(1)});
+#pragma warning restore CS0618
 });
 
 builder.Services.AddHangfireServer(options =>
@@ -210,6 +218,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetService<DatabaseContext>();
+    context?.Database.Migrate();
+}
+
 app.UseHangfireDashboard(options: new DashboardOptions
 {
     Authorization = new[] { new AuthorizationFilter() }
@@ -217,12 +231,6 @@ app.UseHangfireDashboard(options: new DashboardOptions
 app.MapHangfireDashboard();
 
 RecurringJob.AddOrUpdate<IUserUpdateJob>("user-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
-
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetService<DatabaseContext>();
-    context?.Database.Migrate();
-}
 
 try
 {

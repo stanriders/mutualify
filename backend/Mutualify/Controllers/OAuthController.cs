@@ -111,6 +111,7 @@ public class OAuthController : ControllerBase
             user.FollowerCount = osuUser.FollowerCount;
             user.Title = osuUser.Title;
             user.Rank = osuUser.Statistics?.GlobalRank;
+            user.UpdatedAt = DateTime.UtcNow;
 
             await _userRepository.Update(user);
         }

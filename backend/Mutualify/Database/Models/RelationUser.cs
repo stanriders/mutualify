@@ -15,5 +15,7 @@
         public bool Mutual { get; set; }
 
         public bool AllowsFriendlistAccess { get; set; }
+
+        public required DateTime? RelationCreatedAt { get; set; }
     }
 }

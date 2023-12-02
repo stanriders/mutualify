@@ -8,19 +8,23 @@ namespace Mutualify.Database.Models;
 public class User
 {
     [Key]
-    public int Id { get; set; }
+    public required int Id { get; set; }
 
-    public string CountryCode { get; set; } = null!;
+    public required string CountryCode { get; set; } = null!;
 
-    public string Username { get; set; } = null!;
+    public required string Username { get; set; } = null!;
 
     public string? Title { get; set; }
 
-    public int FollowerCount { get; set; }
+    public required int FollowerCount { get; set; }
 
     public int? Rank { get; set; }
 
     public bool AllowsFriendlistAccess { get; set; } = false;
+
+    public required DateTime? CreatedAt { get; set; }
+
+    public required DateTime? UpdatedAt { get; set; }
 
     [InverseProperty(nameof(Relation.To))]
     [JsonIgnore]

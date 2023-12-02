@@ -67,7 +67,8 @@ public class RelationsService : IRelationsService
         var relations = friends.Select(x => new Relation
         {
             FromId = userId,
-            ToId = x.Id
+            ToId = x.Id,
+            CreatedAt = DateTime.UtcNow
         }).ToList();
 
         await _relationRepository.ReplaceRelations(userId, relations);
