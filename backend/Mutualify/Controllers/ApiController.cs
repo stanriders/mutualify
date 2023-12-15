@@ -40,22 +40,22 @@ namespace Mutualify.Controllers
 
         [Authorize]
         [HttpGet("/friends")]
-        public Task<List<RelationUser>> GetFriends(bool orderByRank = false)
+        public Task<List<RelationUser>> GetFriends()
         {
-            return _relationsService.GetFriends(_claim, orderByRank);
+            return _relationsService.GetFriends(_claim);
         }
 
         [HttpGet("/friends/{id}")]
-        public Task<UserFriendsContract> GetFriendsById(int id, bool orderByRank = false)
+        public Task<UserFriendsContract> GetFriendsById(int id)
         {
-            return _relationsService.GetUsersFriends(id, orderByRank);
+            return _relationsService.GetUsersFriends(id);
         }
 
         [Authorize]
         [HttpGet("/followers")]
-        public Task<List<RelationUser>> GetFriendedBy(bool orderByRank = false)
+        public Task<List<RelationUser>> GetFriendedBy()
         {
-            return _relationsService.GetFollowers(_claim, orderByRank);
+            return _relationsService.GetFollowers(_claim);
         }
 
         [HttpGet("/rankings")]
@@ -81,7 +81,9 @@ namespace Mutualify.Controllers
             return new StatsContract
             {
                 RegisteredCount = await _userRepository.GetRegisteredUserCount(),
-                RelationCount = await _relationsService.GetRelationCount()
+                RelationCount = await _relationsService.GetRelationCount(),
+                EligibleForUpdateCount = await _userRepository.GetUsersEligibleForUpdateJobCount(),
+                LastDayRegisteredCount = await _userRepository.GetRegisteredInLastDayCount(),
             };
         }
 

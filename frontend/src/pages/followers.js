@@ -20,7 +20,7 @@ export default function Followers() {
     data: followers,
     error: followersError,
     isValidating: followersValidating 
-  } = useSWR(`/followers?orderByRank=${sortByRank}`, api);
+  } = useSWR(`/followers`, api);
 
   return (
     <>
@@ -47,6 +47,10 @@ export default function Followers() {
                 if (filterMutuals && data.mutual)
                   return false;
                 return true;
+              }).sort((a, b) => {
+                if (!sortByRank)
+                  return ('' + a.username).localeCompare(b.username);
+                return a.rank - b.rank;
               }).map((data) => (
                 <User id={data.id} key={data.id} username={data.username} mutual={data.mutual} showFriendlistButton={data.allowsFriendlistAccess} mutualDate={data.relationCreatedAt}/>
               ))}

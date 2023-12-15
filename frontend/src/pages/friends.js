@@ -18,7 +18,7 @@ export default function Friends() {
     data: friends,
     error: friendsError,
     isValidating: friendsValidating 
-  } = useSWR(`/friends?orderByRank=${sortByRank}`, api);
+  } = useSWR(`/friends`, api);
 
   const { user } = useContext(UserContext)
   return (
@@ -40,7 +40,12 @@ export default function Friends() {
           <FormGroup sx={{mb: 1}} row={true}>
                 <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label="Sort by rank" />
           </FormGroup>
-          {friends.map((data) => (
+          {friends.sort((a, b) => {
+                if (!sortByRank)
+                  return ('' + a.username).localeCompare(b.username);
+                return a.rank - b.rank;
+              })
+            .map((data) => (
             <User id={data.id} username={data.username} showFriendlistButton={data.allowsFriendlistAccess} mutualDate={data.relationCreatedAt}/>
           ))}
         </>)}
