@@ -9,10 +9,13 @@ export default function Stats({data}) {
         <title>Mutualify - Stats</title>
       </Head>
         <Typography variant="body1">
-            Registered users: {data.registeredCount}
+            Registered users: {data.registeredCount} ({data.lastDayRegisteredCount} in the last 24hr)
         </Typography>
         <Typography variant="body1">
             Relation count: {data.relationCount}
+        </Typography>
+        <Typography variant="body1">
+            Users eligible for autoupdate: {data.eligibleForUpdateCount}
         </Typography>
     </>
   );
