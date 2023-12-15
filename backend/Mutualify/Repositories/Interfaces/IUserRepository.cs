@@ -10,6 +10,8 @@ public interface IUserRepository
     Task<List<User>> GetFollowerRanking(int limit = 50, int offset = 0);
     Task<int> GetUserFollowerRankingPlacement(int userId);
     Task<int> GetRegisteredUserCount();
+    Task<int> GetRegisteredInLastDayCount();
+    Task<int> GetUsersEligibleForUpdateJobCount();
     Task<User> Add(User user);
     Task UpsertRange(List<User> users);
     Task Update(User user);

@@ -30,10 +30,8 @@ public class UserRepository : IUserRepository
 
     public Task<List<int>> GetUsersForUpdateJob()
     {
-        return _databaseContext.Relations.AsNoTracking()
-            .Where(x => _databaseContext.Tokens.Any(t => t.UserId == x.FromId))
-            .Select(x => x.FromId)
-            .Distinct()
+        return _databaseContext.Tokens.AsNoTracking()
+            .Select(x => x.UserId)
             .ToListAsync();
     }
 
@@ -60,6 +58,18 @@ public class UserRepository : IUserRepository
             .Select(x=> x.FromId)
             .Distinct()
             .CountAsync();
+    }
+
+    public Task<int> GetRegisteredInLastDayCount()
+    {
+        return _databaseContext.Users.AsNoTracking()
+            .Where(x => x.CreatedAt > DateTime.UtcNow.AddDays(-1))
+            .CountAsync();
+    }
+
+    public Task<int> GetUsersEligibleForUpdateJobCount()
+    {
+        return _databaseContext.Tokens.AsNoTracking().CountAsync();
     }
 
     public async Task<User> Add(User user)
