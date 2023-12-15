@@ -50,6 +50,11 @@ export default function Followers() {
               }).sort((a, b) => {
                 if (!sortByRank)
                   return ('' + a.username).localeCompare(b.username);
+                
+                // always put null ranked players at the end
+                if (a.rank == null)
+                  return 1;
+
                 return a.rank - b.rank;
               }).map((data) => (
                 <User id={data.id} key={data.id} username={data.username} mutual={data.mutual} showFriendlistButton={data.allowsFriendlistAccess} mutualDate={data.relationCreatedAt}/>

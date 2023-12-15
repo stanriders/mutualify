@@ -46,7 +46,7 @@ TypeAdapterConfig.GlobalSettings.Compiler = x => x.CompileFast();
 
 TypeAdapterConfig<OsuUser, User>.NewConfig()
     .Map(x => x.Rank, x => x.Statistics!.GlobalRank)
-    .Map(x=> x.UpdatedAt, x => DateTime.UtcNow)
+    .Map(x => x.UpdatedAt, x => DateTime.UtcNow)
     .Compile();
 
 builder.Services.AddTransient<IMapper, Mapper>();

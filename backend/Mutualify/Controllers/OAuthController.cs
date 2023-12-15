@@ -99,6 +99,7 @@ public class OAuthController : ControllerBase
         if (user is null)
         {
             user = _mapper.Map<OsuUser, User>(osuUser);
+            user.CreatedAt = DateTime.UtcNow;
 
             _logger.LogInformation("Adding user {Id} - {Username} to the database", osuUser.Id, osuUser.Username);
 
