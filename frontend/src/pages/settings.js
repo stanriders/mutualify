@@ -9,6 +9,8 @@ import TextField from '@mui/material/TextField';
 import { useContext, useEffect, useState } from 'react';
 import { apiNoResponse } from '../lib/api';
 import useAuth from '../hooks/useAuth';
+import Tooltip from '@mui/material/Tooltip';
+import { formatDistance } from 'date-fns'
 
 export default function Settings() {
   const { user } = useContext(UserContext)
@@ -39,6 +41,10 @@ export default function Settings() {
       setAllowFriendsAccess(user.allowsFriendlistAccess);
  }, [setAllowFriendsAccess, user]);
 
+  let tooltipTitle = "";
+  if (user)
+    tooltipTitle = `Updated ${formatDistance(new Date(user.updatedAt), new Date(), { addSuffix: true })}`
+
   return (
     <>
       <Head>
@@ -47,11 +53,13 @@ export default function Settings() {
         {!user && (<Unauthorized/>)}
         {user && (<>
           <Box>
-            <LoadingButton variant="outlined" 
-              loading={loading} 
-              onClick={handleRefresh} 
-              disabled={updated} 
-              children={updatedLabel} />
+            <Tooltip title={tooltipTitle}>
+              <LoadingButton variant="outlined" 
+                loading={loading} 
+                onClick={handleRefresh} 
+                disabled={updated} 
+                children={updatedLabel} />
+              </Tooltip>
           </Box>
           
           <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
