@@ -17,7 +17,7 @@ export default function Copyright() {
             color="text.secondary"
             sx={{mb: 2}}
           >
-           <Link href="/stats" underline="hover">Stats</Link> | <Link href="https://github.com/stanriders/mutualify" underline="hover">Source code</Link>
+           <Link href="/stats" underline="hover">Stats</Link> | <Link href="https://github.com/stanriders/mutualify" underline="hover">Source code</Link> | <Link href="https://paypal.me/stanridersnew" underline="hover">Donate ❤</Link>
         </Typography>
       </>
     );
