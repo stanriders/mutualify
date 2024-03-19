@@ -1,38 +1,102 @@
 ﻿using System.Net;
+using Microsoft.EntityFrameworkCore;
+using Mutualify.Contracts;
+using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.OsuApi.Interfaces;
 using Mutualify.OsuApi.Models;
-using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
 
 namespace Mutualify.Services
 {
     public class UsersService : IUsersService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IOsuApiProvider _osuApiDataService;
+        private readonly DatabaseContext _databaseContext;
         private readonly ILogger<UsersService> _logger;
 
-        public UsersService(IUserRepository userRepository, IOsuApiProvider osuApiDataService, ILogger<UsersService> logger)
+        public UsersService(IOsuApiProvider osuApiDataService, ILogger<UsersService> logger, DatabaseContext databaseContext)
         {
-            _userRepository = userRepository;
             _osuApiDataService = osuApiDataService;
             _logger = logger;
+            _databaseContext = databaseContext;
         }
 
         public async Task ToggleFriendlistAccess(int userId, bool allow)
         {
-            var user = await _userRepository.Get(userId, true);
+            var user = await _databaseContext.Users.FindAsync(userId);
             if (user is not null)
             {
                 user.AllowsFriendlistAccess = allow;
-                await _userRepository.Update(user);
+                _databaseContext.Users.Update(user);
+
+                await _databaseContext.SaveChangesAsync();
             }
+        }
+
+        public async Task<User?> Get(int userId)
+        {
+            return await _databaseContext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == userId);
+        }
+
+        public async Task<StatsContract> GetStats()
+        {
+            var registeredUsers = await _databaseContext.Relations.AsNoTracking()
+                .Select(x => x.FromId)
+                .Distinct()
+                .CountAsync();
+
+            var relationCount = await _databaseContext.Relations.AsNoTracking()
+                .LongCountAsync();
+
+            var lastDayRegistered = await _databaseContext.Users.AsNoTracking()
+                .Where(x => x.CreatedAt > DateTime.UtcNow.Date.AddDays(-1))
+                .CountAsync();
+
+            var updateEligible = await _databaseContext.Tokens.AsNoTracking()
+                .CountAsync();
+
+            return new StatsContract
+            {
+                RegisteredCount = registeredUsers,
+                RelationCount = relationCount,
+                EligibleForUpdateCount = updateEligible,
+                LastDayRegisteredCount = lastDayRegistered,
+            };
+        }
+
+        public async Task<RankingsContract> GetFollowerLeaderboard(int offset)
+        {
+            var users = await _databaseContext.Users.AsNoTracking()
+                .OrderByDescending(x => x.FollowerCount)
+                .Skip(offset)
+                .Take(50)
+                .ToListAsync();
+
+            var total = await _databaseContext.Relations.AsNoTracking()
+                    .Select(x => x.FromId)
+                    .Distinct()
+                    .CountAsync();
+
+            return new RankingsContract
+            {
+                Total = total,
+                Users = users
+            };
+        }
+
+        public async Task<int> GetFollowerLeaderboardRanking(int userId)
+        {
+            return await _databaseContext.UserFollowerRankingPlacements
+                .FromSqlInterpolated($"select x.row_number from (SELECT \"Id\", ROW_NUMBER() OVER(order by \"FollowerCount\" desc) FROM \"Users\") x WHERE x.\"Id\" = {userId}")
+                .AsNoTracking()
+                .Select(x => x.RowNumber)
+                .SingleOrDefaultAsync();
         }
 
         public async Task Update(int userId)
         {
-            var token = await _userRepository.GetTokens(userId);
+            var token = await _databaseContext.Tokens.FindAsync(userId);
             if (token is null)
                 return;
 
@@ -49,18 +113,17 @@ namespace Mutualify.Services
                     var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
                     if (newToken is not null)
                     {
-                        await _userRepository.UpsertTokens(new Token
-                        {
-                            UserId = userId,
-                            AccessToken = newToken.AccessToken,
-                            RefreshToken = newToken.RefreshToken
-                        });
+                        token.AccessToken = newToken.AccessToken;
+                        token.RefreshToken = newToken.RefreshToken;
+                        _databaseContext.Tokens.Update(token);
+                        await _databaseContext.SaveChangesAsync();
 
                         osuUser = await _osuApiDataService.GetUser(newToken.AccessToken);
                     }
                     else
                     {
-                        await _userRepository.RemoveTokens(userId);
+                        _databaseContext.Tokens.Remove(token);
+                        await _databaseContext.SaveChangesAsync();
                         throw;
                     }
                 }
@@ -69,23 +132,27 @@ namespace Mutualify.Services
             if (osuUser is null)
                 return;
 
-            var user = await _userRepository.Get(userId, true);
+            var user = await _databaseContext.Users.FindAsync(userId);
             if (user is not null)
             {
                 if (osuUser.IsRestricted)
                 {
                     _logger.LogInformation("User {User} tried updating, but they are restricted!", osuUser.Id);
-                    await _userRepository.Remove(user);
+                    _databaseContext.Users.Remove(user);
+                }
+                else
+                {
+                    user.Username = osuUser.Username;
+                    user.CountryCode = osuUser.CountryCode;
+                    user.FollowerCount = osuUser.FollowerCount;
+                    user.Title = osuUser.Title;
+                    user.Rank = osuUser.Statistics?.GlobalRank;
+                    user.UpdatedAt = DateTime.UtcNow;
+
+                    _databaseContext.Users.Update(user);
                 }
 
-                user.Username = osuUser.Username;
-                user.CountryCode = osuUser.CountryCode;
-                user.FollowerCount = osuUser.FollowerCount;
-                user.Title = osuUser.Title;
-                user.Rank = osuUser.Statistics?.GlobalRank;
-                user.UpdatedAt = DateTime.UtcNow;
-
-                await _userRepository.Update(user);
+                await _databaseContext.SaveChangesAsync();
             }
         }
     }

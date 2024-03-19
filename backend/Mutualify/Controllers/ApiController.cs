@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mutualify.Contracts;
 using Mutualify.Database.Models;
-using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
 
 namespace Mutualify.Controllers
@@ -15,18 +14,15 @@ namespace Mutualify.Controllers
     {
         private readonly IRelationsService _relationsService;
         private readonly IUsersService _usersService;
-        private readonly IUserRepository _userRepository;
         private readonly ILogger<ApiController> _logger;
 
         private int _claim => int.Parse(HttpContext.User.Identity!.Name!);
 
         public ApiController(IRelationsService relationsService,
-            IUserRepository userRepository,
             IUsersService usersService,
             ILogger<ApiController> logger)
         {
             _relationsService = relationsService;
-            _userRepository = userRepository;
             _usersService = usersService;
             _logger = logger;
         }
@@ -35,7 +31,7 @@ namespace Mutualify.Controllers
         [HttpGet("/me")]
         public Task<User> GetSelf()
         {
-            return _userRepository.Get(_claim)!;
+            return _usersService.Get(_claim)!;
         }
 
         [Authorize]
@@ -59,32 +55,22 @@ namespace Mutualify.Controllers
         }
 
         [HttpGet("/rankings")]
-        public async Task<RankingsContract> GetFollowerRanking(int offset = 0)
+        public Task<RankingsContract> GetFollowerRanking(int offset = 0)
         {
-            return new RankingsContract
-            {
-                Total = await _userRepository.GetRegisteredUserCount(),
-                Users = await _userRepository.GetFollowerRanking(50, offset)
-            };
+            return _usersService.GetFollowerLeaderboard(offset);
         }
 
         [Authorize]
         [HttpGet("/rankings/me")]
         public Task<int> GetFollowerRankingForUser()
         {
-            return _userRepository.GetUserFollowerRankingPlacement(_claim);
+            return _usersService.GetFollowerLeaderboardRanking(_claim);
         }
 
         [HttpGet("/stats")]
-        public async Task<StatsContract> GetStats()
+        public Task<StatsContract> GetStats()
         {
-            return new StatsContract
-            {
-                RegisteredCount = await _userRepository.GetRegisteredUserCount(),
-                RelationCount = await _relationsService.GetRelationCount(),
-                EligibleForUpdateCount = await _userRepository.GetUsersEligibleForUpdateJobCount(),
-                LastDayRegisteredCount = await _userRepository.GetRegisteredInLastDayCount(),
-            };
+            return _usersService.GetStats();
         }
 
         [Authorize]

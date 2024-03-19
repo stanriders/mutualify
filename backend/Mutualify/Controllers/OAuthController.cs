@@ -3,10 +3,10 @@ using MapsterMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.OsuApi.Interfaces;
 using Mutualify.OsuApi.Models;
-using Mutualify.Repositories.Interfaces;
 using Mutualify.Services.Interfaces;
 
 namespace Mutualify.Controllers;
@@ -17,21 +17,21 @@ public class OAuthController : ControllerBase
 {
     private readonly ILogger<OAuthController> _logger;
     private readonly IOsuApiProvider _osuApiDataService;
-    private readonly IUserRepository _userRepository;
+    private readonly DatabaseContext _databaseContext;
     private readonly IRelationsService _relationsService;
     private readonly IMapper _mapper;
 
     public OAuthController(ILogger<OAuthController> logger, 
     IOsuApiProvider osuApiDataService,
-    IUserRepository userRepository,
     IMapper mapper,
-    IRelationsService relationsService)
+    IRelationsService relationsService,
+    DatabaseContext databaseContext)
     {
         _logger = logger;
         _osuApiDataService = osuApiDataService;
-        _userRepository = userRepository;
         _mapper = mapper;
         _relationsService = relationsService;
+        _databaseContext = databaseContext;
     }
 
     /// <summary>
@@ -83,48 +83,69 @@ public class OAuthController : ControllerBase
         {
             _logger.LogInformation("User {User} tried logging in, but they are restricted!", osuUser.Id);
 
+            var dbUser = await _databaseContext.Users.FindAsync(osuUser.Id);
+            if (dbUser is not null)
+            {
+                // remove the account if they're restricted
+                _databaseContext.Users.Remove(dbUser);
+                await _databaseContext.SaveChangesAsync();
+            }
+
             await HttpContext.SignOutAsync("ExternalCookies");
 
             return Redirect($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/restricted");
         }
 
-        if (osuUser.IsRestricted || osuUser.IsBot || osuUser.IsDeleted)
+        if (osuUser.IsBot || osuUser.IsDeleted)
         {
-            _logger.LogInformation("User {User} tried logging in, but they are bot?!", osuUser.Id);
+            _logger.LogInformation("User {User} tried logging in, but they are a bot?!", osuUser.Id);
 
             return Forbid();
         }
 
-        var user = await _userRepository.Get(osuUser.Id, true);
-        if (user is null)
+        var existingUser = await _databaseContext.Users.FindAsync(osuUser.Id);
+        if (existingUser is null)
         {
-            user = _mapper.Map<OsuUser, User>(osuUser);
-            user.CreatedAt = DateTime.UtcNow;
+            var newUser = _mapper.Map<OsuUser, User>(osuUser);
+            newUser.CreatedAt = DateTime.UtcNow;
 
             _logger.LogInformation("Adding user {Id} - {Username} to the database", osuUser.Id, osuUser.Username);
 
-            await _userRepository.Add(user);
+            await _databaseContext.Users.AddAsync(newUser);
         }
         else
         {
-            user.Username = osuUser.Username;
-            user.CountryCode = osuUser.CountryCode;
-            user.FollowerCount = osuUser.FollowerCount;
-            user.Title = osuUser.Title;
-            user.Rank = osuUser.Statistics?.GlobalRank;
-            user.UpdatedAt = DateTime.UtcNow;
+            existingUser.Username = osuUser.Username;
+            existingUser.CountryCode = osuUser.CountryCode;
+            existingUser.FollowerCount = osuUser.FollowerCount;
+            existingUser.Title = osuUser.Title;
+            existingUser.Rank = osuUser.Statistics?.GlobalRank;
+            existingUser.UpdatedAt = DateTime.UtcNow;
 
-            await _userRepository.Update(user);
+            _databaseContext.Users.Update(existingUser);
         }
 
-        await _userRepository.UpsertTokens(new Token
+        var existingTokens = await _databaseContext.Tokens.FindAsync(osuUser.Id);
+        if (existingTokens is not null)
         {
-            UserId = user.Id,
-            AccessToken = accessToken,
-            RefreshToken = refreshToken
-        });
+            existingTokens.AccessToken = accessToken;
+            existingTokens.RefreshToken = refreshToken;
+            
+            _databaseContext.Tokens.Update(existingTokens);
+        }
+        else
+        {
+            await _databaseContext.Tokens.AddAsync(new Token
+            {
+                UserId = osuUser.Id,
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            });
+        }
 
-        await _relationsService.UpdateRelations(user.Id);
+        await _databaseContext.SaveChangesAsync();
+
+        await _relationsService.UpdateRelations(osuUser.Id);
 
         var claims = new List<Claim>
         {
