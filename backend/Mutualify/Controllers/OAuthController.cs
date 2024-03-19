@@ -130,7 +130,8 @@ public class OAuthController : ControllerBase
         {
             existingTokens.AccessToken = accessToken;
             existingTokens.RefreshToken = refreshToken;
-            
+            existingTokens.ExpiresOn = authResult.Properties?.ExpiresUtc?.DateTime ?? DateTime.UtcNow.AddDays(1);
+
             _databaseContext.Tokens.Update(existingTokens);
         }
         else
@@ -139,7 +140,8 @@ public class OAuthController : ControllerBase
             {
                 UserId = osuUser.Id,
                 AccessToken = accessToken,
-                RefreshToken = refreshToken
+                RefreshToken = refreshToken,
+                ExpiresOn = authResult.Properties?.ExpiresUtc?.DateTime ?? DateTime.UtcNow.AddDays(1)
             });
         }
 

@@ -98,7 +98,18 @@ namespace Mutualify.Services
         {
             var token = await _databaseContext.Tokens.FindAsync(userId);
             if (token is null)
+            {
                 return;
+            }
+
+            // refresh close-to-expiration tokens first
+            if (token.ExpiresOn <= DateTime.UtcNow.AddDays(1))
+            {
+                if (!await RefreshToken(token))
+                {
+                    return;
+                }
+            }
 
             OsuUser? osuUser = null;
 
@@ -110,27 +121,21 @@ namespace Mutualify.Services
             {
                 if (e.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
-                    if (newToken is not null)
+                    if (await RefreshToken(token))
                     {
-                        token.AccessToken = newToken.AccessToken;
-                        token.RefreshToken = newToken.RefreshToken;
-                        _databaseContext.Tokens.Update(token);
-                        await _databaseContext.SaveChangesAsync();
-
-                        osuUser = await _osuApiDataService.GetUser(newToken.AccessToken);
+                        osuUser = await _osuApiDataService.GetUser(token.AccessToken);
                     }
                     else
                     {
-                        _databaseContext.Tokens.Remove(token);
-                        await _databaseContext.SaveChangesAsync();
                         throw;
                     }
                 }
             }
 
             if (osuUser is null)
+            {
                 return;
+            }
 
             var user = await _databaseContext.Users.FindAsync(userId);
             if (user is not null)
@@ -154,6 +159,32 @@ namespace Mutualify.Services
 
                 await _databaseContext.SaveChangesAsync();
             }
+        }
+
+        private async Task<bool> RefreshToken(Token token)
+        {
+            var updated = false;
+
+            var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
+            if (newToken is not null)
+            {
+                token.AccessToken = newToken.AccessToken;
+                token.RefreshToken = newToken.RefreshToken;
+                token.ExpiresOn = DateTime.UtcNow.AddSeconds(newToken.ExpiresIn);
+
+                _databaseContext.Tokens.Update(token);
+                _logger.LogInformation("Updated tokens for user {UserId}", token.UserId);
+                updated = true;
+            }
+            else
+            {
+                _logger.LogWarning("Couldn't update tokens for user {UserId}, removing from database...", token.UserId);
+                _databaseContext.Tokens.Remove(token);
+            }
+
+            await _databaseContext.SaveChangesAsync();
+
+            return updated;
         }
     }
 }
