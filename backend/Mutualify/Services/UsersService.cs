@@ -87,10 +87,8 @@ namespace Mutualify.Services
 
         public async Task<int> GetFollowerLeaderboardRanking(int userId)
         {
-            return await _databaseContext.UserFollowerRankingPlacements
-                .FromSqlInterpolated($"select x.row_number from (SELECT \"Id\", ROW_NUMBER() OVER(order by \"FollowerCount\" desc) FROM \"Users\") x WHERE x.\"Id\" = {userId}")
-                .AsNoTracking()
-                .Select(x => x.RowNumber)
+            return await _databaseContext.Database
+                .SqlQuery<int>($"select x.row_number from (SELECT \"Id\", ROW_NUMBER() OVER(order by \"FollowerCount\" desc) FROM \"Users\") x WHERE x.\"Id\" = {userId}")
                 .SingleOrDefaultAsync();
         }
 

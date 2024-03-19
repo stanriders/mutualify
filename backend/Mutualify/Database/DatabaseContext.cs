@@ -11,8 +11,6 @@ public sealed class DatabaseContext : DbContext
 
     public DbSet<Relation> Relations { get; set; } = null!;
 
-    public DbSet<UserFollowerRankingPlacement> UserFollowerRankingPlacements { get; set; } = null!;
-
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
     private DatabaseContext() { }
