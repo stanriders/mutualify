@@ -166,7 +166,7 @@ public class OAuthController : ControllerBase
         await HttpContext.SignInAsync("InternalCookies", new ClaimsPrincipal(id), authProperties);
         await HttpContext.SignOutAsync("ExternalCookies");
 
-        _logger.LogDebug("User {Username} logged in, toke expires on {TokenExpiration}", osuUser.Username, tokenExpiration);
+        _logger.LogInformation("User {Username} logged in, toke expires on {TokenExpiration}", osuUser.Username, tokenExpiration);
         
         return Redirect($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/");
     }
