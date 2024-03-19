@@ -125,12 +125,14 @@ public class OAuthController : ControllerBase
             _databaseContext.Users.Update(existingUser);
         }
 
+        var tokenExpiration = authResult.Properties?.ExpiresUtc?.DateTime.ToUniversalTime() ?? DateTime.UtcNow.AddDays(1);
+
         var existingTokens = await _databaseContext.Tokens.FindAsync(osuUser.Id);
         if (existingTokens is not null)
         {
             existingTokens.AccessToken = accessToken;
             existingTokens.RefreshToken = refreshToken;
-            existingTokens.ExpiresOn = authResult.Properties?.ExpiresUtc?.DateTime ?? DateTime.UtcNow.AddDays(1);
+            existingTokens.ExpiresOn = tokenExpiration;
 
             _databaseContext.Tokens.Update(existingTokens);
         }
@@ -141,7 +143,7 @@ public class OAuthController : ControllerBase
                 UserId = osuUser.Id,
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
-                ExpiresOn = authResult.Properties?.ExpiresUtc?.DateTime ?? DateTime.UtcNow.AddDays(1)
+                ExpiresOn = tokenExpiration
             });
         }
 
@@ -164,7 +166,7 @@ public class OAuthController : ControllerBase
         await HttpContext.SignInAsync("InternalCookies", new ClaimsPrincipal(id), authProperties);
         await HttpContext.SignOutAsync("ExternalCookies");
 
-        _logger.LogDebug("User {Username} logged in", osuUser.Username);
+        _logger.LogDebug("User {Username} logged in, toke expires on {TokenExpiration}", osuUser.Username, tokenExpiration);
         
         return Redirect($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/");
     }
