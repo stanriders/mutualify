@@ -2,6 +2,7 @@ using System.Reflection;
 using FastExpressionCompiler;
 using Hangfire;
 using Hangfire.PostgreSql;
+using Hangfire.PostgreSql.Factories;
 using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Authentication;
@@ -17,8 +18,6 @@ using Mutualify.Jobs.Interfaces;
 using Mutualify.OsuApi;
 using Mutualify.OsuApi.Interfaces;
 using Mutualify.OsuApi.Models;
-using Mutualify.Repositories;
-using Mutualify.Repositories.Interfaces;
 using Mutualify.Services;
 using Mutualify.Services.Interfaces;
 using Newtonsoft.Json;
@@ -120,8 +119,6 @@ builder.Services.AddAuthentication("InternalCookies")
 builder.Services.AddHttpClient<OsuApiProvider>();
 
 builder.Services.AddSingleton<IOsuApiProvider, OsuApiProvider>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IRelationRepository, RelationRepository>();
 
 builder.Services.AddTransient<IRelationsService, RelationsService>();
 builder.Services.AddTransient<IUsersService, UsersService>();
@@ -137,12 +134,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddHangfire(x =>
 {
-#pragma warning disable CS0618 // can't use new method because of InvisibilityTimeout requirement which is still not implemented for postgresql
     x.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
         .UseSimpleAssemblyNameTypeSerializer()
         .UseRecommendedSerializerSettings()
-        .UsePostgreSqlStorage(connectionString.ConnectionString, new PostgreSqlStorageOptions {InvisibilityTimeout = TimeSpan.FromDays(1)});
-#pragma warning restore CS0618
+        .UsePostgreSqlStorage(options =>
+        {
+            options.UseConnectionFactory(new NpgsqlConnectionFactory(connectionString.ConnectionString,
+                new PostgreSqlStorageOptions { InvisibilityTimeout = TimeSpan.FromDays(1) }));
+        });
 });
 
 builder.Services.AddHangfireServer(options =>
