@@ -24,6 +24,7 @@ using Newtonsoft.Json;
 using Npgsql;
 using Serilog;
 using Serilog.Settings.Configuration;
+using SerilogTracing;
 using UAParser;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration, new ConfigurationReaderOptions() {SectionName = "Logging" })
     .ReadFrom.Services(services));
+
+using var tracer = new ActivityListenerConfiguration()
+    .Instrument.AspNetCoreRequests()
+    .TraceToSharedLogger();
 
 #region Services
 
