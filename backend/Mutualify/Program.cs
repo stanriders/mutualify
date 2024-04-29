@@ -130,6 +130,7 @@ builder.Services.AddTransient<IUsersService, UsersService>();
 
 builder.Services.AddTransient<IUserRelationsUpdateJob, UserRelationsUpdateJob>();
 builder.Services.AddTransient<IUserUpdateJob, UserUpdateJob>();
+builder.Services.AddTransient<IUserPopulateJob, UserPopulateJob>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
@@ -237,6 +238,7 @@ app.MapHangfireDashboard();
 
 RecurringJob.AddOrUpdate<IUserRelationsUpdateJob>("user-relations-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
 RecurringJob.AddOrUpdate<IUserUpdateJob>("users-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
+BackgroundJob.Enqueue<IUserPopulateJob>(x => x.Run(null!, JobCancellationToken.Null));
 
 try
 {
