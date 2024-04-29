@@ -1,10 +1,8 @@
-﻿using System.Net;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Mutualify.Contracts;
 using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.OsuApi.Interfaces;
-using Mutualify.OsuApi.Models;
 using Mutualify.Services.Interfaces;
 
 namespace Mutualify.Services
@@ -53,15 +51,20 @@ namespace Mutualify.Services
                 .Where(x => x.CreatedAt > DateTime.UtcNow.Date.AddDays(-1))
                 .CountAsync();
 
-            var updateEligible = await _databaseContext.Tokens.AsNoTracking()
+            var relationsUpdateEligible = await _databaseContext.Tokens.AsNoTracking()
+                .CountAsync();
+
+            var userUpdateEligible = await _databaseContext.Users.AsNoTracking()
+                .Where(x => x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
                 .CountAsync();
 
             return new StatsContract
             {
                 RegisteredCount = registeredUsers,
                 RelationCount = relationCount,
-                EligibleForUpdateCount = updateEligible,
-                LastDayRegisteredCount = lastDayRegistered,
+                EligibleForUpdateCount = relationsUpdateEligible,
+                EligibleForUserUpdateCount = userUpdateEligible,
+                LastDayRegisteredCount = lastDayRegistered
             };
         }
 
@@ -94,75 +97,54 @@ namespace Mutualify.Services
 
         public async Task Update(int userId)
         {
-            var token = await _databaseContext.Tokens.FindAsync(userId);
-            if (token is null)
+            var user = await _databaseContext.Users.FindAsync(userId);
+            if (user is null)
             {
+                _logger.Log(LogLevel.Error, "Tried updating user that doesn't exist????");
+
                 return;
             }
 
-            // refresh close-to-expiration tokens first
-            if (token.ExpiresOn <= DateTime.UtcNow.AddDays(1))
+            var token = await _databaseContext.Tokens.FindAsync(userId);
+            if (token is not null && token.ExpiresOn <= DateTime.UtcNow.AddDays(1))
             {
-                if (!await RefreshToken(token))
-                {
-                    return;
-                }
+                // refresh close-to-expiration tokens
+                await RefreshToken(token);
             }
 
-            OsuUser? osuUser = null;
-
-            try
-            {
-                osuUser = await _osuApiDataService.GetUser(token.AccessToken);
-            }
-            catch (HttpRequestException e)
-            {
-                if (e.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    if (await RefreshToken(token))
-                    {
-                        osuUser = await _osuApiDataService.GetUser(token.AccessToken);
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-            }
-
+            var osuUser = await _osuApiDataService.GetUser(userId);
             if (osuUser is null)
             {
                 return;
             }
 
-            var user = await _databaseContext.Users.FindAsync(userId);
-            if (user is not null)
+            if (osuUser.IsRestricted)
             {
-                if (osuUser.IsRestricted)
-                {
-                    _logger.LogInformation("User {User} tried updating, but they are restricted!", osuUser.Id);
-                    _databaseContext.Users.Remove(user);
-                }
-                else
-                {
-                    user.Username = osuUser.Username;
-                    user.CountryCode = osuUser.CountryCode;
-                    user.FollowerCount = osuUser.FollowerCount;
-                    user.Title = osuUser.Title;
-                    user.Rank = osuUser.Statistics?.GlobalRank;
-                    user.UpdatedAt = DateTime.UtcNow;
+                _logger.LogInformation("User {User} tried updating, but they are restricted!", osuUser.Id);
+                _databaseContext.Users.Remove(user);
 
-                    _databaseContext.Users.Update(user);
-                }
-
-                await _databaseContext.SaveChangesAsync();
+                // purge restricted users from relations completely
+                await _databaseContext.Relations
+                    .Where(x => x.FromId == osuUser.Id || x.ToId == osuUser.Id)
+                    .ExecuteDeleteAsync();
             }
+            else
+            {
+                user.Username = osuUser.Username;
+                user.CountryCode = osuUser.CountryCode;
+                user.FollowerCount = osuUser.FollowerCount;
+                user.Title = osuUser.Title;
+                user.Rank = osuUser.Statistics?.GlobalRank;
+                user.UpdatedAt = DateTime.UtcNow;
+
+                _databaseContext.Users.Update(user);
+            }
+
+            await _databaseContext.SaveChangesAsync();
         }
 
-        private async Task<bool> RefreshToken(Token token)
+        private async Task RefreshToken(Token token)
         {
-            var updated = false;
-
             var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
             if (newToken is not null)
             {
@@ -172,7 +154,6 @@ namespace Mutualify.Services
 
                 _databaseContext.Tokens.Update(token);
                 _logger.LogInformation("Updated tokens for user {UserId}", token.UserId);
-                updated = true;
             }
             else
             {
@@ -181,8 +162,6 @@ namespace Mutualify.Services
             }
 
             await _databaseContext.SaveChangesAsync();
-
-            return updated;
         }
     }
 }

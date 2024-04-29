@@ -6,4 +6,5 @@ public class StatsContract
     public long RelationCount { get; set; }
     public int LastDayRegisteredCount { get; set; }
     public int EligibleForUpdateCount { get; set; }
+    public int EligibleForUserUpdateCount { get; set; }
 }

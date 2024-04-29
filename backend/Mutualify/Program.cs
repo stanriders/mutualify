@@ -128,6 +128,7 @@ builder.Services.AddSingleton<IOsuApiProvider, OsuApiProvider>();
 builder.Services.AddTransient<IRelationsService, RelationsService>();
 builder.Services.AddTransient<IUsersService, UsersService>();
 
+builder.Services.AddTransient<IUserRelationsUpdateJob, UserRelationsUpdateJob>();
 builder.Services.AddTransient<IUserUpdateJob, UserUpdateJob>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -234,7 +235,8 @@ app.UseHangfireDashboard(options: new DashboardOptions
 });
 app.MapHangfireDashboard();
 
-RecurringJob.AddOrUpdate<IUserUpdateJob>("user-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
+RecurringJob.AddOrUpdate<IUserRelationsUpdateJob>("user-relations-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
+RecurringJob.AddOrUpdate<IUserUpdateJob>("users-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
 
 try
 {
