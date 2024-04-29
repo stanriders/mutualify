@@ -55,7 +55,7 @@ namespace Mutualify.Services
                 .CountAsync();
 
             var userUpdateEligible = await _databaseContext.Users.AsNoTracking()
-                .Where(x => x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
+                .Where(x => x.UpdatedAt == null || x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
                 .CountAsync();
 
             return new StatsContract

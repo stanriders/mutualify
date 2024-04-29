@@ -41,7 +41,7 @@ public class UserUpdateJob : IUserUpdateJob
         _lastStartDate = DateTime.Now;
 
         var userUpdateQueue = await _databaseContext.Users.AsNoTracking()
-            .Where(x=> x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
+            .Where(x=> x.UpdatedAt == null || x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
             .Select(x => x.Id)
             .ToListAsync();
 
