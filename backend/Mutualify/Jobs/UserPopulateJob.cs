@@ -21,7 +21,7 @@ namespace Mutualify.Jobs
         private readonly IMapper _mapper;
         private readonly ILogger<UserPopulateJob> _logger;
 
-        private bool _hasRun;
+        private static bool _hasRun;
 
         public UserPopulateJob(DatabaseContext databaseContext, IOsuApiProvider osuApiDataService, IMapper mapper, ILogger<UserPopulateJob> logger)
         {
@@ -100,7 +100,7 @@ namespace Mutualify.Jobs
 
                     if (added > 100)
                     {
-                        _logger.Log(LogLevel.Information, $"Populate job: saving 100 ({index}/{users.Length}) users...");
+                        _logger.Log(LogLevel.Information, "Populate job: saving 100 ({Index}/{Total}) users...", index, users.Length);
                         await _databaseContext.SaveChangesAsync();
 
                         added = 0;

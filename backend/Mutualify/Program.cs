@@ -167,7 +167,7 @@ app.UseSerilogRequestLogging(options =>
     {
         var parsedUserAgent = Parser.GetDefault()?.Parse(httpContext.Request.Headers.UserAgent);
         context.Set("UserId", httpContext.User.Identity?.Name);
-        context.Set("Browser", parsedUserAgent?.UA.ToString());
+        context.Set("Browser", parsedUserAgent?.Browser.ToString());
         context.Set("Device", parsedUserAgent?.Device.ToString());
         context.Set("OS", parsedUserAgent?.OS.ToString());
     };
@@ -238,7 +238,7 @@ app.MapHangfireDashboard();
 
 RecurringJob.AddOrUpdate<IUserRelationsUpdateJob>("user-relations-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
 RecurringJob.AddOrUpdate<IUserUpdateJob>("users-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
-BackgroundJob.Enqueue<IUserPopulateJob>(x => x.Run(null!, JobCancellationToken.Null));
+//BackgroundJob.Enqueue<IUserPopulateJob>(x => x.Run(null!, JobCancellationToken.Null));
 
 try
 {

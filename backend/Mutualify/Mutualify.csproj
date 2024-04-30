@@ -26,10 +26,7 @@
     <PackageReference Include="SerilogTracing.Instrumentation.AspNetCore" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\uap-csharp\UAParser.csproj" />
+    <PackageReference Include="UAParser.Core" Version="4.0.3" />
   </ItemGroup>
 
 </Project>

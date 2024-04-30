@@ -11,14 +11,14 @@ public class UserUpdateJob : IUserUpdateJob
 {
     private readonly DatabaseContext _databaseContext;
     private readonly IUsersService _usersService;
-    private readonly ILogger<UserRelationsUpdateJob> _logger;
+    private readonly ILogger<UserUpdateJob> _logger;
 
     private const int _interval = 2; // seconds
 
     private static bool _isRunning = false;
     private static DateTime _lastStartDate;
 
-    public UserUpdateJob(IUsersService usersService, IRelationsService relationsService, ILogger<UserRelationsUpdateJob> logger, DatabaseContext databaseContext)
+    public UserUpdateJob(IUsersService usersService, ILogger<UserUpdateJob> logger, DatabaseContext databaseContext)
     {
         _usersService = usersService;
         _logger = logger;
@@ -56,9 +56,13 @@ public class UserUpdateJob : IUserUpdateJob
             {
 #if !DEBUG
                 if (i % 100 == 0)
+                {
 #endif
                 _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i + 1,
                     userUpdateQueue.Count, userId);
+#if !DEBUG
+                }
+#endif
 
                 await _usersService.Update(userId);
             }
