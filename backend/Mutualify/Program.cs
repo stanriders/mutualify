@@ -141,7 +141,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddHangfire(x =>
 {
-    x.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+    x.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
         .UseSimpleAssemblyNameTypeSerializer()
         .UseRecommendedSerializerSettings()
         .UsePostgreSqlStorage(options =>
