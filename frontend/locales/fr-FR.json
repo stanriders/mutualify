@@ -22,57 +22,57 @@
     "Home": {
         "faq-title": "Mutualify - une base de données pour votre liste d'amis osu!",
         "faq-q": "Q",
-        "faq-a": "A",
+        "faq-a": "R",
         "faq-q1": "Qu'est-ce que c'est ?",
         "faq-a1": "Mutualify est une base de données pour la liste d'amis des joueurs de osu! Il stocke la liste d'amis de chaque joueur qui s'est connecté ainsi que d'autres données pertinentes.",
         "faq-q2": "Comment ça marche ?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a2": "l'API osu! permet aux sites Web d'obtenir la liste d'amis du joueur. Mutualify regarde les listes d'amis de tous les joueurs enregistrés pour voir qui suit qui.",
+        "faq-q3": "Est-il possible que Mutualify vole mon compte/mot de passe/données privées?",
+        "faq-a3": "Non, il ne peut accéder qu'à ce que le site web de osu! vous montre lorsque vous vous connectez quelle est votre liste d'amis, vos données de profil public et les données de profil public de votre ami. Il ne vous demandera jamais votre identifiant/mot de passe ou quoi que ce soit du genre.",
+        "faq-q4": "Pourquoi ne puis-je voir que certains de mes abonnés?",
+        "faq-a4": "Mutualify ne peut trouver que des personnes qui se sont connectées avant, donc passer le mot ! Plus de personnes inscrites signifie plus d'informations sur les abonnés."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Statistiques",
+        "registered": "Utilisateurs enregistrés : {registered} ({lastDayRegistered} dans les dernières 24h)",
+        "relations": "Nombre de relations : {relations}",
+        "autoupdate": "Utilisateurs éligibles pour la mise à jour automatique : {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Classement",
+        "your-rank": "Votre rang est #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Joueur",
+        "table-header-followers": "Abonnés"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Abonnés",
+        "followers-count": "Abonnés connus : {knownCount} sur {totalCount}.",
+        "hide-mutuals": "Masquer les amis mutuels"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Amis",
+        "friend-count": "Vous avez {friendCount} amis."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Utilisateur inconnu",
+        "unknown-user-message": "Cet utilisateur ne s'est jamais été connecté! Tu devrais peut-être leur dire ;)",
+        "private-list": "La liste d'amis de <user>{username}</user>est privée.",
+        "friend-count": "<user>{username}</user> a {friendsCount} amis."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Paramètres",
+        "refresh": "Actualisez votre liste d'amis",
+        "refresh-success": "Actualisé!",
+        "refresh-tooltip": "Mise à jour {updatedAgo}",
+        "allow-friendlist-access": "Autoriser d'autres utilisateurs à accéder à votre liste d'amis",
+        "profile-link": "Lien vers votre liste d'amis"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Non autorisé",
+        "message": "Désolé, mais les joueurs bannis ne sont pas autorisés à se connecter!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Connectez-vous d'abord!"
     }
 }
