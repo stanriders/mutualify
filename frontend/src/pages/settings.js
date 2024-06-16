@@ -11,15 +11,17 @@ import { apiNoResponse } from '../lib/api';
 import useAuth from '../hooks/useAuth';
 import Tooltip from '@mui/material/Tooltip';
 import { formatDistance } from 'date-fns'
+import {useTranslations} from 'next-intl';
 
 export default function Settings() {
+  const t = useTranslations('Settings');
   const { user } = useContext(UserContext)
   const { invalidateUserCache } = useAuth();
 
   const [updated, setUpdated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [allowFriendsAccess, setAllowFriendsAccess] = useState(false);
-  const [updatedLabel, setUpdatedLabel] = useState("Refresh your friend list");
+  const [updatedLabel, setUpdatedLabel] = useState(t("refresh"));
 
   async function handleRefresh() {
     setLoading(true);
@@ -27,7 +29,7 @@ export default function Settings() {
     await invalidateUserCache();
     setLoading(false);
     setUpdated(true);
-    setUpdatedLabel("Updated!");
+    setUpdatedLabel(t("refresh-success"));
   }
 
   async function handleShare(event) {
@@ -43,12 +45,12 @@ export default function Settings() {
 
   let tooltipTitle = "";
   if (user)
-    tooltipTitle = `Updated ${formatDistance(new Date(user.updatedAt), new Date(), { addSuffix: true })}`
+    tooltipTitle = t("refresh-tooltip", {updatedAgo: formatDistance(new Date(user.updatedAt), new Date(), { addSuffix: true })})
 
   return (
     <>
       <Head>
-        <title>Mutualify - Settings</title>
+        <title>{`Mutualify - ${t("title")}`}</title>
       </Head>
         {!user && (<Unauthorized/>)}
         {user && (<>
@@ -65,12 +67,12 @@ export default function Settings() {
           <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
             <FormControlLabel 
             control={<Switch defaultChecked={user.allowsFriendlistAccess} onChange={handleShare}/>} 
-            label="Allow other users to access your friend list" 
+            label={t("allow-friendlist-access")}
             sx={{ mb: 1}}/>
             
             {(<TextField
               disabled
-              label="Your profile link"
+              label={t("profile-link")}
               sx={{ flexGrow: 1, display: allowFriendsAccess ? 'inherit' : 'none' }}
               defaultValue={`https://mutualify.stanr.info/users/${user.id}`}
             />)}
@@ -79,3 +81,11 @@ export default function Settings() {
     </>
   );
 }
+
+export async function getStaticProps(context) {
+    return {
+      props: {
+        messages: (await import(`../../locales/${context.locale}.json`)).default
+      }
+    };
+  }

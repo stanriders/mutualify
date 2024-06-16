@@ -14,8 +14,12 @@ import UserContext from '../context/userContext';
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import useSWR from 'swr'
+import {useTranslations} from 'next-intl';
 
 export default function Rankings() {
+  const t = useTranslations('Leaderboard');
+  const tGeneric = useTranslations('Generic');
+
   const { user } = useContext(UserContext)
 
   const router = useRouter()
@@ -64,15 +68,15 @@ export default function Rankings() {
   return (
     <>
       <Head>
-        <title>Mutualify - Follower rankings</title>
+        <title>{`Mutualify - ${t("title")}`}</title>
       </Head>
       
       {playerRank && (<>
         <Typography variant="h6" sx={{mb: 1}}>
-            Your rank is #{playerRank}.
+            {t("your-rank", {rank: playerRank})}
         </Typography></>)}
 
-      {!players && playersValidating && 'Loading...'}
+      {!players && playersValidating && (<>{tGeneric("loading")}</>)}
       {!players && playersError && playersError.info && playersError.info}
 
       {players && (<>
@@ -80,9 +84,9 @@ export default function Rankings() {
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell width={24}>#</TableCell>
-                <TableCell>Player</TableCell>
-                <TableCell align="right">Followers</TableCell>
+                <TableCell width={24}>{t("table-header-rank")}</TableCell>
+                <TableCell>{t("table-header-player")}</TableCell>
+                <TableCell align="right">{t("table-header-followers")}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -103,3 +107,11 @@ export default function Rankings() {
     </>
   );
 }
+
+export async function getStaticProps(context) {
+    return {
+      props: {
+        messages: (await import(`../../locales/${context.locale}.json`)).default
+      }
+    };
+  }

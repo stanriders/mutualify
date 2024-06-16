@@ -9,8 +9,11 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { useContext, useState } from 'react';
+import {useTranslations} from 'next-intl';
 
 export default function Friends() {
+  const t = useTranslations('Friends');
+  const tGeneric = useTranslations('Generic');
 
   const [sortByRank, setSortByRank] = useState(false);
 
@@ -24,21 +27,21 @@ export default function Friends() {
   return (
     <>
       <Head>
-        <title>Mutualify - Friend list</title>
+        <title>{`Mutualify - ${t("title")}`}</title>
       </Head>
       {!user && (<Unauthorized/>)}
       {user && (<>
         {!friends && (<>
-            {friendsValidating && (<>Loading...</>)}
+            {friendsValidating && (<>{tGeneric("loading")}</>)}
             {friendsError && friendsError.info && (<>{friendsError.info}</>)}
         </>)}
 
         {friends && (<>
           <Typography variant="h6" sx={{mb: 1}}>
-            You have {friends.length} friends.
+            {t("friend-count", {friendCount: friends.length})}
           </Typography>
           <FormGroup sx={{mb: 1}} row={true}>
-                <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label="Sort by rank" />
+                <FormControlLabel control={<Switch checked={sortByRank} onChange={() => setSortByRank(!sortByRank)}/>} label={tGeneric("sort-by-rank")} />
           </FormGroup>
           {friends.sort((a, b) => {
                 if (!sortByRank)
@@ -56,3 +59,11 @@ export default function Friends() {
     </>
   );
 }
+
+export async function getStaticProps(context) {
+    return {
+      props: {
+        messages: (await import(`../../locales/${context.locale}.json`)).default
+      }
+    };
+  }

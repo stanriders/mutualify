@@ -1,39 +1,49 @@
 import Typography from '@mui/material/Typography';
 import Head from 'next/head'
+import {useTranslations} from 'next-intl';
 
 export default function Index() {
+  const t = useTranslations('Home');
   return (
     <>
       <Head>
         <title>Mutualify</title>
       </Head>
         <Typography variant="h6" align="center">
-            Mutualify is a friend list database for osu!
+          {t("faq-title")}
         </Typography>
         <Typography variant="body1" mb={0.5}>
-            <b>Q</b>: What is this?
+            <b>{t("faq-q")}</b>: {t("faq-q1")}
         </Typography>
         <Typography variant="body1" mb={2}>
-            <b>A</b>: Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.
+            <b>{t("faq-a")}</b>: {t("faq-a1")}
         </Typography>
         <Typography variant="body1" mb={0.5}>
-            <b>Q</b>: How does it work?
+            <b>{t("faq-q")}</b>: {t("faq-q2")}
         </Typography>
         <Typography variant="body1" mb={2}>
-            <b>A</b>: osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.
+            <b>{t("faq-a")}</b>: {t("faq-a2")}
         </Typography>
         <Typography variant="body1" mb={0.5}>
-            <b>Q</b>: Can it steal my account/password/private data? 
+            <b>{t("faq-q")}</b>: {t("faq-q3")}
         </Typography>
         <Typography variant="body1" mb={2}>
-            <b>A</b>: No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.
+            <b>{t("faq-a")}</b>: {t("faq-a3")}
         </Typography>
         <Typography variant="body1" mb={0.5}>
-            <b>Q</b>: Why can I see only some of my followers?
+            <b>{t("faq-q")}</b>: {t("faq-q4")}
         </Typography>
         <Typography variant="body1" mb={1}>
-            <b>A</b>: Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers.
+            <b>{t("faq-a")}</b>: {t("faq-a4")}
         </Typography>
     </>
   );
 }
+
+export async function getServerSideProps(context) {
+    return {
+      props: {
+        messages: (await import(`../../locales/${context.locale}.json`)).default
+      }
+    };
+  }

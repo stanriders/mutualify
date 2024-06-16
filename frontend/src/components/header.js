@@ -14,13 +14,21 @@ import MenuItem from '@mui/material/MenuItem';
 import UserContext from '../context/userContext';
 import useAuth from '../hooks/useAuth';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
+import {useRouter} from 'next/router';
+import Cookies from "js-cookie";
+import Locale from "./locale";
+import NextLink from 'next/link';
 
 export default function Header({title}) {
     const { user } = useContext(UserContext)
     const { logout } = useAuth()
+    const t = useTranslations('Header');
+    const router = useRouter();
 
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
+    const [anchorElLocale, setAnchorElLocale] = useState(null);
   
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
@@ -28,30 +36,51 @@ export default function Header({title}) {
     const handleOpenUserMenu = (event) => {
       setAnchorElUser(event.currentTarget);
     };
+    const handleOpenLocale = (event) => {
+      setAnchorElLocale(event.currentTarget);
+    };
   
     const handleCloseNavMenu = () => {
       setAnchorElNav(null);
     };
-  
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
+    };
+    const handleCloseLocale = () => {
+      setAnchorElLocale(null);
     };
 
     const menuItems = [
       {
-        title: "Friends",
+        title: t("friends"),
         link: "/friends"
       },
       {
-        title: "Followers",
+        title: t("followers"),
         link: "/followers"
       },
       {
-        title: "Rankings",
+        title: t("leaderboard"),
         link: "/rankings"
       }
     ];
     
+    function changeLocale(locale) {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: router.query
+        },
+        router.asPath,
+        { locale }
+      );
+
+      // Override the accept language header to persist chosen language
+      // @see https://nextjs.org/docs/advanced-features/i18n-routing#leveraging-the-next_locale-cookie
+      Cookies.set("NEXT_LOCALE", locale);
+      handleCloseLocale();
+    }
+
     return (
       <>
         <Paper elevation={2} sx={{
@@ -61,9 +90,8 @@ export default function Header({title}) {
 
           <Container sx={{px: 0}}>
             <Toolbar disableGutters>
-
               {/* Full size logo */}
-              <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+              <Box sx={{ flexGrow: 0, display: { xs: 'none', sm: 'none', md: 'flex' } }}>
                 <Image src="/logo.svg" width={40} height={40}/>
               </Box>
               <Typography
@@ -74,7 +102,7 @@ export default function Header({title}) {
                 sx={{
                   ml: 2,
                   mr: 2,
-                  display: { xs: 'none', md: 'flex' },
+                  display: { xs: 'none', sm: 'none', md: 'flex' },
                   fontFamily: 'monospace',
                   fontWeight: 700,
                   letterSpacing: '.2rem',
@@ -85,7 +113,7 @@ export default function Header({title}) {
                  Mutualify
               </Typography>
 
-              {/* Small size menu */}
+              {/* Small/medium size menu */}
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton
                   size="large"
@@ -116,23 +144,29 @@ export default function Header({title}) {
                   }}
                 >
                   {menuItems.map((items) => (
-                    <MenuItem component="a" key={items.title} href={items.link}>
+                    <MenuItem component={NextLink} key={items.title} href={items.link}>
                       <Typography textAlign="center">{items.title}</Typography>
                     </MenuItem>
                   ))}
                 </Menu>
               </Box>
-
+              
               {/* Small size logo */}
+              <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none', md: 'none' } }}>
+                <Image src="/logo.svg" width={40} height={40}/>
+              </Box>
+
+              {/* Medium size logo */}
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="/"
                 sx={{
+                  ml: 2,
                   mr: 2,
-                  display: { xs: 'flex', md: 'none' },
                   flexGrow: 1,
+                  display: { xs: 'none', sm: 'flex', md: 'none' },
                   fontFamily: 'monospace',
                   fontWeight: 700,
                   letterSpacing: '.2rem',
@@ -140,23 +174,50 @@ export default function Header({title}) {
                   textDecoration: 'none',
                 }}
               >
-                Mutualify
+                 Mutualify
               </Typography>
+
 
               {/* Full size menu */}
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {menuItems.map((items) => (
-                  <Button href={items.link} key={items.title} color="secondary" sx={{ my: 2, display: 'block' }}>
+                  <Button href={items.link} key={items.title} color="secondary" sx={{ my: 2, display: 'block' }} component={NextLink}>
                       {items.title}
                   </Button>
                   ))}
               </Box>
 
-              {/* Any size user */}
+              {/* Any size settings */}
               <Box sx={{ flexGrow: 0 }}>
+                <Button sx={{ mr: 1, maxWidth: 35, minWidth: 35 }}
+                        size="large"
+                        variant="outlined" 
+                        color="secondary" 
+                        onClick={handleOpenLocale}>
+                          <Locale locale={router.locale}/>
+                </Button>
+                <Menu
+                    sx={{ mt: '45px' }}
+                    id="menu-appbar"
+                    anchorEl={anchorElLocale}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={Boolean(anchorElLocale)}
+                    onClose={handleCloseLocale}
+                  >
+                  <MenuItem onClick={() => changeLocale('en-US')}><Locale locale='en-US'/></MenuItem>
+                  <MenuItem onClick={() => changeLocale('ru-RU')}><Locale locale='ru-RU'/></MenuItem>
+                </Menu>
                 {user && (
                 <>
-                  <Tooltip title="Open settings">
+                  <Tooltip title={t("user-tooltip")}>
                     <Button onClick={handleOpenUserMenu}
                       size="large"
                       variant="outlined" 
@@ -181,11 +242,11 @@ export default function Header({title}) {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    <MenuItem component="a" href="/settings">
-                      <Typography textAlign="center">Settings</Typography>
+                    <MenuItem component={NextLink} href="/settings">
+                      <Typography textAlign="center">{t("settings")}</Typography>
                     </MenuItem>
                     <MenuItem onClick={logout}>
-                      <Typography textAlign="center">Logout</Typography>
+                      <Typography textAlign="center">{t("logout")}</Typography>
                     </MenuItem>
                   </Menu>
                 </>
@@ -196,7 +257,7 @@ export default function Header({title}) {
                     href="/api/oauth/auth"
                     color="secondary"
                     startIcon={<Avatar alt="avatar" src={`https://s.ppy.sh/a/-1`} />}>
-                        Login
+                        {t("login")}
                   </Button>
                 )}
               </Box>

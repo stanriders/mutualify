@@ -16,8 +16,12 @@ export default function User({id, username, mutual = false, showFriendlistButton
   };
 
   const handleDelete = () => {
-    if (showFriendlistButton)
-      router.push(`/users/${id}`);
+    if (showFriendlistButton) {
+      if (router.locale != 'en-US')
+        router.push(`/${router.locale}/users/${id}`);
+      else
+        router.push(`/users/${id}`);
+    }
   };
 
   let mutualDateTooltip = "";

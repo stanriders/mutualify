@@ -1,21 +1,23 @@
 import Typography from '@mui/material/Typography';
 import Head from 'next/head'
 import api from '../lib/api'
+import {useTranslations} from 'next-intl';
 
 export default function Stats({data}) {
+  const t = useTranslations('Stats');
   return (
     <>
       <Head>
-        <title>Mutualify - Stats</title>
+        <title>{`Mutualify - ${t("title")}`}</title>
       </Head>
         <Typography variant="body1">
-            Registered users: {data.registeredCount} ({data.lastDayRegisteredCount} in the last 24hr)
+          {t("registered", {registered: data.registeredCount, lastDayRegistered: data.lastDayRegisteredCount})}
         </Typography>
         <Typography variant="body1">
-            Relation count: {data.relationCount}
+          {t("relations", {relations: data.relationCount})}
         </Typography>
         <Typography variant="body1">
-            Users eligible for autoupdate: {data.eligibleForUpdateCount}
+          {t("autoupdate", {eligible: data.eligibleForUpdateCount})}
         </Typography>
     </>
   );
@@ -24,6 +26,6 @@ export default function Stats({data}) {
 export async function getServerSideProps(context) {
     const data = await api(`/stats`);
     return {
-      props: {data}
+      props: {data, messages: (await import(`../../locales/${context.locale}.json`)).default}
     }
   }
