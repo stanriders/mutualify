@@ -1,78 +1,78 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Načítání...",
+        "page-not-found": "Stránka nebyla nalezena",
+        "sort-by-rank": "Seřadit podle ranku"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Přátelé",
+        "followers": "Sledující",
+        "leaderboard": "Tabulka pořadí",
+        "login": "Přihlásit se",
+        "logout": "Odhlásit se",
+        "settings": "Nastavení",
+        "user-tooltip": "Otevřít nastavení"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "Vytvořeno <stanr>StanR</stanr>, ikona od <arhella>Arhella</arhella>.",
+        "stats": "Statistiky",
+        "source": "Source kód",
+        "donate": "Přispět ❤️"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - databáze seznamu přátel pro osu!",
         "faq-q": "Q",
         "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-q1": "Co je to?",
+        "faq-a1": "Mutualify je databáze pro seznamy přátel hráčů osu!. Ukládá seznam přátel každého hráče který se přihlásil a nějáká další relevantní data.",
+        "faq-q2": "Jak to funguje?",
+        "faq-a2": "osu! API umožňuje webovým stránkám získat seznam přátel. Mutualify kontroluje seznamy přátel všech registrovaných hráčů a vidí kdo sleduje koho.",
+        "faq-q3": "Může to ukrást můj účet/heslo/soukromá data?",
+        "faq-a3": "Ne, má přístup pouze k tomu co ukazuje osu! webová stránka když se přihlásíš, což je tvůj seznam přátel, věřejná data a data veřejných profilů tvých přátel. Nikdy nepožádá o tvoje přihlášovací jméno/heslo nebo nečo podobného.",
+        "faq-q4": "Proč mohu vidět jen některé ze svých sledujících?",
+        "faq-a4": "Mutualify umí najít pouze lidi, kteří se přihlásili dříve, tak informujte ostatní! Více registrovaných lidí znamená více informací o sledujících."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Statistiky",
+        "registered": "Registrovaní uživatelé: {registered} ({lastDayRegistered} za posledních 24 hodin)",
+        "relations": "Počet vztahů: {relations}",
+        "autoupdate": "Uživatelé způsobilí pro automatické aktualizace: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Žebříček",
+        "your-rank": "Tvůj rank je #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Hráč",
+        "table-header-followers": "Sledující"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Sledující",
+        "followers-count": "Známí sledující: {knownCount} z {totalCount}.",
+        "hide-mutuals": "Skrýt mutuály"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Přátelé",
+        "friend-count": "Máte {friendCount} přátele."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Neznámý uživatel",
+        "unknown-user-message": "Tento uživatel se nikdy nepřihlásil! Můžete je o to požádat ;)",
+        "private-list": "<user>{username}</user> má soukromý seznam přátel.",
+        "friend-count": "<user>{username}</user> má {friendsCount} přátele."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Nastavení",
+        "refresh": "Aktualizovat seznam přátel",
+        "refresh-success": "Aktualizováno!",
+        "refresh-tooltip": "Aktualizováno {updatedAgo}",
+        "allow-friendlist-access": "Povolit ostatním uživatelům přístup k vašemu seznamu přátel",
+        "profile-link": "Odkaz na váš seznam přátel"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Nepovoleno",
+        "message": "Je nám líto, ale omezeným hráčům není dovoleno se přihlásit!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Nejdřív se přihlaste!"
     }
 }
