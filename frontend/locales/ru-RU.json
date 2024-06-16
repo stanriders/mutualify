@@ -45,7 +45,7 @@
         "autoupdate": "Игроков попадающих под автообновление: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
+        "title": "Рейтинг",
         "your-rank": "Ваше место в таблице #{rank}.",
 
         "table-header-rank": "#",
