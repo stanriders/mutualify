@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "加载中...",
+        "page-not-found": "找不到页面",
+        "sort-by-rank": "按排名排序"
+    },
+    "Header": {
+        "friends": "好友",
+        "followers": "关注者",
+        "leaderboard": "排名",
+        "login": "登录",
+        "logout": "登出",
+        "settings": "设置",
+        "user-tooltip": "前往设置"
+    },
+    "Footer": {
+        "made-by": "由 <stanr>StanR</stanr>开发，图标由 <arhella>Arhella</arhella> 绘制。",
+        "stats": "统计资料",
+        "source": "源代码",
+        "donate": "捐助 ❤️"
+    },
+    "Home": {
+        "faq-title": "Mutualify - 一个 osu! 好友列表的数据库",
+        "faq-q": "问",
+        "faq-a": "答",
+        "faq-q1": "这是什么?",
+        "faq-a1": "Mutualify 是一个 osu! 玩家的好友列表数据库。 它保存每个在此登录过的玩家的好友列表以及其他一些相关的数据。",
+        "faq-q2": "它是如何工作的？",
+        "faq-a2": "osu! API 允许网站获取玩家的好友列表。Mutualify 通过交叉检查所有注册玩家的好友列表，来查看谁跟随了哪个人。",
+        "faq-q3": "它会盗取我的帐户/密码/私人数据吗？",
+        "faq-a3": "不能，它只能在您登录时使用您 osu! 网站上显示的好友列表、公开个人资料数据和您好友的公开个人资料数据。它永远不会要求您的登录密码或类似的任何信息。",
+        "faq-q4": "为什么我只能看到我的追随者的一部分？",
+        "faq-a4": "Mutualify只能找到登陆过这里的人，所以传播这个网站吧！更多在这里注册过的人就意味着更多有关关注者的信息。"
+    },
+    "Stats": {
+        "title": "统计",
+        "registered": "共有 {registered} 个用户注册，(过去24小时内{lastDayRegistered} 个用户注册)",
+        "relations": "关系数量: {relations}",
+        "autoupdate": "允许自动更新的用户: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "排行榜",
+        "your-rank": "您的排名是 #{rank}。",
+        "table-header-rank": "#",
+        "table-header-player": "玩家",
+        "table-header-followers": "关注者"
+    },
+    "Followers": {
+        "title": "关注者",
+        "followers-count": "已知的关注者有 {knownCount} 个，共计{totalCount} 个。",
+        "hide-mutuals": "隐藏互关"
+    },
+    "Friends": {
+        "title": "我的好友",
+        "friend-count": "你有 {friendCount} 个好友。"
+    },
+    "User": {
+        "unknown-user-title": "未知用户",
+        "unknown-user-message": "此用户从未在此登录过！您可能想告诉他们来试试;)",
+        "private-list": "<user>{username}</user>的好友列表是私密的。",
+        "friend-count": "<user>{username}</user> 有 {friendsCount} 个好友。"
+    },
+    "Settings": {
+        "title": "设置",
+        "refresh": "刷新好友列表",
+        "refresh-success": "已更新！",
+        "refresh-tooltip": "在 {updatedAgo} 更新",
+        "allow-friendlist-access": "允许其他用户访问您的好友列表",
+        "profile-link": "您的好友列表链接"
+    },
+    "Restricted": {
+        "title": "不允许",
+        "message": "抱歉，但受限制的玩家不允许登录！"
+    },
+    "Unauthorized": {
+        "message": "请先登录！"
+    }
+}
