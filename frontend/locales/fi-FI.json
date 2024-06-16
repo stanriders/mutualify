@@ -23,11 +23,11 @@
         "faq-title": "Mutualify - kaverilistatietokanta osulle!",
         "faq-q": "Q",
         "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
+        "faq-q1": "Mikä tämä on?",
+        "faq-a1": "Mutualify on tietokanta osu!-pelaajien ystävyyslistoille. Se tallentaa jokaisen sisäänkirjautuneen pelaajan ystävyyslistan sekä muita asiaankuuluvia tietoja.",
+        "faq-q2": "Kuinka se toimii?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
+        "faq-q3": "Voiko se varastaa tilini/salasanani/yksityiset tiedot?",
         "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Why can I see only some of my followers?",
         "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
@@ -39,40 +39,40 @@
         "autoupdate": "Users eligible for autoupdate: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Tulostaulukko",
+        "your-rank": "Sijoituksesi on #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Pelaaja",
+        "table-header-followers": "Seuraajat"
     },
     "Followers": {
-        "title": "Followers",
+        "title": "Seuraajat",
         "followers-count": "Known followers: {knownCount} out of {totalCount}.",
         "hide-mutuals": "Hide mutuals"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Kaverit",
+        "friend-count": "Sinulla on {friendCount} kaveria."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-title": "Tuntematon käyttäjä",
+        "unknown-user-message": "Tämä käyttäjä ei ole koskaan kirjautunut sisään! Voit halutessasi kertoa heille ;)",
         "private-list": "<user>{username}</user>'s friend list is private.",
         "friend-count": "<user>{username}</user> has {friendsCount} friends."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Asetukset",
+        "refresh": "Päivitä kaverilistasi",
+        "refresh-success": "Päivitetty",
+        "refresh-tooltip": "Päivitetty {updatedAgo} sitten",
+        "allow-friendlist-access": "Salli muiden käyttäjien käyttää kaveriluetteloasi",
+        "profile-link": "Kaverilistasi linkki"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Ei sallittu",
+        "message": "Pahoittelut, mutta rajoitetut pelaajat eivät saa kirjautua sisään!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Kirjaudu ensin sisään!"
     }
 }
