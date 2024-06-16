@@ -33,7 +33,7 @@ public class UserRelationsUpdateJob : IUserRelationsUpdateJob
 
         _logger.LogInformation("[{JobId}] Starting user relations update job...", jobId);
 
-        if (_isRunning && _lastStartDate.AddDays(2) > DateTime.Now)
+        if (_isRunning && _lastStartDate.AddDays(1.5) > DateTime.Now)
         {
             _logger.LogInformation("[{JobId}] User relations job is already running, abort!", jobId);
             return;
