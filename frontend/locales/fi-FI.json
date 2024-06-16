@@ -1,26 +1,26 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Ladataan...",
+        "page-not-found": "Sivua ei löydy",
+        "sort-by-rank": "Järjestä sijoituksen mukaan"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Kaverit",
+        "followers": "Seuraajat",
+        "leaderboard": "Sijoitukset",
+        "login": "Kirjaudu sisään",
+        "logout": "Kirjaudu ulos",
+        "settings": "Asetukset",
+        "user-tooltip": "Avaa asetukset"
     },
     "Footer": {
         "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "stats": "Tilastot",
+        "source": "Lähdekoodi",
+        "donate": "Lahjoita ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - kaverilistatietokanta osulle!",
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "What is this?",
