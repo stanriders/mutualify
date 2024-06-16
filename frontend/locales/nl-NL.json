@@ -20,59 +20,59 @@
         "donate": "Doneer ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - een vriendenlijst database voor osu!",
         "faq-q": "Q",
         "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-q1": "Wat is dit?",
+        "faq-a1": "Mutualify is een database voor vriendenlijsten van osu! spelers. Het slaat de vriendenlijst op van alle spelers die ingelogd zijn en andere relevante data.",
+        "faq-q2": "Hoe werkt dit?",
+        "faq-a2": "osu! API laat websites de vriendenlijst van spelers zien. Mutualify cross-checks vriendenlijsten van alle geregistreerde spelers om te zien wie wie volgt.",
+        "faq-q3": "Kan het mijn account/wachtwoord/persoonlijke gegevens verzamelen?",
+        "faq-a3": "Nee, het heeft alleen toegang tot wat de osu! website toont wanneer je inlogt. Dat zijn je vriendenlijst, je openbare profiel gegevens en jouw vrienden zijn openbare profiel gegevens. Het zou nooit vragen om jouw wachtwoord of iets dergelijks.",
+        "faq-q4": "Waarom kan ik alleen sommige van mijn volgers zien?",
+        "faq-a4": "Mutualify kan alleen mensen vinden die eerder zijn ingelogd, dus verspreid het woord! Meer geregistreerde mensen betekent meer informatie over wie jou volgt."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Statistieken",
+        "registered": "Geregistreerde gebruikers: {registered} ({lastDayRegistered} in de laatste 24u)",
+        "relations": "Aantal Relaties: {relations}",
+        "autoupdate": "Gebruikers die in aanmerking komen voor autoupdate: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Ranglijst",
+        "your-rank": "Jouw rank is #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Speler",
+        "table-header-followers": "Volgers"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Volgers",
+        "followers-count": "Bekende volgers: {knownCount} van {totalCount}.",
+        "hide-mutuals": "Verberg mutuals"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Vrienden",
+        "friend-count": "U heeft {friendCount} vrienden."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Onbekende gebruiker",
+        "unknown-user-message": "Deze gebruiker heeft zich nooit aangemeld! Misschien wil je hem het aanraden ;)",
+        "private-list": "<user>{username}</user>zijn vriendenlijst is privé.",
+        "friend-count": "<user>{username}</user> heeft {friendsCount} vrienden."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Instellingen",
+        "refresh": "Ververs uw vriendenlijst",
+        "refresh-success": "Bijgewerkt!",
+        "refresh-tooltip": "Bijgewerkt {updatedAgo}",
+        "allow-friendlist-access": "Sta andere gebruikers toe om toegang te krijgen tot uw vriendenlijst",
+        "profile-link": "Uw vriendenlijst link"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Niet toegestaan",
+        "message": "Sorry, maar beperkte spelers zijn niet toegestaan om in te loggen!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Eerst inloggen!"
     }
 }
