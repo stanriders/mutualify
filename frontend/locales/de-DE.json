@@ -1,78 +1,78 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Wird geladen...",
+        "page-not-found": "Die Seite wurde nicht gefunden",
+        "sort-by-rank": "Nach Rang sortieren"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Freunde",
+        "followers": "Follower",
+        "leaderboard": "Ranglisten",
+        "login": "Anmelden",
+        "logout": "Abmelden",
+        "settings": "Einstellungen",
+        "user-tooltip": "Einstellungen öffnen"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "Erstellt von <stanr>StanR</stanr>, Logo von <arhella>Arhella</arhella>.",
+        "stats": "Statistiken",
+        "source": "Quellcode",
+        "donate": "Spenden ❤️"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
-        "faq-q": "Q",
-        "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-title": "Mutualify - eine Freundeslisten-Datenbank für osu!",
+        "faq-q": "Frage",
+        "faq-a": "Antwort",
+        "faq-q1": "Was ist das?",
+        "faq-a1": "Mutualify ist eine Datenbank für Freundeslisten von osu!-Spielern. Es speichert die Freundeslisten aller eingeloggten Spieler sowie andere relevanten Daten.",
+        "faq-q2": "Wie funktioniert es?",
+        "faq-a2": "Die osu! API erlaubt Webseiten, die Freundeslisten von Spielern zu erhalten. Mutualify vergleicht die Freundeslisten aller registrierten Spieler, um zu sehen, wer wem folgt.",
+        "faq-q3": "Kann es mein Konto/mein Passwort/meine privaten Daten stehlen?",
+        "faq-a3": "Nein, es kann nur auf das Zugreifen, was dir auf der osu! Webseite angezeigt wird, wenn du dich einloggst. Dabei handelt es sich um deine Freundesliste, deine öffentlichen Profildaten und die öffentlichen Profildaten deiner Freunde. Es wird nie nach deinem Login/Passwort oder ähnlichem gefragt.",
+        "faq-q4": "Warum kann ich nicht alle meine Follower sehen?",
+        "faq-a4": "Mutualify kann nur Spieler finden, die sich zuvor eingeloggt haben, also verbreitet die Nachricht! Mehr registrierte Spieler bedeutet mehr Informationen über Follower."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Statistiken",
+        "registered": "Registrierte Benutzer: {registered} ({lastDayRegistered} in den letzten 24h)",
+        "relations": "Beziehungsanzahl: {relations}",
+        "autoupdate": "Benutzer mit Qualifizierung für automatische Updates: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Rangliste",
+        "your-rank": "Dein Rang ist #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Spieler",
+        "table-header-followers": "Follower"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Follower",
+        "followers-count": "Bekannte Follower: {knownCount} von {totalCount}.",
+        "hide-mutuals": "Verstecke gegenseitige Follower"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Freunde",
+        "friend-count": "Du hast {friendCount} Freunde."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Unbekannter Benutzer",
+        "unknown-user-message": "Dieser Benutzer hat sich nie eingeloggt! Vielleicht möchtest du ihm Bescheid geben ;)",
+        "private-list": "<user>{username}</user> Freundesliste ist privat.",
+        "friend-count": "<user>{username}</user> hat {friendsCount} Freunde."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Einstellungen",
+        "refresh": "Freundesliste aktualisieren",
+        "refresh-success": "Aktualisiert!",
+        "refresh-tooltip": "Vor {updatedAgo} aktualisiert",
+        "allow-friendlist-access": "Erlaube anderen Benutzern Zugriff auf deine Freundesliste",
+        "profile-link": "Link zu deiner Freundesliste"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Nicht erlaubt",
+        "message": "Es tut uns leid, aber eingeschränkte Spieler dürfen sich nicht einloggen!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Du musst dich zuerst anmelden!"
     }
 }
