@@ -1,29 +1,29 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "正在載入…",
+        "page-not-found": "無法找到此頁面",
+        "sort-by-rank": "按排名排序"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "好友",
+        "followers": "粉絲",
+        "leaderboard": "排行榜",
+        "login": "登入",
+        "logout": "登出",
+        "settings": "設定",
+        "user-tooltip": "打開設定"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "製作: <stanr>StanR</stanr> 圖標: <arhella>Arhella</arhella>",
+        "stats": "統計數據",
+        "source": "原始碼",
+        "donate": "捐助❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
-        "faq-q": "Q",
-        "faq-a": "A",
-        "faq-q1": "What is this?",
+        "faq-title": "Mutualify - osu! 的好友列表資料庫",
+        "faq-q": "問",
+        "faq-a": "答",
+        "faq-q1": "Mutualify 是甚麼?",
         "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "How does it work?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
