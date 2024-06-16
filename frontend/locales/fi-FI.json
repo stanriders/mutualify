@@ -14,29 +14,29 @@
         "user-tooltip": "Avaa asetukset"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
+        "made-by": "Kehittäjä <stanr>StanR</stanr>, kuvake <arhella>Arhella</arhella>.",
         "stats": "Tilastot",
         "source": "Lähdekoodi",
         "donate": "Lahjoita ❤"
     },
     "Home": {
         "faq-title": "Mutualify - kaverilistatietokanta osulle!",
-        "faq-q": "Q",
-        "faq-a": "A",
+        "faq-q": "K",
+        "faq-a": "V",
         "faq-q1": "Mikä tämä on?",
         "faq-a1": "Mutualify on tietokanta osu!-pelaajien ystävyyslistoille. Se tallentaa jokaisen sisäänkirjautuneen pelaajan ystävyyslistan sekä muita asiaankuuluvia tietoja.",
         "faq-q2": "Kuinka se toimii?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "osu! API sallii verkkosivustojen nähdä pelaajan kaveriluettelon. Mutualify tarkistaa kaikkien rekisteröityneiden pelaajien kaveriluettelot nähdäkseen, kuka seuraa ketä.",
         "faq-q3": "Voiko se varastaa tilini/salasanani/yksityiset tiedot?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a3": "Ei, se voi käyttää vain mitä osu! verkkosivusto näyttää sinulle kirjautuessasi sisään, mikä on kaveriluettelosi, julkiset profiilitietosi ja ystäväsi julkiset profiilitiedot. Se ei koskaan kysy kirjautumistunnustasi / salasanaasi tai mitään vastaavaa.",
+        "faq-q4": "Miksi voin nähdä vain joitakin seuraajistani?",
+        "faq-a4": "Mutualify löytää vain aiemmin sisäänkirjautuneita ihmisiä, joten levitä sanaa! Enemmän rekisteröityneitä tarkoittaa enemmän tietoa seuraajista."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Tilastot",
+        "registered": "Rekisteröityneet käyttäjät: {registered} ({lastDayRegistered} viimeisen 24 tunnin aikana)",
+        "relations": "Suhteiden määrä: {relations}",
+        "autoupdate": "Automaattiseen päivitykseen oikeutetut käyttäjät: {eligible}"
     },
     "Leaderboard": {
         "title": "Tulostaulukko",
@@ -47,8 +47,8 @@
     },
     "Followers": {
         "title": "Seuraajat",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "followers-count": "Tunnetut seuraajat: {knownCount} / {totalCount}.",
+        "hide-mutuals": "Piilota keskinäiset"
     },
     "Friends": {
         "title": "Kaverit",
@@ -57,8 +57,8 @@
     "User": {
         "unknown-user-title": "Tuntematon käyttäjä",
         "unknown-user-message": "Tämä käyttäjä ei ole koskaan kirjautunut sisään! Voit halutessasi kertoa heille ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "private-list": "Käyttäjän <user>{username}</user> kaveriluettelo on yksityinen.",
+        "friend-count": "Käyttäjällä <user>{username}</user> on {friendsCount} kaveria."
     },
     "Settings": {
         "title": "Asetukset",
