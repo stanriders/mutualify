@@ -70,9 +70,9 @@
     },
     "Restricted": {
         "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "message": "抱歉，但受限制的玩家不能夠登入！"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "請先登入！"
     }
 }
