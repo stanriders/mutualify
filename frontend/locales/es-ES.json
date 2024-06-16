@@ -1,15 +1,15 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
+        "loading": "Cargando...",
+        "page-not-found": "Pagina no encontrada",
         "sort-by-rank": "Sort by rank"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
+        "friends": "Amigos",
+        "followers": "Seguidores",
         "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión",
         "settings": "Settings",
         "user-tooltip": "Open settings"
     },
@@ -17,13 +17,13 @@
         "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
         "stats": "Stats",
         "source": "Source code",
-        "donate": "Donate ❤"
+        "donate": "Donar ❤"
     },
     "Home": {
         "faq-title": "Mutualify - a friend list database for osu!",
-        "faq-q": "Q",
-        "faq-a": "A",
-        "faq-q1": "What is this?",
+        "faq-q": "P",
+        "faq-a": "R",
+        "faq-q1": "¿Qué es esto?",
         "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "How does it work?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
@@ -63,13 +63,13 @@
     "Settings": {
         "title": "Settings",
         "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
+        "refresh-success": "¡Actualizado!",
+        "refresh-tooltip": "Actualizado a {updatedAgo}",
+        "allow-friendlist-access": "Permitir que otros usuarios accedan a tu lista de amigos",
         "profile-link": "Your friend list link"
     },
     "Restricted": {
-        "title": "Not allowed",
+        "title": "No permitido",
         "message": "Sorry, but restricted players are not allowed to log in!"
     },
     "Unauthorized": {
