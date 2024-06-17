@@ -51,7 +51,7 @@
         "hide-mutuals": "Ocultar amigos en común"
     },
     "Friends": {
-        "title": "",
+        "title": "Friends",
         "friend-count": "Tienes {friendCount} amigos."
     },
     "User": {
