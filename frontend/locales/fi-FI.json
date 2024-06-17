@@ -24,13 +24,13 @@
         "faq-q": "K",
         "faq-a": "V",
         "faq-q1": "Mikä tämä on?",
-        "faq-a1": "Mutualify on tietokanta osu!-pelaajien ystävyyslistoille. Se tallentaa jokaisen sisäänkirjautuneen pelaajan ystävyyslistan sekä muita asiaankuuluvia tietoja.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Kuinka se toimii?",
-        "faq-a2": "osu! API sallii verkkosivustojen nähdä pelaajan kaveriluettelon. Mutualify tarkistaa kaikkien rekisteröityneiden pelaajien kaveriluettelot nähdäkseen, kuka seuraa ketä.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Voiko se varastaa tilini/salasanani/yksityiset tiedot?",
-        "faq-a3": "Ei, se voi käyttää vain mitä osu! verkkosivusto näyttää sinulle kirjautuessasi sisään, mikä on kaveriluettelosi, julkiset profiilitietosi ja ystäväsi julkiset profiilitiedot. Se ei koskaan kysy kirjautumistunnustasi / salasanaasi tai mitään vastaavaa.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Miksi voin nähdä vain joitakin seuraajistani?",
-        "faq-a4": "Mutualify löytää vain aiemmin sisäänkirjautuneita ihmisiä, joten levitä sanaa! Enemmän rekisteröityneitä tarkoittaa enemmän tietoa seuraajista."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Tilastot",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Tuntematon käyttäjä",
-        "unknown-user-message": "Tämä käyttäjä ei ole koskaan kirjautunut sisään! Voit halutessasi kertoa heille ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "Käyttäjän <user>{username}</user> kaveriluettelo on yksityinen.",
         "friend-count": "Käyttäjällä <user>{username}</user> on {friendsCount} kaveria."
     },
