@@ -24,13 +24,13 @@
         "faq-q": "P",
         "faq-a": "R",
         "faq-q1": "O que é isso?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "Mutualify é um banco de dados para listas de amigos de jogadores de osu! Ele armazena listas de amigos de todos os jogadores que iniciaram sessão, além de outros dados relevantes.",
         "faq-q2": "Como isso funciona?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "A API do osu! permite que sites obtenham lista de amigos do jogador. O Mutualify checa as listas de amigos de todos os jogadores registrados para ver quem segue quem.",
         "faq-q3": "Eu corro risco de ter minha conta/senha/informações privadas roubadas?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "Não, ele somente consegue acessar o que o site do osu! mostra quando você inicia sua sessão, sendo sua lista de amigos, suas informações públicas de seu perfil e as informações públicas de seus amigos. Ele jamais irá perguntar pelo seu login/senha ou algo do tipo.",
         "faq-q4": "Por que só posso ver alguns dos meus seguidores?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "O Mutualify somente consegue encontrar pessoas que logaram anteriormente, portanto espalhe a informação! Quanto mais pessoas registradas, maior a quantidade de informação sobre seguidores."
     },
     "Stats": {
         "title": "Estatísticas",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Usuário desconhecido",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "Este usuário nunca fez login! Talvez você queira dizer isso para ele ;)",
         "private-list": "A lista de amigos de <user>{username}</user>é privada.",
         "friend-count": "<user>{username}</user> tem {friendsCount} amigos."
     },
