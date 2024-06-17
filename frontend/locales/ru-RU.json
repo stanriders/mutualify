@@ -24,13 +24,13 @@
         "faq-q": "Вопрос",
         "faq-a": "Ответ",
         "faq-q1": "Что это?",
-        "faq-a1": "Mutualify это база данных для списков друзей игроков в osu!. Сайт хранит и периодически обновляет списки друзей всех игроков которые на него заходили.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Как это работает?",
-        "faq-a2": "osu! API позволяет другим сайтам получать список друзей игроков. Mutualify сравнивает списки друзей всех зарегистрированных на нём игроков и таким образом находит кто на кого подписан.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Может ли сайт украсть мой аккаунт/пароль/личные данные?",
-        "faq-a3": "Нет, сайт имеет доступ только к данным, которые предоставляет osu!, то бишь публичные данные об аккаунтах и список друзей. Он никогда не будет спрашивать логин/пароль или что-либо подобное.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Почему я вижу не всех подписчиков?",
-        "faq-a4": "Mutualify может находить только тех людей, которые уже заходили на сайт, поэтому рассказывайте всем о нём! Чем больше зарегистрированных игроков - тем больше данных о подписках."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Статистика",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Неизвестный игрок",
-        "unknown-user-message": "Этот игрок никогда не заходил на сайт! Возможно стоит ему об этом сказать ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "Список друзей <user>{username}</user> скрыт.",
         "friend-count": "У <user>{username}</user> {friendsCount} друзей."
     },
