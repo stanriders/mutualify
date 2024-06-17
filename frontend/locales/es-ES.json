@@ -1,45 +1,45 @@
 {
     "Generic": {
         "loading": "Cargando...",
-        "page-not-found": "Pagina no encontrada",
+        "page-not-found": "Página no encontrada",
         "sort-by-rank": "Ordenar por rango"
     },
     "Header": {
         "friends": "Amigos",
         "followers": "Seguidores",
-        "leaderboard": "Rankings",
+        "leaderboard": "Clasificaciones",
         "login": "Iniciar sesión",
         "logout": "Cerrar sesión",
         "settings": "Ajustes",
         "user-tooltip": "Abrir ajustes"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
+        "made-by": "Hecho por <stanr>StanR</stanr>, logo por <arhella>Arhella</arhella>.",
         "stats": "Estadísticas",
         "source": "Código fuente",
         "donate": "Donar ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - una base de datos para listas de amigos en osu!",
         "faq-q": "P",
         "faq-a": "R",
-        "faq-q1": "¿Qué es esto?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-q1": "¿Qué es?",
+        "faq-a1": "Mutualify es una base de datos para las listas de amigos de los jugadores de osu!. Almacena la lista de amigos de todos los jugadores que han iniciado sesión, así como otra información relevante.",
         "faq-q2": "¿Cómo funciona?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a2": "La API de osu! permite a otras páginas obtener la lista de amigos de los jugadores. Mutualify compara la lista de amigos de todos los jugadores registrados para ver quién sigue a quién.",
+        "faq-q3": "¿Pueden mi cuenta/contraseña/datos privados ser robados?",
+        "faq-a3": "No, Mutualify solo puede acceder a lo que la página de osu! muestra cuando inicias sesión: tu lista de amigos y la información pública de tu perfil y el de tus amigos. Nunca va a solicitar tu contraseña ni nada parecido.",
         "faq-q4": "¿Por qué puedo ver solo a algunos de mis seguidores?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "Mutualify solo puede encontrar gente que ha iniciado sesión antes, así que difunde la palabra! Más gente registrada significa más información sobre nuestros seguidores."
     },
     "Stats": {
         "title": "Estadísticas",
         "registered": "Usuarios registrados: {registered} ({lastDayRegistered} en las últimas 24h)",
         "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "autoupdate": "Usuarios aptos para actualización automática: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
+        "title": "Tabla de clasificación",
         "your-rank": "Tu rango es #{rank}.",
         "table-header-rank": "#",
         "table-header-player": "Jugador",
@@ -48,7 +48,7 @@
     "Followers": {
         "title": "Seguidores",
         "followers-count": "Seguidores conocidos: {knownCount} de {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "hide-mutuals": "Ocultar amigos en común"
     },
     "Friends": {
         "title": "",
