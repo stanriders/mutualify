@@ -24,7 +24,7 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Ce este asta?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "Mutualify este o bază de date a listelor de prieteni a jucătorilor de osu! care stochează lista de prieteni a fiecărui jucător care s-a autentificat, precum şi alte date relevante.",
         "faq-q2": "Cum funcționează?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Îmi poate fura contul/parola/datele private?",
