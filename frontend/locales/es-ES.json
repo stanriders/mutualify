@@ -24,13 +24,13 @@
         "faq-q": "P",
         "faq-a": "R",
         "faq-q1": "¿Qué es?",
-        "faq-a1": "Mutualify es una base de datos para las listas de amigos de los jugadores de osu!. Almacena la lista de amigos de todos los jugadores que han iniciado sesión, así como otra información relevante.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "¿Cómo funciona?",
-        "faq-a2": "La API de osu! permite a otras páginas obtener la lista de amigos de los jugadores. Mutualify compara la lista de amigos de todos los jugadores registrados para ver quién sigue a quién.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "¿Pueden mi cuenta/contraseña/datos privados ser robados?",
-        "faq-a3": "No, Mutualify solo puede acceder a lo que la página de osu! muestra cuando inicias sesión: tu lista de amigos y la información pública de tu perfil y el de tus amigos. Nunca va a solicitar tu contraseña ni nada parecido.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "¿Por qué puedo ver solo a algunos de mis seguidores?",
-        "faq-a4": "Mutualify solo puede encontrar gente que ha iniciado sesión antes, así que difunde la palabra! Más gente registrada significa más información sobre nuestros seguidores."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Estadísticas",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Usuario desconocido",
-        "unknown-user-message": "¡Este usuario nunca ha iniciado sesión! Puede que quieras decirle que lo haga ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "La lista de amigos de <user>{username}</user>es privada.",
         "friend-count": "<user>{username}</user> tiene {friendsCount} amigos."
     },
