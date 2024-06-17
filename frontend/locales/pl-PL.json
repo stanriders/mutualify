@@ -28,9 +28,9 @@
         "faq-q2": "Jak to działa?",
         "faq-a2": "API osu! pozwala witrynom na pobranie listy znajomych gracza. Mutualify porównuje listy znajomych wszystkich zarejestrowanych graczy, by sprawdzić, kto obserwuje kogo.",
         "faq-q3": "Czy Mutualify może ukraść moje konto, hasło albo prywatne dane?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "Nie, Mutualify ma dostęp jedynie do tego, co pokazuje strona osu! po zalogowaniu, czyli: twoja lista znajomych, twój profil oraz profil twojego znajomego. Mutualify nigdy nie poprosi cię o login/hasło lub inne poufne dane.",
         "faq-q4": "Dlaczego mogę zobaczyć tylko niektórych obserwujących?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "Mutualify może znaleźć jedynie osoby, które zalogowały się wcześniej, więc daj znać znajomym! Więcej zarejestrowanych osób to więcej informacji na temat obserwujących."
     },
     "Stats": {
         "title": "Statystyki",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Nie ma takiego użytkownika",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "Ten użytkownik nigdy się nie zalogował! Daj mu znać, aby to zrobił :)",
         "private-list": "Lista znajomych <user>{username}</user> jest prywatna.",
         "friend-count": "<user>{username}</user> ma {friendsCount} znajomych."
     },
