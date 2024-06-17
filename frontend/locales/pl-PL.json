@@ -24,13 +24,13 @@
         "faq-q": "Pytanie",
         "faq-a": "Odpowiedź",
         "faq-q1": "Co to jest?",
-        "faq-a1": "Mutualify jest bazą danych dla list znajomych graczy osu! Stworzona jest na podstawie znajomych każdego gracza, który korzysta z Mutualify, dodatkowo korzystając z dodatkowych istotnych informacji.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Jak to działa?",
-        "faq-a2": "API osu! pozwala witrynom na uzyskanie listy znajomych danego gracza. Mutualify porównuje ją z tymi udostępnionymi przez innych graczy, określając tym samym kto kogo obserwuje.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Czy Mutualify może ukraść moje konto, hasło albo prywatne dane?",
-        "faq-a3": "Nie, Mutualify ma dostęp tylko do informacji wypisanych podczas logowania za pośrednictwem osu!, jest to lista znajomych, publiczne informacje dotyczące profilu twojego i osób, które obserwujesz. Nigdy nie zapytamy cię o login, hasło albo inne poufne informacje.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Dlaczego mogę zobaczyć tylko niektórych obserwujących?",
-        "faq-a4": "Mutualify pokazuje tylko te osoby, które już się zalogowały w naszej usłudze. Więcej osób, które skorzysta z Mutualify oznacza większą dokładność, więc warto informować innych o naszej funkcjonalności!"
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Statystyki",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Nie ma takiego użytkownika",
-        "unknown-user-message": "Ten użytkownik nigdy się nie zalogował! Ale możesz mu powiedzieć o Mutualify ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "Lista znajomych <user>{username}</user> jest prywatna.",
         "friend-count": "<user>{username}</user> ma {friendsCount} znajomych."
     },
