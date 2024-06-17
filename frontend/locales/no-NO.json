@@ -1,78 +1,78 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Laster...",
+        "page-not-found": "Fant ikke siden",
+        "sort-by-rank": "Sorter etter rangering"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Venner",
+        "followers": "Følgere",
+        "leaderboard": "Rangering",
+        "login": "Logg inn",
+        "logout": "Logg ut",
+        "settings": "Innstillinger",
+        "user-tooltip": "Åpne instillinger"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "Laget av <stanr>StanR</stanr>, ikon av <arhella>Arhella</arhella>.",
+        "stats": "Statistikk",
+        "source": "Kildekode",
+        "donate": "Doner ❤️"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - en venneliste-database for osu!",
         "faq-q": "Q",
         "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-q1": "Hva er dette?",
+        "faq-a1": "Mutualify er en database for vennelisten til osu! Den lagrer vennelisten til alle spillere som har logget inn, samt noen andre relevante data.",
+        "faq-q2": "Hvordan fungerer det?",
+        "faq-a2": "osu! API tillater nettsteder å få spillerens venneliste. Mutualify dobbeltsjekker lister fra alle registrerte spillere å se hvem som følger hva.",
+        "faq-q3": "Kan den stjele min konto/passord/private data?",
+        "faq-a3": "Nei, den har bare tilgang til hva osu! nettsiden viser deg når du logger inn som er vennelisten din, dine offentlige profildata og din vens offentlige profildata. Den vil aldri be om dine brukernavn/passord eller lignende.",
+        "faq-q4": "Hvorfor kan jeg se bare noen av følgerne mine?",
+        "faq-a4": "Mutualify kan bare finne folk som har logget før, så spre ordet! Flere registrerte folk betyr mer informasjon om følgere."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Statistikk",
+        "registered": "Registrerte brukere: {registered} ({lastDayRegistered} i de siste 24 timen)",
+        "relations": "Antall relasjoner: {relations}",
+        "autoupdate": "Brukere som er kvalifiserte for autoupdate: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Rangeringsliste",
+        "your-rank": "Din rangering er #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Spiller",
+        "table-header-followers": "Følgere"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Følgere",
+        "followers-count": "Kjente følgere: {knownCount} av totalt {totalCount}.",
+        "hide-mutuals": "Skjul felles venner"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Venner",
+        "friend-count": "Du har {friendCount} venner."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Ukjent bruker",
+        "unknown-user-message": "Denne brukeren har aldri logget inn! Du vil muligens fortelle dem til å gjøre det ;)",
+        "private-list": "<user>{username}</user> sin venneliste er privat.",
+        "friend-count": "<user>{username}</user> har {friendsCount} venner."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Innstillinger",
+        "refresh": "Oppdater din venneliste",
+        "refresh-success": "Oppdatert!",
+        "refresh-tooltip": "Oppdatert for {updatedAgo} siden",
+        "allow-friendlist-access": "Tillat andre brukere tilgang til vennelisten din",
+        "profile-link": "Din venneliste lenke"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Ikke tillatt",
+        "message": "Beklager, men spillere med begrenset tilgang kan ikke logge inn!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Logg inn først!"
     }
 }
