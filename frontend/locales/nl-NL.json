@@ -24,13 +24,13 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Wat is dit?",
-        "faq-a1": "Mutualify is een database voor vriendenlijsten van osu! spelers. Het slaat de vriendenlijst op van alle spelers die ingelogd zijn en andere relevante data.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Hoe werkt dit?",
-        "faq-a2": "osu! API laat websites de vriendenlijst van spelers zien. Mutualify cross-checks vriendenlijsten van alle geregistreerde spelers om te zien wie wie volgt.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Kan het mijn account/wachtwoord/persoonlijke gegevens verzamelen?",
-        "faq-a3": "Nee, het heeft alleen toegang tot wat de osu! website toont wanneer je inlogt. Dat zijn je vriendenlijst, je openbare profiel gegevens en jouw vrienden zijn openbare profiel gegevens. Het zou nooit vragen om jouw wachtwoord of iets dergelijks.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Waarom kan ik alleen sommige van mijn volgers zien?",
-        "faq-a4": "Mutualify kan alleen mensen vinden die eerder zijn ingelogd, dus verspreid het woord! Meer geregistreerde mensen betekent meer informatie over wie jou volgt."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Statistieken",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Onbekende gebruiker",
-        "unknown-user-message": "Deze gebruiker heeft zich nooit aangemeld! Misschien wil je hem het aanraden ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "<user>{username}</user>zijn vriendenlijst is privé.",
         "friend-count": "<user>{username}</user> heeft {friendsCount} vrienden."
     },
