@@ -24,13 +24,13 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Vad är detta?",
-        "faq-a1": "Mutualify är en databas för osu!spelares vänlistor. Den lagrar vänlistan över alla spelare som loggat in, samt några andra relevanta data.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Hur funkar det?",
-        "faq-a2": "osu! API:n tillåter webbplatser att få tillgång till spelarens vänlista. Mutualify cross-checkar alla registrerade spelares vänlistor för att se vem som följer vem.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Kan det stjäla mitt konto/lösenord/privata data?",
-        "faq-a3": "Nej, det har bara tillgång till vad som osu!webbplatsen visar dig när du loggar in, vilket är din vänlista, din offentliga profildata och dina vänners offentliga profildata. Det kommer aldrig fråga efter din inloggning/lösenord eller någonting sådant.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Varför kan jag bara se vissa av mina följare?",
-        "faq-a4": "Mutualify kan bara hitta personer som loggat in förut, så sprid ordet! Fler registrerade användare betyder mer information om följare."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Statistik",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Okänd användare",
-        "unknown-user-message": "Den här användaren har aldrig loggat in! Du kanske vill säga åt dem att göra det ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "<user>{username}</user>s vänlista är privat.",
         "friend-count": "<user>{username}</user> har {friendsCount} vänner."
     },
