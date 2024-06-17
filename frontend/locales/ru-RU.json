@@ -8,35 +8,29 @@
         "friends": "Друзья",
         "followers": "Подписчики",
         "leaderboard": "Рейтинг",
-        
         "login": "Войти",
         "logout": "Выйти",
         "settings": "Настройки",
         "user-tooltip": "Открыть настройки"
     },
     "Footer": {
-        "made-by": "Сделано <stanr>StanR</stanr>, логотип <arhella>Arhella</arhella>.",
+        "made-by": "Сделано <stanr>StanR</stanr>, логотип от <arhella>Arhella</arhella>.",
         "stats": "Статистика",
         "source": "Исходный код",
         "donate": "Пожертвовать ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - база списков друзей игровок в osu!",
-
+        "faq-title": "Mutualify - база списков друзей игроков в osu!",
         "faq-q": "Вопрос",
         "faq-a": "Ответ",
-
         "faq-q1": "Что это?",
-        "faq-a1": "Mutualify это база даннах для списков друзей игроков в osu!. Сайт хранит и периодически обновляет списки друзей всех игроков которые на него заходили.",
-
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Как это работает?",
-        "faq-a2": "Сайт osu! позволяет другим сайтам получать список друзей игроков. Mutualify сравнивает списки друзей всех зарегистрированных на нём игроков и таким образом находит кто на кого подписан.",
-
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Может ли сайт украсть мой аккаунт/пароль/личные данные?",
-        "faq-a3": "Нет, сайт имеет доступ только к данным, которые предоставляет osu!, то бишь публичные данные об аккаунтах и список друзей. Он никогда не будет спрашивать логин/пароль или что-либо подобное.",
-
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Почему я вижу не всех подписчиков?",
-        "faq-a4": "Mutualify может находить только тех людей, которые уже заходили на сайт, поэтому рассказывайте всем о нём! Чем больше зарегистрированных игроков - тем больше данных о подписках."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Статистика",
@@ -47,36 +41,30 @@
     "Leaderboard": {
         "title": "Рейтинг",
         "your-rank": "Ваше место в таблице #{rank}.",
-
         "table-header-rank": "#",
         "table-header-player": "Игрок",
         "table-header-followers": "Подписчиков"
     },
     "Followers": {
         "title": "Подписчики",
-
         "followers-count": "Известные подписчики: {knownCount} из {totalCount}.",
         "hide-mutuals": "Скрыть взаимные подписки"
     },
     "Friends": {
         "title": "Друзья",
-
         "friend-count": "У вас {friendCount} друзей."
     },
     "User": {
         "unknown-user-title": "Неизвестный игрок",
-        "unknown-user-message": "Этот игрок никогда не заходил на сайт! Возможно стоит ему об этом сказать ;)",
-
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "Список друзей <user>{username}</user> скрыт.",
         "friend-count": "У <user>{username}</user> {friendsCount} друзей."
     },
     "Settings": {
         "title": "Настройки",
-
         "refresh": "Обновить список друзей",
         "refresh-success": "Обновлен!",
         "refresh-tooltip": "Обновлен {updatedAgo}",
-
         "allow-friendlist-access": "Разрешить другим людям видеть список ваших друзей",
         "profile-link": "Публичная ссылка на список друзей"
     },

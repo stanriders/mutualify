@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Betöltés...",
+        "page-not-found": "Az oldal nem található",
+        "sort-by-rank": "Rendezés rang szerint"
+    },
+    "Header": {
+        "friends": "Barátok",
+        "followers": "Követők",
+        "leaderboard": "Rangsorok",
+        "login": "Bejelentkezés",
+        "logout": "Kijelentkezés",
+        "settings": "Beállítások",
+        "user-tooltip": "Beállítások megnyitása"
+    },
+    "Footer": {
+        "made-by": "Készítette: <stanr>StanR</stanr>, ikon: <arhella>Arhella</arhella>.",
+        "stats": "Statisztika",
+        "source": "Forráskód",
+        "donate": "Adományozz ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - barátlista adatbázis osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Mi ez?",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-q2": "Hogyan működik?",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-q3": "Ellophatja a fiókomat/jelszavamat/privát adataimat?",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-q4": "Miért látom csak néhány követőm?",
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+    },
+    "Stats": {
+        "title": "Statisztika",
+        "registered": "Regisztrált felhasználók: {registered} ({lastDayRegistered} az elmúlt 24 órában)",
+        "relations": "Kapcsolatok száma: {relations}",
+        "autoupdate": "Az automatikus frissítésre jogosult felhasználók: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Ranglista",
+        "your-rank": "Az Ön rangja #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Játékos",
+        "table-header-followers": "Követők"
+    },
+    "Followers": {
+        "title": "Követők",
+        "followers-count": "Ismert követők: {knownCount} kívül {totalCount}.",
+        "hide-mutuals": "A kölcsönös kapcsolatok elrejtése"
+    },
+    "Friends": {
+        "title": "Barátok",
+        "friend-count": "{friendCount} barátod van."
+    },
+    "User": {
+        "unknown-user-title": "Ismeretlen felhasználó",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "private-list": "<user>{username}</user> barátlistája privát.",
+        "friend-count": "<user>{username}</user>-nek {friendsCount} ismerőse van."
+    },
+    "Settings": {
+        "title": "Beállítások",
+        "refresh": "Frissítse barátlistáját",
+        "refresh-success": "Frissítve!",
+        "refresh-tooltip": "Frissítve {updatedAgo}",
+        "allow-friendlist-access": "Engedélyezze más felhasználóknak, hogy hozzáférjenek a barátlistájához",
+        "profile-link": "Az ismerőslista linkje"
+    },
+    "Restricted": {
+        "title": "Nem engedélyezett",
+        "message": "Sajnáljuk, de korlátozott játékosok nem léphetnek be!"
+    },
+    "Unauthorized": {
+        "message": "Először jelentkezzen be!"
+    }
+}
