@@ -1,78 +1,78 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Учитавање...",
+        "page-not-found": "Страница није пронађена",
+        "sort-by-rank": "Сортирај по рангу"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Пријатељи",
+        "followers": "Пратиоци",
+        "leaderboard": "Рангови",
+        "login": "Пријавите се",
+        "logout": "Одјава",
+        "settings": "Подешавања",
+        "user-tooltip": "Отворите подешавања"
     },
     "Footer": {
         "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "stats": "Статистике",
+        "source": "Изворни код",
+        "donate": "Донирајте ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Мutualify - база података листе пријатеља за osu!",
         "faq-q": "Q",
-        "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
+        "faq-a": "А",
+        "faq-q1": "Шта је ово?",
+        "faq-a1": "Mutualify је база података за osu! листе пријатеља. Чува листу пријатеља сваког играча који се пријави као и друге релевантне податке.",
+        "faq-q2": "Како ово функционише?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
+        "faq-q3": "Може ли да украде мој налог/лозинку/приватне податке?",
         "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Why can I see only some of my followers?",
         "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
-        "title": "Stats",
+        "title": "Статистике",
         "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
         "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "autoupdate": "Корисници који испуњавају услове за аутоматско ажурирање: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Ранг листа",
+        "your-rank": "Твој ранг је #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Играч",
+        "table-header-followers": "Пратиоци"
     },
     "Followers": {
-        "title": "Followers",
+        "title": "Пратиоци",
         "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "hide-mutuals": "Сакријте блиске пријатеље"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Пријатељи",
+        "friend-count": "Имате {friendCount} пријатеља."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Непознат корисник",
+        "unknown-user-message": "Овај корисник се никада није пријавио! Можда би могли да им кажете ;)",
+        "private-list": "листа пријатеља од корисника <user>{username}</user> је приватна.",
+        "friend-count": "<user>{username}</user> има {friendsCount} пријатеља."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Подешавања",
+        "refresh": "Освежите листу пријатеља",
+        "refresh-success": "Ажурирано!",
+        "refresh-tooltip": "Ажурирано {updatedAgo}",
+        "allow-friendlist-access": "Дозволите другим корисницима да приступе вашој листи пријатеља",
+        "profile-link": "Линк за вашу листу пријатеља"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Није дозвољено",
+        "message": "Жао нам је, али банованим играчима није дозвољено да се пријаве!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Пријавите се прво!"
     }
 }
