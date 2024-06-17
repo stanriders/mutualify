@@ -24,13 +24,13 @@
         "faq-q": "问",
         "faq-a": "答",
         "faq-q1": "这是什么?",
-        "faq-a1": "Mutualify 是一个 osu! 玩家的好友列表数据库。 它保存每个在此登录过的玩家的好友列表以及其他一些相关的数据。",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "它是如何工作的？",
-        "faq-a2": "osu! API 允许网站获取玩家的好友列表。Mutualify 通过交叉检查所有注册玩家的好友列表，来查看谁跟随了哪个人。",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "它会盗取我的帐户/密码/私人数据吗？",
-        "faq-a3": "不能，它只能在您登录时使用您 osu! 网站上显示的好友列表、公开个人资料数据和您好友的公开个人资料数据。它永远不会要求您的登录密码或类似的任何信息。",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "为什么我只能看到我的追随者的一部分？",
-        "faq-a4": "Mutualify只能找到登陆过这里的人，所以传播这个网站吧！更多在这里注册过的人就意味着更多有关关注者的信息。"
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "统计",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "未知用户",
-        "unknown-user-message": "此用户从未在此登录过！您可能想告诉他们来试试;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "<user>{username}</user>的好友列表是私密的。",
         "friend-count": "<user>{username}</user> 有 {friendsCount} 个好友。"
     },
