@@ -24,13 +24,13 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Co je to?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "Mutualify je databáze pro seznamy přátel hráčů osu!. Ukládá seznam přátel každého hráče který se přihlásil a nějáká další relevantní data.",
         "faq-q2": "Jak to funguje?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "osu! API umožňuje webovým stránkám získat seznam přátel. Mutualify kontroluje seznamy přátel všech registrovaných hráčů a vidí kdo sleduje koho.",
         "faq-q3": "Může to ukrást můj účet/heslo/soukromá data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "Ne, má přístup pouze k tomu co ukazuje osu! webová stránka když se přihlásíš, což je tvůj seznam přátel, věřejná data a data veřejných profilů tvých přátel. Nikdy nepožádá o tvoje přihlášovací jméno/heslo nebo nečo podobného.",
         "faq-q4": "Proč mohu vidět jen některé ze svých sledujících?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "Mutualify umí najít pouze lidi, kteří se přihlásili dříve, tak informujte ostatní! Více registrovaných lidí znamená více informací o sledujících."
     },
     "Stats": {
         "title": "Statistiky",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Neznámý uživatel",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "Tento uživatel se nikdy nepřihlásil! Můžete je o to požádat ;)",
         "private-list": "<user>{username}</user> má soukromý seznam přátel.",
         "friend-count": "<user>{username}</user> má {friendsCount} přátele."
     },
