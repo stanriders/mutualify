@@ -35,7 +35,7 @@
     "Stats": {
         "title": "Estadísticas",
         "registered": "Usuarios registrados: {registered} ({lastDayRegistered} en las últimas 24h)",
-        "relations": "Relation count: {relations}",
+        "relations": "Recuento de relaciones: {relations}",
         "autoupdate": "Usuarios aptos para actualización automática: {eligible}"
     },
     "Leaderboard": {
