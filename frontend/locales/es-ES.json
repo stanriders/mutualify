@@ -2,7 +2,7 @@
     "Generic": {
         "loading": "Cargando...",
         "page-not-found": "Pagina no encontrada",
-        "sort-by-rank": "Sort by rank"
+        "sort-by-rank": "Ordenar por rango"
     },
     "Header": {
         "friends": "Amigos",
@@ -10,13 +10,13 @@
         "leaderboard": "Rankings",
         "login": "Iniciar sesión",
         "logout": "Cerrar sesión",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "settings": "Ajustes",
+        "user-tooltip": "Abrir ajustes"
     },
     "Footer": {
         "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
+        "stats": "Estadísticas",
+        "source": "Código fuente",
         "donate": "Donar ❤"
     },
     "Home": {
@@ -25,38 +25,38 @@
         "faq-a": "R",
         "faq-q1": "¿Qué es esto?",
         "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
+        "faq-q2": "¿Cómo funciona?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Can it steal my account/password/private data?",
         "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
+        "faq-q4": "¿Por qué puedo ver solo a algunos de mis seguidores?",
         "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
+        "title": "Estadísticas",
+        "registered": "Usuarios registrados: {registered} ({lastDayRegistered} en las últimas 24h)",
         "relations": "Relation count: {relations}",
         "autoupdate": "Users eligible for autoupdate: {eligible}"
     },
     "Leaderboard": {
         "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "your-rank": "Tu rango es #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Jugador",
+        "table-header-followers": "Seguidores"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
+        "title": "Seguidores",
+        "followers-count": "Seguidores conocidos: {knownCount} de {totalCount}.",
         "hide-mutuals": "Hide mutuals"
     },
     "Friends": {
-        "title": "Friends",
+        "title": "",
         "friend-count": "Tienes {friendCount} amigos."
     },
     "User": {
         "unknown-user-title": "Usuario desconocido",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "¡Este usuario nunca ha iniciado sesión! Puede que quieras decirle que lo haga ;)",
         "private-list": "La lista de amigos de <user>{username}</user>es privada.",
         "friend-count": "<user>{username}</user> tiene {friendsCount} amigos."
     },
@@ -66,13 +66,13 @@
         "refresh-success": "¡Actualizado!",
         "refresh-tooltip": "Actualizado a {updatedAgo}",
         "allow-friendlist-access": "Permitir que otros usuarios accedan a tu lista de amigos",
-        "profile-link": "Your friend list link"
+        "profile-link": "Enlace a tu lista de amigos"
     },
     "Restricted": {
         "title": "No permitido",
         "message": "¡Perdón, pero jugadores restringidos no tiene permiso para iniciar sesión!"
     },
     "Unauthorized": {
-        "message": "Inicie sesión primero"
+        "message": "¡Inicie sesión primero!"
     }
 }
