@@ -1,29 +1,29 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "A carregar...",
+        "page-not-found": "Página não encontrada",
+        "sort-by-rank": "Ordenar por classificação"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Amigos",
+        "followers": "Seguidores",
+        "leaderboard": "Ranking",
+        "login": "Iniciar Sessão",
+        "logout": "Sair",
+        "settings": "Definições",
+        "user-tooltip": "Abrir definições"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "Criado pelo <stanr>StanR</stanr>, ícone criado pelo <arhella>Arhella</arhella>.",
+        "stats": "Estatística",
+        "source": "Código-fonte",
+        "donate": "Doação ❤️"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - uma base de dados de listas de amigos para osu!",
         "faq-q": "Q",
         "faq-a": "A",
-        "faq-q1": "What is this?",
+        "faq-q1": "O que é isto?",
         "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "How does it work?",
         "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
