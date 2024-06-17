@@ -24,13 +24,13 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Mi ez?",
-        "faq-a1": "A Mutualify egy adatbázis az osu! játékosok barátlistáit. Tárolja az összes bejelentkezett játékos barátlistáját, valamint néhány egyéb releváns adatot.",
+        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
         "faq-q2": "Hogyan működik?",
-        "faq-a2": "osu! Az API lehetővé teszi a webhelyek számára, hogy megszerezzék a játékosok barátlistáját. Kölcsönösen ellenőrzi az összes regisztrált játékos barátlistáját, hogy megtudja, ki kit követ.",
+        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
         "faq-q3": "Ellophatja a fiókomat/jelszavamat/privát adataimat?",
-        "faq-a3": "Nem, csak ahhoz férhet hozzá, ami osu! a webhely bejelentkezéskor megmutatja, melyik a barátlistája, a nyilvános profiladatai és az ismerőse nyilvános profiladatai. Soha nem fogja kérni a bejelentkezési nevét/jelszavát vagy ilyesmit.",
+        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Miért látom csak néhány követőm?",
-        "faq-a4": "A Mutualify csak azokat a személyeket tudja megtalálni, akik korábban bejelentkeztek, szóval terjessze az igét! A több regisztrált ember több információt jelent a követőkről."
+        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
     },
     "Stats": {
         "title": "Statisztika",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Ismeretlen felhasználó",
-        "unknown-user-message": "Ez a felhasználó soha nem jelentkezett be! Lehet, hogy elmondod nekik ;)",
+        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "<user>{username}</user> barátlistája privát.",
         "friend-count": "<user>{username}</user>-nek {friendsCount} ismerőse van."
     },
