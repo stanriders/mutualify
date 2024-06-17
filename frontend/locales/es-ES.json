@@ -52,17 +52,17 @@
     },
     "Friends": {
         "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "friend-count": "Tienes {friendCount} amigos."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
+        "unknown-user-title": "Usuario desconocido",
         "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "private-list": "La lista de amigos de <user>{username}</user>es privada.",
+        "friend-count": "<user>{username}</user> tiene {friendsCount} amigos."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
+        "title": "Ajustes",
+        "refresh": "Actualizar tu lista de amigos",
         "refresh-success": "¡Actualizado!",
         "refresh-tooltip": "Actualizado a {updatedAgo}",
         "allow-friendlist-access": "Permitir que otros usuarios accedan a tu lista de amigos",
@@ -70,9 +70,9 @@
     },
     "Restricted": {
         "title": "No permitido",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "message": "¡Perdón, pero jugadores restringidos no tiene permiso para iniciar sesión!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Inicie sesión primero"
     }
 }
