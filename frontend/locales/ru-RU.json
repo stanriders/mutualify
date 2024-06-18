@@ -2,7 +2,7 @@
     "Generic": {
         "loading": "Загрузка...",
         "page-not-found": "Страница не найдена",
-        "sort-by-rank": "Сортировать по ранку"
+        "sort-by-rank": "Сортировка по рейтингу"
     },
     "Header": {
         "friends": "Друзья",
@@ -24,23 +24,23 @@
         "faq-q": "Вопрос",
         "faq-a": "Ответ",
         "faq-q1": "Что это?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "Mutualify — это база данных списков друзей игроков osu!. Она сохраняет список друзей каждого игрока, который вошел в систему, а также другую соответствующую информацию.",
         "faq-q2": "Как это работает?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "API osu! дает возможность веб-сайту получать списки друзей игроков. Mutualify сравнивает списки друзей всех зарегистрированных игроков, чтобы узнать, кто на кого подписан.",
         "faq-q3": "Может ли сайт украсть мой аккаунт/пароль/личные данные?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "Нет, сайт может получить доступ только к тому, что показывает сайт osu! при входе в систему: ваш список друзей, публичные данные профиля и данные профилей ваших друзей. Мы никогда не попросим ваш логин/пароль или любую другую приватную информацию.",
         "faq-q4": "Почему я вижу не всех подписчиков?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "Mutualify может определять только тех людей, которые уже заходили на сайт до этого, поэтому распространяйте и делитесь! Чем больше зарегистрированных игроков - тем больше данных о подписчиках."
     },
     "Stats": {
         "title": "Статистика",
         "registered": "Зарегистрированных игроков: {registered} ({lastDayRegistered} за последние 24 часа)",
         "relations": "Количество связей: {relations}",
-        "autoupdate": "Игроков попадающих под автообновление: {eligible}"
+        "autoupdate": "Количество пользователей, для которых доступно автоматическое обновление: {eligible}"
     },
     "Leaderboard": {
         "title": "Рейтинг",
-        "your-rank": "Ваше место в таблице #{rank}.",
+        "your-rank": "Ваше место в рейтинге: #{rank}.",
         "table-header-rank": "#",
         "table-header-player": "Игрок",
         "table-header-followers": "Подписчиков"
@@ -48,7 +48,7 @@
     "Followers": {
         "title": "Подписчики",
         "followers-count": "Известные подписчики: {knownCount} из {totalCount}.",
-        "hide-mutuals": "Скрыть взаимные подписки"
+        "hide-mutuals": "Скрыть мутуалов"
     },
     "Friends": {
         "title": "Друзья",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Неизвестный игрок",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "Этот игрок никогда не заходил на сайт! Возможно стоит ему об этом сказать ;)",
         "private-list": "Список друзей <user>{username}</user> скрыт.",
         "friend-count": "У <user>{username}</user> {friendsCount} друзей."
     },
