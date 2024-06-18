@@ -4,7 +4,7 @@ module.exports = {
     emotion: true,
   },
   i18n: {
-    locales: ["en-US", "ru-RU"],
+    locales: ["en-US", "fi-FI", "pl-PL", "ru-RU"],
     defaultLocale: "en-US"
   },
   output: 'standalone'

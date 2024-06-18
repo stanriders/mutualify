@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Wczytywanie...",
+        "page-not-found": "Nie znaleziono strony",
+        "sort-by-rank": "Sortuj według rankingu"
+    },
+    "Header": {
+        "friends": "Znajomi",
+        "followers": "Obserwujący",
+        "leaderboard": "Rankingi",
+        "login": "Zaloguj się",
+        "logout": "Wyloguj się",
+        "settings": "Ustawienia",
+        "user-tooltip": "Otwórz ustawienia"
+    },
+    "Footer": {
+        "made-by": "Stworzone przez <stanr>StanR</stanr>, ikona autorstwa <arhella>Arhella</arhella>.",
+        "stats": "Statystyki",
+        "source": "Kod źrółowy",
+        "donate": "Wspomóż nas ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - baza danych list znajomych w osu!",
+        "faq-q": "Pytanie",
+        "faq-a": "Odpowiedź",
+        "faq-q1": "Co to jest?",
+        "faq-a1": "Mutualify jest bazą danych dla list znajomych graczy osu! Dla każdego gracza, który się zalogował, przechowuje listę znajomych oraz inne potrzebne informacje.",
+        "faq-q2": "Jak to działa?",
+        "faq-a2": "API osu! pozwala witrynom na pobranie listy znajomych gracza. Mutualify porównuje listy znajomych wszystkich zarejestrowanych graczy, by sprawdzić, kto obserwuje kogo.",
+        "faq-q3": "Czy Mutualify może ukraść moje konto, hasło albo prywatne dane?",
+        "faq-a3": "Nie, Mutualify ma dostęp jedynie do tego, co pokazuje strona osu! po zalogowaniu, czyli: twoja lista znajomych, twój profil oraz profil twojego znajomego. Mutualify nigdy nie poprosi cię o login/hasło lub inne poufne dane.",
+        "faq-q4": "Dlaczego mogę zobaczyć tylko niektórych obserwujących?",
+        "faq-a4": "Mutualify może znaleźć jedynie osoby, które zalogowały się wcześniej, więc daj znać znajomym! Więcej zarejestrowanych osób to więcej informacji na temat obserwujących."
+    },
+    "Stats": {
+        "title": "Statystyki",
+        "registered": "Zarejestrowani użytkownicy: {registered} ({lastDayRegistered} w ciągu ostatnich 24 godzin)",
+        "relations": "Liczba powiązań: {relations}",
+        "autoupdate": "Użytkownicy uprawnieni do automatycznej aktualizacji: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Ranking",
+        "your-rank": "Zajmujesz #{rank} miejsce.",
+        "table-header-rank": "#",
+        "table-header-player": "Gracz",
+        "table-header-followers": "Obserwujący"
+    },
+    "Followers": {
+        "title": "Obserwujący",
+        "followers-count": "Zidentyfikowani obserwujący: {knownCount} z {totalCount}.",
+        "hide-mutuals": "Ukryj mutual znajomych"
+    },
+    "Friends": {
+        "title": "Znajomi",
+        "friend-count": "Masz {friendCount} znajomych."
+    },
+    "User": {
+        "unknown-user-title": "Nie ma takiego użytkownika",
+        "unknown-user-message": "Ten użytkownik nigdy się nie zalogował! Daj mu znać, aby to zrobił :)",
+        "private-list": "Lista znajomych <user>{username}</user> jest prywatna.",
+        "friend-count": "<user>{username}</user> ma {friendsCount} znajomych."
+    },
+    "Settings": {
+        "title": "Ustawienia",
+        "refresh": "Odśwież swoją listę znajomych",
+        "refresh-success": "Zaktualizowano!",
+        "refresh-tooltip": "Zaktualizowano {updatedAgo}",
+        "allow-friendlist-access": "Zezwalaj innym użytkownikom na dostęp do twojej listy znajomych",
+        "profile-link": "Link do twojej listy znajomych"
+    },
+    "Restricted": {
+        "title": "Brak uprawnień",
+        "message": "Przepraszamy, gracze z nałożonymi ograniczeniami nie mogą się zalogować."
+    },
+    "Unauthorized": {
+        "message": "Najpierw się zaloguj!"
+    }
+}

@@ -23,7 +23,7 @@ export default function Copyright() {
             color="text.secondary"
             sx={{mb: 2}}
           >
-           <MuiLink href="/stats" underline="hover" component={NextLink}>{t("stats")}</MuiLink> | <Link href="https://github.com/stanriders/mutualify" underline="hover">{t("source")}</Link> | <Link href="https://paypal.me/stanridersnew" underline="hover">{t("donate")}</Link>
+           <MuiLink href="/stats" underline="hover" component={NextLink}>{t("stats")}</MuiLink> | <Link href="https://github.com/stanriders/mutualify" underline="hover">{t("source")}</Link> | <Link href="https://crowdin.com/project/mutualify" underline="hover">Crowdin</Link> | <Link href="https://paypal.me/stanridersnew" underline="hover">{t("donate")}</Link>
         </Typography>
       </>
     );

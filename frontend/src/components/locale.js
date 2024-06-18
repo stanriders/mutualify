@@ -7,6 +7,10 @@ export default function Locale({locale}) {
             localeUrl = 'http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg'; break;
         case 'ru-RU':
             localeUrl = 'http://purecatamphetamine.github.io/country-flag-icons/3x2/RU.svg'; break;
+        case 'fi-FI':
+            localeUrl = 'http://purecatamphetamine.github.io/country-flag-icons/3x2/FI.svg'; break;
+        case 'pl-PL':
+            localeUrl = 'http://purecatamphetamine.github.io/country-flag-icons/3x2/PL.svg'; break;
     }
 
     return (

@@ -212,8 +212,9 @@ export default function Header({title}) {
                     open={Boolean(anchorElLocale)}
                     onClose={handleCloseLocale}
                   >
-                  <MenuItem onClick={() => changeLocale('en-US')}><Locale locale='en-US'/></MenuItem>
-                  <MenuItem onClick={() => changeLocale('ru-RU')}><Locale locale='ru-RU'/></MenuItem>
+                  {router.locales.map((locale) => (
+                    <MenuItem onClick={() => changeLocale(locale)}><Locale locale={locale}/></MenuItem>
+                  ))}
                 </Menu>
                 {user && (
                 <>

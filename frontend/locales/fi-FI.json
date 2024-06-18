@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Ladataan...",
+        "page-not-found": "Sivua ei löydy",
+        "sort-by-rank": "Järjestä sijoituksen mukaan"
+    },
+    "Header": {
+        "friends": "Kaverit",
+        "followers": "Seuraajat",
+        "leaderboard": "Sijoitukset",
+        "login": "Kirjaudu sisään",
+        "logout": "Kirjaudu ulos",
+        "settings": "Asetukset",
+        "user-tooltip": "Avaa asetukset"
+    },
+    "Footer": {
+        "made-by": "Kehittäjä <stanr>StanR</stanr>, kuvake <arhella>Arhella</arhella>.",
+        "stats": "Tilastot",
+        "source": "Lähdekoodi",
+        "donate": "Lahjoita ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - kaverilistatietokanta osulle!",
+        "faq-q": "K",
+        "faq-a": "V",
+        "faq-q1": "Mikä tämä on?",
+        "faq-a1": "Mutualify on tietokanta osu! pelaajien kaverilistoille. Se tallentaa jokaisen sisäänkirjautuneen pelaajan kaverilistan sekä muita asiaankuuluvia tietoja.",
+        "faq-q2": "Kuinka se toimii?",
+        "faq-a2": "osu! API sallii verkkosivustojen nähdä pelaajan kaverilistan. Mutualify tarkistaa kaikkien rekisteröityneiden pelaajien kaverilistat nähdäkseen, kuka seuraa ketä.",
+        "faq-q3": "Voiko se varastaa tilini/salasanani/yksityiset tiedot?",
+        "faq-a3": "Ei, se voi käyttää vain mitä osu! verkkosivusto näyttää sinulle kirjautuessasi sisään joka on kaverilistasi, julkiset profiilitietosi ja kaverisi julkiset profiilitiedot. Se ei koskaan kysy kirjautumistunnustasi / salasanaasi tai muuta vastaavaa.",
+        "faq-q4": "Miksi voin nähdä vain joitakin seuraajistani?",
+        "faq-a4": "Mutualify löytää vain aiemmin sisäänkirjautuneita ihmisiä, joten levitä sanaa! Enemmän rekisteröityneitä tarkoittaa enemmän tietoa seuraajista."
+    },
+    "Stats": {
+        "title": "Tilastot",
+        "registered": "Rekisteröityneet käyttäjät: {registered} ({lastDayRegistered} viimeisen 24 tunnin aikana)",
+        "relations": "Suhteiden määrä: {relations}",
+        "autoupdate": "Automaattiseen päivitykseen oikeutetut käyttäjät: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Tulostaulukko",
+        "your-rank": "Sijoituksesi on #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Pelaaja",
+        "table-header-followers": "Seuraajat"
+    },
+    "Followers": {
+        "title": "Seuraajat",
+        "followers-count": "Tunnetut seuraajat: {knownCount} / {totalCount}.",
+        "hide-mutuals": "Piilota keskinäiset"
+    },
+    "Friends": {
+        "title": "Kaverit",
+        "friend-count": "Sinulla on {friendCount} kaveria."
+    },
+    "User": {
+        "unknown-user-title": "Tuntematon käyttäjä",
+        "unknown-user-message": "Tämä käyttäjä ei ole koskaan kirjautunut sisään! Voit halutessasi kertoa heille ;)",
+        "private-list": "Käyttäjän <user>{username}</user> kaveriluettelo on yksityinen.",
+        "friend-count": "Käyttäjällä <user>{username}</user> on {friendsCount} kaveria."
+    },
+    "Settings": {
+        "title": "Asetukset",
+        "refresh": "Päivitä kaverilistasi",
+        "refresh-success": "Päivitetty",
+        "refresh-tooltip": "Päivitetty {updatedAgo} sitten",
+        "allow-friendlist-access": "Salli muiden käyttäjien käyttää kaveriluetteloasi",
+        "profile-link": "Kaverilistasi linkki"
+    },
+    "Restricted": {
+        "title": "Ei sallittu",
+        "message": "Pahoittelut, mutta rajoitetut pelaajat eivät saa kirjautua sisään!"
+    },
+    "Unauthorized": {
+        "message": "Kirjaudu ensin sisään!"
+    }
+}
