@@ -24,11 +24,11 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Co je to?",
-        "faq-a1": "Mutualify je databáze pro seznamy přátel hráčů osu!. Ukládá seznam přátel každého hráče který se přihlásil a nějáká další relevantní data.",
+        "faq-a1": "Mutualify je databáze pro seznamy přátel hráčů osu!. Ukládá seznam přátel každého hráče který se přihlásil a nějaká další relevantní data.",
         "faq-q2": "Jak to funguje?",
         "faq-a2": "osu! API umožňuje webovým stránkám získat seznam přátel. Mutualify kontroluje seznamy přátel všech registrovaných hráčů a vidí kdo sleduje koho.",
         "faq-q3": "Může to ukrást můj účet/heslo/soukromá data?",
-        "faq-a3": "Ne, má přístup pouze k tomu co ukazuje osu! webová stránka když se přihlásíš, což je tvůj seznam přátel, věřejná data a data veřejných profilů tvých přátel. Nikdy nepožádá o tvoje přihlášovací jméno/heslo nebo nečo podobného.",
+        "faq-a3": "Ne, má přístup pouze k tomu co ukazuje osu! webová stránka když se přihlásíš, což je tvůj seznam přátel, veřejná data a data veřejných profilů tvých přátel. Nikdy nepožádá o tvoje přihlašovací jméno/heslo nebo něco podobného.",
         "faq-q4": "Proč mohu vidět jen některé ze svých sledujících?",
         "faq-a4": "Mutualify umí najít pouze lidi, kteří se přihlásili dříve, tak informujte ostatní! Více registrovaných lidí znamená více informací o sledujících."
     },
@@ -48,7 +48,7 @@
     "Followers": {
         "title": "Sledující",
         "followers-count": "Známí sledující: {knownCount} z {totalCount}.",
-        "hide-mutuals": "Skrýt mutuály"
+        "hide-mutuals": "Skrýt mutuální přátele"
     },
     "Friends": {
         "title": "Přátelé",
