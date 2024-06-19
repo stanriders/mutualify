@@ -25,10 +25,10 @@
         "faq-a": "V",
         "faq-q1": "Mikä tämä on?",
         "faq-a1": "Mutualify on tietokanta osu! pelaajien kaverilistoille. Se tallentaa jokaisen sisäänkirjautuneen pelaajan kaverilistan sekä muita asiaankuuluvia tietoja.",
-        "faq-q2": "Kuinka se toimii?",
+        "faq-q2": "Kuinka Mutualify toimii?",
         "faq-a2": "osu! API sallii verkkosivustojen nähdä pelaajan kaverilistan. Mutualify tarkistaa kaikkien rekisteröityneiden pelaajien kaverilistat nähdäkseen, kuka seuraa ketä.",
-        "faq-q3": "Voiko se varastaa tilini/salasanani/yksityiset tiedot?",
-        "faq-a3": "Ei, se voi käyttää vain mitä osu! verkkosivusto näyttää sinulle kirjautuessasi sisään joka on kaverilistasi, julkiset profiilitietosi ja kaverisi julkiset profiilitiedot. Se ei koskaan kysy kirjautumistunnustasi / salasanaasi tai muuta vastaavaa.",
+        "faq-q3": "Voiko Mutualify varastaa tilini/salasanani/yksityiset tiedot?",
+        "faq-a3": "Ei, Mutualify voi käyttää vain mitä osu! verkkosivusto näyttää sinulle kirjautuessasi sisään joka on kaverilistasi, julkiset profiilitietosi ja kaverisi julkiset profiilitiedot. Mutualify ei koskaan kysy kirjautumistunnustasi / salasanaasi tai muuta vastaavaa.",
         "faq-q4": "Miksi voin nähdä vain joitakin seuraajistani?",
         "faq-a4": "Mutualify löytää vain aiemmin sisäänkirjautuneita ihmisiä, joten levitä sanaa! Enemmän rekisteröityneitä tarkoittaa enemmän tietoa seuraajista."
     },
@@ -65,7 +65,7 @@
         "refresh": "Päivitä kaverilistasi",
         "refresh-success": "Päivitetty",
         "refresh-tooltip": "Päivitetty {updatedAgo} sitten",
-        "allow-friendlist-access": "Salli muiden käyttäjien käyttää kaveriluetteloasi",
+        "allow-friendlist-access": "Salli muiden käyttäjien nähdä kaveriluettelosi",
         "profile-link": "Kaverilistasi linkki"
     },
     "Restricted": {
