@@ -35,7 +35,7 @@
     "Stats": {
         "title": "Statistika",
         "registered": "Prisiregistravę vartotojai: {registered} ({lastDayRegistered} per 24 val.)",
-        "relations": "Santykių skaičius: {relations}",
+        "relations": "Ryšių skaičius: {relations}",
         "autoupdate": "Automatiniam atnaujinimui tinkantys vartotojai: {eligible}"
     },
     "Leaderboard": {
