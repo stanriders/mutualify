@@ -16,7 +16,7 @@
     "Footer": {
         "made-by": "Stworzone przez <stanr>StanR</stanr>, ikona autorstwa <arhella>Arhella</arhella>.",
         "stats": "Statystyki",
-        "source": "Kod źrółowy",
+        "source": "Kod źródłowy",
         "donate": "Wspomóż nas ❤"
     },
     "Home": {
@@ -48,7 +48,7 @@
     "Followers": {
         "title": "Obserwujący",
         "followers-count": "Zidentyfikowani obserwujący: {knownCount} z {totalCount}.",
-        "hide-mutuals": "Ukryj mutual znajomych"
+        "hide-mutuals": "Ukryj wspólnych znajomych"
     },
     "Friends": {
         "title": "Znajomi",
