@@ -14,28 +14,28 @@
         "user-tooltip": "Отворите подешавања"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
+        "made-by": "Страницу направио <stanr>StanR</stanr>, иконице направио <arhella>Arhella</arhella>.",
         "stats": "Статистике",
         "source": "Изворни код",
         "donate": "Донирајте ❤"
     },
     "Home": {
         "faq-title": "Мutualify - база података листе пријатеља за osu!",
-        "faq-q": "Q",
+        "faq-q": "Питање",
         "faq-a": "А",
         "faq-q1": "Шта је ово?",
         "faq-a1": "Mutualify је база података за osu! листе пријатеља. Чува листу пријатеља сваког играча који се пријави као и друге релевантне податке.",
         "faq-q2": "Како ово функционише?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "osu! API дозвољава веб-сајтовима да добију листу пријатеља играча. Mutualify узајамно проверава листе пријатеља свих регистрованих играча да види ко кога прати.",
         "faq-q3": "Може ли да украде мој налог/лозинку/приватне податке?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a3": "Не, може само приступити веб-сајт osu!-a који вам показује вашу листу пријатеља, подаци о вашем јавном профилу и подаци о јавном профилу вашег пријатеља. Никада неће тражити вашу пријаву/лозинку или нешто слично.",
+        "faq-q4": "Зашто могу да видим само неке од својих пратилаца?",
+        "faq-a4": "Mutualify може пронаћи само оне који су се раније пријавили, па ширите вест! Више регистрованих људи значи више информација о пратиоцима."
     },
     "Stats": {
         "title": "Статистике",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
+        "registered": "Регистровани корисници: {registered} ({lastDayRegistered} у последњих 24 сата)",
+        "relations": "Број релација: {relations}",
         "autoupdate": "Корисници који испуњавају услове за аутоматско ажурирање: {eligible}"
     },
     "Leaderboard": {
@@ -47,7 +47,7 @@
     },
     "Followers": {
         "title": "Пратиоци",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
+        "followers-count": "Познати пратиоци: {knownCount} од {totalCount}.",
         "hide-mutuals": "Сакријте блиске пријатеље"
     },
     "Friends": {
