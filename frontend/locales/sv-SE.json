@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Laddar...",
+        "page-not-found": "Sidan kunde inte hittas",
+        "sort-by-rank": "Sortera efter rankning"
+    },
+    "Header": {
+        "friends": "Vänner",
+        "followers": "Följare",
+        "leaderboard": "Rankningar",
+        "login": "Logga in",
+        "logout": "Logga ut",
+        "settings": "Inställningar",
+        "user-tooltip": "Öppna inställningar"
+    },
+    "Footer": {
+        "made-by": "Skapat av <stanr>StanR</stanr>, ikon av <arhella>Arhella</arhella>.",
+        "stats": "Statistik",
+        "source": "Källkod",
+        "donate": "Donera ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - en vänlistdatabas för osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Vad är detta?",
+        "faq-a1": "Mutualify är en databas för osu! spelares vänlistor. Den lagrar vänlistor för alla spelare som loggat in, samt några andra relevanta data.",
+        "faq-q2": "Hur funkar det?",
+        "faq-a2": "osu! API:n tillåter webbplatser att få tillgång till spelarens vänlista. Mutualify dubbelkollar alla registrerade spelares vänlistor för att se vem som följer vem.",
+        "faq-q3": "Kan det stjäla mitt konto/lösenord/privata data?",
+        "faq-a3": "Nej, det har bara tillgång till det som osu! webbplatsen visar dig när du loggar in, vilket är din vänlista, din offentliga profildata och dina vänners offentliga profildata. Det kommer aldrig att fråga efter din inloggning/lösenord eller någonting sådant.",
+        "faq-q4": "Varför kan jag bara se vissa av mina följare?",
+        "faq-a4": "Mutualify kan endast hitta personer som loggat in förut, så sprid ordet! Fler registrerade användare betyder mer information om följare."
+    },
+    "Stats": {
+        "title": "Statistik",
+        "registered": "Registrerade användare: {registered} ({lastDayRegistered} de senaste 24 timmarna)",
+        "relations": "Antal relationer: {relations}",
+        "autoupdate": "Användare behöriga för autoupdatiering: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Topplista",
+        "your-rank": "Din rank är: #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Spelare",
+        "table-header-followers": "Följare"
+    },
+    "Followers": {
+        "title": "Följare",
+        "followers-count": "Kända följare: {knownCount} av {totalCount}.",
+        "hide-mutuals": "Göm mutuals"
+    },
+    "Friends": {
+        "title": "Vänner",
+        "friend-count": "Du har {friendCount} vänner."
+    },
+    "User": {
+        "unknown-user-title": "Okänd användare",
+        "unknown-user-message": "Den här användaren har aldrig loggat in! Du kanske vill säga åt dem att göra det ;)",
+        "private-list": "<user>{username}</user>s vänlista är privat.",
+        "friend-count": "<user>{username}</user> har {friendsCount} vänner."
+    },
+    "Settings": {
+        "title": "Inställningar",
+        "refresh": "Uppdatera din vänlista",
+        "refresh-success": "Uppdaterad!",
+        "refresh-tooltip": "Uppdaterad {updatedAgo}",
+        "allow-friendlist-access": "Tillåt andra användare att få tillgång till din vänlista",
+        "profile-link": "Länken till din vänlista"
+    },
+    "Restricted": {
+        "title": "Ej tillåtet",
+        "message": "Tyvärr, men begränsade spelare är ej tillåtna att logga in!"
+    },
+    "Unauthorized": {
+        "message": "Logga in först!"
+    }
+}
