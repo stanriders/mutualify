@@ -1,23 +1,23 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Завантаження...",
+        "page-not-found": "Сторінку не знайдено",
+        "sort-by-rank": "Сортувати за ранком"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Друзі",
+        "followers": "Підписники",
+        "leaderboard": "Рейтинг",
+        "login": "Увійти",
+        "logout": "Вийти",
+        "settings": "Налаштування",
+        "user-tooltip": "Відкрити налаштування"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "Розробив <stanr>StanR</stanr>, автор значка <arhella>Arhella</arhella>.",
+        "stats": "Статистика",
+        "source": "Вихідний код",
+        "donate": "Підтримати ❤"
     },
     "Home": {
         "faq-title": "Mutualify - a friend list database for osu!",
