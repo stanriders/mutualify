@@ -2,7 +2,7 @@
     "Generic": {
         "loading": "Завантаження...",
         "page-not-found": "Сторінку не знайдено",
-        "sort-by-rank": "Сортувати за ранком"
+        "sort-by-rank": "Сортувати за рангом"
     },
     "Header": {
         "friends": "Друзі",
@@ -20,59 +20,59 @@
         "donate": "Підтримати ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
-        "faq-q": "Q",
-        "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-title": "Mutualify - база списків друзів для osu!",
+        "faq-q": "Питання",
+        "faq-a": "Відповідь",
+        "faq-q1": "Що це?",
+        "faq-a1": "Mutualify - це база даних для списків друзів гравців osu!. Вона зберігає список друзів кожного гравця, що авторизувався, разом з деякими іншими даними.",
+        "faq-q2": "Як це працює?",
+        "faq-a2": "osu! API дозволяє вебсайт отримувати списки друзів гравців. Mutualify звіряє списки друзів усіх зареєстрованих гравців, щоб побачити, хто на кого підписаний.",
+        "faq-q3": "Чи можу я втратити свій акаунт/пароль/особисті дані?",
+        "faq-a3": "Ні, ми маємо доступ лише до того, що вебсайт osu! показує після входу, а саме: ваш список друзів, загальнодоступні дані вашого профілю та профілів ваших друзів. У вас ніколи не питатимуть ваш логін/пароль або щось подібне.",
+        "faq-q4": "Чому я не бачу всіх своїх підписників?",
+        "faq-a4": "Mutualify може знайти лише людей, які входили сюди раніше, тож поширюйте інформацію! Чим більше зареєстрованих людей, тим більше інформації про підписників."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "Статистика",
+        "registered": "Зареєстровані користувачі: {registered} ({lastDayRegistered} за останні 24 години)",
+        "relations": "Кількість зв'язків: {relations}",
+        "autoupdate": "Підхожих для автоматичного оновлення гравців: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Таблиця лідерів",
+        "your-rank": "Ваш ранг #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Гравець",
+        "table-header-followers": "Підписники"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Підписники",
+        "followers-count": "Відомі підписники: {knownCount} з {totalCount}.",
+        "hide-mutuals": "Приховати взаємні підписки"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Друзі",
+        "friend-count": "Ви маєте {friendCount} друзів."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Невідомий користувач",
+        "unknown-user-message": "Цей користувач ніколи не авторизовувався! Можливо, вам варто повідомити їм про це ;)",
+        "private-list": "Список гравця <user>{username}</user> приватний.",
+        "friend-count": "<user>{username}</user> має {friendsCount} друзів."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Налаштування",
+        "refresh": "Оновити ваш список друзів",
+        "refresh-success": "Оновлено!",
+        "refresh-tooltip": "Оновлено {updatedAgo}",
+        "allow-friendlist-access": "Дозволити іншим користувачам переглядати ваш список друзів",
+        "profile-link": "Посилання на ваш список друзів"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "Заборонено",
+        "message": "Вибачте, але гравцям з обмеженим акаунтом не дозволено авторизуватися!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Спочатку авторизуйтесь!"
     }
 }
