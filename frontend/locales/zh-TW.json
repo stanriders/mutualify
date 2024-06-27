@@ -48,7 +48,7 @@
     "Followers": {
         "title": "粉絲",
         "followers-count": "已知的粉絲：{knownCount}/{totalCount}",
-        "hide-mutuals": "隐藏好友"
+        "hide-mutuals": "隐藏已添加粉絲"
     },
     "Friends": {
         "title": "好友",
