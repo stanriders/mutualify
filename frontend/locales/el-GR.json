@@ -5,17 +5,17 @@
         "sort-by-rank": "Sort by rank"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
+        "friends": "Φίλοι",
+        "followers": "Ακόλουθοι",
         "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
+        "login": "Σύνδεση",
+        "logout": "Αποσύνδεση",
+        "settings": "Ρυθμίσεις",
         "user-tooltip": "Open settings"
     },
     "Footer": {
         "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
+        "stats": "Στατιστικά",
         "source": "Source code",
         "donate": "Donate ❤"
     },
