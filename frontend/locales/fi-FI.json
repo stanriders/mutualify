@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Tuntematon käyttäjä",
-        "unknown-user-message": "Tämä käyttäjä ei ole koskaan kirjautunut sisään! Voit halutessasi kertoa heille ;)",
+        "unknown-user-message": "Tämä käyttäjä ei ole koskaan kirjautunut sisään! Voit halutessasi ehdottaa heille ;)",
         "private-list": "Käyttäjän <user>{username}</user> kaveriluettelo on yksityinen.",
         "friend-count": "Käyttäjällä <user>{username}</user> on {friendsCount} kaveria."
     },
