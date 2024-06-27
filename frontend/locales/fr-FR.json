@@ -22,15 +22,15 @@
     "Home": {
         "faq-title": "Mutualify - une base de données pour votre liste d'amis osu!",
         "faq-q": "Q",
-        "faq-a": "R",
+        "faq-a": "A",
         "faq-q1": "Qu'est-ce que c'est ?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "Mutualify est une base de données pour les listes d'amis des joueurs osu! Elle stocke les listes d'amis de tous les joueurs qui se sont connectés ainsi que d'autres données pertinentes.",
         "faq-q2": "Comment ça marche ?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "L'API de osu! permet aux sites web d'obtenir la liste d'amis d'un joueur. Mutualify compare les listes d'amis de tous les joueurs enregistrés pour voir qui suit qui.",
         "faq-q3": "Est-il possible que Mutualify vole mon compte/mot de passe/données privées?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "Non, il ne peut accéder qu'à ce que le site osu! vous montre lorsque vous vous connectez, c'est-à-dire votre liste d'amis, les données de votre profil public et les données du profil public de vos amis. Il ne te demandera jamais ton login/mot de passe ou quoi que ce soit d'autre.",
         "faq-q4": "Pourquoi ne puis-je voir que certains de mes abonnés?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "Mutualify ne peut trouver que les personnes qui se sont déjà connectées, alors faites passer le mot ! Plus il y a de personnes enregistrées, plus il y a d'informations sur les followers."
     },
     "Stats": {
         "title": "Statistiques",
@@ -56,7 +56,7 @@
     },
     "User": {
         "unknown-user-title": "Utilisateur inconnu",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "Cet utilisateur ne s'est jamais connecté! Vous devriez lui dire de le faire ;)",
         "private-list": "La liste d'amis de <user>{username}</user>est privée.",
         "friend-count": "<user>{username}</user> a {friendsCount} amis."
     },
