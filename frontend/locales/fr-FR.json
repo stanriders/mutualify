@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Chargement...",
+        "page-not-found": "Cette page n'existe pas",
+        "sort-by-rank": "Trier par rang"
+    },
+    "Header": {
+        "friends": "Amis",
+        "followers": "Abonnés",
+        "leaderboard": "Classements",
+        "login": "Se connecter",
+        "logout": "Se déconnecter",
+        "settings": "Paramètres",
+        "user-tooltip": "Ouvrir les paramètres"
+    },
+    "Footer": {
+        "made-by": "Créé par <stanr>StanR</stanr>, icône par <arhella>Arhella</arhella>.",
+        "stats": "Statistiques",
+        "source": "Code source",
+        "donate": "Faire un don ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - une base de données pour votre liste d'amis osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Qu'est-ce que c'est ?",
+        "faq-a1": "Mutualify est une base de données pour les listes d'amis des joueurs osu! Elle stocke les listes d'amis de tous les joueurs qui se sont connectés ainsi que d'autres données pertinentes.",
+        "faq-q2": "Comment ça marche ?",
+        "faq-a2": "L'API de osu! permet aux sites web d'obtenir la liste d'amis d'un joueur. Mutualify compare les listes d'amis de tous les joueurs enregistrés pour voir qui suit qui.",
+        "faq-q3": "Est-il possible que Mutualify vole mon compte/mot de passe/données privées?",
+        "faq-a3": "Non, il ne peut accéder qu'à ce que le site osu! vous montre lorsque vous vous connectez, c'est-à-dire votre liste d'amis, les données de votre profil public et les données du profil public de vos amis. Il ne te demandera jamais ton login/mot de passe ou quoi que ce soit d'autre.",
+        "faq-q4": "Pourquoi ne puis-je voir que certains de mes abonnés?",
+        "faq-a4": "Mutualify ne peut trouver que les personnes qui se sont déjà connectées, alors faites passer le mot ! Plus il y a de personnes enregistrées, plus il y a d'informations sur les followers."
+    },
+    "Stats": {
+        "title": "Statistiques",
+        "registered": "Utilisateurs enregistrés : {registered} ({lastDayRegistered} dans les dernières 24h)",
+        "relations": "Nombre de relations : {relations}",
+        "autoupdate": "Utilisateurs éligibles pour la mise à jour automatique : {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Classement",
+        "your-rank": "Votre rang est #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Joueur",
+        "table-header-followers": "Abonnés"
+    },
+    "Followers": {
+        "title": "Abonnés",
+        "followers-count": "Abonnés connus : {knownCount} sur {totalCount}.",
+        "hide-mutuals": "Masquer les amis mutuels"
+    },
+    "Friends": {
+        "title": "Amis",
+        "friend-count": "Vous avez {friendCount} amis."
+    },
+    "User": {
+        "unknown-user-title": "Utilisateur inconnu",
+        "unknown-user-message": "Cet utilisateur ne s'est jamais connecté! Vous devriez lui dire de le faire ;)",
+        "private-list": "La liste d'amis de <user>{username}</user>est privée.",
+        "friend-count": "<user>{username}</user> a {friendsCount} amis."
+    },
+    "Settings": {
+        "title": "Paramètres",
+        "refresh": "Actualisez votre liste d'amis",
+        "refresh-success": "Actualisé!",
+        "refresh-tooltip": "Mise à jour {updatedAgo}",
+        "allow-friendlist-access": "Autoriser d'autres utilisateurs à accéder à votre liste d'amis",
+        "profile-link": "Lien vers votre liste d'amis"
+    },
+    "Restricted": {
+        "title": "Non autorisé",
+        "message": "Désolé, mais les joueurs bannis ne sont pas autorisés à se connecter!"
+    },
+    "Unauthorized": {
+        "message": "Connectez-vous d'abord!"
+    }
+}

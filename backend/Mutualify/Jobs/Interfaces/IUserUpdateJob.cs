@@ -1,9 +1,8 @@
 ﻿using Hangfire.Server;
-using Hangfire;
 
 namespace Mutualify.Jobs.Interfaces;
 
 public interface IUserUpdateJob
 {
-    Task Run(PerformContext context, IJobCancellationToken token);
+    Task Run(PerformContext context, CancellationToken token);
 }

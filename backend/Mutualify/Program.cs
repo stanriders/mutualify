@@ -236,8 +236,8 @@ app.UseHangfireDashboard(options: new DashboardOptions
 });
 app.MapHangfireDashboard();
 
-RecurringJob.AddOrUpdate<IUserRelationsUpdateJob>("user-relations-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
-RecurringJob.AddOrUpdate<IUserUpdateJob>("users-update", x => x.Run(null!, JobCancellationToken.Null), Cron.Daily());
+RecurringJob.AddOrUpdate<IUserRelationsUpdateJob>("user-relations-update", x => x.Run(null!, CancellationToken.None), Cron.Daily(12));
+RecurringJob.AddOrUpdate<IUserUpdateJob>("users-update", x => x.Run(null!, CancellationToken.None), Cron.Daily());
 //BackgroundJob.Enqueue<IUserPopulateJob>(x => x.Run(null!, JobCancellationToken.Null));
 
 try

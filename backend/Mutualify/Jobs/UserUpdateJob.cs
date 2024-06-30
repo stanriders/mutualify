@@ -1,4 +1,4 @@
-﻿using Hangfire;
+﻿
 using Hangfire.Server;
 using Microsoft.EntityFrameworkCore;
 using Mutualify.Database;
@@ -25,9 +25,11 @@ public class UserUpdateJob : IUserUpdateJob
         _databaseContext = databaseContext;
     }
 
-    public async Task Run(PerformContext context, IJobCancellationToken token)
+    public async Task Run(PerformContext context, CancellationToken token)
     {
         var jobId = context.BackgroundJob.Id;
+
+        using var _ = _logger.BeginScope("[UserUpdateJob - {JobId}]", jobId);
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
 
@@ -43,7 +45,7 @@ public class UserUpdateJob : IUserUpdateJob
         var userUpdateQueue = await _databaseContext.Users.AsNoTracking()
             .Where(x=> x.UpdatedAt == null || x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
             .Select(x => x.Id)
-            .ToListAsync();
+            .ToListAsync(cancellationToken: token);
 
         for (var i = 0; i < userUpdateQueue.Count; i++)
         {
@@ -95,7 +97,7 @@ public class UserUpdateJob : IUserUpdateJob
                 var elapsed = endTime - startTime;
                 var timeout = elapsed.TotalSeconds < _interval ? _interval - (int) elapsed.TotalSeconds : 0;
 
-                await Task.Delay(timeout * 1000);
+                await Task.Delay(timeout * 1000, token);
             }
         }
 

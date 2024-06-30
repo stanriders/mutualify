@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "正在載入…",
+        "page-not-found": "無法找到此頁面",
+        "sort-by-rank": "按排名排序"
+    },
+    "Header": {
+        "friends": "好友",
+        "followers": "粉絲",
+        "leaderboard": "排行榜",
+        "login": "登入",
+        "logout": "登出",
+        "settings": "設定",
+        "user-tooltip": "打開設定"
+    },
+    "Footer": {
+        "made-by": "製作：<stanr>StanR</stanr> 圖標：<arhella>Arhella</arhella>",
+        "stats": "統計數據",
+        "source": "原始碼",
+        "donate": "捐贈 ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - osu! 的好友列表資料庫",
+        "faq-q": "問",
+        "faq-a": "答",
+        "faq-q1": "Mutualify 是甚麼?",
+        "faq-a1": "Mutualify 是一個 osu! 玩家好友列表的資料庫。它保存了每個在此登入的玩家的好友列表以及一些相關資料。",
+        "faq-q2": "它是如何運作的？",
+        "faq-a2": "Mutualify 通過 osu! API 獲取所有已登記玩家的好友列表，透過檢查其他玩家的好友列表得知誰追蹤了你。",
+        "faq-q3": "它能盜取我的帳號/密碼/私人資料嗎？",
+        "faq-a3": "不能，它只能夠查看你在登入時顯示的 osu! 授權請求上的項目。也就是你的追蹤列表、你的公開個人資料以及你的好友的公開個人資料。它並不會要求你輸入登入帳號/密碼或其他類似的私人資料。",
+        "faq-q4": "為甚麼我只能見到我部分的粉絲？",
+        "faq-a4": "Mutualify 只能夠找到已登記的玩家，所以多宣傳一下吧！登記的玩家越多粉絲相關的資訊就越多。"
+    },
+    "Stats": {
+        "title": "統計數據",
+        "registered": "已登記玩家：{registered} (過去24小時：{lastDayRegistered})",
+        "relations": "總追蹤數：{relations}",
+        "autoupdate": "能夠自動更新的已登記玩家：{eligible}"
+    },
+    "Leaderboard": {
+        "title": "排行榜",
+        "your-rank": "你的排名：#{rank}",
+        "table-header-rank": "#",
+        "table-header-player": "玩家",
+        "table-header-followers": "粉絲"
+    },
+    "Followers": {
+        "title": "粉絲",
+        "followers-count": "已知的粉絲：{knownCount}/{totalCount}",
+        "hide-mutuals": "隐藏已添加粉絲"
+    },
+    "Friends": {
+        "title": "好友",
+        "friend-count": "你有 {friendCount} 個好友。"
+    },
+    "User": {
+        "unknown-user-title": "未知的玩家",
+        "unknown-user-message": "這位玩家從未在此登記過！你可能會想叫他來登記一下 ;)",
+        "private-list": "<user>{username}</user> 的好友列表沒有公開。",
+        "friend-count": "<user>{username}</user> 有 {friendsCount} 個好友。"
+    },
+    "Settings": {
+        "title": "設定",
+        "refresh": "刷新你的好友列表",
+        "refresh-success": "已更新！",
+        "refresh-tooltip": "上次更新：{updatedAgo}",
+        "allow-friendlist-access": "允許其他玩家訪問你的好友列表",
+        "profile-link": "你的好友列表連結"
+    },
+    "Restricted": {
+        "title": "無法登記",
+        "message": "抱歉，但受限制的玩家不能夠登入！"
+    },
+    "Unauthorized": {
+        "message": "請先登入！"
+    }
+}
