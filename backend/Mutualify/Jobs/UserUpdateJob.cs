@@ -1,4 +1,5 @@
 ﻿
+using Hangfire;
 using Hangfire.Server;
 using Microsoft.EntityFrameworkCore;
 using Mutualify.Database;
@@ -25,6 +26,7 @@ public class UserUpdateJob : IUserUpdateJob
         _databaseContext = databaseContext;
     }
 
+    [DisableConcurrentExecution(timeoutInSeconds: 60 * 60 * 24)]
     public async Task Run(PerformContext context, CancellationToken token)
     {
         var jobId = context.BackgroundJob.Id;

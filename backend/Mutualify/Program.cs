@@ -144,6 +144,7 @@ builder.Services.AddHangfire(x =>
     x.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
         .UseSimpleAssemblyNameTypeSerializer()
         .UseRecommendedSerializerSettings()
+        .UseSerilogLogProvider()
         .UsePostgreSqlStorage(options =>
         {
             options.UseConnectionFactory(new NpgsqlConnectionFactory(connectionString.ConnectionString,
