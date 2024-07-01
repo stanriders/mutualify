@@ -147,7 +147,7 @@ builder.Services.AddHangfire(x =>
         .UsePostgreSqlStorage(options =>
         {
             options.UseConnectionFactory(new NpgsqlConnectionFactory(connectionString.ConnectionString,
-                new PostgreSqlStorageOptions { InvisibilityTimeout = TimeSpan.FromDays(1) }));
+                new PostgreSqlStorageOptions { UseSlidingInvisibilityTimeout = true }));
         });
 });
 

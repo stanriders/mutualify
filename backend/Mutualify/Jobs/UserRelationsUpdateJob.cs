@@ -30,11 +30,11 @@ public class UserRelationsUpdateJob : IUserRelationsUpdateJob
     {
         var jobId = context.BackgroundJob.Id;
 
-        using var _ = _logger.BeginScope("[UserRelationsUpdateJob - {JobId}]", jobId);
+        using var _ = _logger.BeginScope("UserRelationsUpdateJob");
 
         _logger.LogInformation("[{JobId}] Starting user relations update job...", jobId);
 
-        if (_isRunning && _lastStartDate.AddDays(1.5) > DateTime.Now)
+        if (_isRunning && _lastStartDate.AddDays(1) > DateTime.Now)
         {
             _logger.LogInformation("[{JobId}] User relations job is already running, abort!", jobId);
             return;

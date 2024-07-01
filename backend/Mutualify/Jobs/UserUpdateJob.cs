@@ -29,11 +29,11 @@ public class UserUpdateJob : IUserUpdateJob
     {
         var jobId = context.BackgroundJob.Id;
 
-        using var _ = _logger.BeginScope("[UserUpdateJob - {JobId}]", jobId);
+        using var _ = _logger.BeginScope("UserUpdateJob");
 
         _logger.LogInformation("[{JobId}] Starting user update job...", jobId);
 
-        if (_isRunning && _lastStartDate.AddDays(1.5) > DateTime.Now)
+        if (_isRunning && _lastStartDate.AddDays(1) > DateTime.Now)
         {
             _logger.LogInformation("[{JobId}] Job is already running, abort!", jobId);
             return;
