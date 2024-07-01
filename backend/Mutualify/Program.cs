@@ -145,11 +145,8 @@ builder.Services.AddHangfire(x =>
         .UseSimpleAssemblyNameTypeSerializer()
         .UseRecommendedSerializerSettings()
         .UseSerilogLogProvider()
-        .UsePostgreSqlStorage(options =>
-        {
-            options.UseConnectionFactory(new NpgsqlConnectionFactory(connectionString.ConnectionString,
-                new PostgreSqlStorageOptions { UseSlidingInvisibilityTimeout = true }));
-        });
+        .UsePostgreSqlStorage(options => { options.UseNpgsqlConnection(connectionString.ConnectionString); },
+            new PostgreSqlStorageOptions { UseSlidingInvisibilityTimeout = true });
 });
 
 builder.Services.AddHangfireServer(options =>

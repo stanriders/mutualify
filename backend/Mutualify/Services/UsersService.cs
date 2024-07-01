@@ -109,6 +109,8 @@ namespace Mutualify.Services
             if (token is not null && token.ExpiresOn <= DateTime.UtcNow.AddDays(1))
             {
                 // refresh close-to-expiration tokens
+                _logger.LogInformation("User {UserId} tokens are close to expiration ({ExpiresOn} <= {Threshold}), updating...", token.UserId, token.ExpiresOn, DateTime.UtcNow.AddDays(1));
+
                 await RefreshToken(token);
             }
 
