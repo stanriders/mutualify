@@ -55,16 +55,15 @@ namespace Mutualify.Services
             var relationsUpdateEligible = await _databaseContext.Tokens.AsNoTracking()
                 .CountAsync();
 
-            var userUpdateEligible = await _databaseContext.Users.AsNoTracking()
-                .Where(x => x.UpdatedAt == null || x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
-                .CountAsync();
+            var userCount = await _databaseContext.Users.AsNoTracking()
+                .LongCountAsync();
 
             return new StatsContract
             {
                 RegisteredCount = registeredUsers,
                 RelationCount = relationCount,
+                UserCount = userCount,
                 EligibleForUpdateCount = relationsUpdateEligible,
-                EligibleForUserUpdateCount = userUpdateEligible,
                 LastDayRegisteredCount = lastDayRegistered
             };
         }
@@ -138,6 +137,7 @@ namespace Mutualify.Services
 
             if (osuUser is null)
             {
+                _logger.LogError("User {User} doesn't exist according to API!", userId);
                 return;
             }
 
