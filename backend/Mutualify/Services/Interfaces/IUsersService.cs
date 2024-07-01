@@ -10,7 +10,7 @@ namespace Mutualify.Services.Interfaces
         Task<StatsContract> GetStats();
         Task<RankingsContract> GetFollowerLeaderboard(int offset);
         Task<int> GetFollowerLeaderboardRanking(int userId);
-        Task Update(int userId);
+        Task Update(int userId, bool useTokens);
         Task ToggleFriendlistAccess(int userId, bool allow);
     }
 }

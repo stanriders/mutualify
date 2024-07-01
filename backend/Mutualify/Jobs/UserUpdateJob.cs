@@ -46,6 +46,7 @@ public class UserUpdateJob : IUserUpdateJob
 
         var userUpdateQueue = await _databaseContext.Users.AsNoTracking()
             .Where(x=> x.UpdatedAt == null || x.UpdatedAt < DateTime.UtcNow.AddDays(-1))
+            .OrderByDescending(x=> x.FollowerCount)
             .Select(x => x.Id)
             .ToListAsync(cancellationToken: token);
 
@@ -68,7 +69,7 @@ public class UserUpdateJob : IUserUpdateJob
                 }
 #endif
 
-                await _usersService.Update(userId);
+                await _usersService.Update(userId, false);
             }
             catch (AggregateException e)
             {

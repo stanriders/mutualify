@@ -3,6 +3,7 @@ using Mutualify.Contracts;
 using Mutualify.Database;
 using Mutualify.Database.Models;
 using Mutualify.OsuApi.Interfaces;
+using Mutualify.OsuApi.Models;
 using Mutualify.Services.Interfaces;
 
 namespace Mutualify.Services
@@ -95,7 +96,7 @@ namespace Mutualify.Services
                 .SingleOrDefaultAsync();
         }
 
-        public async Task Update(int userId)
+        public async Task Update(int userId, bool useTokens)
         {
             var user = await _databaseContext.Users.FindAsync(userId);
             if (user is null)
@@ -105,16 +106,36 @@ namespace Mutualify.Services
                 return;
             }
 
-            var token = await _databaseContext.Tokens.FindAsync(userId);
-            if (token is not null && token.ExpiresOn <= DateTime.UtcNow.AddDays(1))
-            {
-                // refresh close-to-expiration tokens
-                _logger.LogInformation("User {UserId} tokens are close to expiration ({ExpiresOn} <= {Threshold}), updating...", token.UserId, token.ExpiresOn, DateTime.UtcNow.AddDays(1));
+            OsuUser? osuUser;
 
-                await RefreshToken(token);
+            // todo: refactor into a separate method?
+            if (useTokens)
+            {
+                var token = await _databaseContext.Tokens.FindAsync(userId);
+                if (token is not null)
+                {
+                    if (token.ExpiresOn <= DateTime.UtcNow.AddDays(1))
+                    {
+                        // refresh close-to-expiration tokens
+                        _logger.LogInformation(
+                            "User {UserId} tokens are close to expiration ({ExpiresOn} <= {Threshold}), updating...",
+                            token.UserId, token.ExpiresOn, DateTime.UtcNow.AddDays(1));
+
+                        await RefreshToken(token);
+                    }
+                    osuUser = await _osuApiDataService.GetUser(token.AccessToken);
+                }
+                else
+                {
+                    // no token - update using app's token
+                    osuUser = await _osuApiDataService.GetUser(userId);
+                }
+            }
+            else
+            {
+                osuUser = await _osuApiDataService.GetUser(userId);
             }
 
-            var osuUser = await _osuApiDataService.GetUser(userId);
             if (osuUser is null)
             {
                 return;
@@ -155,7 +176,7 @@ namespace Mutualify.Services
                 token.ExpiresOn = DateTime.UtcNow.AddSeconds(newToken.ExpiresIn);
 
                 _databaseContext.Tokens.Update(token);
-                _logger.LogInformation("Updated tokens for user {UserId}", token.UserId);
+                _logger.LogInformation("Updated tokens for user {UserId}, new token expiration: {ExpiresOn}", token.UserId, token.ExpiresOn);
             }
             else
             {

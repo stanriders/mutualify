@@ -64,7 +64,7 @@ public class UserRelationsUpdateJob : IUserRelationsUpdateJob
                     _logger.LogInformation("[{JobId}] ({Current}/{Total}) Updating {Id}...", jobId, i+1,
                         userUpdateQueue.Count, userId);
 
-                await _usersService.Update(userId);
+                await _usersService.Update(userId, true);
                 await _relationsService.UpdateRelations(userId);
             }
             catch (AggregateException e)

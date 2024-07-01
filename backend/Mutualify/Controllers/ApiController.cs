@@ -86,7 +86,7 @@ namespace Mutualify.Controllers
         {
             try
             {
-                await _usersService.Update(_claim);
+                await _usersService.Update(_claim, true);
                 await _relationsService.UpdateRelations(_claim);
             }
             catch (HttpRequestException e)
