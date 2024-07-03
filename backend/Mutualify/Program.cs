@@ -131,6 +131,7 @@ builder.Services.AddTransient<IUsersService, UsersService>();
 builder.Services.AddTransient<IUserRelationsUpdateJob, UserRelationsUpdateJob>();
 builder.Services.AddTransient<IUserUpdateJob, UserUpdateJob>();
 builder.Services.AddTransient<IUserPopulateJob, UserPopulateJob>();
+builder.Services.AddTransient<IUserAllUpdateJob, UserAllUpdateJob>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
