@@ -30,6 +30,8 @@ services:
     networks:
       - main
       - logs
+    restart: unless-stopped
+    pull_policy: build
 
   frontend:
     build: ./frontend/.
@@ -39,6 +41,8 @@ services:
       - ./logs/frontend:/app/logs
     networks:
       - main
+    restart: unless-stopped
+    pull_policy: build
 
   postgres:
     image: postgres:latest
@@ -53,3 +57,4 @@ services:
       - ./db:/data/postgres
     networks:
       - main
+    restart: unless-stopped
