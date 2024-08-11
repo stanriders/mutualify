@@ -1,32 +1,32 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "불러오는 중...",
+        "page-not-found": "페이지를 찾지 못했어요",
+        "sort-by-rank": "순위로 정렬"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "친구",
+        "followers": "팔로워",
+        "leaderboard": "순위",
+        "login": "로그인",
+        "logout": "로그아웃",
+        "settings": "설정",
+        "user-tooltip": "설정 열기"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "제작: <stanr>StanR</stanr>, 아이콘: <arhella>Arhella</arhella> ",
+        "stats": "통계",
+        "source": "소스 코드",
+        "donate": "후원 ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
+        "faq-title": "Mutualify - osu!용 친구 목록 데이터베이스",
         "faq-q": "Q",
         "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-q1": "이게 뭐죠?",
+        "faq-a1": "Mutualify는 osu! 플레이어 친구 목록용 데이터베이스예요. 로그인한 모든 플레이어의 친구 목록을 저장할 뿐만 아니라 관련 있는 그 외의 일부 데이터도 저장해요.",
+        "faq-q2": "어떻게 작동하나요?",
+        "faq-a2": "osu! API가 웹 사이트에서 플레이어의 친구 목록을 가져올 수 있도록 해 줘요. 가입한 모든 플레이어의 친구 목록을 상호 확인해서 누가 누구를 팔로우하는지 확인할 수 있어요.",
         "faq-q3": "Can it steal my account/password/private data?",
         "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
         "faq-q4": "Why can I see only some of my followers?",
