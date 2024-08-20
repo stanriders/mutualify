@@ -29,9 +29,20 @@ namespace Mutualify.Controllers
 
         [Authorize]
         [HttpGet("/me")]
-        public Task<User> GetSelf()
+        public async Task<User?> GetSelf()
         {
-            return _usersService.Get(_claim)!;
+            var user = await _usersService.Get(_claim);
+
+            if (user == null || user.Token == null)
+            {
+                _logger.LogWarning("User {User} does not have token, logging out...", _claim);
+                await HttpContext.SignOutAsync("InternalCookies");
+
+                await HttpContext.ForbidAsync();
+                return null;
+            }
+
+            return user;
         }
 
         [Authorize]

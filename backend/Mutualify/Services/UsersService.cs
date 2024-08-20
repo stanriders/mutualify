@@ -35,7 +35,9 @@ namespace Mutualify.Services
 
         public async Task<User?> Get(int userId)
         {
-            return await _databaseContext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == userId);
+            return await _databaseContext.Users.AsNoTracking()
+                .Include(x=> x.Token)
+                .SingleOrDefaultAsync(x => x.Id == userId);
         }
 
         public async Task<StatsContract> GetStats()
@@ -76,10 +78,7 @@ namespace Mutualify.Services
                 .Take(50)
                 .ToListAsync();
 
-            var total = await _databaseContext.Relations.AsNoTracking()
-                    .Select(x => x.FromId)
-                    .Distinct()
-                    .CountAsync();
+            var total = await _databaseContext.Users.AsNoTracking().CountAsync();
 
             return new RankingsContract
             {

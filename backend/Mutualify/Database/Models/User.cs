@@ -35,5 +35,5 @@ public class User
     public List<Relation> FromRelations { get; set; } = null!;
 
     [JsonIgnore]
-    public Token Token { get; set; } = null!;
+    public Token? Token { get; set; }
 }
