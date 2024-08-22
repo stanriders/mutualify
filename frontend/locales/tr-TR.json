@@ -1,78 +1,78 @@
 {
     "Generic": {
-        "loading": "Loading...",
-        "page-not-found": "Page not found",
-        "sort-by-rank": "Sort by rank"
+        "loading": "Yükleniyor...",
+        "page-not-found": "Sayfa bulunamadı",
+        "sort-by-rank": "Sıralamaya göre sırala"
     },
     "Header": {
-        "friends": "Friends",
-        "followers": "Followers",
-        "leaderboard": "Rankings",
-        "login": "Login",
-        "logout": "Logout",
-        "settings": "Settings",
-        "user-tooltip": "Open settings"
+        "friends": "Arkadaşlar",
+        "followers": "Takipçiler",
+        "leaderboard": "Sıralamalar",
+        "login": "Giriş yap",
+        "logout": "Çıkış yap",
+        "settings": "Ayarlar",
+        "user-tooltip": "Ayarları aç"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
-        "stats": "Stats",
-        "source": "Source code",
-        "donate": "Donate ❤"
+        "made-by": "<stanr>StanR</stanr> tarafından yapılmıştır, ikon <arhella>Arhella</arhella>.",
+        "stats": "İstatistikler",
+        "source": "Kaynak kodu",
+        "donate": "Bağış ❤"
     },
     "Home": {
-        "faq-title": "Mutualify - a friend list database for osu!",
-        "faq-q": "Q",
-        "faq-a": "A",
-        "faq-q1": "What is this?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
-        "faq-q2": "How does it work?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
-        "faq-q3": "Can it steal my account/password/private data?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-title": "Mutualify - osu! için bir arkadaş listesi veritabanı!",
+        "faq-q": "S",
+        "faq-a": "C",
+        "faq-q1": "Nedir bu?",
+        "faq-a1": "Mutualify, osu! oyuncularının arkadaş listeleri için bir veritabanıdır. Giriş yapan her oyuncunun arkadaş listesinin yanı sıra diğer bazı ilgili verileri de saklar.",
+        "faq-q2": "Nasıl çalışır?",
+        "faq-a2": "osu! API, internet sitelerinin oyuncunun arkadaş listesini almasını sağlar. Mutualify, kimin kimi takip ettiğini görmek için tüm kayıtlı oyuncuların arkadaş listelerini çapraz-kontrol eder.",
+        "faq-q3": "Hesabımı/şifremi/özel verilerimi çalabilir mi?",
+        "faq-a3": "Hayır, sadece osu! web sitesinin giriş yaptığınızda size gösterdiği arkadaş listenize, herkese açık profil verilerinize ve arkadaşlarınızın herkese açık profil verilerine erişebilir. Asla kullanıcı adınızı/şifrenizi ya da buna benzer bir şey sormaz.",
+        "faq-q4": "Neden takipçilerimin bir kısmını görebiliyorum?",
+        "faq-a4": "Mutualify yalnızca daha önceden buraya giriş yapmış kişileri bulabilir, bu yüzden etrafa yay! Daha fazla kayıtlı kişi, takipçiler hakkında daha fazla bilgi demektir."
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "İstatistikler",
+        "registered": "Kayıtlı kullanıcılar: {registered} (son 24 saatte {lastDayRegistered})",
+        "relations": "İlişki sayısı: {relations}",
+        "autoupdate": "Otomatik güncelleme için uygun kullanıcılar: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "Liderlik Tablosu",
+        "your-rank": "Senin sıralaman #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "Oyuncu",
+        "table-header-followers": "Takipçiler"
     },
     "Followers": {
-        "title": "Followers",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "title": "Takipçiler",
+        "followers-count": "Bilinen takipçiler: {totalCount} üzerinden {knownCount}.",
+        "hide-mutuals": "Karşılıklı olanları gizle"
     },
     "Friends": {
-        "title": "Friends",
-        "friend-count": "You have {friendCount} friends."
+        "title": "Arkadaşlar",
+        "friend-count": "{friendCount} arkadaşın var."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "unknown-user-title": "Bilinmeyen kullanıcı",
+        "unknown-user-message": "Bu kullanıcı hiç giriş yapmadı! Ona söylemek isteyebilirsin ;)",
+        "private-list": "<user>{username}</user> kullanıcısının arkadaş listesi gizli.",
+        "friend-count": "<user>{username}</user> kullanıcısının {friendsCount} arkadaşı var."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
-        "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
-        "profile-link": "Your friend list link"
+        "title": "Ayarlar",
+        "refresh": "Arkadaş listeni yenile",
+        "refresh-success": "Güncellendi!",
+        "refresh-tooltip": "Güncellendi {updatedAgo}",
+        "allow-friendlist-access": "Diğer kullanıcıların arkadaş listenize erişmesine izin verin",
+        "profile-link": "Arkadaş listesi bağlantınız"
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "İzin yok",
+        "message": "Üzgünüz, ancak kısıtlı kullanıcıların giriş yapmasına izin verilmiyor!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "Önce giriş yap!"
     }
 }
