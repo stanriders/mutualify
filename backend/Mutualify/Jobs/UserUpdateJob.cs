@@ -86,9 +86,9 @@ public class UserUpdateJob : IUserUpdateJob
             }
             catch (DbUpdateConcurrencyException) { } // don't fail on HttpRequestExceptions or DbUpdateConcurrencyException, just keep going
             catch (HttpRequestException) { }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException ex)
             {
-                _logger.LogWarning("[{JobId}] User update job has been cancelled!", jobId);
+                _logger.LogWarning(ex, "[{JobId}] User update job has been cancelled!", jobId);
 
                 _isRunning = false;
                 return;

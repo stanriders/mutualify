@@ -20,7 +20,7 @@ public class UserAllUpdateJob : IUserAllUpdateJob
     private readonly IUsersService _usersService;
     private readonly ILogger<UserUpdateJob> _logger;
 
-    private const double _interval = 5; // seconds
+    private const double _interval = 4; // seconds
 
     private static bool _isRunning = false;
     private static DateTime _lastStartDate;
@@ -91,9 +91,9 @@ public class UserAllUpdateJob : IUserAllUpdateJob
             }
             catch (DbUpdateConcurrencyException) { } // don't fail on HttpRequestExceptions or DbUpdateConcurrencyException, just keep going
             catch (HttpRequestException) { }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException ex)
             {
-                _logger.LogWarning("[{JobId}] All users update job has been cancelled!", jobId);
+                _logger.LogWarning(ex, "[{JobId}] All users update job has been cancelled!", jobId);
 
                 _isRunning = false;
                 return;

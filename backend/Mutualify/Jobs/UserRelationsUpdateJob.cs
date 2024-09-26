@@ -14,7 +14,7 @@ public class UserRelationsUpdateJob : IUserRelationsUpdateJob
     private readonly IRelationsService _relationsService;
     private readonly ILogger<UserRelationsUpdateJob> _logger;
 
-    private const int _interval = 3; // seconds
+    private const int _interval = 2; // seconds
 
     private static bool _isRunning = false;
     private static DateTime _lastStartDate;
@@ -81,9 +81,9 @@ public class UserRelationsUpdateJob : IUserRelationsUpdateJob
             }
             catch (DbUpdateConcurrencyException) { } // don't fail on HttpRequestExceptions or DbUpdateConcurrencyException, just keep going
             catch (HttpRequestException) { }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException ex)
             {
-                _logger.LogWarning("[{JobId}] User relations update job has been cancelled!", jobId);
+                _logger.LogWarning(ex, "[{JobId}] User relations update job has been cancelled!", jobId);
 
                 _isRunning = false;
                 return;

@@ -2,7 +2,6 @@ using System.Reflection;
 using FastExpressionCompiler;
 using Hangfire;
 using Hangfire.PostgreSql;
-using Hangfire.PostgreSql.Factories;
 using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Authentication;
@@ -130,7 +129,6 @@ builder.Services.AddTransient<IUsersService, UsersService>();
 
 builder.Services.AddTransient<IUserRelationsUpdateJob, UserRelationsUpdateJob>();
 builder.Services.AddTransient<IUserUpdateJob, UserUpdateJob>();
-builder.Services.AddTransient<IUserPopulateJob, UserPopulateJob>();
 builder.Services.AddTransient<IUserAllUpdateJob, UserAllUpdateJob>();
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -242,7 +240,6 @@ if (app.Environment.IsStaging() || app.Environment.IsProduction())
     RecurringJob.AddOrUpdate<IUserUpdateJob>("users-update", x => x.Run(null!, CancellationToken.None), Cron.Daily());
     RecurringJob.AddOrUpdate<IUserAllUpdateJob>("users-update-all", x => x.Run(null!, CancellationToken.None),
         Cron.Monthly(3));
-    //BackgroundJob.Enqueue<IUserPopulateJob>(x => x.Run(null!, JobCancellationToken.Null));
 }
 
 try
