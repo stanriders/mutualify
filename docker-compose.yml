@@ -45,7 +45,7 @@ services:
     pull_policy: build
 
   postgres:
-    image: postgres:latest
+    image: postgres:16
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
