@@ -85,18 +85,20 @@ public class UserAllUpdateJob : IUserAllUpdateJob
                     continue;
                 }
 
-                _isRunning = false;
-
-                throw;
+                _logger.LogWarning(e, "[{JobId}] All users update job error occured!", jobId);
             }
-            catch (DbUpdateConcurrencyException) { } // don't fail on HttpRequestExceptions or DbUpdateConcurrencyException, just keep going
-            catch (HttpRequestException) { }
             catch (OperationCanceledException ex)
             {
                 _logger.LogWarning(ex, "[{JobId}] All users update job has been cancelled!", jobId);
 
                 _isRunning = false;
+
                 return;
+            }
+            catch (Exception ex)
+            {
+                // try to keep going
+                _logger.LogWarning(ex, "[{JobId}] All users update job error occured!", jobId);
             }
             finally
             {
@@ -106,7 +108,7 @@ public class UserAllUpdateJob : IUserAllUpdateJob
                 var elapsed = endTime - startTime;
                 var timeout = elapsed.TotalSeconds < _interval ? _interval - (int) elapsed.TotalSeconds : 0;
 
-                await Task.Delay((int)(timeout * 1000), token);
+                await Task.Delay((int) (timeout * 1000), token);
             }
         }
 
