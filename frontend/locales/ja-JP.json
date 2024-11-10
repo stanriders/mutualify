@@ -42,20 +42,20 @@
         "title": "Leaderboard",
         "your-rank": "Your rank is #{rank}.",
         "table-header-rank": "#",
-        "table-header-player": "Player",
-        "table-header-followers": "Followers"
+        "table-header-player": "プレイヤー",
+        "table-header-followers": "フォロワー"
     },
     "Followers": {
-        "title": "Followers",
+        "title": "フォロワー",
         "followers-count": "Known followers: {knownCount} out of {totalCount}.",
-        "hide-mutuals": "Hide mutuals"
+        "hide-mutuals": "相互を隠す"
     },
     "Friends": {
-        "title": "Friends",
+        "title": "フレンド",
         "friend-count": "You have {friendCount} friends."
     },
     "User": {
-        "unknown-user-title": "Unknown user",
+        "unknown-user-title": "不明なユーザー",
         "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
         "private-list": "<user>{username}</user>'s friend list is private.",
         "friend-count": "<user>{username}</user> has {friendsCount} friends."
