@@ -24,48 +24,48 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "これは何ですか？",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "Mutualifyはosu! プレイヤーのためのフレンドリストのデータベースです。ログインしたすべてのプレイヤーのフレンドリストと、その他の関連データが保存されます。",
         "faq-q2": "どのように動作しますか？",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "osu! APIを使用すると、ウェブサイトはプレイヤーのフレンドリストを取得できます。登録されたすべてのプレイヤーのフレンドリストの相互を確認し、誰が誰をフォローしているかを確認することができます。",
         "faq-q3": "アカウント/パスワード/プライベートデータを盗むことはできますか?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
-        "faq-q4": "Why can I see only some of my followers?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a3": "いいえ。ログイン時に osu! Web サイトに表示されるもの、つまり友達リスト、公開プロフィール データ、友達の公開プロフィール データにのみアクセスできます。ログイン/パスワードなどを尋ねることはありません。",
+        "faq-q4": "フォロワーの一部しか表示されないのはなぜですか?",
+        "faq-a4": "Mutualify は以前ログインした人しか見つけられないので、ぜひ広めてください！登録者が増えると、フォロワーに関する情報も増えます。"
     },
     "Stats": {
-        "title": "Stats",
-        "registered": "Registered users: {registered} ({lastDayRegistered} in the last 24hr)",
-        "relations": "Relation count: {relations}",
-        "autoupdate": "Users eligible for autoupdate: {eligible}"
+        "title": "統計",
+        "registered": "登録ユーザー: {registered} ( 過去24時間の{lastDayRegistered})",
+        "relations": "関係数： {relations}",
+        "autoupdate": "自動更新の対象となるユーザー: {eligible}"
     },
     "Leaderboard": {
-        "title": "Leaderboard",
-        "your-rank": "Your rank is #{rank}.",
+        "title": "リーダーボード",
+        "your-rank": "あなたのランクは#{rank} です",
         "table-header-rank": "#",
         "table-header-player": "プレイヤー",
         "table-header-followers": "フォロワー"
     },
     "Followers": {
         "title": "フォロワー",
-        "followers-count": "Known followers: {knownCount} out of {totalCount}.",
+        "followers-count": "既知のフォロワー: {knownCount} / {totalCount}.",
         "hide-mutuals": "相互を隠す"
     },
     "Friends": {
         "title": "フレンド",
-        "friend-count": "You have {friendCount} friends."
+        "friend-count": "あなたは{friendCount} 人のフレンドがいます"
     },
     "User": {
         "unknown-user-title": "不明なユーザー",
         "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
-        "private-list": "<user>{username}</user>'s friend list is private.",
+        "private-list": "<user>{username}</user>のフレンドリストは非公開です。",
         "friend-count": "<user>{username}</user> has {friendsCount} friends."
     },
     "Settings": {
-        "title": "Settings",
-        "refresh": "Refresh your friend list",
-        "refresh-success": "Updated!",
+        "title": "設定",
+        "refresh": "フレンドリストを更新",
+        "refresh-success": "更新しました！",
         "refresh-tooltip": "Updated {updatedAgo}",
-        "allow-friendlist-access": "Allow other users to access your friend list",
+        "allow-friendlist-access": "他のユーザーが自分のフレンドリストにアクセスできるようにする",
         "profile-link": "Your friend list link"
     },
     "Restricted": {
@@ -73,6 +73,6 @@
         "message": "Sorry, but restricted players are not allowed to log in!"
     },
     "Unauthorized": {
-        "message": "Log in first!"
+        "message": "最初にログインしてください"
     }
 }
