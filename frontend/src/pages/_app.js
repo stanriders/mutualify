@@ -29,6 +29,7 @@ export default function MyApp(props) {
     <div style={{ visibility: !mounted ? "hidden" : undefined }}>
       <CacheProvider value={emotionCache}>
         <NextIntlClientProvider
+          timeZone="Etc/UTC"
           locale={router.locale}
           messages={pageProps.messages}
         >
