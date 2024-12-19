@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Yükleniyor...",
+        "page-not-found": "Sayfa bulunamadı",
+        "sort-by-rank": "Sıralamaya göre sırala"
+    },
+    "Header": {
+        "friends": "Arkadaşlar",
+        "followers": "Takipçiler",
+        "leaderboard": "Sıralamalar",
+        "login": "Giriş yap",
+        "logout": "Çıkış yap",
+        "settings": "Ayarlar",
+        "user-tooltip": "Ayarları aç"
+    },
+    "Footer": {
+        "made-by": "<stanr>StanR</stanr> tarafından yapılmıştır, ikon <arhella>Arhella</arhella>.",
+        "stats": "İstatistikler",
+        "source": "Kaynak kodu",
+        "donate": "Bağış ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - osu! için bir arkadaş listesi veritabanı!",
+        "faq-q": "S",
+        "faq-a": "C",
+        "faq-q1": "Nedir bu?",
+        "faq-a1": "Mutualify, osu! oyuncularının arkadaş listeleri için bir veritabanıdır. Giriş yapan her oyuncunun arkadaş listesinin yanı sıra diğer bazı ilgili verileri de saklar.",
+        "faq-q2": "Nasıl çalışır?",
+        "faq-a2": "osu! API, internet sitelerinin oyuncunun arkadaş listesini almasını sağlar. Mutualify, kimin kimi takip ettiğini görmek için tüm kayıtlı oyuncuların arkadaş listelerini çapraz-kontrol eder.",
+        "faq-q3": "Hesabımı/şifremi/özel verilerimi çalabilir mi?",
+        "faq-a3": "Hayır, sadece osu! web sitesinin giriş yaptığınızda size gösterdiği arkadaş listenize, herkese açık profil verilerinize ve arkadaşlarınızın herkese açık profil verilerine erişebilir. Asla kullanıcı adınızı/şifrenizi ya da buna benzer bir şey sormaz.",
+        "faq-q4": "Neden takipçilerimin bir kısmını görebiliyorum?",
+        "faq-a4": "Mutualify yalnızca daha önceden buraya giriş yapmış kişileri bulabilir, bu yüzden etrafa yay! Daha fazla kayıtlı kişi, takipçiler hakkında daha fazla bilgi demektir."
+    },
+    "Stats": {
+        "title": "İstatistikler",
+        "registered": "Kayıtlı kullanıcılar: {registered} (son 24 saatte {lastDayRegistered})",
+        "relations": "İlişki sayısı: {relations}",
+        "autoupdate": "Otomatik güncelleme için uygun kullanıcılar: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Liderlik Tablosu",
+        "your-rank": "Senin sıralaman #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Oyuncu",
+        "table-header-followers": "Takipçiler"
+    },
+    "Followers": {
+        "title": "Takipçiler",
+        "followers-count": "Bilinen takipçiler: {totalCount} üzerinden {knownCount}.",
+        "hide-mutuals": "Karşılıklı olanları gizle"
+    },
+    "Friends": {
+        "title": "Arkadaşlar",
+        "friend-count": "{friendCount} arkadaşın var."
+    },
+    "User": {
+        "unknown-user-title": "Bilinmeyen kullanıcı",
+        "unknown-user-message": "Bu kullanıcı hiç giriş yapmadı! Ona söylemek isteyebilirsin ;)",
+        "private-list": "<user>{username}</user> kullanıcısının arkadaş listesi gizli.",
+        "friend-count": "<user>{username}</user> kullanıcısının {friendsCount} arkadaşı var."
+    },
+    "Settings": {
+        "title": "Ayarlar",
+        "refresh": "Arkadaş listeni yenile",
+        "refresh-success": "Güncellendi!",
+        "refresh-tooltip": "Güncellendi {updatedAgo}",
+        "allow-friendlist-access": "Diğer kullanıcıların arkadaş listenize erişmesine izin verin",
+        "profile-link": "Arkadaş listesi bağlantınız"
+    },
+    "Restricted": {
+        "title": "İzin yok",
+        "message": "Üzgünüz, ancak kısıtlı kullanıcıların giriş yapmasına izin verilmiyor!"
+    },
+    "Unauthorized": {
+        "message": "Önce giriş yap!"
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "불러오는 중...",
+        "page-not-found": "페이지를 찾지 못했어요",
+        "sort-by-rank": "순위로 정렬"
+    },
+    "Header": {
+        "friends": "친구",
+        "followers": "팔로워",
+        "leaderboard": "순위",
+        "login": "로그인",
+        "logout": "로그아웃",
+        "settings": "설정",
+        "user-tooltip": "설정 열기"
+    },
+    "Footer": {
+        "made-by": "제작: <stanr>StanR</stanr>, 아이콘: <arhella>Arhella</arhella> ",
+        "stats": "통계",
+        "source": "소스 코드",
+        "donate": "후원 ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - osu!용 친구 목록 데이터베이스",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "이게 뭐죠?",
+        "faq-a1": "Mutualify는 osu! 플레이어 친구 목록용 데이터베이스예요. 로그인한 모든 플레이어의 친구 목록을 저장할 뿐만 아니라 그 외 관련된 일부 데이터가 저장돼요.",
+        "faq-q2": "어떻게 작동하나요?",
+        "faq-a2": "osu! API가 웹 사이트에서 플레이어의 친구 목록을 가져올 수 있도록 해 줘요. 가입한 모든 플레이어의 친구 목록을 상호 확인해서 누가 누구를 팔로우하는지 확인할 수 있어요.",
+        "faq-q3": "이게 제 계정/비밀번호/비공개 데이터를 가져갈 수 있나요?",
+        "faq-a3": "아니요, 친구 목록, 공개 프로필 데이터, 친구의 공개 프로필 데이터와 같이 osu! 웹 사이트에 로그인 시 표시되는 정보만 접근할 수 있어요. 로그인/비밀번호 등을 절대로 요구하지 않아요.",
+        "faq-q4": "왜 제 팔로워의 일부만 볼 수 있나요?",
+        "faq-a4": "Mutualify는 이전에 로그인한 사람만 찾을 수 있어요. 그러니, 널리 퍼트려 주세요! 가입한 사람이 많을수록 팔로워에 관한 정보가 많아져요."
+    },
+    "Stats": {
+        "title": "통계",
+        "registered": "가입한 사용자 수: {registered} (최근 24시간 내: {lastDayRegistered})",
+        "relations": "관계 수: {relations}",
+        "autoupdate": "자동 갱신이 가능한 사용자 수: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "순위표",
+        "your-rank": "내 순위는 #{rank}위예요.",
+        "table-header-rank": "#",
+        "table-header-player": "플레이어",
+        "table-header-followers": "팔로워"
+    },
+    "Followers": {
+        "title": "팔로워",
+        "followers-count": "알려진 팔로워 수: {totalCount} 중 {knownCount}.",
+        "hide-mutuals": "같이 아는 팔로워 숨기기"
+    },
+    "Friends": {
+        "title": "친구",
+        "friend-count": "친구 {friendCount}명이 있어요."
+    },
+    "User": {
+        "unknown-user-title": "알 수 없는 사용자",
+        "unknown-user-message": "이 사용자는 로그인한 적이 없어요! 로그인하라고 알려주세요 ;)",
+        "private-list": "<user>{username}</user>님의 친구 목록은 비공개예요.",
+        "friend-count": "<user>{username}</user>님은 친구 {friendsCount}명이 있어요."
+    },
+    "Settings": {
+        "title": "설정",
+        "refresh": "친구 목록 새로고침",
+        "refresh-success": "갱신 완료!",
+        "refresh-tooltip": "최근 갱신: {updatedAgo}",
+        "allow-friendlist-access": "다른 사용자가 내 친구 목록에 접근할 수 있도록 허용해요",
+        "profile-link": "내 친구 목록 링크"
+    },
+    "Restricted": {
+        "title": "제한됨",
+        "message": "죄송하지만, 제한된 플레이어는 로그인할 수 없어요!"
+    },
+    "Unauthorized": {
+        "message": "먼저 로그인하세요!"
+    }
+}

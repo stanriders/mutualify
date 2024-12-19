@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Kraunama...",
+        "page-not-found": "Puslapis nerastas",
+        "sort-by-rank": "Rūšiuoti pagal reitingą"
+    },
+    "Header": {
+        "friends": "Draugai",
+        "followers": "Sekėjai",
+        "leaderboard": "Reitingai",
+        "login": "Prisijungti",
+        "logout": "Atsijungti",
+        "settings": "Nustatymai",
+        "user-tooltip": "Atidaryti nustatymus"
+    },
+    "Footer": {
+        "made-by": "Sukūrė <stanr>StanR</stanr>, piktograma <arhella>Arhella</arhella>.",
+        "stats": "Statistika",
+        "source": "Pagrindinis kodas",
+        "donate": "Paaukoti ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - osu! draugų sąrašų duomenų bazė",
+        "faq-q": "K",
+        "faq-a": "A",
+        "faq-q1": "Kas tai?",
+        "faq-a1": "Mutualify yra osu! žaidėjų draugų sąrašų duomenų bazė. Čia laikomi kiekvieno prisijungusio žaidėjo draugų sąrašai bei kiti susiję duomenys.",
+        "faq-q2": "Kaip tai veikia?",
+        "faq-a2": "osu! API leidžia svetainėms išgauti žaidėjų draugų sąrašus. Mutualify kryžiuotinai palygina kiekvieno registruoto žaidėjo draugų sąrašą tam, kad sužinotų kas ką seka.",
+        "faq-q3": "Ar galiu per tai netekti savo profilio/slaptažodžio/asmeninių duomenų?",
+        "faq-a3": "Ne, Mutualify gali prieiti tik prie to, ką rodo tinklalapis jums prisijungiant, o tai yra jūsų draugų sąrašas, jūsų viešosios profilio duomenys ir jūsų draugų viešosios profilio duomenys. Mutualify niekada jums neprašys prisijungti/jūsų slaptažodžio ar ko nors panašaus.",
+        "faq-q4": "Kodėl man matosi tik kai kurie sekėjai?",
+        "faq-a4": "Mutualify gali surasti tik tuos žaidėjus kurie jau yra čia prisijungę, todėl svarbu skleisti žinią! Kuo daugiau prisiregistravusiųjų, tuo daugiau informacijos apie jų sekėjus."
+    },
+    "Stats": {
+        "title": "Statistika",
+        "registered": "Prisiregistravę vartotojai: {registered} ({lastDayRegistered} per 24 val.)",
+        "relations": "Ryšių skaičius: {relations}",
+        "autoupdate": "Automatiniam atnaujinimui tinkantys vartotojai: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Lyderių lentelė",
+        "your-rank": "Jūsų reitingas yra #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Žaidėjas",
+        "table-header-followers": "Sekėjai"
+    },
+    "Followers": {
+        "title": "Sekėjai",
+        "followers-count": "Žinomi sekėjai: {knownCount} iš {totalCount}.",
+        "hide-mutuals": "Slėpti abipusius draugus"
+    },
+    "Friends": {
+        "title": "Draugai",
+        "friend-count": "Turite {friendCount} draugų."
+    },
+    "User": {
+        "unknown-user-title": "Nežinomas vartotojas",
+        "unknown-user-message": "Šis vartotojas dar nėra čia prisijungęs! Galbūt reikėtų jiems pranešti ;)",
+        "private-list": "<user>{username}</user> draugų sąrašas yra privatus.",
+        "friend-count": "<user>{username}</user> turi {friendsCount} draugų."
+    },
+    "Settings": {
+        "title": "Nustatymai",
+        "refresh": "Atnaujinti savo draugų sąrašą",
+        "refresh-success": "Atnaujinta!",
+        "refresh-tooltip": "Atnaujinta {updatedAgo}",
+        "allow-friendlist-access": "Leisti kitiems vartotojams matyti jūsų draugų sąrašą",
+        "profile-link": "Jūsų draugų sąrašo nuoroda"
+    },
+    "Restricted": {
+        "title": "Neleidžiama",
+        "message": "Atleiskite, apriboti žaidėjai negali prisijungti!"
+    },
+    "Unauthorized": {
+        "message": "Pirmiausia prisijunkite!"
+    }
+}

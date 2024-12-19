@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Načítání...",
+        "page-not-found": "Stránka nebyla nalezena",
+        "sort-by-rank": "Seřadit podle ranku"
+    },
+    "Header": {
+        "friends": "Přátelé",
+        "followers": "Sledující",
+        "leaderboard": "Tabulka pořadí",
+        "login": "Přihlásit se",
+        "logout": "Odhlásit se",
+        "settings": "Nastavení",
+        "user-tooltip": "Otevřít nastavení"
+    },
+    "Footer": {
+        "made-by": "Vytvořeno <stanr>StanR</stanr>, ikona od <arhella>Arhella</arhella>.",
+        "stats": "Statistiky",
+        "source": "Source kód",
+        "donate": "Přispět ❤️"
+    },
+    "Home": {
+        "faq-title": "Mutualify - databáze seznamu přátel pro osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Co je to?",
+        "faq-a1": "Mutualify je databáze pro seznamy přátel hráčů osu!. Ukládá seznam přátel každého hráče který se přihlásil a nějaká další relevantní data.",
+        "faq-q2": "Jak to funguje?",
+        "faq-a2": "osu! API umožňuje webovým stránkám získat seznam přátel. Mutualify kontroluje seznamy přátel všech registrovaných hráčů a vidí kdo sleduje koho.",
+        "faq-q3": "Může to ukrást můj účet/heslo/soukromá data?",
+        "faq-a3": "Ne, má přístup pouze k tomu co ukazuje osu! webová stránka když se přihlásíš, což je tvůj seznam přátel, veřejná data a data veřejných profilů tvých přátel. Nikdy nepožádá o tvoje přihlašovací jméno/heslo nebo něco podobného.",
+        "faq-q4": "Proč mohu vidět jen některé ze svých sledujících?",
+        "faq-a4": "Mutualify umí najít pouze lidi, kteří se přihlásili dříve, tak informujte ostatní! Více registrovaných lidí znamená více informací o sledujících."
+    },
+    "Stats": {
+        "title": "Statistiky",
+        "registered": "Registrovaní uživatelé: {registered} ({lastDayRegistered} za posledních 24 hodin)",
+        "relations": "Počet vztahů: {relations}",
+        "autoupdate": "Uživatelé způsobilí pro automatické aktualizace: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Žebříček",
+        "your-rank": "Tvůj rank je #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Hráč",
+        "table-header-followers": "Sledující"
+    },
+    "Followers": {
+        "title": "Sledující",
+        "followers-count": "Známí sledující: {knownCount} z {totalCount}.",
+        "hide-mutuals": "Skrýt mutuální přátele"
+    },
+    "Friends": {
+        "title": "Přátelé",
+        "friend-count": "Máte {friendCount} přátele."
+    },
+    "User": {
+        "unknown-user-title": "Neznámý uživatel",
+        "unknown-user-message": "Tento uživatel se nikdy nepřihlásil! Můžete je o to požádat ;)",
+        "private-list": "<user>{username}</user> má soukromý seznam přátel.",
+        "friend-count": "<user>{username}</user> má {friendsCount} přátele."
+    },
+    "Settings": {
+        "title": "Nastavení",
+        "refresh": "Aktualizovat seznam přátel",
+        "refresh-success": "Aktualizováno!",
+        "refresh-tooltip": "Aktualizováno {updatedAgo}",
+        "allow-friendlist-access": "Povolit ostatním uživatelům přístup k vašemu seznamu přátel",
+        "profile-link": "Odkaz na váš seznam přátel"
+    },
+    "Restricted": {
+        "title": "Nepovoleno",
+        "message": "Je nám líto, ale omezeným hráčům není dovoleno se přihlásit!"
+    },
+    "Unauthorized": {
+        "message": "Nejdřív se přihlaste!"
+    }
+}

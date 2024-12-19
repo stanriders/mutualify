@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Laster...",
+        "page-not-found": "Fant ikke siden",
+        "sort-by-rank": "Sorter etter rangering"
+    },
+    "Header": {
+        "friends": "Venner",
+        "followers": "Følgere",
+        "leaderboard": "Rangering",
+        "login": "Logg inn",
+        "logout": "Logg ut",
+        "settings": "Innstillinger",
+        "user-tooltip": "Åpne instillinger"
+    },
+    "Footer": {
+        "made-by": "Laget av <stanr>StanR</stanr>, ikon av <arhella>Arhella</arhella>.",
+        "stats": "Statistikk",
+        "source": "Kildekode",
+        "donate": "Doner ❤️"
+    },
+    "Home": {
+        "faq-title": "Mutualify - en venneliste-database for osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Hva er dette?",
+        "faq-a1": "Mutualify er en database for vennelisten til osu! Den lagrer vennelisten til alle spillere som har logget inn, samt noen andre relevante data.",
+        "faq-q2": "Hvordan fungerer det?",
+        "faq-a2": "osu! API tillater nettsteder å få spillerens venneliste. Mutualify dobbeltsjekker lister fra alle registrerte spillere å se hvem som følger hva.",
+        "faq-q3": "Kan den stjele min konto/passord/private data?",
+        "faq-a3": "Nei, den har bare tilgang til hva osu! nettsiden viser deg når du logger inn som er vennelisten din, dine offentlige profildata og din vens offentlige profildata. Den vil aldri be om dine brukernavn/passord eller lignende.",
+        "faq-q4": "Hvorfor kan jeg se bare noen av følgerne mine?",
+        "faq-a4": "Mutualify kan bare finne folk som har logget før, så spre ordet! Flere registrerte folk betyr mer informasjon om følgere."
+    },
+    "Stats": {
+        "title": "Statistikk",
+        "registered": "Registrerte brukere: {registered} ({lastDayRegistered} i de siste 24 timen)",
+        "relations": "Antall relasjoner: {relations}",
+        "autoupdate": "Brukere som er kvalifiserte for autoupdate: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Rangeringsliste",
+        "your-rank": "Din rangering er #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Spiller",
+        "table-header-followers": "Følgere"
+    },
+    "Followers": {
+        "title": "Følgere",
+        "followers-count": "Kjente følgere: {knownCount} av totalt {totalCount}.",
+        "hide-mutuals": "Skjul felles venner"
+    },
+    "Friends": {
+        "title": "Venner",
+        "friend-count": "Du har {friendCount} venner."
+    },
+    "User": {
+        "unknown-user-title": "Ukjent bruker",
+        "unknown-user-message": "Denne brukeren har aldri logget inn! Du vil muligens fortelle dem til å gjøre det ;)",
+        "private-list": "<user>{username}</user> sin venneliste er privat.",
+        "friend-count": "<user>{username}</user> har {friendsCount} venner."
+    },
+    "Settings": {
+        "title": "Innstillinger",
+        "refresh": "Oppdater din venneliste",
+        "refresh-success": "Oppdatert!",
+        "refresh-tooltip": "Oppdatert for {updatedAgo} siden",
+        "allow-friendlist-access": "Tillat andre brukere tilgang til vennelisten din",
+        "profile-link": "Din venneliste lenke"
+    },
+    "Restricted": {
+        "title": "Ikke tillatt",
+        "message": "Beklager, men spillere med begrenset tilgang kan ikke logge inn!"
+    },
+    "Unauthorized": {
+        "message": "Logg inn først!"
+    }
+}
