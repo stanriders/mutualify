@@ -1,0 +1,78 @@
+{
+    "Generic": {
+        "loading": "Caricamento...",
+        "page-not-found": "Pagina non trovata",
+        "sort-by-rank": "Ordina per rank"
+    },
+    "Header": {
+        "friends": "Amici",
+        "followers": "Follower",
+        "leaderboard": "Classifiche",
+        "login": "Accedi",
+        "logout": "Disconnettiti",
+        "settings": "Impostazioni",
+        "user-tooltip": "Apri le impostazioni"
+    },
+    "Footer": {
+        "made-by": "Realizzato da <stanr>StanR</stanr>, icona di <arhella>Arhella</arhella>.",
+        "stats": "Statistiche",
+        "source": "Codice sorgente",
+        "donate": "Dona ❤️"
+    },
+    "Home": {
+        "faq-title": "Mutualify - un database di liste amici per osu!",
+        "faq-q": "D",
+        "faq-a": "R",
+        "faq-q1": "Cos'è questo?",
+        "faq-a1": "Mutualify è un database per le liste amici di osu!. Memorizza la lista amici di ogni giocatore che ha effettuato l'accesso così come alcuni altri dati rilevanti.",
+        "faq-q2": "Come funziona?",
+        "faq-a2": "osu! API permette ai siti web di ottenere la lista amici del giocatore. Mutualify controlla la lista amici di tutti i giocatori registrati per vedere chi segue chi.",
+        "faq-q3": "Può rubare il mio account/password/dati privati?",
+        "faq-a3": "No, può solo accedere a quello che il sito web di osu! ti mostra quando accedi ovvero il tuo elenco di amici, i tuoi dati del profilo pubblico e i dati del profilo pubblico degli amici. Non chiederà mai il tuo login/password o qualcosa di simile.",
+        "faq-q4": "Perché posso vedere solo alcuni dei miei follower?",
+        "faq-a4": "Mutualify può trovare solo le persone che hanno effettuato l'accesso in precedenza, quindi diffondi la voce! Più persone registrate significa più informazioni sui follower."
+    },
+    "Stats": {
+        "title": "Statistiche",
+        "registered": "Utenti registrati: {registered} ({lastDayRegistered} nelle ultime 24 ore)",
+        "relations": "Conteggio relazioni: {relations}",
+        "autoupdate": "Utenti idonei per l'autoaggiornamento: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Classifica",
+        "your-rank": "Il tuo rank è #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Giocatore",
+        "table-header-followers": "Follower"
+    },
+    "Followers": {
+        "title": "Followers",
+        "followers-count": "Follower conosciuti: {knownCount} su {totalCount}.",
+        "hide-mutuals": "Nascondi le mutual"
+    },
+    "Friends": {
+        "title": "Amici",
+        "friend-count": "Hai {friendCount} amici."
+    },
+    "User": {
+        "unknown-user-title": "Utente sconosciuto",
+        "unknown-user-message": "Questo utente non ha mai effettuato l'accesso! Potresti voler dire loro di farlo ;)",
+        "private-list": "La lista degli amici di <user>{username}</user> è privata.",
+        "friend-count": "<user>{username}</user> ha {friendsCount} amici."
+    },
+    "Settings": {
+        "title": "Impostazioni",
+        "refresh": "Aggiorna la tua lista degli amici",
+        "refresh-success": "Aggiornata!",
+        "refresh-tooltip": "Aggiornata {updatedAgo}",
+        "allow-friendlist-access": "Consenti ad altri utenti di accedere alla tua lista amici",
+        "profile-link": "Link alla tua lista amici"
+    },
+    "Restricted": {
+        "title": "Non consentito",
+        "message": "Siamo spiacenti, ma i giocatori ristretti non possono accedervi!"
+    },
+    "Unauthorized": {
+        "message": "Effettua il login prima!"
+    }
+}
