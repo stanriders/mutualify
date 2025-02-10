@@ -10,6 +10,11 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { useContext, useState } from "react";
 import { useTranslations } from "next-intl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import deepmerge from "deepmerge";
 
 export default function Followers() {
   const t = useTranslations("Followers");
@@ -17,7 +22,11 @@ export default function Followers() {
   const { user } = useContext(UserContext);
 
   const [filterMutuals, setFilterMutuals] = useState(false);
-  const [sortByRank, setSortByRank] = useState(false);
+  const [sorting, setSorting] = useState("Username");
+
+  const handleSortingChange = (event) => {
+    setSorting(event.target.value);
+  };
 
   const {
     data: followers,
@@ -50,7 +59,7 @@ export default function Followers() {
                   totalCount: user.followerCount,
                 })}
               </Typography>
-              <FormGroup sx={{ mb: 1 }} row={true}>
+              <FormGroup sx={{ mb: 1, mt: 1 }} row={true}>
                 <FormControlLabel
                   control={
                     <Switch
@@ -60,15 +69,28 @@ export default function Followers() {
                   }
                   label={t("hide-mutuals")}
                 />
-                <FormControlLabel
-                  control={
-                    <Switch
-                      checked={sortByRank}
-                      onChange={() => setSortByRank(!sortByRank)}
-                    />
-                  }
-                  label={tGeneric("sort-by-rank")}
-                />
+                <FormControl size="small" sx={{ minWidth: 130 }}>
+                  <InputLabel id="sorting-label">
+                    {tGeneric("sort-by")}
+                  </InputLabel>
+                  <Select
+                    labelId="sorting-label"
+                    id="sorting-select"
+                    value={sorting}
+                    label={tGeneric("sort-by")}
+                    onChange={handleSortingChange}
+                  >
+                    <MenuItem value={"Username"}>
+                      {tGeneric("sorting-username")}
+                    </MenuItem>
+                    <MenuItem value={"Rank"}>
+                      {tGeneric("sorting-rank")}
+                    </MenuItem>
+                    <MenuItem value={"FollowDate"}>
+                      {tGeneric("sorting-followdate")}
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </FormGroup>
               {followers
                 .filter((data) => {
@@ -76,13 +98,24 @@ export default function Followers() {
                   return true;
                 })
                 .sort((a, b) => {
-                  if (!sortByRank)
-                    return ("" + a.username).localeCompare(b.username);
-
-                  // always put null ranked players at the end
-                  if (a.rank == null) return 1;
-
-                  return a.rank - b.rank;
+                  switch (sorting) {
+                    case "Username":
+                      return ("" + a.username).localeCompare(b.username);
+                    case "Rank": {
+                      if (a.rank === b.rank) return 0;
+                      if (a.rank === null) return 1;
+                      if (b.rank === null) return -1;
+                      return a.rank > b.rank ? 1 : -1;
+                    }
+                    case "FollowDate":
+                      if (a.relationCreatedAt === b.relationCreatedAt) return 0;
+                      if (a.relationCreatedAt === null) return 1;
+                      if (b.relationCreatedAt === null) return -1;
+                      return new Date(b.relationCreatedAt).getUTCDate() >
+                        new Date(a.relationCreatedAt).getUTCDate()
+                        ? 1
+                        : -1;
+                  }
                 })
                 .map((data) => (
                   <User
@@ -103,9 +136,14 @@ export default function Followers() {
 }
 
 export async function getStaticProps(context) {
+  const userMessages = (await import(`../../locales/${context.locale}.json`))
+    .default;
+  const defaultMessages = (await import(`../../locales/en-US.json`)).default;
+  const messages = deepmerge(defaultMessages, userMessages);
+
   return {
     props: {
-      messages: (await import(`../../locales/${context.locale}.json`)).default,
+      messages: messages
     },
   };
 }

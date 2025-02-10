@@ -19,6 +19,7 @@
     "@mui/lab": "^5.0.0-alpha.87",
     "@mui/material": "latest",
     "date-fns": "^2.30.0",
+    "deepmerge": "^4.3.1",
     "eslint-plugin-prettier": "^5.2.3",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",

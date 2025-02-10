@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Загрузка...",
         "page-not-found": "Страница не найдена",
-        "sort-by-rank": "Сортировка по рейтингу"
+        "sort-by": "Сортировка",
+        "sorting-rank": "Ранк",
+        "sorting-username": "Имя",
+        "sorting-followdate": "Дата подписки"
     },
     "Header": {
         "friends": "Друзья",

@@ -6,16 +6,23 @@ import Unauthorized from "../components/unauthorized";
 import UserContext from "../context/userContext";
 import Typography from "@mui/material/Typography";
 import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import { useContext, useState } from "react";
 import { useTranslations } from "next-intl";
+import deepmerge from "deepmerge";
 
 export default function Friends() {
   const t = useTranslations("Friends");
   const tGeneric = useTranslations("Generic");
 
-  const [sortByRank, setSortByRank] = useState(false);
+  const [sorting, setSorting] = useState("Username");
+
+  const handleSortingChange = (event) => {
+    setSorting(event.target.value);
+  };
 
   const {
     data: friends,
@@ -45,23 +52,39 @@ export default function Friends() {
                 {t("friend-count", { friendCount: friends.length })}
               </Typography>
               <FormGroup sx={{ mb: 1 }} row={true}>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      checked={sortByRank}
-                      onChange={() => setSortByRank(!sortByRank)}
-                    />
-                  }
-                  label={tGeneric("sort-by-rank")}
-                />
+                <FormControl size="small" sx={{ minWidth: 130 }}>
+                  <InputLabel id="sorting-label">
+                    {tGeneric("sort-by")}
+                  </InputLabel>
+                  <Select
+                    labelId="sorting-label"
+                    id="sorting-select"
+                    value={sorting}
+                    label={tGeneric("sort-by")}
+                    onChange={handleSortingChange}
+                  >
+                    <MenuItem value={"Username"}>
+                      {tGeneric("sorting-username")}
+                    </MenuItem>
+                    <MenuItem value={"Rank"}>
+                      {tGeneric("sorting-rank")}
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </FormGroup>
               {friends
                 .sort((a, b) => {
-                  if (!sortByRank)
-                    return ("" + a.username).localeCompare(b.username);
-                  // always put null ranked players at the end
-                  if (a.rank == null) return 1;
-                  return a.rank - b.rank;
+                  switch (sorting) {
+                    case "Username":
+                      return ("" + a.username).localeCompare(b.username);
+                    case "Rank": {
+                      // always put null ranked players at the end
+                      if (a.rank === b.rank) return 0;
+                      if (a.rank === null) return 1;
+                      if (b.rank === null) return -1;
+                      return a.rank > b.rank ? 1 : -1;
+                    }
+                  }
                 })
                 .map((data) => (
                   <User
@@ -81,9 +104,14 @@ export default function Friends() {
 }
 
 export async function getStaticProps(context) {
+  const userMessages = (await import(`../../locales/${context.locale}.json`))
+    .default;
+  const defaultMessages = (await import(`../../locales/en-US.json`)).default;
+  const messages = deepmerge(defaultMessages, userMessages);
+
   return {
     props: {
-      messages: (await import(`../../locales/${context.locale}.json`)).default,
+      messages: messages
     },
   };
 }
