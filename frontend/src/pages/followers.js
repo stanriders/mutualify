@@ -111,8 +111,8 @@ export default function Followers() {
                       if (a.relationCreatedAt === b.relationCreatedAt) return 0;
                       if (a.relationCreatedAt === null) return 1;
                       if (b.relationCreatedAt === null) return -1;
-                      return new Date(b.relationCreatedAt).getUTCDate() >
-                        new Date(a.relationCreatedAt).getUTCDate()
+                      return new Date(b.relationCreatedAt) >
+                        new Date(a.relationCreatedAt)
                         ? 1
                         : -1;
                   }
@@ -143,7 +143,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      messages: messages
+      messages: messages,
     },
   };
 }

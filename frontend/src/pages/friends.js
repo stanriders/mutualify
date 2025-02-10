@@ -111,7 +111,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      messages: messages
+      messages: messages,
     },
   };
 }
