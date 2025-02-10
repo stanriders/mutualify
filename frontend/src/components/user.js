@@ -43,7 +43,7 @@ export default function User({
           avatar={<Avatar alt={username} src={`https://s.ppy.sh/a/${id}`} />}
           label={username}
           variant="outlined"
-          sx={{ mt: 1, ml: 1, color: "#fff", bgcolor: bgColor }}
+          sx={{ color: "#fff", bgcolor: bgColor }}
           clickable
           target="_blank"
           onClick={handleClick}

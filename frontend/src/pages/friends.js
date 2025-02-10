@@ -10,6 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Box from "@mui/material/Box";
 import { useContext, useState } from "react";
 import { useTranslations } from "next-intl";
 import deepmerge from "deepmerge";
@@ -48,10 +49,10 @@ export default function Friends() {
 
           {friends && (
             <>
-              <Typography variant="h6" sx={{ mb: 1 }}>
+              <Typography variant="h6">
                 {t("friend-count", { friendCount: friends.length })}
               </Typography>
-              <FormGroup sx={{ mb: 1 }} row={true}>
+              <FormGroup sx={{ my: 2, gap: 2 }} row={true}>
                 <FormControl size="small" sx={{ minWidth: 130 }}>
                   <InputLabel id="sorting-label">
                     {tGeneric("sort-by")}
@@ -72,29 +73,31 @@ export default function Friends() {
                   </Select>
                 </FormControl>
               </FormGroup>
-              {friends
-                .sort((a, b) => {
-                  switch (sorting) {
-                    case "Username":
-                      return ("" + a.username).localeCompare(b.username);
-                    case "Rank": {
-                      // always put null ranked players at the end
-                      if (a.rank === b.rank) return 0;
-                      if (a.rank === null) return 1;
-                      if (b.rank === null) return -1;
-                      return a.rank > b.rank ? 1 : -1;
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                {friends
+                  .sort((a, b) => {
+                    switch (sorting) {
+                      case "Username":
+                        return ("" + a.username).localeCompare(b.username);
+                      case "Rank": {
+                        // always put null ranked players at the end
+                        if (a.rank === b.rank) return 0;
+                        if (a.rank === null) return 1;
+                        if (b.rank === null) return -1;
+                        return a.rank > b.rank ? 1 : -1;
+                      }
                     }
-                  }
-                })
-                .map((data) => (
-                  <User
-                    id={data.id}
-                    username={data.username}
-                    showFriendlistButton={data.allowsFriendlistAccess}
-                    mutualDate={data.relationCreatedAt}
-                    key={data.id}
-                  />
-                ))}
+                  })
+                  .map((data) => (
+                    <User
+                      id={data.id}
+                      username={data.username}
+                      showFriendlistButton={data.allowsFriendlistAccess}
+                      mutualDate={data.relationCreatedAt}
+                      key={data.id}
+                    />
+                  ))}
+              </Box>
             </>
           )}
         </>

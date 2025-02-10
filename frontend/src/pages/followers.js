@@ -10,6 +10,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { useContext, useState } from "react";
 import { useTranslations } from "next-intl";
+import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -59,16 +60,7 @@ export default function Followers() {
                   totalCount: user.followerCount,
                 })}
               </Typography>
-              <FormGroup sx={{ mb: 1, mt: 1 }} row={true}>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      checked={filterMutuals}
-                      onChange={() => setFilterMutuals(!filterMutuals)}
-                    />
-                  }
-                  label={t("hide-mutuals")}
-                />
+              <FormGroup sx={{ my: 2, gap: 2 }} row={true}>
                 <FormControl size="small" sx={{ minWidth: 130 }}>
                   <InputLabel id="sorting-label">
                     {tGeneric("sort-by")}
@@ -91,42 +83,54 @@ export default function Followers() {
                     </MenuItem>
                   </Select>
                 </FormControl>
-              </FormGroup>
-              {followers
-                .filter((data) => {
-                  if (filterMutuals && data.mutual) return false;
-                  return true;
-                })
-                .sort((a, b) => {
-                  switch (sorting) {
-                    case "Username":
-                      return ("" + a.username).localeCompare(b.username);
-                    case "Rank": {
-                      if (a.rank === b.rank) return 0;
-                      if (a.rank === null) return 1;
-                      if (b.rank === null) return -1;
-                      return a.rank > b.rank ? 1 : -1;
-                    }
-                    case "FollowDate":
-                      if (a.relationCreatedAt === b.relationCreatedAt) return 0;
-                      if (a.relationCreatedAt === null) return 1;
-                      if (b.relationCreatedAt === null) return -1;
-                      return new Date(b.relationCreatedAt) >
-                        new Date(a.relationCreatedAt)
-                        ? 1
-                        : -1;
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={filterMutuals}
+                      onChange={() => setFilterMutuals(!filterMutuals)}
+                    />
                   }
-                })
-                .map((data) => (
-                  <User
-                    id={data.id}
-                    key={data.id}
-                    username={data.username}
-                    mutual={data.mutual}
-                    showFriendlistButton={data.allowsFriendlistAccess}
-                    mutualDate={data.relationCreatedAt}
-                  />
-                ))}
+                  label={t("hide-mutuals")}
+                />
+              </FormGroup>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                {followers
+                  .filter((data) => {
+                    if (filterMutuals && data.mutual) return false;
+                    return true;
+                  })
+                  .sort((a, b) => {
+                    switch (sorting) {
+                      case "Username":
+                        return ("" + a.username).localeCompare(b.username);
+                      case "Rank": {
+                        if (a.rank === b.rank) return 0;
+                        if (a.rank === null) return 1;
+                        if (b.rank === null) return -1;
+                        return a.rank > b.rank ? 1 : -1;
+                      }
+                      case "FollowDate":
+                        if (a.relationCreatedAt === b.relationCreatedAt)
+                          return 0;
+                        if (a.relationCreatedAt === null) return 1;
+                        if (b.relationCreatedAt === null) return -1;
+                        return new Date(b.relationCreatedAt) >
+                          new Date(a.relationCreatedAt)
+                          ? 1
+                          : -1;
+                    }
+                  })
+                  .map((data) => (
+                    <User
+                      id={data.id}
+                      key={data.id}
+                      username={data.username}
+                      mutual={data.mutual}
+                      showFriendlistButton={data.allowsFriendlistAccess}
+                      mutualDate={data.relationCreatedAt}
+                    />
+                  ))}
+              </Box>
             </>
           )}
         </>

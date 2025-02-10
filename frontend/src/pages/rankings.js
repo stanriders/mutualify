@@ -82,12 +82,16 @@ export default function Rankings() {
 
       {players && (
         <>
-          <TableContainer component={Paper} elevation={2}>
-            <Table aria-label="simple table">
+          <TableContainer component={Paper} elevation={3}>
+            <Table aria-label="simple table" size="small">
               <TableHead>
                 <TableRow>
-                  <TableCell width={24}>{t("table-header-rank")}</TableCell>
-                  <TableCell>{t("table-header-player")}</TableCell>
+                  <TableCell align="center" width={1}>
+                    {t("table-header-rank")}
+                  </TableCell>
+                  <TableCell sx={{ py: 2 }}>
+                    {t("table-header-player")}
+                  </TableCell>
                   <TableCell align="right">
                     {t("table-header-followers")}
                   </TableCell>
@@ -96,11 +100,12 @@ export default function Rankings() {
               <TableBody>
                 {players.users.map((row, index) => (
                   <TableRow
+                    hover
                     key={row.username}
                     selected={user && user.id == row.id}
                   >
-                    <TableCell>{offset + index + 1}</TableCell>
-                    <TableCell component="th" scope="row">
+                    <TableCell align="center">{offset + index + 1}</TableCell>
+                    <TableCell sx={{ py: 2 }}>
                       <User
                         id={row.id}
                         username={row.username}
