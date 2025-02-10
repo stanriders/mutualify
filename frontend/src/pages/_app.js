@@ -1,28 +1,28 @@
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import theme from '../components/theme';
-import createEmotionCache from '../components/createEmotionCache';
-import useAuth from '../hooks/useAuth'
-import UserContext from '../context/userContext';
-import Layout from '../components/layout'
-import { useState, useEffect } from 'react';
-import {NextIntlClientProvider} from 'next-intl';
-import {useRouter} from 'next/router';
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider } from "@emotion/react";
+import theme from "../components/theme";
+import createEmotionCache from "../components/createEmotionCache";
+import useAuth from "../hooks/useAuth";
+import UserContext from "../context/userContext";
+import Layout from "../components/layout";
+import { useState, useEffect } from "react";
+import { NextIntlClientProvider } from "next-intl";
+import { useRouter } from "next/router";
 
 // Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache({key: 'next'});
+const clientSideEmotionCache = createEmotionCache({ key: "next" });
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const { user } = useAuth();
   const router = useRouter();
 
-    // FOUC hack
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => setMounted(true), []);
+  // FOUC hack
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   return (
     // TODO: figure out why emotion doesnt want to append tags when SSR
@@ -34,11 +34,31 @@ export default function MyApp(props) {
           messages={pageProps.messages}
         >
           <Head>
-            <meta name="viewport" content="initial-scale=1, width=device-width" />
-            <meta name="description" content="Mutualify is a friend list database for osu!" />
-            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+            <meta
+              name="viewport"
+              content="initial-scale=1, width=device-width"
+            />
+            <meta
+              name="description"
+              content="Mutualify is a friend list database for osu!"
+            />
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/apple-touch-icon.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/favicon-32x32.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/favicon-16x16.png"
+            />
             <link rel="manifest" href="/site.webmanifest" />
           </Head>
           <ThemeProvider theme={theme}>
@@ -59,5 +79,5 @@ export default function MyApp(props) {
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   emotionCache: PropTypes.object,
-  pageProps: PropTypes.object.isRequired
+  pageProps: PropTypes.object.isRequired,
 };

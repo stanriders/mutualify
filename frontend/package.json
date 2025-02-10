@@ -7,7 +7,7 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "@mui/lab": "^5.0.0-alpha.87",
     "@mui/material": "latest",
     "date-fns": "^2.30.0",
+    "eslint-plugin-prettier": "^5.2.3",
     "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
     "next": "^15.1.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "eslint": "latest",
-    "eslint-config-next": "latest"
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "^10.0.1"
   }
 }

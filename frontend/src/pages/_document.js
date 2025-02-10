@@ -1,7 +1,7 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import createEmotionServer from '@emotion/server/create-instance';
-import theme from '../components/theme';
-import createEmotionCache from '../components/createEmotionCache';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import createEmotionServer from "@emotion/server/create-instance";
+import theme from "../components/theme";
+import createEmotionCache from "../components/createEmotionCache";
 
 export default class MyDocument extends Document {
   render() {
@@ -15,7 +15,11 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <script defer src="https://umami.stanr.info/script.js" data-website-id="7c5baa12-98fb-4680-bf5f-a89646e95eba"></script>
+          <script
+            defer
+            src="https://umami.stanr.info/script.js"
+            data-website-id="7c5baa12-98fb-4680-bf5f-a89646e95eba"
+          ></script>
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>
@@ -57,7 +61,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
   // However, be aware that it can have global side effects.
-  const cache = createEmotionCache({key: 'next'});
+  const cache = createEmotionCache({ key: "next" });
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
   ctx.renderPage = () =>
@@ -74,7 +78,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(' ')}`}
+      data-emotion={`${style.key} ${style.ids.join(" ")}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}

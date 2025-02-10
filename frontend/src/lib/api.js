@@ -1,38 +1,38 @@
 const isDev = process.env.NODE_ENV === "development";
-const apiBase = isDev ? 'http://localhost/api' : 'https://mutualify.stanr.info/api';
+const apiBase = "http://localhost:3001/api"; //isDev ? 'http://localhost/api' : 'https://mutualify.stanr.info/api';
 
-export default async function api (endpoint, options) {
+export default async function api(endpoint, options) {
   const response = await fetch(`${apiBase}${endpoint}`, {
-    credentials: 'include',
+    credentials: "include",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
-    ...options
-  })
+    ...options,
+  });
 
   if (response.status === 204) {
-    return null
+    return null;
   }
 
-  const responseData = await response.json()
+  const responseData = await response.json();
 
   if (response.ok) {
-    return responseData
+    return responseData;
   }
 
-  throw responseData
+  throw responseData;
 }
 
-export async function apiNoResponse (endpoint, options) {
+export async function apiNoResponse(endpoint, options) {
   const response = await fetch(`${apiBase}${endpoint}`, {
-    credentials: 'include',
+    credentials: "include",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
-    ...options
-  })
+    ...options,
+  });
 
   if (response.status === 204) {
     return false;
