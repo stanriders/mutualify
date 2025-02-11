@@ -99,17 +99,18 @@ export default function Users({ data }) {
                       })}
                     </Typography>
                   </Box>
-
-                  {data.friends.map((friend) => (
-                    <User
-                      id={friend.id}
-                      key={friend.id}
-                      username={friend.username}
-                      mutual={friend.mutual}
-                      showFriendlistButton={friend.allowsFriendlistAccess}
-                      mutualDate={data.relationCreatedAt}
-                    />
-                  ))}
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                    {data.friends.map((friend) => (
+                      <User
+                        id={friend.id}
+                        key={friend.id}
+                        username={friend.username}
+                        mutual={friend.mutual}
+                        showFriendlistButton={friend.allowsFriendlistAccess}
+                        mutualDate={data.relationCreatedAt}
+                      />
+                    ))}
+                  </Box>
                 </>
               )}
             </>
