@@ -93,6 +93,11 @@ public class UserUpdateJob : IUserUpdateJob
                 _isRunning = false;
                 return;
             }
+            catch (Exception ex)
+            {
+                // try to keep going
+                _logger.LogWarning(ex, "[{JobId}] User update job error occured!", jobId);
+            }
             finally
             {
                 var endTime = DateTime.Now;

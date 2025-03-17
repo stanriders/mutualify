@@ -88,6 +88,11 @@ public class UserRelationsUpdateJob : IUserRelationsUpdateJob
                 _isRunning = false;
                 return;
             }
+            catch (Exception ex)
+            {
+                // try to keep going
+                _logger.LogWarning(ex, "[{JobId}] User relations update job error occured!", jobId);
+            }
             finally
             {
                 var endTime = DateTime.Now;

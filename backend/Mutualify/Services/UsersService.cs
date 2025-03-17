@@ -137,6 +137,15 @@ namespace Mutualify.Services
             if (osuUser is null)
             {
                 _logger.LogError("User {User} doesn't exist according to API!", userId);
+                _databaseContext.Users.Remove(user);
+
+                // purge deleted users from relations completely
+                await _databaseContext.Relations
+                    .Where(x => x.FromId == userId || x.ToId == userId)
+                    .ExecuteDeleteAsync();
+
+                await _databaseContext.SaveChangesAsync();
+
                 return;
             }
 
