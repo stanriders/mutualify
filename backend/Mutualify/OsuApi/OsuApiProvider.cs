@@ -1,4 +1,5 @@
 ﻿
+using System.Net;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Options;
 using Mutualify.Configuration;
@@ -43,6 +44,10 @@ public class OsuApiProvider : IOsuApiProvider
         
         var response = await _httpClient.SendAsync(requestMessage);
 
+        if (response is { IsSuccessStatusCode: false, StatusCode: HttpStatusCode.NotFound })
+        {
+            return null;
+        }
         response.EnsureSuccessStatusCode();
 
         return await response.Content.ReadFromJsonAsync<OsuUser>();
@@ -61,6 +66,11 @@ public class OsuApiProvider : IOsuApiProvider
 
         var response = await _httpClient.SendAsync(requestMessage);
 
+        if (response is { IsSuccessStatusCode: false, StatusCode: HttpStatusCode.NotFound })
+        {
+            return null;
+        }
+
         response.EnsureSuccessStatusCode();
 
         return await response.Content.ReadFromJsonAsync<OsuUser>();
@@ -76,6 +86,11 @@ public class OsuApiProvider : IOsuApiProvider
         };
 
         var response = await _httpClient.SendAsync(requestMessage);
+
+        if (response is { IsSuccessStatusCode: false, StatusCode: HttpStatusCode.NotFound })
+        {
+            return null;
+        }
 
         response.EnsureSuccessStatusCode();
 
@@ -103,7 +118,9 @@ public class OsuApiProvider : IOsuApiProvider
         var response = await _httpClient.SendAsync(requestMessage);
 
         if (!response.IsSuccessStatusCode)
+        {
             return null;
+        }
 
         return await response.Content.ReadFromJsonAsync<TokenResponse>();
     }
