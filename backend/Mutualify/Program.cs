@@ -113,6 +113,7 @@ builder.Services.AddAuthentication("InternalCookies")
         options.Scope.Add("friends.read");
 
         options.CorrelationCookie.SameSite = SameSiteMode.Lax;
+        options.CorrelationCookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
 
         options.SaveTokens = true;
 
