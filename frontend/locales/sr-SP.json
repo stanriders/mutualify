@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Учитавање...",
         "page-not-found": "Страница није пронађена",
-        "sort-by-rank": "Сортирај по рангу"
+        "sort-by": "Сортирај по",
+        "sorting-rank": "Ранг",
+        "sorting-username": "Корисничко име",
+        "sorting-followdate": "Датум праћења"
     },
     "Header": {
         "friends": "Пријатељи",
