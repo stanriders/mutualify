@@ -27,7 +27,7 @@ export default function Stats({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const data = await api(`/stats`);
+  const data = await apiServerside(`/stats`);
   return {
     props: {
       data,

@@ -122,7 +122,7 @@ export default function Users({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const data = await api(`/friends/${context.params.id}`);
+  const data = await apiServerside(`/friends/${context.params.id}`);
   return {
     props: {
       data,
