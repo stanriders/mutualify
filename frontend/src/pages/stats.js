@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Head from "next/head";
-import apiServerside from "../lib/api";
+import { apiServerside } from "../lib/api";
 import { useTranslations } from "next-intl";
 
 export default function Stats({ data }) {

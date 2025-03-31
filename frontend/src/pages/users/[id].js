@@ -4,7 +4,7 @@ import User from "../../components/user";
 import Link from "../../components/Link";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import apiServerside from "../../lib/api";
+import { apiServerside } from "../../lib/api";
 import { useTranslations } from "next-intl";
 
 export default function Users({ data }) {

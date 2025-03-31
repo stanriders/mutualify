@@ -6,7 +6,7 @@ const apiBase = isDev
 const apiBaseServerside = isDev
   ? "http://localhost:3001/api"
   : "http://backend:3001/api";
-  
+
 export default async function api(endpoint, options) {
   const response = await fetch(`${apiBase}${endpoint}`, {
     credentials: "include",
