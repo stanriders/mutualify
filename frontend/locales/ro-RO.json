@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Se încarcă...",
         "page-not-found": "Pagina nu a fost găsită",
-        "sort-by-rank": "Sortează după rang"
+        "sort-by": "Sortează după",
+        "sorting-rank": "Rang",
+        "sorting-username": "Nume de utilizator",
+        "sorting-followdate": "Data urmăririi"
     },
     "Header": {
         "friends": "Prieteni",
@@ -28,9 +31,9 @@
         "faq-q2": "Cum funcționează?",
         "faq-a2": "API-ul osu! permite site-urilor web sa obțină lista de prieteni a jucătorilor. Mutualify verifică listele de prieteni ale tuturor jucătorilor înregistrați pentru a vedea cine urmărește pe cine.",
         "faq-q3": "Îmi poate fura contul/parola/datele private?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "Nu, poate accesa doar ceea ce site-ul osu! web vă arată când vă conectați, adică lista ta de prieteni, datele publice de pe profilul tău și datele publice de pe profilul prietenului tău. Nu îți va cere niciodată datele de autentificare/parola sau ceva de genul.",
         "faq-q4": "De ce pot să văd doar câțiva dintre urmăritorii mei?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": "Mutualify poate găsi doar persoane care s-au mai conectat înainte, așa că răspândește vestea! Mai multe persoane înregistrate înseamna mai multe informații despre urmăritori."
     },
     "Stats": {
         "title": "Statistici",
@@ -56,7 +59,7 @@
     },
     "User": {
         "unknown-user-title": "Utilizator necunoscut",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "Acest utilizator nu s-a mai autentificat înainte! S-ar putea să vrei să îi informezi ;)",
         "private-list": "Lista de prieteni a lui <user>{username}</user> este privată.",
         "friend-count": "<user>{username}</user> are {friendsCount} prieteni."
     },
