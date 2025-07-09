@@ -232,13 +232,22 @@ export default function Header({ title }) {
                   vertical: "top",
                   horizontal: "right",
                 }}
+                slotProps={{
+                  paper: {
+                    style: {
+                      maxHeight: 400,
+                    },
+                  },
+                }}
                 open={Boolean(anchorElLocale)}
                 onClose={handleCloseLocale}
               >
                 {router.locales.map((locale) => (
-                  <MenuItem onClick={() => changeLocale(locale)} key={locale}>
-                    <Locale locale={locale} />
-                  </MenuItem>
+                  <Tooltip title={locale} placement="left" key={locale}>
+                    <MenuItem onClick={() => changeLocale(locale)}>
+                      <Locale locale={locale} />
+                    </MenuItem>
+                  </Tooltip>
                 ))}
               </Menu>
               {(user && (
