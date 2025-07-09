@@ -1,0 +1,81 @@
+{
+    "Generic": {
+        "loading": "Se încarcă...",
+        "page-not-found": "Pagina nu a fost găsită",
+        "sort-by": "Sortează după",
+        "sorting-rank": "Rang",
+        "sorting-username": "Nume de utilizator",
+        "sorting-followdate": "Data urmăririi"
+    },
+    "Header": {
+        "friends": "Prieteni",
+        "followers": "Urmăritori",
+        "leaderboard": "Clasamente",
+        "login": "Autentificare",
+        "logout": "Deconectare",
+        "settings": "Setări",
+        "user-tooltip": "Deschide setările"
+    },
+    "Footer": {
+        "made-by": "Realizat de <stanr>StanR</stanr>, pictogramă de <arhella>Arhella</arhella>.",
+        "stats": "Statistici",
+        "source": "Cod sursă",
+        "donate": "Donează ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - o bază de date cu liste de prieteni pentru osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Ce este asta?",
+        "faq-a1": "Mutualify este o bază de date a listelor de prieteni a jucătorilor de osu! care stochează lista de prieteni a fiecărui jucător care s-a autentificat, precum şi alte date relevante.",
+        "faq-q2": "Cum funcționează?",
+        "faq-a2": "API-ul osu! permite site-urilor web sa obțină lista de prieteni a jucătorilor. Mutualify verifică listele de prieteni ale tuturor jucătorilor înregistrați pentru a vedea cine urmărește pe cine.",
+        "faq-q3": "Îmi poate fura contul/parola/datele private?",
+        "faq-a3": "Nu, poate accesa doar ceea ce site-ul osu! web vă arată când vă conectați, adică lista ta de prieteni, datele publice de pe profilul tău și datele publice de pe profilul prietenului tău. Nu îți va cere niciodată datele de autentificare/parola sau ceva de genul.",
+        "faq-q4": "De ce pot să văd doar câțiva dintre urmăritorii mei?",
+        "faq-a4": "Mutualify poate găsi doar persoane care s-au mai conectat înainte, așa că răspândește vestea! Mai multe persoane înregistrate înseamna mai multe informații despre urmăritori."
+    },
+    "Stats": {
+        "title": "Statistici",
+        "registered": "Utilizatori înregistrați: {registered} ({lastDayRegistered} în ultimele 24 de ore)",
+        "relations": "Număr de relații: {relations}",
+        "autoupdate": "Utilizatori eligibili pentru actualizare automată: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Clasament",
+        "your-rank": "Rangul tău este #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Jucător",
+        "table-header-followers": "Urmăritori"
+    },
+    "Followers": {
+        "title": "Urmăritori",
+        "followers-count": "Adepți cunoscuți: {knownCount} din {totalCount}.",
+        "hide-mutuals": "Ascunde mutualele"
+    },
+    "Friends": {
+        "title": "Prieteni",
+        "friend-count": "Ai {friendCount} prieteni."
+    },
+    "User": {
+        "unknown-user-title": "Utilizator necunoscut",
+        "unknown-user-message": "Acest utilizator nu s-a mai autentificat înainte! S-ar putea să vrei să îi informezi ;)",
+        "private-list": "Lista de prieteni a lui <user>{username}</user> este privată.",
+        "friend-count": "<user>{username}</user> are {friendsCount} prieteni."
+    },
+    "Settings": {
+        "title": "Setări",
+        "refresh": "Reîncarcă lista ta de prieteni",
+        "refresh-success": "Actualizat!",
+        "refresh-tooltip": "Actualizat {updatedAgo}",
+        "allow-friendlist-access": "Permite altor utilizatori să îți acceseze lista de prieteni",
+        "profile-link": "Link-ul pentru lista ta de prieteni"
+    },
+    "Restricted": {
+        "title": "Nepermis",
+        "message": "Ne pare rău, dar jucătorilor restricționați nu le este permis să se autentifice!"
+    },
+    "Unauthorized": {
+        "message": "Autentifică-te mai întâi!"
+    }
+}
