@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Laddar...",
         "page-not-found": "Sidan kunde inte hittas",
-        "sort-by-rank": "Sortera efter rankning"
+        "sort-by": "Sortera",
+        "sorting-rank": "Ranking",
+        "sorting-username": "Användarnamn",
+        "sorting-followdate": "Följardatum"
     },
     "Header": {
         "friends": "Vänner",

@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Chargement...",
         "page-not-found": "Cette page n'existe pas",
-        "sort-by-rank": "Trier par rang"
+        "sort-by": "Trier par",
+        "sorting-rank": "Classement",
+        "sorting-username": "Nom d'utilisateur",
+        "sorting-followdate": "Date de suivi"
     },
     "Header": {
         "friends": "Amis",
