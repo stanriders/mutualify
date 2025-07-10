@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Laster...",
         "page-not-found": "Fant ikke siden",
-        "sort-by-rank": "Sorter etter rangering"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Venner",
