@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "正在載入…",
         "page-not-found": "無法找到此頁面",
-        "sort-by-rank": "按排名排序"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "好友",
