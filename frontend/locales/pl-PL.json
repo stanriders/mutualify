@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Wczytywanie...",
         "page-not-found": "Nie znaleziono strony",
-        "sort-by-rank": "Sortuj według rankingu"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Znajomi",
