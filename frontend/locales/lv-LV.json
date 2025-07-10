@@ -1,0 +1,81 @@
+{
+    "Generic": {
+        "loading": "Lādējas...",
+        "page-not-found": "Lapa nav atrasta",
+        "sort-by": "Kārtot pēc",
+        "sorting-rank": "Rangs",
+        "sorting-username": "Lietotājvārds",
+        "sorting-followdate": "Piesekošanas datums"
+    },
+    "Header": {
+        "friends": "Draugi",
+        "followers": "Sekotāji",
+        "leaderboard": "Reitingi",
+        "login": "Pierakstīties",
+        "logout": "Izrakstīties",
+        "settings": "Iestatījumi",
+        "user-tooltip": "Atvērt iestatījumus"
+    },
+    "Footer": {
+        "made-by": "Izveidoja <stanr>StanR</stanr>, ikona no <arhella>Arhella</arhella>.",
+        "stats": "Statistika",
+        "source": "Avota kods",
+        "donate": "Ziedot ❤"
+    },
+    "Home": {
+        "faq-title": "Mutualify - draugu saraksta datubāze priekš osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Kas ir šī lietotne?",
+        "faq-a1": "Mutualify ir datubāze priekš osu! spēlētāju draugu sarakstiem. Tā uzglabā draugu sarakstu katram spēlētājam, kurš ir pierakstījies, kā arī nedaudz citādāku aktuālu informāciju.",
+        "faq-q2": "Kā šī lietotne strādā?",
+        "faq-a2": "osu! API atļauj mājaslapām piekļūt spēlētāju draugu sarakstam. Mutualify krusteniski pārbauda visu cilvēku draugu sarakstu, lai redzētu kurš seko kuram.",
+        "faq-q3": "Vai tā var nozagt manu kontu/paroli/privāto informāciju?",
+        "faq-a3": "Nē, tā var piekļūt tikai tam, ko osu! mājaslapa tev parāda kad tu pierakties, kas ir tavs draugu saraksts, tavi publiskie dati un tavi draugu publiskie profila dati. Tā nekad tev neprasīs tavu pierakstīšanās paroli, vai kaut ko tamlīdzīgu.",
+        "faq-q4": "Kāpēc es varu redzēt tikai daļu no saviem sekotājiem?",
+        "faq-a4": "Mutualify var atrast tikai tos cilvēkus, kuri ir pierakstījušies iepriekš, tā kā pastāsti draugiem :) Vairāk reģistrētu cilvēku nozīmē vairāk informācija par sekotājiem."
+    },
+    "Stats": {
+        "title": "Statistika",
+        "registered": "Reģistrēti lietotāji: {registered} ({lastDayRegistered} pēdējās 24h)",
+        "relations": "Attiecību skaits: {relations}",
+        "autoupdate": "Lietotāji tiesīgi priekš automātiskajiem atjauninājumiem: {eligible}"
+    },
+    "Leaderboard": {
+        "title": "Līderu saraksts",
+        "your-rank": "Tavs rangs ir #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Spēlētājs",
+        "table-header-followers": "Sekotāji"
+    },
+    "Followers": {
+        "title": "Sekotāji",
+        "followers-count": "Zināmi sekotāji: {knownCount} no {totalCount}.",
+        "hide-mutuals": "Paslēpt savstarpējos draugus"
+    },
+    "Friends": {
+        "title": "Draugi",
+        "friend-count": "Tev ir {friendCount} draugi."
+    },
+    "User": {
+        "unknown-user-title": "Nezināms lietotājs",
+        "unknown-user-message": "Šis lietotājs nekad nav pierakstījies! Varbūt tev vajadzētu tam cilvēkam pateikt ;)",
+        "private-list": "<user>{username}</user> draugu saraksts ir privāts.",
+        "friend-count": "<user>{username}</user> ir {friendsCount} draugi."
+    },
+    "Settings": {
+        "title": "Iestatījumi",
+        "refresh": "Pārlādēt tavu draugu sarakstu",
+        "refresh-success": "Atjaunināts!",
+        "refresh-tooltip": "Atjaunināts {updatedAgo}",
+        "allow-friendlist-access": "Atļaut citiem lietotājiem piekļūt tavu draugu sarakstam",
+        "profile-link": "Tava draugu saraksta saite"
+    },
+    "Restricted": {
+        "title": "Nav atļauts",
+        "message": "Piedod, bet ierobežoti spēlētāji nedrīkst pierakstīties!"
+    },
+    "Unauthorized": {
+        "message": "Vispirms pieraksties!"
+    }
+}
