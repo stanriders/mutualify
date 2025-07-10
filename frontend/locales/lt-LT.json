@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Kraunama...",
         "page-not-found": "Puslapis nerastas",
-        "sort-by-rank": "Rūšiuoti pagal reitingą"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Draugai",
