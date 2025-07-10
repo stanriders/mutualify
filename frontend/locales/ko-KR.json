@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "불러오는 중...",
         "page-not-found": "페이지를 찾지 못했어요",
-        "sort-by-rank": "순위로 정렬"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "친구",
