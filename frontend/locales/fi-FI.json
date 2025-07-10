@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Ladataan...",
         "page-not-found": "Sivua ei löydy",
-        "sort-by-rank": "Järjestä sijoituksen mukaan"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Kaverit",
