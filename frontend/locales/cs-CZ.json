@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Načítání...",
         "page-not-found": "Stránka nebyla nalezena",
-        "sort-by-rank": "Seřadit podle ranku"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Přátelé",
