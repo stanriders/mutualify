@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Laden...",
         "page-not-found": "Pagina niet gevonden",
-        "sort-by-rank": "Sorteer op rank"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Vrienden",
@@ -24,13 +27,13 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Wat is dit?",
-        "faq-a1": "Mutualify is a database for osu! players' friend lists. It stores friend list of every player that logged in as well as some other relevant data.",
+        "faq-a1": "",
         "faq-q2": "Hoe werkt dit?",
-        "faq-a2": "osu! API allows websites to get player's friend list. Mutualify cross-checks friend lists of all registered players to see who follows who.",
+        "faq-a2": "",
         "faq-q3": "Kan het mijn account/wachtwoord/persoonlijke gegevens verzamelen?",
-        "faq-a3": "No, it can only access what osu! website shows you when you log in which is your friend list, your public profile data and you friend's public profile data. It will never ask for your login/password or anything like that.",
+        "faq-a3": "",
         "faq-q4": "Waarom kan ik alleen sommige van mijn volgers zien?",
-        "faq-a4": "Mutualify can only find people that logged in before, so spread the word! More registered people means more information about followers."
+        "faq-a4": ""
     },
     "Stats": {
         "title": "Statistieken",
@@ -56,7 +59,7 @@
     },
     "User": {
         "unknown-user-title": "Onbekende gebruiker",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "",
         "private-list": "<user>{username}</user>zijn vriendenlijst is privé.",
         "friend-count": "<user>{username}</user> heeft {friendsCount} vrienden."
     },
