@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "読み込み中...",
         "page-not-found": "ページが見つかりません",
-        "sort-by-rank": "ランクで並べ替え"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "フレンド",
@@ -14,7 +17,7 @@
         "user-tooltip": "設定を開く"
     },
     "Footer": {
-        "made-by": "Made by <stanr>StanR</stanr>, icon by <arhella>Arhella</arhella>.",
+        "made-by": "",
         "stats": "統計",
         "source": "ソースコード",
         "donate": "寄付する ❤️"
@@ -56,21 +59,21 @@
     },
     "User": {
         "unknown-user-title": "不明なユーザー",
-        "unknown-user-message": "This user never logged in! You might wanna tell them to ;)",
+        "unknown-user-message": "",
         "private-list": "<user>{username}</user>のフレンドリストは非公開です。",
-        "friend-count": "<user>{username}</user> has {friendsCount} friends."
+        "friend-count": ""
     },
     "Settings": {
         "title": "設定",
         "refresh": "フレンドリストを更新",
         "refresh-success": "更新しました！",
-        "refresh-tooltip": "Updated {updatedAgo}",
+        "refresh-tooltip": "",
         "allow-friendlist-access": "他のユーザーが自分のフレンドリストにアクセスできるようにする",
-        "profile-link": "Your friend list link"
+        "profile-link": ""
     },
     "Restricted": {
-        "title": "Not allowed",
-        "message": "Sorry, but restricted players are not allowed to log in!"
+        "title": "",
+        "message": ""
     },
     "Unauthorized": {
         "message": "最初にログインしてください"
