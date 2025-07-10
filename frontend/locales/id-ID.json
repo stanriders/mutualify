@@ -1,0 +1,81 @@
+{
+    "Generic": {
+        "loading": "Memuat...",
+        "page-not-found": "Halaman tidak ditemukan",
+        "sort-by": "Urutan",
+        "sorting-rank": "Peringkat",
+        "sorting-username": "Nama",
+        "sorting-followdate": "Tanggal mengikuti"
+    },
+    "Header": {
+        "friends": "Teman",
+        "followers": "Pengikut",
+        "leaderboard": "Daftar peringkat",
+        "login": "Masuk",
+        "logout": "Keluar",
+        "settings": "Pengaturan",
+        "user-tooltip": "Buka Pengaturan"
+    },
+    "Footer": {
+        "made-by": "Dibuat oleh <stanr>StanR</stanr>, ikon dibuat oleh <arhella>Arhella</arhella>.",
+        "stats": "Statistik",
+        "source": "",
+        "donate": ""
+    },
+    "Home": {
+        "faq-title": "Mutualify - sebuah database teman untuk osu!",
+        "faq-q": "Pertanyaan",
+        "faq-a": "Jawaban",
+        "faq-q1": "Apa itu Mutualify?",
+        "faq-a1": "",
+        "faq-q2": "Bagaimana cara kerjanya?",
+        "faq-a2": "",
+        "faq-q3": "Bisakah Mutualify mencuri akun/kata sandi/data pribadi?",
+        "faq-a3": "Tidak, Mutualify hanya bisa mengakses apa website osu! katakan saat kamu masuk, yakni data profil publik kamu dan data profil publik teman. Mutualify tidak akan pernah meminta login dan kata sandi dalam bentuk apapun.",
+        "faq-q4": "Kenapa saya hanya dapat melihat sebagian dari pengikut saya?",
+        "faq-a4": ""
+    },
+    "Stats": {
+        "title": "Statistik",
+        "registered": "",
+        "relations": "",
+        "autoupdate": ""
+    },
+    "Leaderboard": {
+        "title": "Daftar peringkat",
+        "your-rank": "Peringkat kamu adalah #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Pemain",
+        "table-header-followers": "Pengikut"
+    },
+    "Followers": {
+        "title": "Pengikut",
+        "followers-count": "Pengikut yang diketahui {knownCount} dari {totalCount}.",
+        "hide-mutuals": ""
+    },
+    "Friends": {
+        "title": "Teman",
+        "friend-count": ""
+    },
+    "User": {
+        "unknown-user-title": "",
+        "unknown-user-message": "",
+        "private-list": "",
+        "friend-count": ""
+    },
+    "Settings": {
+        "title": "Pengaturan",
+        "refresh": "",
+        "refresh-success": "",
+        "refresh-tooltip": "",
+        "allow-friendlist-access": "",
+        "profile-link": ""
+    },
+    "Restricted": {
+        "title": "",
+        "message": ""
+    },
+    "Unauthorized": {
+        "message": ""
+    }
+}
