@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Yükleniyor...",
         "page-not-found": "Sayfa bulunamadı",
-        "sort-by-rank": "Sıralamaya göre sırala"
+        "sort-by": "",
+        "sorting-rank": "",
+        "sorting-username": "",
+        "sorting-followdate": ""
     },
     "Header": {
         "friends": "Arkadaşlar",
