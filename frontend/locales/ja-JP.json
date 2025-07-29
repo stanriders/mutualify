@@ -2,10 +2,10 @@
     "Generic": {
         "loading": "読み込み中...",
         "page-not-found": "ページが見つかりません",
-        "sort-by": "",
-        "sorting-rank": "",
-        "sorting-username": "",
-        "sorting-followdate": ""
+        "sort-by": "ソート",
+        "sorting-rank": "ランク",
+        "sorting-username": "ユーザーネーム",
+        "sorting-followdate": "フォローデータ"
     },
     "Header": {
         "friends": "フレンド",
@@ -59,7 +59,7 @@
     },
     "User": {
         "unknown-user-title": "不明なユーザー",
-        "unknown-user-message": "",
+        "unknown-user-message": "このユーザーはログインしていないようです！)",
         "private-list": "<user>{username}</user>のフレンドリストは非公開です。",
         "friend-count": ""
     },
