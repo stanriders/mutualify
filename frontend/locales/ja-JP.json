@@ -5,7 +5,7 @@
         "sort-by": "ソート",
         "sorting-rank": "ランク",
         "sorting-username": "ユーザーネーム",
-        "sorting-followdate": "フォローデータ"
+        "sorting-followdate": "フォローした"
     },
     "Header": {
         "friends": "フレンド",
@@ -17,7 +17,7 @@
         "user-tooltip": "設定を開く"
     },
     "Footer": {
-        "made-by": "",
+        "made-by": "作者: <stanr>StanR</stanr>、アイコン: <arhella>Arhella<arhella>",
         "stats": "統計",
         "source": "ソースコード",
         "donate": "寄付する ❤️"
@@ -61,19 +61,19 @@
         "unknown-user-title": "不明なユーザー",
         "unknown-user-message": "このユーザーはログインしていないようです！)",
         "private-list": "<user>{username}</user>のフレンドリストは非公開です。",
-        "friend-count": ""
+        "friend-count": "<user>{username}</user> とのフレンドは {friendsCount} 人です。"
     },
     "Settings": {
         "title": "設定",
         "refresh": "フレンドリストを更新",
         "refresh-success": "更新しました！",
-        "refresh-tooltip": "",
+        "refresh-tooltip": "{updatedAgo}に更新されました",
         "allow-friendlist-access": "他のユーザーが自分のフレンドリストにアクセスできるようにする",
-        "profile-link": ""
+        "profile-link": "あなたのフレンドリストのリンク"
     },
     "Restricted": {
-        "title": "",
-        "message": ""
+        "title": "許可されていません",
+        "message": "残念ながら、制限されているプレイヤーはログインすることができません！"
     },
     "Unauthorized": {
         "message": "最初にログインしてください"
