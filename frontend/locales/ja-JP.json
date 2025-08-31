@@ -4,8 +4,8 @@
         "page-not-found": "ページが見つかりません",
         "sort-by": "ソート",
         "sorting-rank": "ランク",
-        "sorting-username": "ユーザーネーム",
-        "sorting-followdate": "フォローした"
+        "sorting-username": "ユーザー名",
+        "sorting-followdate": "フォロー日時"
     },
     "Header": {
         "friends": "フレンド",
@@ -17,7 +17,7 @@
         "user-tooltip": "設定を開く"
     },
     "Footer": {
-        "made-by": "作者: <stanr>StanR</stanr>、アイコン: <arhella>Arhella<arhella>",
+        "made-by": "作者: <stanr>スタンR</stanr>, icon by <arhella>Arhela</arhella>.",
         "stats": "統計",
         "source": "ソースコード",
         "donate": "寄付する ❤️"
@@ -28,25 +28,25 @@
         "faq-a": "A",
         "faq-q1": "これは何ですか？",
         "faq-a1": "Mutualifyはosu! プレイヤーのためのフレンドリストのデータベースです。ログインしたすべてのプレイヤーのフレンドリストと、その他の関連データが保存されます。",
-        "faq-q2": "どのように動作しますか？",
-        "faq-a2": "osu! APIを使用すると、ウェブサイトはプレイヤーのフレンドリストを取得できます。登録されたすべてのプレイヤーのフレンドリストの相互を確認し、誰が誰をフォローしているかを確認することができます。",
-        "faq-q3": "アカウント/パスワード/プライベートデータを盗むことはできますか?",
-        "faq-a3": "いいえ。ログイン時に osu! Web サイトに表示されるもの、つまり友達リスト、公開プロフィール データ、友達の公開プロフィール データにのみアクセスできます。ログイン/パスワードなどを尋ねることはありません。",
+        "faq-q2": "どのような仕組みですか？",
+        "faq-a2": "osu! APIを使用すると、ウェブサイトはプレイヤーのフレンドリストを取得できます。Mutualifyに登録している全てのプレイヤーのフレンドリストと照合し、誰が誰をフォローしているかを確認することができます。",
+        "faq-q3": "Mutualifyはアカウント/パスワード/個人情報を盗むことはできますか？",
+        "faq-a3": "いいえ。ログイン時に osu! Webサイトに表示されるもの、つまりフレンドリスト、公開プロフィールデータ、フレンドの公開プロフィールデータにのみアクセスできます。ログイン/パスワードなどを尋ねることはありません。",
         "faq-q4": "フォロワーの一部しか表示されないのはなぜですか?",
         "faq-a4": "Mutualify は以前ログインした人しか見つけられないので、ぜひ広めてください！登録者が増えると、フォロワーに関する情報も増えます。"
     },
     "Stats": {
         "title": "統計",
-        "registered": "登録ユーザー: {registered} ( 過去24時間の{lastDayRegistered})",
-        "relations": "関係数： {relations}",
-        "autoupdate": "自動更新の対象となるユーザー: {eligible}"
+        "registered": "登録ユーザー数: {registered} ( 過去24時間で{lastDayRegistered}人)",
+        "relations": "つながりの数: {relations}",
+        "autoupdate": "自動更新の対象となるユーザー数: {eligible}"
     },
     "Leaderboard": {
         "title": "リーダーボード",
-        "your-rank": "あなたのランクは#{rank} です",
+        "your-rank": "あなたは#{rank}位です。",
         "table-header-rank": "#",
         "table-header-player": "プレイヤー",
-        "table-header-followers": "フォロワー"
+        "table-header-followers": "フォロワー数"
     },
     "Followers": {
         "title": "フォロワー",
@@ -55,27 +55,27 @@
     },
     "Friends": {
         "title": "フレンド",
-        "friend-count": "あなたは{friendCount} 人のフレンドがいます"
+        "friend-count": "あなたは{friendCount}人のフレンドがいます。"
     },
     "User": {
         "unknown-user-title": "不明なユーザー",
-        "unknown-user-message": "このユーザーはログインしていないようです！)",
+        "unknown-user-message": "このユーザーはログインしたことがないようです！ログインするように伝えたほうがいいかもしれません ;)",
         "private-list": "<user>{username}</user>のフレンドリストは非公開です。",
-        "friend-count": "<user>{username}</user> とのフレンドは {friendsCount} 人です。"
+        "friend-count": "<user>{username}</user> のフレンドは {friendsCount}人です。"
     },
     "Settings": {
         "title": "設定",
         "refresh": "フレンドリストを更新",
         "refresh-success": "更新しました！",
-        "refresh-tooltip": "{updatedAgo}に更新されました",
+        "refresh-tooltip": "最終更新: {updatedAgo}",
         "allow-friendlist-access": "他のユーザーが自分のフレンドリストにアクセスできるようにする",
         "profile-link": "あなたのフレンドリストのリンク"
     },
     "Restricted": {
-        "title": "許可されていません",
-        "message": "残念ながら、制限されているプレイヤーはログインすることができません！"
+        "title": "利用不可",
+        "message": "申し訳ありませんが、制限されているプレイヤーはログインできません！"
     },
     "Unauthorized": {
-        "message": "最初にログインしてください"
+        "message": "最初にログインしてください！"
     }
 }
