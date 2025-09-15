@@ -2,10 +2,10 @@
     "Generic": {
         "loading": "Запампаванне...",
         "page-not-found": "Старонка не знойдзена",
-        "sort-by": "",
-        "sorting-rank": "",
-        "sorting-username": "",
-        "sorting-followdate": ""
+        "sort-by": "Сартаваць па",
+        "sorting-rank": "Ранг",
+        "sorting-username": "Імя карыстальніка",
+        "sorting-followdate": "Дата падпiскi"
     },
     "Header": {
         "friends": "Сябры",
