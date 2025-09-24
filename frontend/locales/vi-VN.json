@@ -1,81 +1,81 @@
 {
     "Generic": {
-        "loading": "",
-        "page-not-found": "",
-        "sort-by": "",
-        "sorting-rank": "",
-        "sorting-username": "",
-        "sorting-followdate": ""
+        "loading": "Đang tải...",
+        "page-not-found": "Không tìm thấy trang",
+        "sort-by": "Sắp xếp theo",
+        "sorting-rank": "Hạng",
+        "sorting-username": "Tên tài khoản",
+        "sorting-followdate": "Ngày theo dõi"
     },
     "Header": {
-        "friends": "",
-        "followers": "",
-        "leaderboard": "",
-        "login": "",
-        "logout": "",
-        "settings": "",
-        "user-tooltip": ""
+        "friends": "Bạn bè",
+        "followers": "Người theo dõi",
+        "leaderboard": "Xếp hạng",
+        "login": "Đăng nhập",
+        "logout": "Đăng xuất",
+        "settings": "Cài đặt",
+        "user-tooltip": "Mở cài đặt"
     },
     "Footer": {
-        "made-by": "",
-        "stats": "",
-        "source": "",
-        "donate": ""
+        "made-by": "Làm bởi <stanr>StanR</stanr>, icon được làm bởi <arhella>Arhella</arhella>.",
+        "stats": "Thông tin",
+        "source": "Mã nguồn",
+        "donate": "Quyên góp ❤"
     },
     "Home": {
-        "faq-title": "",
-        "faq-q": "",
-        "faq-a": "",
-        "faq-q1": "",
-        "faq-a1": "",
-        "faq-q2": "",
-        "faq-a2": "",
-        "faq-q3": "",
-        "faq-a3": "",
-        "faq-q4": "",
-        "faq-a4": ""
+        "faq-title": "Mutualify - cơ sở dữ liệu danh sách bạn bè cho osu!",
+        "faq-q": "Q",
+        "faq-a": "A",
+        "faq-q1": "Đây là gì?",
+        "faq-a1": "Mutualify là cơ sở dữ liệu lưu trữ danh sách bạn bè của người dùng osu!. Nó lưu trữ danh sách bạn bè của mọi người dùng đã đăng nhập cũng như một số dữ liệu liên quan khác.",
+        "faq-q2": "Nó hoạt động như thế nào?",
+        "faq-a2": "API của osu! cho phép các trang web lấy danh sách bạn bè của người dùng. Mutualify sẽ kiểm tra chéo danh sách bạn bè của tất cả người dùng đã đăng ký để xem ai theo dõi ai.",
+        "faq-q3": "Nó có thể đánh cắp tài khoản/mật khẩu/dữ liệu riêng tư của tôi không?",
+        "faq-a3": "Không, nó chỉ có thể truy cập những gì trang web osu! hiển thị khi bạn đăng nhập, bao gồm danh sách bạn bè, dữ liệu hồ sơ công khai của bạn và dữ liệu hồ sơ công khai của bạn bè bạn. Nó sẽ không bao giờ yêu cầu bạn cung cấp thông tin đăng nhập/mật khẩu hoặc bất kỳ thông tin nào tương tự.",
+        "faq-q4": "Tại sao tôi chỉ có thể nhìn thấy một số người theo dõi mình?",
+        "faq-a4": "Mutualify chỉ có thể tìm thấy những người đã đăng nhập trước đó, vì vậy hãy chia sẻ thông tin này! Càng nhiều người đăng ký thì càng có nhiều thông tin về người theo dõi."
     },
     "Stats": {
-        "title": "",
-        "registered": "",
-        "relations": "",
-        "autoupdate": ""
+        "title": "Số liệu thống kê",
+        "registered": "Số người dùng đã đăng ký: {registered} ({lastDayRegistered} trong vòng 24h qua)",
+        "relations": "Số lượng mối quan hệ: {relations}",
+        "autoupdate": "Số người dùng đủ điều kiện để tự động cập nhật: {eligible}"
     },
     "Leaderboard": {
-        "title": "",
-        "your-rank": "",
-        "table-header-rank": "",
-        "table-header-player": "",
-        "table-header-followers": ""
+        "title": "Bảng xếp hạng",
+        "your-rank": "Hạng của bạn là #{rank}.",
+        "table-header-rank": "#",
+        "table-header-player": "Người chơi",
+        "table-header-followers": "Số người theo dõi"
     },
     "Followers": {
-        "title": "",
-        "followers-count": "",
-        "hide-mutuals": ""
+        "title": "Người theo dõi",
+        "followers-count": "Số người theo dõi đã biết: {knownCount} trong {totalCount}.",
+        "hide-mutuals": "Ẩn các bạn bè chung"
     },
     "Friends": {
-        "title": "",
-        "friend-count": ""
+        "title": "Bạn bè",
+        "friend-count": "Bạn có {friendCount} bạn."
     },
     "User": {
-        "unknown-user-title": "",
-        "unknown-user-message": "",
-        "private-list": "",
-        "friend-count": ""
+        "unknown-user-title": "Người dùng không rõ",
+        "unknown-user-message": "Người dùng này chưa từng đăng nhập! Bạn có thể bảo họ đăng nhập ;)",
+        "private-list": "Danh sách bạn bè của <user>{username}</user> được ẩn.",
+        "friend-count": "<user>{username}</user> có {friendsCount} bạn."
     },
     "Settings": {
-        "title": "",
-        "refresh": "",
-        "refresh-success": "",
-        "refresh-tooltip": "",
-        "allow-friendlist-access": "",
-        "profile-link": ""
+        "title": "Cài đặt",
+        "refresh": "Làm mới danh sách bạn bè của bạn",
+        "refresh-success": "Đã cập nhật!",
+        "refresh-tooltip": "Đã cập nhật {updatedAgo} trước",
+        "allow-friendlist-access": "Cho phép người dùng khác xem danh sách bạn bè của bạn",
+        "profile-link": "Địa chỉ danh sách bạn bè của bạn"
     },
     "Restricted": {
-        "title": "",
-        "message": ""
+        "title": "Không được",
+        "message": "Xin lỗi, nhưng người chơi bị hạn chế không được phép đăng nhập!"
     },
     "Unauthorized": {
-        "message": ""
+        "message": "Đăng nhập trước đã!"
     }
 }
