@@ -2,10 +2,10 @@
     "Generic": {
         "loading": "Caricamento...",
         "page-not-found": "Pagina non trovata",
-        "sort-by": "",
-        "sorting-rank": "",
-        "sorting-username": "",
-        "sorting-followdate": ""
+        "sort-by": "Ordina per",
+        "sorting-rank": "Classifica",
+        "sorting-username": "Nome Utente",
+        "sorting-followdate": "Data di follow"
     },
     "Header": {
         "friends": "Amici",
