@@ -2,10 +2,10 @@
     "Generic": {
         "loading": "加载中...",
         "page-not-found": "找不到页面",
-        "sort-by": "",
-        "sorting-rank": "",
-        "sorting-username": "",
-        "sorting-followdate": ""
+        "sort-by": "排序方式",
+        "sorting-rank": "玩家排名",
+        "sorting-username": "用户名",
+        "sorting-followdate": "关注时间"
     },
     "Header": {
         "friends": "好友",
