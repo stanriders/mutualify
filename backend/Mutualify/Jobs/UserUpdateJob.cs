@@ -88,6 +88,12 @@ public class UserUpdateJob : IUserUpdateJob
             catch (HttpRequestException) { }
             catch (OperationCanceledException ex)
             {
+                if (ex.Message.Contains("HttpClient.Timeout"))
+                {
+                    // don't fail on http timeouts
+                    continue;
+                }
+
                 _logger.LogWarning(ex, "[{JobId}] User update job has been cancelled!", jobId);
 
                 _isRunning = false;

@@ -87,8 +87,16 @@ public class UserAllUpdateJob : IUserAllUpdateJob
 
                 _logger.LogWarning(e, "[{JobId}] All users update job error occured!", jobId);
             }
+            catch (DbUpdateConcurrencyException) { } // don't fail on HttpRequestExceptions or DbUpdateConcurrencyException, just keep going
+            catch (HttpRequestException) { }
             catch (OperationCanceledException ex)
             {
+                if (ex.Message.Contains("HttpClient.Timeout"))
+                {
+                    // don't fail on http timeouts
+                    continue;
+                }
+
                 _logger.LogWarning(ex, "[{JobId}] All users update job has been cancelled!", jobId);
 
                 _isRunning = false;
