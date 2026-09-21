@@ -12,7 +12,6 @@ import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import UserContext from "../context/userContext";
-import useAuth from "../hooks/useAuth";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
@@ -21,8 +20,7 @@ import Locale from "./locale";
 import NextLink from "next/link";
 
 export default function Header({ title }) {
-  const { user } = useContext(UserContext);
-  const { logout } = useAuth();
+  const { user, logout } = useContext(UserContext);
   const t = useTranslations("Header");
   const router = useRouter();
 

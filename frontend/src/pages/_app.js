@@ -17,7 +17,7 @@ const clientSideEmotionCache = createEmotionCache({ key: "next" });
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const { user } = useAuth();
+  const auth = useAuth();
   const router = useRouter();
 
   // FOUC hack
@@ -64,7 +64,7 @@ export default function MyApp(props) {
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            <UserContext.Provider value={{ user }}>
+            <UserContext.Provider value={auth}>
               <Layout>
                 <Component {...pageProps} />
               </Layout>

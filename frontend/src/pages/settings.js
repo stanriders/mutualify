@@ -8,15 +8,13 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useContext, useEffect, useState } from "react";
 import { apiNoResponse } from "../lib/api";
-import useAuth from "../hooks/useAuth";
 import Tooltip from "@mui/material/Tooltip";
 import { formatDistance } from "date-fns";
 import { useTranslations } from "next-intl";
 
 export default function Settings() {
   const t = useTranslations("Settings");
-  const { user } = useContext(UserContext);
-  const { invalidateUserCache } = useAuth();
+  const { user, invalidateUserCache } = useContext(UserContext);
 
   const [updated, setUpdated] = useState(false);
   const [loading, setLoading] = useState(false);
