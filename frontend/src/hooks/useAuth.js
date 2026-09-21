@@ -43,7 +43,7 @@ export default function useAuth() {
       localforage.removeItem("user"),
       localforage.removeItem("user_updated_at"),
     ]);
-    getInitialData();
+    await getInitialData();
   }
 
   async function logout() {
