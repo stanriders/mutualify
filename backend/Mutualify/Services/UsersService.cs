@@ -105,7 +105,7 @@ namespace Mutualify.Services
                 return;
             }
 
-            OsuUser? osuUser;
+            OsuUser? osuUser = null;
 
             // todo: refactor into a separate method?
             if (useTokens)
@@ -120,18 +120,19 @@ namespace Mutualify.Services
                             "User {UserId} tokens are close to expiration ({ExpiresOn} <= {Threshold}), updating...",
                             token.UserId, token.ExpiresOn, DateTime.UtcNow.AddDays(1));
 
-                        await RefreshToken(token);
+                        token = await RefreshToken(token);
                     }
-                    osuUser = await _osuApiDataService.GetUser(token.AccessToken);
-                }
-                else
-                {
-                    // no token - update using app's token
-                    osuUser = await _osuApiDataService.GetUser(userId);
+
+                    if (token is not null)
+                    {
+                        osuUser = await _osuApiDataService.GetUser(token.AccessToken);
+                    }
                 }
             }
-            else
+
+            if (osuUser is null)
             {
+                // got no user using tokens, try userless auth
                 osuUser = await _osuApiDataService.GetUser(userId);
             }
 
@@ -175,25 +176,29 @@ namespace Mutualify.Services
             await _databaseContext.SaveChangesAsync();
         }
 
-        private async Task RefreshToken(Token token)
+        private async Task<Token?> RefreshToken(Token token)
         {
             var newToken = await _osuApiDataService.RefreshToken(token.RefreshToken, token.AccessToken);
-            if (newToken is not null)
-            {
-                token.AccessToken = newToken.AccessToken;
-                token.RefreshToken = newToken.RefreshToken;
-                token.ExpiresOn = DateTime.UtcNow.AddSeconds(newToken.ExpiresIn);
-
-                _databaseContext.Tokens.Update(token);
-                _logger.LogInformation("Updated tokens for user {UserId}, new token expiration: {ExpiresOn}", token.UserId, token.ExpiresOn);
-            }
-            else
+            if (newToken is null)
             {
                 _logger.LogWarning("Couldn't update tokens for user {UserId}, removing from database...", token.UserId);
                 _databaseContext.Tokens.Remove(token);
+
+                await _databaseContext.SaveChangesAsync();
+                return null;
             }
 
+            token.AccessToken = newToken.AccessToken;
+            token.RefreshToken = newToken.RefreshToken;
+            token.ExpiresOn = DateTime.UtcNow.AddSeconds(newToken.ExpiresIn);
+
+            _databaseContext.Tokens.Update(token);
+            _logger.LogInformation("Updated tokens for user {UserId}, new token expiration: {ExpiresOn}",
+                token.UserId, token.ExpiresOn);
+
             await _databaseContext.SaveChangesAsync();
+
+            return token;
         }
     }
 }
