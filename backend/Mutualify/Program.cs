@@ -117,6 +117,13 @@ builder.Services.AddAuthentication("InternalCookies")
 
         options.SaveTokens = true;
 
+        options.Events.OnRemoteFailure = ctx =>
+        {
+            ctx.Response.Redirect("/");
+            ctx.HandleResponse();
+            return Task.CompletedTask;
+        };
+
         options.Validate();
     });
 
