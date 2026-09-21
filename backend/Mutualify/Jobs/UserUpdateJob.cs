@@ -53,7 +53,11 @@ public class UserUpdateJob : IUserUpdateJob
 
         for (var i = 0; i < userUpdateQueue.Count; i++)
         {
-            token.ThrowIfCancellationRequested();
+            if (token.IsCancellationRequested)
+            {
+                _isRunning = false;
+                token.ThrowIfCancellationRequested();
+            }
 
             var userId = userUpdateQueue[i];
             var startTime = DateTime.Now;
