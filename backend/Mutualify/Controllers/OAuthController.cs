@@ -21,7 +21,7 @@ public class OAuthController : ControllerBase
     private readonly IRelationsService _relationsService;
     private readonly IMapper _mapper;
 
-    public OAuthController(ILogger<OAuthController> logger, 
+    public OAuthController(ILogger<OAuthController> logger,
     IOsuApiProvider osuApiDataService,
     IMapper mapper,
     IRelationsService relationsService,
@@ -125,14 +125,15 @@ public class OAuthController : ControllerBase
             _databaseContext.Users.Update(existingUser);
         }
 
-        var tokenExpiration = authResult.Properties?.ExpiresUtc?.DateTime.ToUniversalTime() ?? DateTime.UtcNow.AddDays(1);
+        var tokenExpiration = await HttpContext.GetTokenAsync("ExternalCookies", "expires_at");
+        var tokenExpirationDate = tokenExpiration != null ? DateTime.Parse(tokenExpiration).ToUniversalTime() : DateTime.UtcNow.AddDays(1);
 
         var existingTokens = await _databaseContext.Tokens.FindAsync(osuUser.Id);
         if (existingTokens is not null)
         {
             existingTokens.AccessToken = accessToken;
             existingTokens.RefreshToken = refreshToken;
-            existingTokens.ExpiresOn = tokenExpiration;
+            existingTokens.ExpiresOn = tokenExpirationDate;
 
             _databaseContext.Tokens.Update(existingTokens);
         }
@@ -143,7 +144,7 @@ public class OAuthController : ControllerBase
                 UserId = osuUser.Id,
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
-                ExpiresOn = tokenExpiration
+                ExpiresOn = tokenExpirationDate
             });
         }
 
@@ -166,8 +167,8 @@ public class OAuthController : ControllerBase
         await HttpContext.SignInAsync("InternalCookies", new ClaimsPrincipal(id), authProperties);
         await HttpContext.SignOutAsync("ExternalCookies");
 
-        _logger.LogInformation("User {Username} logged in, toke expires on {TokenExpiration}", osuUser.Username, tokenExpiration);
-        
+        _logger.LogInformation("User {Username} logged in, toke expires on {TokenExpiration}", osuUser.Username, tokenExpirationDate);
+
         return Redirect($"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/");
     }
 
