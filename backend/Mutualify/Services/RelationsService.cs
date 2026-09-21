@@ -133,7 +133,7 @@ public class RelationsService : IRelationsService
             var user = users[i];
 
             builder.Append(
-                $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"`{user.Title.Replace("\'", "\'\'")}`")}, {user.FollowerCount}, false, {(user.Rank is null ? "null" : user.Rank)})");
+                $"({user.Id}, '{user.CountryCode}', '{user.Username.Replace("\'", "\'\'")}', {(user.Title is null ? "null" : $"'{user.Title.Replace("\'", "\'\'")}'")}, {user.FollowerCount}, false, {(user.Rank is null ? "null" : user.Rank)})");
 
             if (i != users.Count - 1)
             {
