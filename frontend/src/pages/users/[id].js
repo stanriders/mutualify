@@ -107,7 +107,7 @@ export default function Users({ data }) {
                         username={friend.username}
                         mutual={friend.mutual}
                         showFriendlistButton={friend.allowsFriendlistAccess}
-                        mutualDate={data.relationCreatedAt}
+                        mutualDate={friend.relationCreatedAt}
                       />
                     ))}
                   </Box>
