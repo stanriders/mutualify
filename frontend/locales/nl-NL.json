@@ -2,9 +2,9 @@
     "Generic": {
         "loading": "Laden...",
         "page-not-found": "Pagina niet gevonden",
-        "sort-by": "",
-        "sorting-rank": "",
-        "sorting-username": "",
+        "sort-by": "Sorteer op",
+        "sorting-rank": "Rang",
+        "sorting-username": "Gebruikersnaam",
         "sorting-followdate": ""
     },
     "Header": {
@@ -27,11 +27,11 @@
         "faq-q": "Q",
         "faq-a": "A",
         "faq-q1": "Wat is dit?",
-        "faq-a1": "",
+        "faq-a1": "Mutualify is een databank voor osu! spelers vriendenlijsten. Het slaat vriendenlijsten van elke speler op die zich ook hebben ingelogd, samen met wat andere relevante informatie.",
         "faq-q2": "Hoe werkt dit?",
-        "faq-a2": "",
+        "faq-a2": "De osu! API staat websites toe om spelers vriendenlijsten op te vragen. Mutualify vergelijkt vriendenlijsten van alle geregistreerde spelers om te zien wie wie volgt.",
         "faq-q3": "Kan het mijn account/wachtwoord/persoonlijke gegevens verzamelen?",
-        "faq-a3": "",
+        "faq-a3": "Nee, het heeft enkel toegang tot wat de osu! website je toont wanneer je ingelogd bent, zoals je vriendenlijst, je openbaar profiel en je vrienden hun profiel. Het zal nooit voor je login/wachtwoord of dergelijke vragen.",
         "faq-q4": "Waarom kan ik alleen sommige van mijn volgers zien?",
         "faq-a4": ""
     },
