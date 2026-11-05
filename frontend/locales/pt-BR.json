@@ -2,7 +2,10 @@
     "Generic": {
         "loading": "Carregando...",
         "page-not-found": "Página não encontrada",
-        "sort-by-rank": "Ordenar por classificação"
+        "sort-by": "Ordenar por",
+        "sorting-rank": "Classificação",
+        "sorting-username": "Nome de usuário",
+        "sorting-followdate": "Tempo"
     },
     "Header": {
         "friends": "Amigos",
@@ -14,7 +17,7 @@
         "user-tooltip": "Abrir configurações"
     },
     "Footer": {
-        "made-by": "Feito por <stanr>StanR</stanr>, ícone da <arhella>Arhella</arhella>.",
+        "made-by": "Feito por <stanr>StanR</stanr>, ícone por <arhella>Arhella</arhella>.",
         "stats": "Estatísticas",
         "source": "Código-fonte",
         "donate": "Doar ❤"
