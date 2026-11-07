@@ -13,31 +13,31 @@ export default function Index() {
       <Typography variant="h6" align="center">
         <Image src="/logo.svg" width={200} height={200} alt="Mutualify" />
       </Typography>
-      <Typography variant="h6" align="center" mb={4}>
+      <Typography variant="h6" align="center" sx={{ mb: 4 }}>
         {t("faq-title")}
       </Typography>
-      <Typography variant="body1" mb={0.5}>
+      <Typography variant="body1" sx={{ mb: 0.5 }}>
         <b>{t("faq-q")}</b>: {t("faq-q1")}
       </Typography>
-      <Typography variant="body1" mb={2.5}>
+      <Typography variant="body1" sx={{ mb: 2.5 }}>
         <b>{t("faq-a")}</b>: {t("faq-a1")}
       </Typography>
-      <Typography variant="body1" mb={0.5}>
+      <Typography variant="body1" sx={{ mb: 0.5 }}>
         <b>{t("faq-q")}</b>: {t("faq-q2")}
       </Typography>
-      <Typography variant="body1" mb={2.5}>
+      <Typography variant="body1" sx={{ mb: 2.5 }}>
         <b>{t("faq-a")}</b>: {t("faq-a2")}
       </Typography>
-      <Typography variant="body1" mb={0.5}>
+      <Typography variant="body1" sx={{ mb: 0.5 }}>
         <b>{t("faq-q")}</b>: {t("faq-q3")}
       </Typography>
-      <Typography variant="body1" mb={2.5}>
+      <Typography variant="body1" sx={{ mb: 2.5 }}>
         <b>{t("faq-a")}</b>: {t("faq-a3")}
       </Typography>
-      <Typography variant="body1" mb={0.5}>
+      <Typography variant="body1" sx={{ mb: 0.5 }}>
         <b>{t("faq-q")}</b>: {t("faq-q4")}
       </Typography>
-      <Typography variant="body1" mb={1}>
+      <Typography variant="body1" sx={{ mb: 1 }}>
         <b>{t("faq-a")}</b>: {t("faq-a4")}
       </Typography>
     </>

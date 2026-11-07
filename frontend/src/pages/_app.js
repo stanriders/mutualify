@@ -65,9 +65,13 @@ export default function MyApp(props) {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <UserContext.Provider value={auth}>
-              <Layout>
+              {Component.noLayout ? (
                 <Component {...pageProps} />
-              </Layout>
+              ) : (
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              )}
             </UserContext.Provider>
           </ThemeProvider>
         </NextIntlClientProvider>

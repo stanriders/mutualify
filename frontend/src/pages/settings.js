@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Unauthorized from "../components/unauthorized";
 import UserContext from "../context/userContext";
-import LoadingButton from "@mui/lab/LoadingButton";
+import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import Box from "@mui/material/Box";
@@ -61,14 +61,14 @@ export default function Settings() {
         <>
           <Box>
             <Tooltip title={tooltipTitle}>
-              <LoadingButton
+              <Button
                 variant="outlined"
                 loading={loading}
                 onClick={handleRefresh}
                 disabled={updated}
               >
                 {updatedLabel}
-              </LoadingButton>
+              </Button>
             </Tooltip>
           </Box>
 

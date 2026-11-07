@@ -8,7 +8,11 @@ export default function Copyright() {
   const t = useTranslations("Footer");
   return (
     <>
-      <Typography variant="body2" align="center" color="text.secondary">
+      <Typography
+        variant="body2"
+        align="center"
+        sx={{ color: "text.secondary" }}
+      >
         {t.rich("made-by", {
           stanr: (chunks) => (
             <Link href="https://osu.ppy.sh/users/7217455" underline="hover">
@@ -25,8 +29,7 @@ export default function Copyright() {
       <Typography
         variant="body2"
         align="center"
-        color="text.secondary"
-        sx={{ mb: 2 }}
+        sx={{ color: "text.secondary", mb: 2 }}
       >
         <MuiLink href="/stats" underline="hover" component={NextLink}>
           {t("stats")}

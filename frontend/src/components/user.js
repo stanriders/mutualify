@@ -15,7 +15,7 @@ export default function User({
   const router = useRouter();
 
   var bgColor = mutual ? "#2f223366" : "transparent";
-  var deleteIcon = showFriendlistButton ? <ListIcon /> : <></>;
+  var deleteIcon = showFriendlistButton ? <ListIcon /> : undefined;
 
   const handleClick = () => {
     window.open(`https://osu.ppy.sh/users/${id}`, "_blank");
@@ -47,7 +47,7 @@ export default function User({
           clickable
           target="_blank"
           onClick={handleClick}
-          onDelete={handleDelete}
+          onDelete={showFriendlistButton ? handleDelete : undefined}
           deleteIcon={deleteIcon}
           color={mutual ? "primary" : "default"}
         />

@@ -154,7 +154,9 @@ export default function Header({ title }) {
                     key={items.title}
                     href={items.link}
                   >
-                    <Typography textAlign="center">{items.title}</Typography>
+                    <Typography sx={{ textAlign: "center" }}>
+                      {items.title}
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -283,12 +285,14 @@ export default function Header({ title }) {
                     onClose={handleCloseUserMenu}
                   >
                     <MenuItem component={NextLink} href="/settings">
-                      <Typography textAlign="center">
+                      <Typography sx={{ textAlign: "center" }}>
                         {t("settings")}
                       </Typography>
                     </MenuItem>
                     <MenuItem onClick={logout}>
-                      <Typography textAlign="center">{t("logout")}</Typography>
+                      <Typography sx={{ textAlign: "center" }}>
+                        {t("logout")}
+                      </Typography>
                     </MenuItem>
                   </Menu>
                 </>
