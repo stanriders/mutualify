@@ -19,6 +19,7 @@ export default function Settings() {
   const [updated, setUpdated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [allowFriendsAccess, setAllowFriendsAccess] = useState(false);
+  const [savingShare, setSavingShare] = useState(false);
   const [updatedLabel, setUpdatedLabel] = useState(t("refresh"));
 
   async function handleRefresh() {
@@ -31,12 +32,25 @@ export default function Settings() {
   }
 
   async function handleShare(event) {
-    await apiNoResponse("/friends/access/toggle", {
-      method: "POST",
-      body: event.target.checked,
-    });
-    await invalidateUserCache();
-    setAllowFriendsAccess(event.target.checked);
+    const allow = event.target.checked;
+
+    setSavingShare(true);
+    try {
+      const saved = await apiNoResponse("/friends/access/toggle", {
+        method: "POST",
+        body: allow,
+      });
+
+      // only show the new state once the server has it
+      if (saved) {
+        await invalidateUserCache();
+        setAllowFriendsAccess(allow);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setSavingShare(false);
+    }
   }
 
   useEffect(() => {
@@ -76,7 +90,8 @@ export default function Settings() {
             <FormControlLabel
               control={
                 <Switch
-                  defaultChecked={user.allowsFriendlistAccess}
+                  checked={allowFriendsAccess}
+                  disabled={savingShare}
                   onChange={handleShare}
                 />
               }
