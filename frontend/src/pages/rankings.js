@@ -12,7 +12,7 @@ import api from "../lib/api";
 import Pagination from "@mui/material/Pagination";
 import UserContext from "../context/userContext";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import useSWR from "swr";
 import { useTranslations } from "next-intl";
 
@@ -23,44 +23,26 @@ export default function Rankings() {
   const { user } = useContext(UserContext);
 
   const router = useRouter();
-  const [page, setPage] = useState(1);
+
+  // The URL decides the page, so direct links and the back button stay in sync
+  const queryPage = Number(router.query.page);
+  const page = Number.isInteger(queryPage) && queryPage > 0 ? queryPage : 1;
   const offset = (page - 1) * 50;
 
-  const {
-    data: players,
-    error: playersError,
-    isValidating: playersValidating,
-  } = useSWR(`/rankings?offset=${offset}`, api);
+  // router.query is empty until the router is ready on statically generated pages
+  const { data: players, error: playersError } = useSWR(
+    router.isReady ? `/rankings?offset=${offset}` : null,
+    api,
+  );
 
-  const { data: playerRank } = useSWR(`/rankings/me`, api);
-
-  // Handle direct link to page and/or filter
-  useEffect(() => {
-    const qs = new URLSearchParams(window.location.search);
-    const qsPage = Number(qs.get("page"));
-
-    if (qsPage > 0) {
-      setPage(qsPage);
-    }
-  }, []);
-
-  // Update history and url when filter/page changes
-  useEffect(() => {
-    router.push(
-      {
-        query: {
-          page,
-        },
-      },
-      undefined,
-      {
-        scroll: false,
-      },
-    );
-  }, [page]);
+  const { data: playerRank } = useSWR(user ? `/rankings/me` : null, api);
 
   const handleChange = (event, value) => {
-    setPage(value);
+    router.push(
+      { pathname: router.pathname, query: { page: value } },
+      undefined,
+      { scroll: false, shallow: true },
+    );
   };
 
   return (
@@ -77,7 +59,7 @@ export default function Rankings() {
         </>
       )}
 
-      {!players && playersValidating && <>{tGeneric("loading")}</>}
+      {!players && !playersError && <>{tGeneric("loading")}</>}
       {!players && playersError && playersError.info && playersError.info}
 
       {players && (

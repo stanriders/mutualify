@@ -25,13 +25,14 @@ export default function Friends() {
     setSorting(event.target.value);
   };
 
+  const { user } = useContext(UserContext);
+
   const {
     data: friends,
     error: friendsError,
     isValidating: friendsValidating,
-  } = useSWR(`/friends`, api);
+  } = useSWR(user ? `/friends` : null, api);
 
-  const { user } = useContext(UserContext);
   return (
     <>
       <Head>

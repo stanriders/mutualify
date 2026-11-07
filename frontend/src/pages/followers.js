@@ -33,7 +33,7 @@ export default function Followers() {
     data: followers,
     error: followersError,
     isValidating: followersValidating,
-  } = useSWR(`/followers`, api);
+  } = useSWR(user ? `/followers` : null, api);
 
   return (
     <>
