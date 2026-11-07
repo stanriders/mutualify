@@ -122,8 +122,8 @@ export default function Header({ title }) {
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
+                aria-label="navigation menu"
+                aria-controls="menu-nav"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
                 color="inherit"
@@ -131,7 +131,7 @@ export default function Header({ title }) {
                 <MenuIcon />
               </IconButton>
               <Menu
-                id="menu-appbar"
+                id="menu-nav"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
                   vertical: "bottom",
@@ -153,6 +153,7 @@ export default function Header({ title }) {
                     component={NextLink}
                     key={items.title}
                     href={items.link}
+                    onClick={handleCloseNavMenu}
                   >
                     <Typography sx={{ textAlign: "center" }}>
                       {items.title}
@@ -221,7 +222,7 @@ export default function Header({ title }) {
               </Button>
               <Menu
                 sx={{ mt: "45px" }}
-                id="menu-appbar"
+                id="menu-locale"
                 anchorEl={anchorElLocale}
                 anchorOrigin={{
                   vertical: "top",
@@ -270,7 +271,7 @@ export default function Header({ title }) {
                   </Tooltip>
                   <Menu
                     sx={{ mt: "45px" }}
-                    id="menu-appbar"
+                    id="menu-user"
                     anchorEl={anchorElUser}
                     anchorOrigin={{
                       vertical: "top",
@@ -284,7 +285,11 @@ export default function Header({ title }) {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    <MenuItem component={NextLink} href="/settings">
+                    <MenuItem
+                      component={NextLink}
+                      href="/settings"
+                      onClick={handleCloseUserMenu}
+                    >
                       <Typography sx={{ textAlign: "center" }}>
                         {t("settings")}
                       </Typography>
