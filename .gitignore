@@ -358,3 +358,4 @@ docker-compose.override.yml
 /frontend/public/sitemap-0.xml
 /frontend/public/sitemap.xml
 /backend/Mutualify/appsettings.Development.json
+/frontend/AGENTS.md # fuck you next js i never asked for this

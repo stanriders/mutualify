@@ -110,6 +110,9 @@ public class UserUpdateJob : IUserUpdateJob
             }
             finally
             {
+                // a failed save stays in the change tracker and would fail every later save
+                _databaseContext.ChangeTracker.Clear();
+
                 var endTime = DateTime.Now;
 
                 // yea its not really accurate but we don't need precision, just run it approximately every X seconds

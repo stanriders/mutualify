@@ -51,7 +51,7 @@ namespace Mutualify.Services
                 .LongCountAsync();
 
             var lastDayRegistered = await _databaseContext.Users.AsNoTracking()
-                .Where(x => x.CreatedAt > DateTime.UtcNow.Date.AddDays(-1))
+                .Where(x => x.CreatedAt > DateTime.UtcNow.AddDays(-1))
                 .CountAsync();
 
             var relationsUpdateEligible = await _databaseContext.Tokens.AsNoTracking()

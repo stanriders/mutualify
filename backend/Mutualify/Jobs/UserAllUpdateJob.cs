@@ -18,14 +18,14 @@ public class UserAllUpdateJob : IUserAllUpdateJob
 {
     private readonly DatabaseContext _databaseContext;
     private readonly IUsersService _usersService;
-    private readonly ILogger<UserUpdateJob> _logger;
+    private readonly ILogger<UserAllUpdateJob> _logger;
 
     private const double _interval = 4; // seconds
 
     private static bool _isRunning = false;
     private static DateTime _lastStartDate;
 
-    public UserAllUpdateJob(IUsersService usersService, ILogger<UserUpdateJob> logger, DatabaseContext databaseContext)
+    public UserAllUpdateJob(IUsersService usersService, ILogger<UserAllUpdateJob> logger, DatabaseContext databaseContext)
     {
         _usersService = usersService;
         _logger = logger;
@@ -114,6 +114,9 @@ public class UserAllUpdateJob : IUserAllUpdateJob
             }
             finally
             {
+                // a failed save stays in the change tracker and would fail every later save
+                _databaseContext.ChangeTracker.Clear();
+
                 var endTime = DateTime.Now;
 
                 // yea its not really accurate but we don't need precision, just run it approximately every X seconds
